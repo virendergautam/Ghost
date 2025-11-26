@@ -1,48 +1,42 @@
-{{!< default}} <section class="hero-banner">
+{{!< default}} 
+<section class="hero-banner bg-secondary py-14">
     <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6">
-                <h1 class="richtext-heading text-[64px] max-w-[1000px] mx-auto">Hello 👋, we are Shine exploring <span
-                        class="font-bold"> fashion, lifestyle and health.</span></h1>
-                <p class="text-xl max-w-2xl mx-auto">Get the email newsletter and unlock access to members-only content
-                    and
+        <div class="grid grid-cols-1 lg:grid-cols-7 gap-12 items-center">
+            <div class="col-span-4">
+                <h1 class="text-6xl font-medium mb-6">Hello 👋, we are Shine exploring fashion, lifestyle and health.
+                </h1>
+                <p class="text-xl max-w-2xl">Get the email newsletter and unlock access to members-only content and
                     updates Shine is a modern classic blog theme for Ghost.</p>
-                <form class="mt-4">
+                <form class="mt-11">
                     <div
-                        class="flex items-center max-w-md bg-slate-50 rounded-full shadow-sm border border-slate-200 overflow-hidden">
+                        class="flex items-center max-w-[500px] bg-slate-100 rounded-full border border-gray-200 min-h-[56px]">
                         <input type="email" placeholder="Enter your email"
                             class="flex-1 bg-transparent px-4 py-2.5 text-sm md:text-base text-slate-800 placeholder:text-slate-400 focus:outline-none" />
                         <button type="submit"
-                            class="px-5 md:px-6 py-2.5 text-sm font-medium rounded-full bg-blue-600 text-white hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500">
+                            class="min-h-[56px] px-5 md:px-8 py-2.5 text-base font-medium rounded-full cursor-pointer bg-gradient-to-r from-[#ff6a00] to-[#ff0099] text-white hover:shadow-[0_0_20px_rgba(255,0,153,0.5)] transition">
                             Subscribe
                         </button>
                     </div>
                 </form>
             </div>
-            <div class="grid grid-cols-2 grid-rows-2 gap-4 h-full">
-                <!-- Large image -->
-                <div class="col-span-1 row-span-2">
-                    <div class="h-full w-full overflow-hidden rounded-2xl">
-                        <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=900&q=80"
-                            alt="Person drinking coffee by the window" class="h-full w-full object-cover" />
+            <div class="flex items-center gap-6 h-full col-span-3">
+                <div class="flex-1">
+                    <div class="h-[90%] w-full overflow-hidden rounded-2xl">
+                        <img src="./assets/images/banner1.jpg" alt="Person drinking coffee by the window"
+                            class="h-full w-full object-cover" />
+                    </div>
+                </div>
+                <div class="flex-1 flex gap-6 flex-col">
+                    <div class="w-full overflow-hidden rounded-2xl">
+                        <img src="./assets/images/banner2.jpg" alt="Woman doing yoga at the beach"
+                            class="h-full w-full object-cover" />
+                    </div>
+                    <div class="w-full overflow-hidden rounded-2xl">
+                        <img src="./assets/images/banner3.jpg" alt="Woman in sunglasses with a bag"
+                            class="h-full w-full object-cover" />
                     </div>
                 </div>
 
-                <!-- Top-right small image -->
-                <div>
-                    <div class="h-full w-full overflow-hidden rounded-2xl">
-                        <img src="https://images.unsplash.com/photo-1517832606294-5df1886e1d52?auto=format&fit=crop&w=900&q=80"
-                            alt="Woman doing yoga at the beach" class="h-full w-full object-cover" />
-                    </div>
-                </div>
-
-                <!-- Bottom-right small image -->
-                <div>
-                    <div class="h-full w-full overflow-hidden rounded-2xl">
-                        <img src="https://images.unsplash.com/photo-1508188239917-0fc5f653cb47?auto=format&fit=crop&w=900&q=80"
-                            alt="Woman in sunglasses with a bag" class="h-full w-full object-cover" />
-                    </div>
-                </div>
             </div>
             </section>
             {{#get "posts" filter="featured:true" limit="1" include="authors,tags"}}
@@ -101,223 +95,141 @@
             </section>
             {{/foreach}}
             {{/get}}
-            <section class="explore-tags">
+            <section class="explore-tags py-14">
                 <div class="container mx-auto">
                     <div class="explore-tags-wrapper">
-                        <div class="explore-tags-header flex justify-between">
+                        <div class="explore-tags-header flex justify-between mb-8.5">
                             <div class="explore-tag-heading">
-                                <h3 class="text-4xl font-semibold">Explore by tag</h3>
-                            </div>
-                            <div
-                                class="explore-tags-tag-list-wrapper flex gap-4 bg-white border border-gray-200 rounded-full p-[10px]">
-                                <button
-                                    class="flex items-center gap-2 bg-gray-100 text-gray-800 px-5 py-2 rounded-full text-sm hover:bg-gray-200 tag-specific-card"
-                                    data-tags="all">
-                                    <span>
-                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                            <path
-                                                d="M10.3217 0H0.86014C0.63202 0 0.41324 0.11493 0.25193 0.31952C0.09062 0.5241 0 0.80158 0 1.09091V10.9091C0 11.1984 0.09062 11.4759 0.25193 11.6805C0.41324 11.8851 0.63202 12 0.86014 12H10.3217C10.5498 12 10.7686 11.8851 10.9299 11.6805C11.0912 11.4759 11.1818 11.1984 11.1818 10.9091V1.09091C11.1818 0.80158 11.0912 0.5241 10.9299 0.31952C10.7686 0.11493 10.5498 0 10.3217 0ZM8.17132 8.7273H3.01049C2.89643 8.7273 2.78704 8.6698 2.70638 8.5675C2.62573 8.4652 2.58042 8.3265 2.58042 8.1818C2.58042 8.0372 2.62573 7.89842 2.70638 7.79612C2.78704 7.69383 2.89643 7.63636 3.01049 7.63636H8.17132C8.28542 7.63636 8.39482 7.69383 8.47542 7.79612C8.55612 7.89842 8.60142 8.0372 8.60142 8.1818C8.60142 8.3265 8.55612 8.4652 8.47542 8.5675C8.39482 8.6698 8.28542 8.7273 8.17132 8.7273ZM8.17132 6.54545H3.01049C2.89643 6.54545 2.78704 6.48799 2.70638 6.3857C2.62573 6.2834 2.58042 6.14466 2.58042 6C2.58042 5.85534 2.62573 5.7166 2.70638 5.61431C2.78704 5.51201 2.89643 5.45455 3.01049 5.45455H8.17132C8.28542 5.45455 8.39482 5.51201 8.47542 5.61431C8.55612 5.7166 8.60142 5.85534 8.60142 6C8.60142 6.14466 8.55612 6.2834 8.47542 6.3857C8.39482 6.48799 8.28542 6.54545 8.17132 6.54545ZM8.17132 4.36364H3.01049C2.89643 4.36364 2.78704 4.30617 2.70638 4.20388C2.62573 4.10158 2.58042 3.96285 2.58042 3.81818C2.58042 3.67352 2.62573 3.53478 2.70638 3.43249C2.78704 3.33019 2.89643 3.27273 3.01049 3.27273H8.17132C8.28542 3.27273 8.39482 3.33019 8.47542 3.43249C8.55612 3.53478 8.60142 3.67352 8.60142 3.81818C8.60142 3.96285 8.55612 4.10158 8.47542 4.20388C8.39482 4.30617 8.28542 4.36364 8.17132 4.36364Z"
-                                                fill="currentColor" />
-                                        </svg>
-                                    </span> All
-                                </button>
-                                {{#get "tags" limit="all" include="count.posts"}}
-                                {{#foreach tags}}
-                                <button
-                                    class="flex items-center gap-2 bg-gray-100 text-gray-800 px-5 py-2 rounded-full text-sm hover:bg-gray-200 tag-specific-card"
-                                    data-tags="{{name}}">
-                                    <span>
-                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                            <path
-                                                d="M10.3217 0H0.86014C0.63202 0 0.41324 0.11493 0.25193 0.31952C0.09062 0.5241 0 0.80158 0 1.09091V10.9091C0 11.1984 0.09062 11.4759 0.25193 11.6805C0.41324 11.8851 0.63202 12 0.86014 12H10.3217C10.5498 12 10.7686 11.8851 10.9299 11.6805C11.0912 11.4759 11.1818 11.1984 11.1818 10.9091V1.09091C11.1818 0.80158 11.0912 0.5241 10.9299 0.31952C10.7686 0.11493 10.5498 0 10.3217 0ZM8.17132 8.7273H3.01049C2.89643 8.7273 2.78704 8.6698 2.70638 8.5675C2.62573 8.4652 2.58042 8.3265 2.58042 8.1818C2.58042 8.0372 2.62573 7.89842 2.70638 7.79612C2.78704 7.69383 2.89643 7.63636 3.01049 7.63636H8.17132C8.28542 7.63636 8.39482 7.69383 8.47542 7.79612C8.55612 7.89842 8.60142 8.0372 8.60142 8.1818C8.60142 8.3265 8.55612 8.4652 8.47542 8.5675C8.39482 8.6698 8.28542 8.7273 8.17132 8.7273ZM8.17132 6.54545H3.01049C2.89643 6.54545 2.78704 6.48799 2.70638 6.3857C2.62573 6.2834 2.58042 6.14466 2.58042 6C2.58042 5.85534 2.62573 5.7166 2.70638 5.61431C2.78704 5.51201 2.89643 5.45455 3.01049 5.45455H8.17132C8.28542 5.45455 8.39482 5.51201 8.47542 5.61431C8.55612 5.7166 8.60142 5.85534 8.60142 6C8.60142 6.14466 8.55612 6.2834 8.47542 6.3857C8.39482 6.48799 8.28542 6.54545 8.17132 6.54545ZM8.17132 4.36364H3.01049C2.89643 4.36364 2.78704 4.30617 2.70638 4.20388C2.62573 4.10158 2.58042 3.96285 2.58042 3.81818C2.58042 3.67352 2.62573 3.53478 2.70638 3.43249C2.78704 3.33019 2.89643 3.27273 3.01049 3.27273H8.17132C8.28542 3.27273 8.39482 3.33019 8.47542 3.43249C8.55612 3.53478 8.60142 3.67352 8.60142 3.81818C8.60142 3.96285 8.55612 4.10158 8.47542 4.20388C8.39482 4.30617 8.28542 4.36364 8.17132 4.36364Z"
-                                                fill="currentColor" />
-                                        </svg>
-                                    </span> {{name}}
-                                </button>
-                                {{/foreach}}
-                                {{/get}}
-                                {{!-- <button
-                                    class="flex items-center gap-2 bg-black text-white px-5 py-2 rounded-full text-sm">
-                                    <span><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                            <path
-                                                d="M10.3217 0H0.86014C0.63202 0 0.41324 0.11493 0.25193 0.31952C0.09062 0.5241 0 0.80158 0 1.09091V10.9091C0 11.1984 0.09062 11.4759 0.25193 11.6805C0.41324 11.8851 0.63202 12 0.86014 12H10.3217C10.5498 12 10.7686 11.8851 10.9299 11.6805C11.0912 11.4759 11.1818 11.1984 11.1818 10.9091V1.09091C11.1818 0.80158 11.0912 0.5241 10.9299 0.31952C10.7686 0.11493 10.5498 0 10.3217 0ZM8.17132 8.7273H3.01049C2.89643 8.7273 2.78704 8.6698 2.70638 8.5675C2.62573 8.4652 2.58042 8.3265 2.58042 8.1818C2.58042 8.0372 2.62573 7.89842 2.70638 7.79612C2.78704 7.69383 2.89643 7.63636 3.01049 7.63636H8.17132C8.28542 7.63636 8.39482 7.69383 8.47542 7.79612C8.55612 7.89842 8.60142 8.0372 8.60142 8.1818C8.60142 8.3265 8.55612 8.4652 8.47542 8.5675C8.39482 8.6698 8.28542 8.7273 8.17132 8.7273ZM8.17132 6.54545H3.01049C2.89643 6.54545 2.78704 6.48799 2.70638 6.3857C2.62573 6.2834 2.58042 6.14466 2.58042 6C2.58042 5.85534 2.62573 5.7166 2.70638 5.61431C2.78704 5.51201 2.89643 5.45455 3.01049 5.45455H8.17132C8.28542 5.45455 8.39482 5.51201 8.47542 5.61431C8.55612 5.7166 8.60142 5.85534 8.60142 6C8.60142 6.14466 8.55612 6.2834 8.47542 6.3857C8.39482 6.48799 8.28542 6.54545 8.17132 6.54545ZM8.17132 4.36364H3.01049C2.89643 4.36364 2.78704 4.30617 2.70638 4.20388C2.62573 4.10158 2.58042 3.96285 2.58042 3.81818C2.58042 3.67352 2.62573 3.53478 2.70638 3.43249C2.78704 3.33019 2.89643 3.27273 3.01049 3.27273H8.17132C8.28542 3.27273 8.39482 3.33019 8.47542 3.43249C8.55612 3.53478 8.60142 3.67352 8.60142 3.81818C8.60142 3.96285 8.55612 4.10158 8.47542 4.20388C8.39482 4.30617 8.28542 4.36364 8.17132 4.36364Z"
-                                                fill="currentColor" />
-                                        </svg></span> Fashion
-                                </button>
-                                <button
-                                    class="flex items-center gap-2 bg-gray-100 text-gray-800 px-5 py-2 rounded-full text-sm hover:bg-gray-200">
-                                    <span><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                            <path
-                                                d="M10.3217 0H0.86014C0.63202 0 0.41324 0.11493 0.25193 0.31952C0.09062 0.5241 0 0.80158 0 1.09091V10.9091C0 11.1984 0.09062 11.4759 0.25193 11.6805C0.41324 11.8851 0.63202 12 0.86014 12H10.3217C10.5498 12 10.7686 11.8851 10.9299 11.6805C11.0912 11.4759 11.1818 11.1984 11.1818 10.9091V1.09091C11.1818 0.80158 11.0912 0.5241 10.9299 0.31952C10.7686 0.11493 10.5498 0 10.3217 0ZM8.17132 8.7273H3.01049C2.89643 8.7273 2.78704 8.6698 2.70638 8.5675C2.62573 8.4652 2.58042 8.3265 2.58042 8.1818C2.58042 8.0372 2.62573 7.89842 2.70638 7.79612C2.78704 7.69383 2.89643 7.63636 3.01049 7.63636H8.17132C8.28542 7.63636 8.39482 7.69383 8.47542 7.79612C8.55612 7.89842 8.60142 8.0372 8.60142 8.1818C8.60142 8.3265 8.55612 8.4652 8.47542 8.5675C8.39482 8.6698 8.28542 8.7273 8.17132 8.7273ZM8.17132 6.54545H3.01049C2.89643 6.54545 2.78704 6.48799 2.70638 6.3857C2.62573 6.2834 2.58042 6.14466 2.58042 6C2.58042 5.85534 2.62573 5.7166 2.70638 5.61431C2.78704 5.51201 2.89643 5.45455 3.01049 5.45455H8.17132C8.28542 5.45455 8.39482 5.51201 8.47542 5.61431C8.55612 5.7166 8.60142 5.85534 8.60142 6C8.60142 6.14466 8.55612 6.2834 8.47542 6.3857C8.39482 6.48799 8.28542 6.54545 8.17132 6.54545ZM8.17132 4.36364H3.01049C2.89643 4.36364 2.78704 4.30617 2.70638 4.20388C2.62573 4.10158 2.58042 3.96285 2.58042 3.81818C2.58042 3.67352 2.62573 3.53478 2.70638 3.43249C2.78704 3.33019 2.89643 3.27273 3.01049 3.27273H8.17132C8.28542 3.27273 8.39482 3.33019 8.47542 3.43249C8.55612 3.53478 8.60142 3.67352 8.60142 3.81818C8.60142 3.96285 8.55612 4.10158 8.47542 4.20388C8.39482 4.30617 8.28542 4.36364 8.17132 4.36364Z"
-                                                fill="currentColor" />
-                                        </svg></span> Travel
-                                </button>
-                                <button
-                                    class="flex items-center gap-2 bg-gray-100 text-gray-800 px-5 py-2 rounded-full text-sm hover:bg-gray-200">
-                                    <span><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                            <path
-                                                d="M10.3217 0H0.86014C0.63202 0 0.41324 0.11493 0.25193 0.31952C0.09062 0.5241 0 0.80158 0 1.09091V10.9091C0 11.1984 0.09062 11.4759 0.25193 11.6805C0.41324 11.8851 0.63202 12 0.86014 12H10.3217C10.5498 12 10.7686 11.8851 10.9299 11.6805C11.0912 11.4759 11.1818 11.1984 11.1818 10.9091V1.09091C11.1818 0.80158 11.0912 0.5241 10.9299 0.31952C10.7686 0.11493 10.5498 0 10.3217 0ZM8.17132 8.7273H3.01049C2.89643 8.7273 2.78704 8.6698 2.70638 8.5675C2.62573 8.4652 2.58042 8.3265 2.58042 8.1818C2.58042 8.0372 2.62573 7.89842 2.70638 7.79612C2.78704 7.69383 2.89643 7.63636 3.01049 7.63636H8.17132C8.28542 7.63636 8.39482 7.69383 8.47542 7.79612C8.55612 7.89842 8.60142 8.0372 8.60142 8.1818C8.60142 8.3265 8.55612 8.4652 8.47542 8.5675C8.39482 8.6698 8.28542 8.7273 8.17132 8.7273ZM8.17132 6.54545H3.01049C2.89643 6.54545 2.78704 6.48799 2.70638 6.3857C2.62573 6.2834 2.58042 6.14466 2.58042 6C2.58042 5.85534 2.62573 5.7166 2.70638 5.61431C2.78704 5.51201 2.89643 5.45455 3.01049 5.45455H8.17132C8.28542 5.45455 8.39482 5.51201 8.47542 5.61431C8.55612 5.7166 8.60142 5.85534 8.60142 6C8.60142 6.14466 8.55612 6.2834 8.47542 6.3857C8.39482 6.48799 8.28542 6.54545 8.17132 6.54545ZM8.17132 4.36364H3.01049C2.89643 4.36364 2.78704 4.30617 2.70638 4.20388C2.62573 4.10158 2.58042 3.96285 2.58042 3.81818C2.58042 3.67352 2.62573 3.53478 2.70638 3.43249C2.78704 3.33019 2.89643 3.27273 3.01049 3.27273H8.17132C8.28542 3.27273 8.39482 3.33019 8.47542 3.43249C8.55612 3.53478 8.60142 3.67352 8.60142 3.81818C8.60142 3.96285 8.55612 4.10158 8.47542 4.20388C8.39482 4.30617 8.28542 4.36364 8.17132 4.36364Z"
-                                                fill="currentColor" />
-                                        </svg></span> Food
-                                </button>
-                                <button
-                                    class="flex items-center gap-2 bg-gray-100 text-gray-800 px-5 py-2 rounded-full text-sm hover:bg-gray-200">
-                                    <span><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                            <path
-                                                d="M10.3217 0H0.86014C0.63202 0 0.41324 0.11493 0.25193 0.31952C0.09062 0.5241 0 0.80158 0 1.09091V10.9091C0 11.1984 0.09062 11.4759 0.25193 11.6805C0.41324 11.8851 0.63202 12 0.86014 12H10.3217C10.5498 12 10.7686 11.8851 10.9299 11.6805C11.0912 11.4759 11.1818 11.1984 11.1818 10.9091V1.09091C11.1818 0.80158 11.0912 0.5241 10.9299 0.31952C10.7686 0.11493 10.5498 0 10.3217 0ZM8.17132 8.7273H3.01049C2.89643 8.7273 2.78704 8.6698 2.70638 8.5675C2.62573 8.4652 2.58042 8.3265 2.58042 8.1818C2.58042 8.0372 2.62573 7.89842 2.70638 7.79612C2.78704 7.69383 2.89643 7.63636 3.01049 7.63636H8.17132C8.28542 7.63636 8.39482 7.69383 8.47542 7.79612C8.55612 7.89842 8.60142 8.0372 8.60142 8.1818C8.60142 8.3265 8.55612 8.4652 8.47542 8.5675C8.39482 8.6698 8.28542 8.7273 8.17132 8.7273ZM8.17132 6.54545H3.01049C2.89643 6.54545 2.78704 6.48799 2.70638 6.3857C2.62573 6.2834 2.58042 6.14466 2.58042 6C2.58042 5.85534 2.62573 5.7166 2.70638 5.61431C2.78704 5.51201 2.89643 5.45455 3.01049 5.45455H8.17132C8.28542 5.45455 8.39482 5.51201 8.47542 5.61431C8.55612 5.7166 8.60142 5.85534 8.60142 6C8.60142 6.14466 8.55612 6.2834 8.47542 6.3857C8.39482 6.48799 8.28542 6.54545 8.17132 6.54545ZM8.17132 4.36364H3.01049C2.89643 4.36364 2.78704 4.30617 2.70638 4.20388C2.62573 4.10158 2.58042 3.96285 2.58042 3.81818C2.58042 3.67352 2.62573 3.53478 2.70638 3.43249C2.78704 3.33019 2.89643 3.27273 3.01049 3.27273H8.17132C8.28542 3.27273 8.39482 3.33019 8.47542 3.43249C8.55612 3.53478 8.60142 3.67352 8.60142 3.81818C8.60142 3.96285 8.55612 4.10158 8.47542 4.20388C8.39482 4.30617 8.28542 4.36364 8.17132 4.36364Z"
-                                                fill="currentColor" />
-                                        </svg></span> Health
-                                </button> --}}
+                                <h3 class="text-4xl font-semibold">Explore by topic</h3>
                             </div>
                         </div>
-                        <div class="w-full overflow-x-auto mt-[30px]">
-                            <div class="grid grid-cols-5 gap-4">
-                                {{#get "posts" include="tags,authors" limit="all"}}
-                                {{#foreach posts}}
-                                <div class="flex items-center justify-between text-black rounded-3xl p-3 border border-gray-200 tag-specifc-post"
-                                    data-tags="{{#foreach tags}}{{slug}}{{#unless @last}},{{/unless}}{{/foreach}}">
-                                    <div class="flex items-center gap-4">
-                                        <div
-                                            class="min-w-[95px] w-[95px]  h-[95px] rounded-2xl object-cover overflow-hidden">
-                                            <img src="{{feature_image}}" alt="{{title}}" />
-                                        </div>
-                                        <div class="flex items-end">
-                                            <div class="grid gap-y-2">
-                                                <h3 class="text-lg font-semibold">{{title}}</h3>
-                                                {{!-- <p class="text-sm text-black">4 article</p> --}}
-                                            </div>
-                                            <button
-                                                class="min-w-[36px] w-[36px] h-[36px] flex items-center justify-center rounded-full bg-gray-100">
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                                    <path
-                                                        d="M0.21967 8.21967C-0.0732233 8.51256 -0.0732233 8.98744 0.21967 9.28033C0.512563 9.57322 0.987437 9.57322 1.28033 9.28033L0.75 8.75L0.21967 8.21967ZM9.5 0.750001C9.5 0.335788 9.16421 1.10029e-06 8.75 1.2478e-06L2 8.26335e-07C1.58579 8.26335e-07 1.25 0.335787 1.25 0.750001C1.25 1.16421 1.58579 1.5 2 1.5H8V7.5C8 7.91421 8.33579 8.25 8.75 8.25C9.16421 8.25 9.5 7.91421 9.5 7.5L9.5 0.750001ZM0.75 8.75L1.28033 9.28033L9.28033 1.28033L8.75 0.750001L8.21967 0.219671L0.21967 8.21967L0.75 8.75Z"
-                                                        fill="currentColor" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                {{/foreach}}
-                                {{/get}}
-                                {{!-- <div
-                                    class="flex items-center justify-between text-black rounded-3xl p-3 border border-gray-200">
-                                    <div class="flex items-center gap-4">
-                                        <div
-                                            class="min-w-[95px] w-[95px]  h-[95px] rounded-2xl object-cover overflow-hidden">
-                                            <img src="./assets/images/featured-blog.jpg" />
-                                        </div>
-                                        <div class="flex items-end">
-                                            <div class="grid gap-y-2">
-                                                <h3 class="text-lg font-semibold">Beyond The Runway</h3>
-                                                <p class="text-sm text-black">4 article</p>
-                                            </div>
-                                            <button
-                                                class="min-w-[36px] w-[36px] h-[36px] flex items-center justify-center rounded-full bg-gray-100">
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                                    <path
-                                                        d="M0.21967 8.21967C-0.0732233 8.51256 -0.0732233 8.98744 0.21967 9.28033C0.512563 9.57322 0.987437 9.57322 1.28033 9.28033L0.75 8.75L0.21967 8.21967ZM9.5 0.750001C9.5 0.335788 9.16421 1.10029e-06 8.75 1.2478e-06L2 8.26335e-07C1.58579 8.26335e-07 1.25 0.335787 1.25 0.750001C1.25 1.16421 1.58579 1.5 2 1.5H8V7.5C8 7.91421 8.33579 8.25 8.75 8.25C9.16421 8.25 9.5 7.91421 9.5 7.5L9.5 0.750001ZM0.75 8.75L1.28033 9.28033L9.28033 1.28033L8.75 0.750001L8.21967 0.219671L0.21967 8.21967L0.75 8.75Z"
-                                                        fill="currentColor" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </div>
+                        <div class="flex flex-wrap gap-2.5">
+                            <!-- CARD -->
+                            <div
+                                class="relative h-96 md:flex-1 rounded-2xl overflow-hidden group hover:md:flex-2 transition-[flex] duration-500 ease-in-out">
+                                <!-- Image -->
+                                <img src="./assets/images/explore1.jpg"
+                                    class="object-cover transition-transform duration-500 group-hover:scale-105" />
+
+                                <!-- Gradient overlay -->
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent">
                                 </div>
 
-                                <div
-                                    class="flex items-center justify-between text-black rounded-3xl p-3 border border-gray-200">
-                                    <div class="flex items-center gap-4">
-                                        <div
-                                            class="min-w-[95px] w-[95px]  h-[95px] rounded-2xl object-cover overflow-hidden">
-                                            <img src="./assets/images/featured-blog.jpg" />
-                                        </div>
-                                        <div class="flex items-end">
-                                            <div class="grid gap-y-2">
-                                                <h3 class="text-lg font-semibold">Beyond The Runway</h3>
-                                                <p class="text-sm text-black">4 article</p>
-                                            </div>
-                                            <button
-                                                class="min-w-[36px] w-[36px] h-[36px] flex items-center justify-center rounded-full bg-gray-100">
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                                    <path
-                                                        d="M0.21967 8.21967C-0.0732233 8.51256 -0.0732233 8.98744 0.21967 9.28033C0.512563 9.57322 0.987437 9.57322 1.28033 9.28033L0.75 8.75L0.21967 8.21967ZM9.5 0.750001C9.5 0.335788 9.16421 1.10029e-06 8.75 1.2478e-06L2 8.26335e-07C1.58579 8.26335e-07 1.25 0.335787 1.25 0.750001C1.25 1.16421 1.58579 1.5 2 1.5H8V7.5C8 7.91421 8.33579 8.25 8.75 8.25C9.16421 8.25 9.5 7.91421 9.5 7.5L9.5 0.750001ZM0.75 8.75L1.28033 9.28033L9.28033 1.28033L8.75 0.750001L8.21967 0.219671L0.21967 8.21967L0.75 8.75Z"
-                                                        fill="currentColor" />
-                                                </svg>
-                                            </button>
-                                        </div>
+                                <!-- Bottom content -->
+                                <div class="absolute bottom-6 left-6 right-6 flex justify-between items-center">
+                                    <div>
+                                        <h3 class="text-white font-semibold text-lg mb-1.5">Clothing & Outfits</h3>
+                                        <p class="text-white text-sm">4 Article</p>
                                     </div>
+
+                                    <!-- Button -->
+                                    <button
+                                        class="w-9 h-9 rounded-full  flex items-center justify-center border border-white text-white hover:bg-white hover:text-black transition">
+                                        <svg width="13" height="12" viewBox="0 0 13 12" fill="none">
+                                            <path
+                                                d="M0.75 4.77295C0.335786 4.77295 4.47035e-08 5.10874 4.47035e-08 5.52295C4.47035e-08 5.93716 0.335786 6.27295 0.75 6.27295V5.52295V4.77295ZM12.594 6.05328C12.8869 5.76039 12.8869 5.28551 12.594 4.99262L7.82107 0.219649C7.52817 -0.0732447 7.0533 -0.0732447 6.76041 0.219649C6.46751 0.512542 6.46751 0.987416 6.76041 1.28031L11.003 5.52295L6.76041 9.76559C6.46751 10.0585 6.46751 10.5334 6.76041 10.8262C7.0533 11.1191 7.52817 11.1191 7.82107 10.8262L12.594 6.05328ZM0.75 5.52295V6.27295H12.0637V5.52295V4.77295H0.75V5.52295Z"
+                                                fill="currentColor" />
+                                        </svg>
+
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- CARD -->
+                            <div
+                                class="h-96 relative md:flex-1 rounded-2xl overflow-hidden group hover:md:flex-2 transition-[flex] duration-500 ease-in-out">
+                                <!-- Image -->
+                                <img src="./assets/images/explore2.jpg"
+                                    class="object-cover transition-transform duration-500 group-hover:scale-105" />
+
+                                <!-- Gradient overlay -->
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent">
                                 </div>
 
-                                <div
-                                    class="flex items-center justify-between text-black rounded-3xl p-3 border border-gray-200">
-                                    <div class="flex items-center gap-4">
-                                        <div
-                                            class="min-w-[95px] w-[95px]  h-[95px] rounded-2xl object-cover overflow-hidden">
-                                            <img src="./assets/images/featured-blog.jpg" />
-                                        </div>
-                                        <div class="flex items-end">
-                                            <div class="grid gap-y-2">
-                                                <h3 class="text-lg font-semibold">Beyond The Runway</h3>
-                                                <p class="text-sm text-black">4 article</p>
-                                            </div>
-                                            <button
-                                                class="min-w-[36px] w-[36px] h-[36px] flex items-center justify-center rounded-full bg-gray-100">
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                                    <path
-                                                        d="M0.21967 8.21967C-0.0732233 8.51256 -0.0732233 8.98744 0.21967 9.28033C0.512563 9.57322 0.987437 9.57322 1.28033 9.28033L0.75 8.75L0.21967 8.21967ZM9.5 0.750001C9.5 0.335788 9.16421 1.10029e-06 8.75 1.2478e-06L2 8.26335e-07C1.58579 8.26335e-07 1.25 0.335787 1.25 0.750001C1.25 1.16421 1.58579 1.5 2 1.5H8V7.5C8 7.91421 8.33579 8.25 8.75 8.25C9.16421 8.25 9.5 7.91421 9.5 7.5L9.5 0.750001ZM0.75 8.75L1.28033 9.28033L9.28033 1.28033L8.75 0.750001L8.21967 0.219671L0.21967 8.21967L0.75 8.75Z"
-                                                        fill="currentColor" />
-                                                </svg>
-                                            </button>
-                                        </div>
+                                <!-- Bottom content -->
+                                <div class="absolute bottom-6 left-6 right-6 flex justify-between items-center">
+                                    <div>
+                                        <h3 class="text-white font-semibold text-lg mb-1.5">Clothing & Outfits</h3>
+                                        <p class="text-white text-sm">4 Article</p>
                                     </div>
+
+                                    <!-- Button -->
+                                    <button
+                                        class="w-9 h-9 rounded-full  flex items-center justify-center border border-white text-white hover:bg-white hover:text-black transition">
+                                        <svg width="13" height="12" viewBox="0 0 13 12" fill="none">
+                                            <path
+                                                d="M0.75 4.77295C0.335786 4.77295 4.47035e-08 5.10874 4.47035e-08 5.52295C4.47035e-08 5.93716 0.335786 6.27295 0.75 6.27295V5.52295V4.77295ZM12.594 6.05328C12.8869 5.76039 12.8869 5.28551 12.594 4.99262L7.82107 0.219649C7.52817 -0.0732447 7.0533 -0.0732447 6.76041 0.219649C6.46751 0.512542 6.46751 0.987416 6.76041 1.28031L11.003 5.52295L6.76041 9.76559C6.46751 10.0585 6.46751 10.5334 6.76041 10.8262C7.0533 11.1191 7.52817 11.1191 7.82107 10.8262L12.594 6.05328ZM0.75 5.52295V6.27295H12.0637V5.52295V4.77295H0.75V5.52295Z"
+                                                fill="currentColor" />
+                                        </svg>
+
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- CARD -->
+                            <div
+                                class="h-96 relative md:flex-1 rounded-2xl overflow-hidden group hover:md:flex-2 transition-[flex] duration-500 ease-in-out">
+                                <!-- Image -->
+                                <img src="./assets/images/explore3.jpg"
+                                    class="object-cover transition-transform duration-500 group-hover:scale-105" />
+
+                                <!-- Gradient overlay -->
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent">
                                 </div>
 
-                                <div
-                                    class="flex items-center justify-between text-black rounded-3xl p-3 border border-gray-200">
-                                    <div class="flex items-center gap-4">
-                                        <div
-                                            class="min-w-[95px] w-[95px]  h-[95px] rounded-2xl object-cover overflow-hidden">
-                                            <img src="./assets/images/featured-blog.jpg" />
-                                        </div>
-                                        <div class="flex items-end">
-                                            <div class="grid gap-y-2">
-                                                <h3 class="text-lg font-semibold">Beyond The Runway</h3>
-                                                <p class="text-sm text-black">4 article</p>
-                                            </div>
-                                            <button
-                                                class="min-w-[36px] w-[36px] h-[36px] flex items-center justify-center rounded-full bg-gray-100">
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                                    <path
-                                                        d="M0.21967 8.21967C-0.0732233 8.51256 -0.0732233 8.98744 0.21967 9.28033C0.512563 9.57322 0.987437 9.57322 1.28033 9.28033L0.75 8.75L0.21967 8.21967ZM9.5 0.750001C9.5 0.335788 9.16421 1.10029e-06 8.75 1.2478e-06L2 8.26335e-07C1.58579 8.26335e-07 1.25 0.335787 1.25 0.750001C1.25 1.16421 1.58579 1.5 2 1.5H8V7.5C8 7.91421 8.33579 8.25 8.75 8.25C9.16421 8.25 9.5 7.91421 9.5 7.5L9.5 0.750001ZM0.75 8.75L1.28033 9.28033L9.28033 1.28033L8.75 0.750001L8.21967 0.219671L0.21967 8.21967L0.75 8.75Z"
-                                                        fill="currentColor" />
-                                                </svg>
-                                            </button>
-                                        </div>
+                                <!-- Bottom content -->
+                                <div class="absolute bottom-6 left-6 right-6 flex justify-between items-center">
+                                    <div>
+                                        <h3 class="text-white font-semibold text-lg mb-1.5">Clothing & Outfits</h3>
+                                        <p class="text-white text-sm">4 Article</p>
                                     </div>
+
+                                    <!-- Button -->
+                                    <button
+                                        class="w-9 h-9 rounded-full  flex items-center justify-center border border-white text-white hover:bg-white hover:text-black transition">
+                                        <svg width="13" height="12" viewBox="0 0 13 12" fill="none">
+                                            <path
+                                                d="M0.75 4.77295C0.335786 4.77295 4.47035e-08 5.10874 4.47035e-08 5.52295C4.47035e-08 5.93716 0.335786 6.27295 0.75 6.27295V5.52295V4.77295ZM12.594 6.05328C12.8869 5.76039 12.8869 5.28551 12.594 4.99262L7.82107 0.219649C7.52817 -0.0732447 7.0533 -0.0732447 6.76041 0.219649C6.46751 0.512542 6.46751 0.987416 6.76041 1.28031L11.003 5.52295L6.76041 9.76559C6.46751 10.0585 6.46751 10.5334 6.76041 10.8262C7.0533 11.1191 7.52817 11.1191 7.82107 10.8262L12.594 6.05328ZM0.75 5.52295V6.27295H12.0637V5.52295V4.77295H0.75V5.52295Z"
+                                                fill="currentColor" />
+                                        </svg>
+
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- CARD -->
+                            <div
+                                class="h-96 relative md:flex-1 rounded-2xl overflow-hidden group hover:md:flex-2 transition-[flex] duration-500 ease-in-out">
+                                <!-- Image -->
+                                <img src="./assets/images/explore4.jpg"
+                                    class="object-cover transition-transform duration-500 group-hover:scale-105" />
+
+                                <!-- Gradient overlay -->
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent">
                                 </div>
 
-                                <div
-                                    class="flex items-center justify-between text-black rounded-3xl p-3 border border-gray-200">
-                                    <div class="flex items-center gap-4">
-                                        <div
-                                            class="min-w-[95px] w-[95px]  h-[95px] rounded-2xl object-cover overflow-hidden">
-                                            <img src="./assets/images/featured-blog.jpg" />
-                                        </div>
-                                        <div class="flex items-end">
-                                            <div class="grid gap-y-2">
-                                                <h3 class="text-lg font-semibold">Beyond The Runway</h3>
-                                                <p class="text-sm text-black">4 article</p>
-                                            </div>
-                                            <button
-                                                class="min-w-[36px] w-[36px] h-[36px] flex items-center justify-center rounded-full bg-gray-100">
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                                    <path
-                                                        d="M0.21967 8.21967C-0.0732233 8.51256 -0.0732233 8.98744 0.21967 9.28033C0.512563 9.57322 0.987437 9.57322 1.28033 9.28033L0.75 8.75L0.21967 8.21967ZM9.5 0.750001C9.5 0.335788 9.16421 1.10029e-06 8.75 1.2478e-06L2 8.26335e-07C1.58579 8.26335e-07 1.25 0.335787 1.25 0.750001C1.25 1.16421 1.58579 1.5 2 1.5H8V7.5C8 7.91421 8.33579 8.25 8.75 8.25C9.16421 8.25 9.5 7.91421 9.5 7.5L9.5 0.750001ZM0.75 8.75L1.28033 9.28033L9.28033 1.28033L8.75 0.750001L8.21967 0.219671L0.21967 8.21967L0.75 8.75Z"
-                                                        fill="currentColor" />
-                                                </svg>
-                                            </button>
-                                        </div>
+                                <!-- Bottom content -->
+                                <div class="absolute bottom-6 left-6 right-6 flex justify-between items-center">
+                                    <div>
+                                        <h3 class="text-white font-semibold text-lg mb-1.5">Clothing & Outfits</h3>
+                                        <p class="text-white text-sm">4 Article</p>
                                     </div>
-                                </div> --}}
+
+                                    <!-- Button -->
+                                    <button
+                                        class="w-9 h-9 rounded-full  flex items-center justify-center border border-white text-white hover:bg-white hover:text-black transition">
+                                        <svg width="13" height="12" viewBox="0 0 13 12" fill="none">
+                                            <path
+                                                d="M0.75 4.77295C0.335786 4.77295 4.47035e-08 5.10874 4.47035e-08 5.52295C4.47035e-08 5.93716 0.335786 6.27295 0.75 6.27295V5.52295V4.77295ZM12.594 6.05328C12.8869 5.76039 12.8869 5.28551 12.594 4.99262L7.82107 0.219649C7.52817 -0.0732447 7.0533 -0.0732447 6.76041 0.219649C6.46751 0.512542 6.46751 0.987416 6.76041 1.28031L11.003 5.52295L6.76041 9.76559C6.46751 10.0585 6.46751 10.5334 6.76041 10.8262C7.0533 11.1191 7.52817 11.1191 7.82107 10.8262L12.594 6.05328ZM0.75 5.52295V6.27295H12.0637V5.52295V4.77295H0.75V5.52295Z"
+                                                fill="currentColor" />
+                                        </svg>
+
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -459,15 +371,15 @@
                             </svg>
                         </a>
                     </div>
-                    <div class="recommended-post-wrapper swiper mySwiper2">
+                    <div class="recommended-post-wrapper swiper mySwiper2 px-[20px]">
                         <div class="swiper-wrapper">
-                            {{#foreach posts}}
+                            {{!-- {{#foreach posts}}
                             {{>"postCard"}}
-                            {{/foreach}}
+                            {{/foreach}} --}}
 
                             <div class="recommended-post-item swiper-slide">
                                 <div class="bg-white rounded-xl border border-gray-200 p-5">
-                                    <div class="rounded-xl mb-5 overflow-hidden relative">
+                                    <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
                                         <img src="./assets/images/r1.jpg">
                                         <div
                                             class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
@@ -491,7 +403,7 @@
                             </div>
                             <div class="recommended-post-item swiper-slide">
                                 <div class="bg-white rounded-xl border border-gray-200 p-5">
-                                    <div class="rounded-xl mb-5 overflow-hidden relative">
+                                    <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
                                         <img src="./assets/images/r2.jpg">
                                         <div
                                             class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
@@ -515,7 +427,7 @@
                             </div>
                             <div class="recommended-post-item swiper-slide">
                                 <div class="bg-white rounded-xl border border-gray-200 p-5">
-                                    <div class="rounded-xl mb-5 overflow-hidden relative">
+                                    <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
                                         <img src="./assets/images/r3.jpg">
                                         <div
                                             class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
@@ -539,7 +451,7 @@
                             </div>
                             <div class="recommended-post-item swiper-slide">
                                 <div class="bg-white rounded-xl border border-gray-200 p-5">
-                                    <div class="rounded-xl mb-5 overflow-hidden relative">
+                                    <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
                                         <img src="./assets/images/r4.jpg">
                                         <div
                                             class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
@@ -563,7 +475,7 @@
                             </div>
                             <div class="recommended-post-item swiper-slide">
                                 <div class="bg-white rounded-xl border border-gray-200 p-5">
-                                    <div class="rounded-xl mb-5 overflow-hidden relative">
+                                    <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
                                         <img src="./assets/images/r1.jpg">
                                         <div
                                             class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
@@ -612,103 +524,74 @@
 
             <section class="team-section py-15">
                 <div class="container mx-auto">
-                    <div class="team-header flex justify-between mb-8">
-                        <div class="team-heading">
-                            <h2 class="text-4xl font-semibold">Meet The Team</h2>
-                        </div>
-                        <div class="swiper-navigation flex gap-3">
-                            <button id="team-swiper-btn-prev" type="button"
-                                class="swiper-nav-prev swiper-button cursor-pointer w-[40px] h-[40px] border border-gray-300 bg-gray-200 rounded-full flex items-center justify-center">
-                                <svg width="15" height="12" viewBox="0 0 15 12" fill="none">
-                                    <path
-                                        d="M13.3203 4.77344C13.7345 4.77344 14.0703 5.10922 14.0703 5.52344C14.0703 5.93765 13.7345 6.27344 13.3203 6.27344V5.52344V4.77344ZM0.219195 6.05377C-0.073698 5.76087 -0.073698 5.286 0.219195 4.99311L4.99217 0.220137C5.28506 -0.0727568 5.75993 -0.0727568 6.05283 0.220137C6.34572 0.51303 6.34572 0.987904 6.05283 1.2808L1.81019 5.52344L6.05283 9.76608C6.34572 10.059 6.34572 10.5338 6.05283 10.8267C5.75993 11.1196 5.28506 11.1196 4.99217 10.8267L0.219195 6.05377ZM13.3203 5.52344V6.27344L0.749525 6.27344V5.52344V4.77344L13.3203 4.77344V5.52344Z"
-                                        fill="#252525" />
-                                </svg>
-                            </button>
-                            <button id="team-swiper-btn-next" type="button"
-                                class="swiper-nav-next swiper-button cursor-pointer w-[40px] h-[40px] border border-gray-300 bg-gray-200 rounded-full flex items-center justify-center">
-                                <svg width="15" height="12" viewBox="0 0 15 12" fill="none">
-                                    <path
-                                        d="M0.75 4.77344C0.335786 4.77344 0 5.10922 0 5.52344C0 5.93765 0.335786 6.27344 0.75 6.27344V5.52344V4.77344ZM13.8511 6.05377C14.144 5.76087 14.144 5.286 13.8511 4.99311L9.07815 0.220137C8.78525 -0.0727568 8.31038 -0.0727568 8.01749 0.220137C7.72459 0.51303 7.72459 0.987904 8.01749 1.2808L12.2601 5.52344L8.01749 9.76608C7.72459 10.059 7.72459 10.5338 8.01749 10.8267C8.31038 11.1196 8.78525 11.1196 9.07815 10.8267L13.8511 6.05377ZM0.75 5.52344V6.27344L13.3208 6.27344V5.52344V4.77344L0.75 4.77344V5.52344Z"
-                                        fill="#252525" />
-                                </svg>
-                            </button>
-                        </div>
+                    <div class="team-heading mb-8">
+                        <h2 class="text-4xl font-semibold">Meet The Team</h2>
                     </div>
-                    <div class="flex items-center justify-center gap-10 overflow-x-auto py-8 swiper mySwiper">
-                        <div class="swiper-wrapper">
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-9 items-center justify-center gap-10 py-8">
+                        {{!-- {{#get "authors" limit="all"}}
+                        {{#foreach authors}}
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="{{profile_image}}" alt="{{name}}" class="rounded-full" />
+                            </div>
+                            <h6 class="mt-2 text-base font-semibold">{{name}}</h6>
+                        </div>
+                        {{/foreach}}
+                        {{/get}} --}}
 
-                            {{#get "authors" limit="all"}}
-                            {{#foreach authors}}
-                            <div class="text-center swiper-slide">
-                                <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                                    <img src="{{profile_image}}" alt="{{name}}" class="rounded-full" />
-                                </div>
-                                <h6 class="mt-2 text-base font-semibold">{{name}}</h6>
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team1.jpg" class="rounded-full" />
                             </div>
-                            {{/foreach}}
-                            {{/get}}
-
-                            <div class="text-center swiper-slide">
-                                <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                                    <img src="./assets/images/team1.jpg" class="rounded-full" />
-                                </div>
-                                <h6 class="mt-2 text-base font-semibold">James Anderson</h6>
+                            <h6 class="mt-2 text-base font-semibold">James Anderson</h6>
+                        </div>
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team2.jpg" class="rounded-full" />
                             </div>
-                            <div class="text-center swiper-slide">
-                                <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                                    <img src="./assets/images/team2.jpg" class="rounded-full" />
-                                </div>
-                                <h6 class="mt-2 text-base font-semibold">David Thompson</h6>
+                            <h6 class="mt-2 text-base font-semibold">David Thompson</h6>
+                        </div>
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team3.jpg" class="rounded-full" />
                             </div>
-                            <div class="text-center swiper-slide">
-                                <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                                    <img src="./assets/images/team3.jpg" class="rounded-full" />
-                                </div>
-                                <h6 class="mt-2 text-base font-semibold">Michael Carter</h6>
+                            <h6 class="mt-2 text-base font-semibold">Michael Carter</h6>
+                        </div>
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team4.jpg" class="rounded-full" />
                             </div>
-                            <div class="text-center swiper-slide">
-                                <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                                    <img src="./assets/images/team4.jpg" class="rounded-full" />
-                                </div>
-                                <h6 class="mt-2 text-base font-semibold">William Harris</h6>
+                            <h6 class="mt-2 text-base font-semibold">William Harris</h6>
+                        </div>
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team5.jpg" class="rounded-full" />
                             </div>
-                            <div class="text-center swiper-slide">
-                                <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                                    <img src="./assets/images/team5.jpg" class="rounded-full" />
-                                </div>
-                                <h6 class="mt-2 text-base font-semibold">Sarah Miller</h6>
+                            <h6 class="mt-2 text-base font-semibold">Sarah Miller</h6>
+                        </div>
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team6.jpg" class="rounded-full" />
                             </div>
-                            <div class="text-center swiper-slide">
-                                <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                                    <img src="./assets/images/team6.jpg" class="rounded-full" />
-                                </div>
-                                <h6 class="mt-2 text-base font-semibold">Taylor Brooks</h6>
+                            <h6 class="mt-2 text-base font-semibold">Taylor Brooks</h6>
+                        </div>
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team7.jpg" class="rounded-full" />
                             </div>
-                            <div class="text-center swiper-slide">
-                                <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                                    <img src="./assets/images/team7.jpg" class="rounded-full" />
-                                </div>
-                                <h6 class="mt-2 text-base font-semibold">Jordan Rivera</h6>
+                            <h6 class="mt-2 text-base font-semibold">Jordan Rivera</h6>
+                        </div>
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team8.jpg" class="rounded-full" />
                             </div>
-                            <div class="text-center swiper-slide">
-                                <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                                    <img src="./assets/images/team8.jpg" class="rounded-full" />
-                                </div>
-                                <h6 class="mt-2 text-base font-semibold">Riley Cooper</h6>
+                            <h6 class="mt-2 text-base font-semibold">Riley Cooper</h6>
+                        </div>
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team8.jpg" class="rounded-full" />
                             </div>
-                            <div class="text-center swiper-slide">
-                                <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                                    <img src="./assets/images/team9.jpg" class="rounded-full" />
-                                </div>
-                                <h6 class="mt-2 text-base font-semibold">Alex Morgan</h6>
-                            </div>
-                            <div class="text-center swiper-slide">
-                                <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                                    <img src="./assets/images/team5.jpg" class="rounded-full" />
-                                </div>
-                                <h6 class="mt-2 text-base font-semibold">James Anderson</h6>
-                            </div>
+                            <h6 class="mt-2 text-base font-semibold">Riley Cooper</h6>
                         </div>
                     </div>
                 </div>

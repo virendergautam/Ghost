@@ -1,6 +1,6 @@
 <div class="recommended-post-item swiper-slide">
-    <div class="bg-white rounded-xl border border-gray-200 p-5">
-        <div class="rounded-xl mb-5 overflow-hidden relative">
+    <div class="bg-white rounded-xl border border-gray-200 p-5 h-full">
+        <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
             {{!-- <img src="./assets/images/r1.jpg"> --}}
              {{#if feature_image}}
                 <img src="{{feature_image}}" alt="{{title}}">
@@ -9,7 +9,7 @@
             {{/if}}
             {{!-- <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs"> 6 min read</div> --}}
                        <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
-                {{reading_time}} min read
+                {{reading_time}}
             </div>
         </div>
         <div class="recommended-post-item-content">
@@ -30,7 +30,7 @@
              <h2 class="text-lg font-semibold mb-4">{{title}}</h2>
             {{!-- <p class="text-base">Explore expert perspectives, emerging styles, and behind-the-scenes
                 stories that inspire the future of fashion.....</p> --}}
-                  <p class="text-base">{{excerpt}}</p>
+                  <p class="text-base break-all">{{excerpt}}</p>
         </div>
     </div>
 </div>
