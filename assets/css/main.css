@@ -84,3 +84,11 @@ img {
 .bg-secondary {
   background: #F8F8F8;
 }
+
+.recommended-post-wrapper.swiper {
+  padding-inline: inherit;
+}
+
+.recommended-post {
+  --media-height: 390px;
+}
