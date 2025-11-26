@@ -35,11 +35,49 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "config": {
-    "custom":{
-      "background_color":{
-        "type":"color",
-        "default":"#000000"
+"config": {
+    "custom": {
+      "header_background": {
+        "type": "color",
+        "default": "#ffffff",
+        "label": "Header Background Color"
+      },
+      "primary_background": {
+        "type": "color",
+        "default": "#000000",
+        "label": "Primary Background Color"
+      },
+      "primary_text": {
+        "type": "color",
+        "default": "#ffffff",
+        "label": "Primary Text Color"
+      },
+      "secondary_background": {
+        "type": "color",
+        "default": "#f5f5f5",
+        "label": "Secondary Background Color"
+      },
+      "secondary_text": {
+        "type": "color",
+        "default": "#333333",
+        "label": "Secondary Text Color"
+      },
+      "heading_font": {
+        "type": "select",
+        "options": ["Inter", "Roboto", "Poppins", "Open Sans", "Montserrat"],
+        "default": "Inter",
+        "label": "Heading Font"
+      },
+      "body_font": {
+        "type": "select",
+        "options": ["Inter", "Roboto", "Poppins", "Open Sans", "Montserrat"],
+        "default": "Inter",
+        "label": "Body Font"
+      },
+      "dark_mode": {
+        "type": "boolean",
+        "default": false,
+        "label": "Enable Dark Mode"
       }
     }
   }
