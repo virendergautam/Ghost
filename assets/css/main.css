@@ -31,6 +31,12 @@ body {
   background: var(--primaryBg, #fff);
 }
 
+#announcement-bar-root .gh-announcement-bar {
+  min-height: 40px;
+  padding: 5px 15px;
+  font-size: 14px;
+}
+
 h1,
 h2,
 h3,
