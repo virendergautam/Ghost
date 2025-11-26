@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{meta_title}}</title>
+    <link rel="preload" as="style" href="{{asset "./built/main.css"}}">
     <link rel="stylesheet" href="{{asset "./built/main.css"}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
@@ -11,7 +13,7 @@
             --bg:{{@custom.background_color}};
         }
     </style>
-    
+    {{ghost_head}}
 </head>
 
 <body class="bg-[var(--bg)] text-gray-900">
