@@ -1,0 +1,651 @@
+{{!< default}} <section class="rich-text">
+    <div class="container mx-auto px-4">
+        <div class="richtext-content text-center grid gap-y-6">
+            <h1 class="richtext-heading text-[64px] max-w-[1000px] mx-auto">Hello 👋, we are Shine exploring <span
+                    class="font-bold"> fashion, lifestyle and health.</span></h1>
+            <p class="text-xl max-w-2xl mx-auto">Get the email newsletter and unlock access to members-only content and
+                updates Shine is a modern classic blog theme for Ghost.</p>
+        </div>
+        <div class="w-full max-w-lg mx-auto mt-10">
+            <div class="flex items-center bg-slate-100 rounded-full h-[56px]">
+                <input type="email" placeholder="Enter your email"
+                    class="flex-1 bg-transparent outline-none px-4 py-2 text-gray-700" />
+
+                <button class="bg-blue-500 hover:bg-blue-600 text-white font-medium px-8 py-2 rounded-full h-[56px]">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+
+    </div>
+    </section>
+    {{#get "posts" filter="featured:true" limit="1" include="authors,tags"}}
+    {{#foreach posts}}
+    <section class="featured-blog py-20">
+        <div class="container mx-auto">
+            <div class="featured-blog-wrapper relative">
+                <div class="featured-blog-media rounded-2xl overflow-hidden h-[var(--media-height)]">
+                    {{!-- <img src="./assets/images/featured-blog.jpg" alt=""> --}}
+                    <img src="{{feature_image}}" alt="{{title}}" />
+                </div>
+                <div class="featured-blog-content absolute inset-0 p-8 flex flex-col justify-between">
+                    <div class="featured-blog-content-top flex items-center justify-between">
+                        <div class="card-tags">
+                            {{#foreach tags}}
+                            <a href="#" class="card-tag">{{name}}</a>
+                            {{/foreach}}
+                            {{!-- <a href="#" class="card-tag">
+                                Lifestyle
+                            </a>
+                            <a href="#" class="card-tag">
+                                Fashion
+                            </a> --}}
+                        </div>
+                        <div class="featured-card-meta flex gap-x-4 items-center">
+                            <div class="post-card-author flex gap-x-2 items-center">
+                                <a href="#"
+                                    class="post-card-author-img-link block w-[34px] h-[34px] rounded-full overflow-hidden">
+                                    {{!-- <img src="./assets/images/featured-blog.jpg" alt=""> --}}
+                                    <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}" />
+                                </a>
+                                <div class="post-card-author-name-wrapper text-white">
+                                    <span class="post-card-author-name">by {{primary_author.name}} /</span>
+                                    <span class="post-card-publish-date">{{date published_at format="MMMM DD, YYYY"}}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="post-card-time text-black bg-white rounded-full text-sm py-[6px] px-[10px]">
+                                {{reading_time}} min Read
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-blog-content-bottom max-w-[556px] flex items-start flex-col gap-y-6">
+                        <h2 class="text-5xl font-semibold text-white">{{title}}</h2>
+                        <p class="text-base text-white">{{excerpt}}</p>
+                        <a href="{{url}}"
+                            class="bg-black text-white px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
+                            Read More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{/foreach}}
+    {{/get}}
+    <section class="explore-tags">
+        <div class="container mx-auto">
+            <div class="explore-tags-wrapper">
+                <div class="explore-tags-header flex justify-between">
+                    <div class="explore-tag-heading">
+                        <h3 class="text-4xl font-semibold">Explore by tag</h3>
+                    </div>
+                    <div
+                        class="explore-tags-tag-list-wrapper flex gap-4 bg-white border border-gray-200 rounded-full p-[10px]">
+                        <button
+                            class="flex items-center gap-2 bg-gray-100 text-gray-800 px-5 py-2 rounded-full text-sm hover:bg-gray-200 tag-specific-card" data-tags="all">
+                            <span>
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path
+                                        d="M10.3217 0H0.86014C0.63202 0 0.41324 0.11493 0.25193 0.31952C0.09062 0.5241 0 0.80158 0 1.09091V10.9091C0 11.1984 0.09062 11.4759 0.25193 11.6805C0.41324 11.8851 0.63202 12 0.86014 12H10.3217C10.5498 12 10.7686 11.8851 10.9299 11.6805C11.0912 11.4759 11.1818 11.1984 11.1818 10.9091V1.09091C11.1818 0.80158 11.0912 0.5241 10.9299 0.31952C10.7686 0.11493 10.5498 0 10.3217 0ZM8.17132 8.7273H3.01049C2.89643 8.7273 2.78704 8.6698 2.70638 8.5675C2.62573 8.4652 2.58042 8.3265 2.58042 8.1818C2.58042 8.0372 2.62573 7.89842 2.70638 7.79612C2.78704 7.69383 2.89643 7.63636 3.01049 7.63636H8.17132C8.28542 7.63636 8.39482 7.69383 8.47542 7.79612C8.55612 7.89842 8.60142 8.0372 8.60142 8.1818C8.60142 8.3265 8.55612 8.4652 8.47542 8.5675C8.39482 8.6698 8.28542 8.7273 8.17132 8.7273ZM8.17132 6.54545H3.01049C2.89643 6.54545 2.78704 6.48799 2.70638 6.3857C2.62573 6.2834 2.58042 6.14466 2.58042 6C2.58042 5.85534 2.62573 5.7166 2.70638 5.61431C2.78704 5.51201 2.89643 5.45455 3.01049 5.45455H8.17132C8.28542 5.45455 8.39482 5.51201 8.47542 5.61431C8.55612 5.7166 8.60142 5.85534 8.60142 6C8.60142 6.14466 8.55612 6.2834 8.47542 6.3857C8.39482 6.48799 8.28542 6.54545 8.17132 6.54545ZM8.17132 4.36364H3.01049C2.89643 4.36364 2.78704 4.30617 2.70638 4.20388C2.62573 4.10158 2.58042 3.96285 2.58042 3.81818C2.58042 3.67352 2.62573 3.53478 2.70638 3.43249C2.78704 3.33019 2.89643 3.27273 3.01049 3.27273H8.17132C8.28542 3.27273 8.39482 3.33019 8.47542 3.43249C8.55612 3.53478 8.60142 3.67352 8.60142 3.81818C8.60142 3.96285 8.55612 4.10158 8.47542 4.20388C8.39482 4.30617 8.28542 4.36364 8.17132 4.36364Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </span> All
+                        </button>
+                        {{#get "tags" limit="all" include="count.posts"}}
+                        {{#foreach tags}}
+                        <button
+                            class="flex items-center gap-2 bg-gray-100 text-gray-800 px-5 py-2 rounded-full text-sm hover:bg-gray-200 tag-specific-card" data-tags="{{name}}" >
+                            <span>
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path
+                                        d="M10.3217 0H0.86014C0.63202 0 0.41324 0.11493 0.25193 0.31952C0.09062 0.5241 0 0.80158 0 1.09091V10.9091C0 11.1984 0.09062 11.4759 0.25193 11.6805C0.41324 11.8851 0.63202 12 0.86014 12H10.3217C10.5498 12 10.7686 11.8851 10.9299 11.6805C11.0912 11.4759 11.1818 11.1984 11.1818 10.9091V1.09091C11.1818 0.80158 11.0912 0.5241 10.9299 0.31952C10.7686 0.11493 10.5498 0 10.3217 0ZM8.17132 8.7273H3.01049C2.89643 8.7273 2.78704 8.6698 2.70638 8.5675C2.62573 8.4652 2.58042 8.3265 2.58042 8.1818C2.58042 8.0372 2.62573 7.89842 2.70638 7.79612C2.78704 7.69383 2.89643 7.63636 3.01049 7.63636H8.17132C8.28542 7.63636 8.39482 7.69383 8.47542 7.79612C8.55612 7.89842 8.60142 8.0372 8.60142 8.1818C8.60142 8.3265 8.55612 8.4652 8.47542 8.5675C8.39482 8.6698 8.28542 8.7273 8.17132 8.7273ZM8.17132 6.54545H3.01049C2.89643 6.54545 2.78704 6.48799 2.70638 6.3857C2.62573 6.2834 2.58042 6.14466 2.58042 6C2.58042 5.85534 2.62573 5.7166 2.70638 5.61431C2.78704 5.51201 2.89643 5.45455 3.01049 5.45455H8.17132C8.28542 5.45455 8.39482 5.51201 8.47542 5.61431C8.55612 5.7166 8.60142 5.85534 8.60142 6C8.60142 6.14466 8.55612 6.2834 8.47542 6.3857C8.39482 6.48799 8.28542 6.54545 8.17132 6.54545ZM8.17132 4.36364H3.01049C2.89643 4.36364 2.78704 4.30617 2.70638 4.20388C2.62573 4.10158 2.58042 3.96285 2.58042 3.81818C2.58042 3.67352 2.62573 3.53478 2.70638 3.43249C2.78704 3.33019 2.89643 3.27273 3.01049 3.27273H8.17132C8.28542 3.27273 8.39482 3.33019 8.47542 3.43249C8.55612 3.53478 8.60142 3.67352 8.60142 3.81818C8.60142 3.96285 8.55612 4.10158 8.47542 4.20388C8.39482 4.30617 8.28542 4.36364 8.17132 4.36364Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </span> {{name}}
+                        </button>
+                        {{/foreach}}
+                        {{/get}}
+                        {{!-- <button
+                            class="flex items-center gap-2 bg-black text-white px-5 py-2 rounded-full text-sm">
+                            <span><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path
+                                        d="M10.3217 0H0.86014C0.63202 0 0.41324 0.11493 0.25193 0.31952C0.09062 0.5241 0 0.80158 0 1.09091V10.9091C0 11.1984 0.09062 11.4759 0.25193 11.6805C0.41324 11.8851 0.63202 12 0.86014 12H10.3217C10.5498 12 10.7686 11.8851 10.9299 11.6805C11.0912 11.4759 11.1818 11.1984 11.1818 10.9091V1.09091C11.1818 0.80158 11.0912 0.5241 10.9299 0.31952C10.7686 0.11493 10.5498 0 10.3217 0ZM8.17132 8.7273H3.01049C2.89643 8.7273 2.78704 8.6698 2.70638 8.5675C2.62573 8.4652 2.58042 8.3265 2.58042 8.1818C2.58042 8.0372 2.62573 7.89842 2.70638 7.79612C2.78704 7.69383 2.89643 7.63636 3.01049 7.63636H8.17132C8.28542 7.63636 8.39482 7.69383 8.47542 7.79612C8.55612 7.89842 8.60142 8.0372 8.60142 8.1818C8.60142 8.3265 8.55612 8.4652 8.47542 8.5675C8.39482 8.6698 8.28542 8.7273 8.17132 8.7273ZM8.17132 6.54545H3.01049C2.89643 6.54545 2.78704 6.48799 2.70638 6.3857C2.62573 6.2834 2.58042 6.14466 2.58042 6C2.58042 5.85534 2.62573 5.7166 2.70638 5.61431C2.78704 5.51201 2.89643 5.45455 3.01049 5.45455H8.17132C8.28542 5.45455 8.39482 5.51201 8.47542 5.61431C8.55612 5.7166 8.60142 5.85534 8.60142 6C8.60142 6.14466 8.55612 6.2834 8.47542 6.3857C8.39482 6.48799 8.28542 6.54545 8.17132 6.54545ZM8.17132 4.36364H3.01049C2.89643 4.36364 2.78704 4.30617 2.70638 4.20388C2.62573 4.10158 2.58042 3.96285 2.58042 3.81818C2.58042 3.67352 2.62573 3.53478 2.70638 3.43249C2.78704 3.33019 2.89643 3.27273 3.01049 3.27273H8.17132C8.28542 3.27273 8.39482 3.33019 8.47542 3.43249C8.55612 3.53478 8.60142 3.67352 8.60142 3.81818C8.60142 3.96285 8.55612 4.10158 8.47542 4.20388C8.39482 4.30617 8.28542 4.36364 8.17132 4.36364Z"
+                                        fill="currentColor" />
+                                </svg></span> Fashion
+                        </button>
+                        <button
+                            class="flex items-center gap-2 bg-gray-100 text-gray-800 px-5 py-2 rounded-full text-sm hover:bg-gray-200">
+                            <span><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path
+                                        d="M10.3217 0H0.86014C0.63202 0 0.41324 0.11493 0.25193 0.31952C0.09062 0.5241 0 0.80158 0 1.09091V10.9091C0 11.1984 0.09062 11.4759 0.25193 11.6805C0.41324 11.8851 0.63202 12 0.86014 12H10.3217C10.5498 12 10.7686 11.8851 10.9299 11.6805C11.0912 11.4759 11.1818 11.1984 11.1818 10.9091V1.09091C11.1818 0.80158 11.0912 0.5241 10.9299 0.31952C10.7686 0.11493 10.5498 0 10.3217 0ZM8.17132 8.7273H3.01049C2.89643 8.7273 2.78704 8.6698 2.70638 8.5675C2.62573 8.4652 2.58042 8.3265 2.58042 8.1818C2.58042 8.0372 2.62573 7.89842 2.70638 7.79612C2.78704 7.69383 2.89643 7.63636 3.01049 7.63636H8.17132C8.28542 7.63636 8.39482 7.69383 8.47542 7.79612C8.55612 7.89842 8.60142 8.0372 8.60142 8.1818C8.60142 8.3265 8.55612 8.4652 8.47542 8.5675C8.39482 8.6698 8.28542 8.7273 8.17132 8.7273ZM8.17132 6.54545H3.01049C2.89643 6.54545 2.78704 6.48799 2.70638 6.3857C2.62573 6.2834 2.58042 6.14466 2.58042 6C2.58042 5.85534 2.62573 5.7166 2.70638 5.61431C2.78704 5.51201 2.89643 5.45455 3.01049 5.45455H8.17132C8.28542 5.45455 8.39482 5.51201 8.47542 5.61431C8.55612 5.7166 8.60142 5.85534 8.60142 6C8.60142 6.14466 8.55612 6.2834 8.47542 6.3857C8.39482 6.48799 8.28542 6.54545 8.17132 6.54545ZM8.17132 4.36364H3.01049C2.89643 4.36364 2.78704 4.30617 2.70638 4.20388C2.62573 4.10158 2.58042 3.96285 2.58042 3.81818C2.58042 3.67352 2.62573 3.53478 2.70638 3.43249C2.78704 3.33019 2.89643 3.27273 3.01049 3.27273H8.17132C8.28542 3.27273 8.39482 3.33019 8.47542 3.43249C8.55612 3.53478 8.60142 3.67352 8.60142 3.81818C8.60142 3.96285 8.55612 4.10158 8.47542 4.20388C8.39482 4.30617 8.28542 4.36364 8.17132 4.36364Z"
+                                        fill="currentColor" />
+                                </svg></span> Travel
+                        </button>
+                        <button
+                            class="flex items-center gap-2 bg-gray-100 text-gray-800 px-5 py-2 rounded-full text-sm hover:bg-gray-200">
+                            <span><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path
+                                        d="M10.3217 0H0.86014C0.63202 0 0.41324 0.11493 0.25193 0.31952C0.09062 0.5241 0 0.80158 0 1.09091V10.9091C0 11.1984 0.09062 11.4759 0.25193 11.6805C0.41324 11.8851 0.63202 12 0.86014 12H10.3217C10.5498 12 10.7686 11.8851 10.9299 11.6805C11.0912 11.4759 11.1818 11.1984 11.1818 10.9091V1.09091C11.1818 0.80158 11.0912 0.5241 10.9299 0.31952C10.7686 0.11493 10.5498 0 10.3217 0ZM8.17132 8.7273H3.01049C2.89643 8.7273 2.78704 8.6698 2.70638 8.5675C2.62573 8.4652 2.58042 8.3265 2.58042 8.1818C2.58042 8.0372 2.62573 7.89842 2.70638 7.79612C2.78704 7.69383 2.89643 7.63636 3.01049 7.63636H8.17132C8.28542 7.63636 8.39482 7.69383 8.47542 7.79612C8.55612 7.89842 8.60142 8.0372 8.60142 8.1818C8.60142 8.3265 8.55612 8.4652 8.47542 8.5675C8.39482 8.6698 8.28542 8.7273 8.17132 8.7273ZM8.17132 6.54545H3.01049C2.89643 6.54545 2.78704 6.48799 2.70638 6.3857C2.62573 6.2834 2.58042 6.14466 2.58042 6C2.58042 5.85534 2.62573 5.7166 2.70638 5.61431C2.78704 5.51201 2.89643 5.45455 3.01049 5.45455H8.17132C8.28542 5.45455 8.39482 5.51201 8.47542 5.61431C8.55612 5.7166 8.60142 5.85534 8.60142 6C8.60142 6.14466 8.55612 6.2834 8.47542 6.3857C8.39482 6.48799 8.28542 6.54545 8.17132 6.54545ZM8.17132 4.36364H3.01049C2.89643 4.36364 2.78704 4.30617 2.70638 4.20388C2.62573 4.10158 2.58042 3.96285 2.58042 3.81818C2.58042 3.67352 2.62573 3.53478 2.70638 3.43249C2.78704 3.33019 2.89643 3.27273 3.01049 3.27273H8.17132C8.28542 3.27273 8.39482 3.33019 8.47542 3.43249C8.55612 3.53478 8.60142 3.67352 8.60142 3.81818C8.60142 3.96285 8.55612 4.10158 8.47542 4.20388C8.39482 4.30617 8.28542 4.36364 8.17132 4.36364Z"
+                                        fill="currentColor" />
+                                </svg></span> Food
+                        </button>
+                        <button
+                            class="flex items-center gap-2 bg-gray-100 text-gray-800 px-5 py-2 rounded-full text-sm hover:bg-gray-200">
+                            <span><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path
+                                        d="M10.3217 0H0.86014C0.63202 0 0.41324 0.11493 0.25193 0.31952C0.09062 0.5241 0 0.80158 0 1.09091V10.9091C0 11.1984 0.09062 11.4759 0.25193 11.6805C0.41324 11.8851 0.63202 12 0.86014 12H10.3217C10.5498 12 10.7686 11.8851 10.9299 11.6805C11.0912 11.4759 11.1818 11.1984 11.1818 10.9091V1.09091C11.1818 0.80158 11.0912 0.5241 10.9299 0.31952C10.7686 0.11493 10.5498 0 10.3217 0ZM8.17132 8.7273H3.01049C2.89643 8.7273 2.78704 8.6698 2.70638 8.5675C2.62573 8.4652 2.58042 8.3265 2.58042 8.1818C2.58042 8.0372 2.62573 7.89842 2.70638 7.79612C2.78704 7.69383 2.89643 7.63636 3.01049 7.63636H8.17132C8.28542 7.63636 8.39482 7.69383 8.47542 7.79612C8.55612 7.89842 8.60142 8.0372 8.60142 8.1818C8.60142 8.3265 8.55612 8.4652 8.47542 8.5675C8.39482 8.6698 8.28542 8.7273 8.17132 8.7273ZM8.17132 6.54545H3.01049C2.89643 6.54545 2.78704 6.48799 2.70638 6.3857C2.62573 6.2834 2.58042 6.14466 2.58042 6C2.58042 5.85534 2.62573 5.7166 2.70638 5.61431C2.78704 5.51201 2.89643 5.45455 3.01049 5.45455H8.17132C8.28542 5.45455 8.39482 5.51201 8.47542 5.61431C8.55612 5.7166 8.60142 5.85534 8.60142 6C8.60142 6.14466 8.55612 6.2834 8.47542 6.3857C8.39482 6.48799 8.28542 6.54545 8.17132 6.54545ZM8.17132 4.36364H3.01049C2.89643 4.36364 2.78704 4.30617 2.70638 4.20388C2.62573 4.10158 2.58042 3.96285 2.58042 3.81818C2.58042 3.67352 2.62573 3.53478 2.70638 3.43249C2.78704 3.33019 2.89643 3.27273 3.01049 3.27273H8.17132C8.28542 3.27273 8.39482 3.33019 8.47542 3.43249C8.55612 3.53478 8.60142 3.67352 8.60142 3.81818C8.60142 3.96285 8.55612 4.10158 8.47542 4.20388C8.39482 4.30617 8.28542 4.36364 8.17132 4.36364Z"
+                                        fill="currentColor" />
+                                </svg></span> Health
+                        </button> --}}
+                    </div>
+                </div>
+                <div class="w-full overflow-x-auto mt-[30px]">
+                    <div class="grid grid-cols-5 gap-4">
+ {{#get "posts" include="tags,authors" limit="all"}}  
+  {{#foreach posts}}
+                        <div
+                            class="flex items-center justify-between text-black rounded-3xl p-3 border border-gray-200 tag-specifc-post" data-tags="{{#foreach tags}}{{slug}}{{#unless @last}},{{/unless}}{{/foreach}}">
+                            <div class="flex items-center gap-4">
+                                <div class="min-w-[95px] w-[95px]  h-[95px] rounded-2xl object-cover overflow-hidden">
+                                    <img src="{{feature_image}}" alt="{{title}}" />
+                                </div>
+                                <div class="flex items-end">
+                                    <div class="grid gap-y-2">
+                                        <h3 class="text-lg font-semibold">{{title}}</h3>
+                                        {{!-- <p class="text-sm text-black">4 article</p> --}}
+                                    </div>
+                                    <button
+                                        class="min-w-[36px] w-[36px] h-[36px] flex items-center justify-center rounded-full bg-gray-100">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                            <path
+                                                d="M0.21967 8.21967C-0.0732233 8.51256 -0.0732233 8.98744 0.21967 9.28033C0.512563 9.57322 0.987437 9.57322 1.28033 9.28033L0.75 8.75L0.21967 8.21967ZM9.5 0.750001C9.5 0.335788 9.16421 1.10029e-06 8.75 1.2478e-06L2 8.26335e-07C1.58579 8.26335e-07 1.25 0.335787 1.25 0.750001C1.25 1.16421 1.58579 1.5 2 1.5H8V7.5C8 7.91421 8.33579 8.25 8.75 8.25C9.16421 8.25 9.5 7.91421 9.5 7.5L9.5 0.750001ZM0.75 8.75L1.28033 9.28033L9.28033 1.28033L8.75 0.750001L8.21967 0.219671L0.21967 8.21967L0.75 8.75Z"
+                                                fill="currentColor" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+        {{/foreach}}                      
+                        {{/get}}
+                        {{!-- <div
+                            class="flex items-center justify-between text-black rounded-3xl p-3 border border-gray-200">
+                            <div class="flex items-center gap-4">
+                                <div class="min-w-[95px] w-[95px]  h-[95px] rounded-2xl object-cover overflow-hidden">
+                                    <img src="./assets/images/featured-blog.jpg" />
+                                </div>
+                                <div class="flex items-end">
+                                    <div class="grid gap-y-2">
+                                        <h3 class="text-lg font-semibold">Beyond The Runway</h3>
+                                        <p class="text-sm text-black">4 article</p>
+                                    </div>
+                                    <button
+                                        class="min-w-[36px] w-[36px] h-[36px] flex items-center justify-center rounded-full bg-gray-100">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                            <path
+                                                d="M0.21967 8.21967C-0.0732233 8.51256 -0.0732233 8.98744 0.21967 9.28033C0.512563 9.57322 0.987437 9.57322 1.28033 9.28033L0.75 8.75L0.21967 8.21967ZM9.5 0.750001C9.5 0.335788 9.16421 1.10029e-06 8.75 1.2478e-06L2 8.26335e-07C1.58579 8.26335e-07 1.25 0.335787 1.25 0.750001C1.25 1.16421 1.58579 1.5 2 1.5H8V7.5C8 7.91421 8.33579 8.25 8.75 8.25C9.16421 8.25 9.5 7.91421 9.5 7.5L9.5 0.750001ZM0.75 8.75L1.28033 9.28033L9.28033 1.28033L8.75 0.750001L8.21967 0.219671L0.21967 8.21967L0.75 8.75Z"
+                                                fill="currentColor" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex items-center justify-between text-black rounded-3xl p-3 border border-gray-200">
+                            <div class="flex items-center gap-4">
+                                <div class="min-w-[95px] w-[95px]  h-[95px] rounded-2xl object-cover overflow-hidden">
+                                    <img src="./assets/images/featured-blog.jpg" />
+                                </div>
+                                <div class="flex items-end">
+                                    <div class="grid gap-y-2">
+                                        <h3 class="text-lg font-semibold">Beyond The Runway</h3>
+                                        <p class="text-sm text-black">4 article</p>
+                                    </div>
+                                    <button
+                                        class="min-w-[36px] w-[36px] h-[36px] flex items-center justify-center rounded-full bg-gray-100">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                            <path
+                                                d="M0.21967 8.21967C-0.0732233 8.51256 -0.0732233 8.98744 0.21967 9.28033C0.512563 9.57322 0.987437 9.57322 1.28033 9.28033L0.75 8.75L0.21967 8.21967ZM9.5 0.750001C9.5 0.335788 9.16421 1.10029e-06 8.75 1.2478e-06L2 8.26335e-07C1.58579 8.26335e-07 1.25 0.335787 1.25 0.750001C1.25 1.16421 1.58579 1.5 2 1.5H8V7.5C8 7.91421 8.33579 8.25 8.75 8.25C9.16421 8.25 9.5 7.91421 9.5 7.5L9.5 0.750001ZM0.75 8.75L1.28033 9.28033L9.28033 1.28033L8.75 0.750001L8.21967 0.219671L0.21967 8.21967L0.75 8.75Z"
+                                                fill="currentColor" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex items-center justify-between text-black rounded-3xl p-3 border border-gray-200">
+                            <div class="flex items-center gap-4">
+                                <div class="min-w-[95px] w-[95px]  h-[95px] rounded-2xl object-cover overflow-hidden">
+                                    <img src="./assets/images/featured-blog.jpg" />
+                                </div>
+                                <div class="flex items-end">
+                                    <div class="grid gap-y-2">
+                                        <h3 class="text-lg font-semibold">Beyond The Runway</h3>
+                                        <p class="text-sm text-black">4 article</p>
+                                    </div>
+                                    <button
+                                        class="min-w-[36px] w-[36px] h-[36px] flex items-center justify-center rounded-full bg-gray-100">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                            <path
+                                                d="M0.21967 8.21967C-0.0732233 8.51256 -0.0732233 8.98744 0.21967 9.28033C0.512563 9.57322 0.987437 9.57322 1.28033 9.28033L0.75 8.75L0.21967 8.21967ZM9.5 0.750001C9.5 0.335788 9.16421 1.10029e-06 8.75 1.2478e-06L2 8.26335e-07C1.58579 8.26335e-07 1.25 0.335787 1.25 0.750001C1.25 1.16421 1.58579 1.5 2 1.5H8V7.5C8 7.91421 8.33579 8.25 8.75 8.25C9.16421 8.25 9.5 7.91421 9.5 7.5L9.5 0.750001ZM0.75 8.75L1.28033 9.28033L9.28033 1.28033L8.75 0.750001L8.21967 0.219671L0.21967 8.21967L0.75 8.75Z"
+                                                fill="currentColor" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex items-center justify-between text-black rounded-3xl p-3 border border-gray-200">
+                            <div class="flex items-center gap-4">
+                                <div class="min-w-[95px] w-[95px]  h-[95px] rounded-2xl object-cover overflow-hidden">
+                                    <img src="./assets/images/featured-blog.jpg" />
+                                </div>
+                                <div class="flex items-end">
+                                    <div class="grid gap-y-2">
+                                        <h3 class="text-lg font-semibold">Beyond The Runway</h3>
+                                        <p class="text-sm text-black">4 article</p>
+                                    </div>
+                                    <button
+                                        class="min-w-[36px] w-[36px] h-[36px] flex items-center justify-center rounded-full bg-gray-100">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                            <path
+                                                d="M0.21967 8.21967C-0.0732233 8.51256 -0.0732233 8.98744 0.21967 9.28033C0.512563 9.57322 0.987437 9.57322 1.28033 9.28033L0.75 8.75L0.21967 8.21967ZM9.5 0.750001C9.5 0.335788 9.16421 1.10029e-06 8.75 1.2478e-06L2 8.26335e-07C1.58579 8.26335e-07 1.25 0.335787 1.25 0.750001C1.25 1.16421 1.58579 1.5 2 1.5H8V7.5C8 7.91421 8.33579 8.25 8.75 8.25C9.16421 8.25 9.5 7.91421 9.5 7.5L9.5 0.750001ZM0.75 8.75L1.28033 9.28033L9.28033 1.28033L8.75 0.750001L8.21967 0.219671L0.21967 8.21967L0.75 8.75Z"
+                                                fill="currentColor" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex items-center justify-between text-black rounded-3xl p-3 border border-gray-200">
+                            <div class="flex items-center gap-4">
+                                <div class="min-w-[95px] w-[95px]  h-[95px] rounded-2xl object-cover overflow-hidden">
+                                    <img src="./assets/images/featured-blog.jpg" />
+                                </div>
+                                <div class="flex items-end">
+                                    <div class="grid gap-y-2">
+                                        <h3 class="text-lg font-semibold">Beyond The Runway</h3>
+                                        <p class="text-sm text-black">4 article</p>
+                                    </div>
+                                    <button
+                                        class="min-w-[36px] w-[36px] h-[36px] flex items-center justify-center rounded-full bg-gray-100">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                            <path
+                                                d="M0.21967 8.21967C-0.0732233 8.51256 -0.0732233 8.98744 0.21967 9.28033C0.512563 9.57322 0.987437 9.57322 1.28033 9.28033L0.75 8.75L0.21967 8.21967ZM9.5 0.750001C9.5 0.335788 9.16421 1.10029e-06 8.75 1.2478e-06L2 8.26335e-07C1.58579 8.26335e-07 1.25 0.335787 1.25 0.750001C1.25 1.16421 1.58579 1.5 2 1.5H8V7.5C8 7.91421 8.33579 8.25 8.75 8.25C9.16421 8.25 9.5 7.91421 9.5 7.5L9.5 0.750001ZM0.75 8.75L1.28033 9.28033L9.28033 1.28033L8.75 0.750001L8.21967 0.219671L0.21967 8.21967L0.75 8.75Z"
+                                                fill="currentColor" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div> --}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="blog-posts py-20">
+        <div class="container mx-auto">
+            <div class="blog-posts-wrapper grid grid-cols-2 gap-x-[25px]">
+                {{#get "posts" filter="featured:true" limit="1" include="authors,tags"}}
+                {{#foreach posts}}
+                <div class="relative rounded-3xl overflow-hidden">
+                    <div class="min-h-[var(--media-height)] h-full">
+                        {{!-- <img src="./assets/images/featured-blog.jpg" /> --}}
+                        <img src="{{feature_image}}" alt="{{title}}" />
+
+                    </div>
+                    <!-- Overlay -->
+                    <div class="absolute inset-0 bg-black/40"></div>
+                    <!-- Content -->
+                    <div class="absolute inset-0 p-8 text-white flex flex-col justify-between">
+                        <div class="card-tags">
+                            {{#foreach tags}}
+                            <a href="#" class="card-tag">{{name}}</a>
+                            {{/foreach}}
+                            {{!-- <span class="card-tag">Lifestyle</span>
+                            <span class="card-tag">Fashion</span> --}}
+                        </div>
+                        <div class="">
+                            <h1 class="text-4xl font-semibold mb-6">
+                                {{title}}
+                            </h1>
+
+                            <p class="text-base max-w-xl mb-4">
+                                {{excerpt}}
+                            </p>
+
+                            <!-- Author -->
+                            <div class="flex items-center gap-3 text-sm">
+                                <div class="post-card-author-img w-[34px] h-[34px] rounded-full overflow-hidden">
+                                    {{!-- <img src="https://randomuser.me/api/portraits/women/32.jpg" /> --}}
+                                    <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}" />
+
+                                </div>
+                                <span>by {{primary_author.name}} / {{date published_at format="MMMM DD, YYYY"}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/foreach}}
+                {{/get}}
+                <!-- RIGHT COLUMN -->
+                <div class="space-y-6">
+                    <h2 class="text-xl font-semibold mb-3">Featured Article</h2>
+                    {{#get "posts" filter="featured:true" limit="3" include="authors,tags" }}
+                    {{#foreach posts}}
+                    {{#unless @first}}
+                    {{>"featuredArticleCard"}}
+                    {{/unless}}
+                    {{/foreach}}
+                    {{/get}}
+
+                    <!-- Small Article Card -->
+                    {{!-- <div class="flex gap-4 border border-gray-200 rounded-2xl p-5 items-start">
+                        <div class="w-[var(--media-width)] h-[155px] rounded-2xl overflow-hidden">
+                            <img src="./assets/images/featured-blog.jpg" />
+                        </div>
+                        <div class="flex-1">
+                            <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Health</span>
+                            <h6 class="mt-[10px] text-xl font-semibold">
+                                The mind and body are not separate. what affects one,
+                                affects the other. what affects one, affects the other.
+                            </h6>
+                            <div class="flex items-center gap-2 mt-5 text-sm text-black">
+                                <div class="w-[34px] h-[34px] rounded-full overflow-hidden">
+                                    <img src="./assets/images/featured-blog.jpg" />
+                                </div>
+                                <span>by Breana Flatley / November 14, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Small Article Card -->
+                    <div class="flex gap-4 border border-gray-200 rounded-2xl p-5 items-start">
+                        <div class="w-[var(--media-width)] h-[155px] rounded-2xl overflow-hidden">
+                            <img src="./assets/images/featured-blog.jpg" />
+                        </div>
+                        <div class="flex-1">
+                            <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Health</span>
+                            <h6 class="mt-[10px] text-xl font-semibold">
+                                The mind and body are not separate. what affects one,
+                                affects the other. what affects one, affects the other.
+                            </h6>
+                            <div class="flex items-center gap-2 mt-5 text-sm text-black">
+                                <div class="w-[34px] h-[34px] rounded-full overflow-hidden">
+                                    <img src="./assets/images/featured-blog.jpg" />
+                                </div>
+                                <span>by Breana Flatley / November 14, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Small Article Card -->
+                    <div class="flex gap-4 border border-gray-200 rounded-2xl p-5 items-start">
+                        <div class="w-[var(--media-width)] h-[155px] rounded-2xl overflow-hidden">
+                            <img src="./assets/images/featured-blog.jpg" />
+                        </div>
+                        <div class="flex-1">
+                            <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Health</span>
+                            <h6 class="mt-[10px] text-xl font-semibold">
+                                The mind and body are not separate. what affects one,
+                                affects the other. what affects one, affects the other.
+                            </h6>
+                            <div class="flex items-center gap-2 mt-5 text-sm text-black">
+                                <div class="w-[34px] h-[34px] rounded-full overflow-hidden">
+                                    <img src="./assets/images/featured-blog.jpg" />
+                                </div>
+                                <span>by Breana Flatley / November 14, 2025</span>
+                            </div>
+                        </div>
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="recommended-post bg-secondary py-15">
+        <div class="container mx-auto">
+            <div class="recommended-post-header flex justify-between mb-8">
+                <h2 class="text-4xl font-semibold">Recommended Post Article </h2>
+                <a href="#" class="flex items-center gap-x-2 text-base font-medium">View All
+                    <svg width="13" height="12" viewBox="0 0 13 12" fill="none">
+                        <path
+                            d="M0.75 4.77344C0.335786 4.77344 0 5.10922 0 5.52344C0 5.93765 0.335786 6.27344 0.75 6.27344V5.52344V4.77344ZM12.594 6.05377C12.8869 5.76087 12.8869 5.286 12.594 4.99311L7.82107 0.220137C7.52817 -0.0727568 7.0533 -0.0727568 6.76041 0.220137C6.46751 0.51303 6.46751 0.987904 6.76041 1.2808L11.003 5.52344L6.76041 9.76608C6.46751 10.059 6.46751 10.5338 6.76041 10.8267C7.0533 11.1196 7.52817 11.1196 7.82107 10.8267L12.594 6.05377ZM0.75 5.52344V6.27344L12.0637 6.27344V5.52344V4.77344L0.75 4.77344V5.52344Z"
+                            fill="#1F1E1E" />
+                    </svg>
+                </a>
+            </div>
+            <div class="recommended-post-wrapper swiper mySwiper2">
+                <div class="swiper-wrapper">
+                    {{#foreach posts}}
+                    {{>"postCard"}}
+                    {{/foreach}}
+
+                    <div class="recommended-post-item swiper-slide">
+                        <div class="bg-white rounded-xl border border-gray-200 p-5">
+                            <div class="rounded-xl mb-5 overflow-hidden relative">
+                                <img src="./assets/images/r1.jpg">
+                                <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs"> 6
+                                    min read</div>
+                            </div>
+                            <div class="recommended-post-item-content">
+                                <div class="recommended-post-meta flex items-center gap-[10px] mb-4">
+                                    <span
+                                        class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">Category</span>
+                                    <span class="recommended-post-date text-xs text-black">November 14, 2025 </span>
+                                </div>
+                                <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New Experience</h2>
+                                <p class="text-base">Explore expert perspectives, emerging styles, and behind-the-scenes
+                                    stories that inspire the future of fashion.....</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommended-post-item swiper-slide">
+                        <div class="bg-white rounded-xl border border-gray-200 p-5">
+                            <div class="rounded-xl mb-5 overflow-hidden relative">
+                                <img src="./assets/images/r2.jpg">
+                                <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs"> 6
+                                    min read</div>
+                            </div>
+                            <div class="recommended-post-item-content">
+                                <div class="recommended-post-meta flex items-center gap-[10px] mb-4">
+                                    <span
+                                        class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">Category</span>
+                                    <span class="recommended-post-date text-xs text-black">November 14, 2025 </span>
+                                </div>
+                                <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New Experience</h2>
+                                <p class="text-base">Explore expert perspectives, emerging styles, and behind-the-scenes
+                                    stories that inspire the future of fashion.....</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommended-post-item swiper-slide">
+                        <div class="bg-white rounded-xl border border-gray-200 p-5">
+                            <div class="rounded-xl mb-5 overflow-hidden relative">
+                                <img src="./assets/images/r3.jpg">
+                                <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs"> 6
+                                    min read</div>
+                            </div>
+                            <div class="recommended-post-item-content">
+                                <div class="recommended-post-meta flex items-center gap-[10px] mb-4">
+                                    <span
+                                        class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">Category</span>
+                                    <span class="recommended-post-date text-xs text-black">November 14, 2025 </span>
+                                </div>
+                                <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New Experience</h2>
+                                <p class="text-base">Explore expert perspectives, emerging styles, and behind-the-scenes
+                                    stories that inspire the future of fashion.....</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommended-post-item swiper-slide">
+                        <div class="bg-white rounded-xl border border-gray-200 p-5">
+                            <div class="rounded-xl mb-5 overflow-hidden relative">
+                                <img src="./assets/images/r4.jpg">
+                                <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs"> 6
+                                    min read</div>
+                            </div>
+                            <div class="recommended-post-item-content">
+                                <div class="recommended-post-meta flex items-center gap-[10px] mb-4">
+                                    <span
+                                        class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">Category</span>
+                                    <span class="recommended-post-date text-xs text-black">November 14, 2025 </span>
+                                </div>
+                                <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New Experience</h2>
+                                <p class="text-base">Explore expert perspectives, emerging styles, and behind-the-scenes
+                                    stories that inspire the future of fashion.....</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommended-post-item swiper-slide">
+                        <div class="bg-white rounded-xl border border-gray-200 p-5">
+                            <div class="rounded-xl mb-5 overflow-hidden relative">
+                                <img src="./assets/images/r1.jpg">
+                                <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs"> 6
+                                    min read</div>
+                            </div>
+                            <div class="recommended-post-item-content">
+                                <div class="recommended-post-meta flex items-center gap-[10px] mb-4">
+                                    <span
+                                        class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">Category</span>
+                                    <span class="recommended-post-date text-xs text-black">November 14, 2025 </span>
+                                </div>
+                                <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New Experience</h2>
+                                <p class="text-base">Explore expert perspectives, emerging styles, and behind-the-scenes
+                                    stories that inspire the future of fashion.....</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="swiper-navigation flex justify-between gap-3 absolute inset-0 items-center z-10 pointer-events-none">
+                    <button id="rec-swiper-btn-prev" type="button"
+                        class="swiper-nav-prev swiper-button cursor-pointer w-[40px] h-[40px] border border-gray-300 bg-gray-200 rounded-full flex items-center justify-center pointer-events-auto">
+                        <svg width="15" height="12" viewBox="0 0 15 12" fill="none">
+                            <path
+                                d="M13.3203 4.77344C13.7345 4.77344 14.0703 5.10922 14.0703 5.52344C14.0703 5.93765 13.7345 6.27344 13.3203 6.27344V5.52344V4.77344ZM0.219195 6.05377C-0.073698 5.76087 -0.073698 5.286 0.219195 4.99311L4.99217 0.220137C5.28506 -0.0727568 5.75993 -0.0727568 6.05283 0.220137C6.34572 0.51303 6.34572 0.987904 6.05283 1.2808L1.81019 5.52344L6.05283 9.76608C6.34572 10.059 6.34572 10.5338 6.05283 10.8267C5.75993 11.1196 5.28506 11.1196 4.99217 10.8267L0.219195 6.05377ZM13.3203 5.52344V6.27344L0.749525 6.27344V5.52344V4.77344L13.3203 4.77344V5.52344Z"
+                                fill="#252525" />
+                        </svg>
+                    </button>
+                    <button id="rec-swiper-btn-next" type="button"
+                        class="swiper-nav-next swiper-button cursor-pointer w-[40px] h-[40px] border border-gray-300 bg-gray-200 rounded-full flex items-center justify-center pointer-events-auto">
+                        <svg width="15" height="12" viewBox="0 0 15 12" fill="none">
+                            <path
+                                d="M0.75 4.77344C0.335786 4.77344 0 5.10922 0 5.52344C0 5.93765 0.335786 6.27344 0.75 6.27344V5.52344V4.77344ZM13.8511 6.05377C14.144 5.76087 14.144 5.286 13.8511 4.99311L9.07815 0.220137C8.78525 -0.0727568 8.31038 -0.0727568 8.01749 0.220137C7.72459 0.51303 7.72459 0.987904 8.01749 1.2808L12.2601 5.52344L8.01749 9.76608C7.72459 10.059 7.72459 10.5338 8.01749 10.8267C8.31038 11.1196 8.78525 11.1196 9.07815 10.8267L13.8511 6.05377ZM0.75 5.52344V6.27344L13.3208 6.27344V5.52344V4.77344L0.75 4.77344V5.52344Z"
+                                fill="#252525" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="team-section py-15">
+        <div class="container mx-auto">
+            <div class="team-header flex justify-between mb-8">
+                <div class="team-heading">
+                    <h2 class="text-4xl font-semibold">Meet The Team</h2>
+                </div>
+                <div class="swiper-navigation flex gap-3">
+                    <button id="team-swiper-btn-prev" type="button"
+                        class="swiper-nav-prev swiper-button cursor-pointer w-[40px] h-[40px] border border-gray-300 bg-gray-200 rounded-full flex items-center justify-center">
+                        <svg width="15" height="12" viewBox="0 0 15 12" fill="none">
+                            <path
+                                d="M13.3203 4.77344C13.7345 4.77344 14.0703 5.10922 14.0703 5.52344C14.0703 5.93765 13.7345 6.27344 13.3203 6.27344V5.52344V4.77344ZM0.219195 6.05377C-0.073698 5.76087 -0.073698 5.286 0.219195 4.99311L4.99217 0.220137C5.28506 -0.0727568 5.75993 -0.0727568 6.05283 0.220137C6.34572 0.51303 6.34572 0.987904 6.05283 1.2808L1.81019 5.52344L6.05283 9.76608C6.34572 10.059 6.34572 10.5338 6.05283 10.8267C5.75993 11.1196 5.28506 11.1196 4.99217 10.8267L0.219195 6.05377ZM13.3203 5.52344V6.27344L0.749525 6.27344V5.52344V4.77344L13.3203 4.77344V5.52344Z"
+                                fill="#252525" />
+                        </svg>
+                    </button>
+                    <button id="team-swiper-btn-next" type="button"
+                        class="swiper-nav-next swiper-button cursor-pointer w-[40px] h-[40px] border border-gray-300 bg-gray-200 rounded-full flex items-center justify-center">
+                        <svg width="15" height="12" viewBox="0 0 15 12" fill="none">
+                            <path
+                                d="M0.75 4.77344C0.335786 4.77344 0 5.10922 0 5.52344C0 5.93765 0.335786 6.27344 0.75 6.27344V5.52344V4.77344ZM13.8511 6.05377C14.144 5.76087 14.144 5.286 13.8511 4.99311L9.07815 0.220137C8.78525 -0.0727568 8.31038 -0.0727568 8.01749 0.220137C7.72459 0.51303 7.72459 0.987904 8.01749 1.2808L12.2601 5.52344L8.01749 9.76608C7.72459 10.059 7.72459 10.5338 8.01749 10.8267C8.31038 11.1196 8.78525 11.1196 9.07815 10.8267L13.8511 6.05377ZM0.75 5.52344V6.27344L13.3208 6.27344V5.52344V4.77344L0.75 4.77344V5.52344Z"
+                                fill="#252525" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="flex items-center justify-center gap-10 overflow-x-auto py-8 swiper mySwiper">
+                <div class="swiper-wrapper">
+
+                    {{#get "authors" limit="all"}}
+                    {{#foreach authors}}
+                    <div class="text-center swiper-slide">
+                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                            <img src="{{profile_image}}" alt="{{name}}" class="rounded-full" />
+                        </div>
+                        <h6 class="mt-2 text-base font-semibold">{{name}}</h6>
+                    </div>
+                    {{/foreach}}
+                    {{/get}}
+
+                    <div class="text-center swiper-slide">
+                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                            <img src="./assets/images/team1.jpg" class="rounded-full" />
+                        </div>
+                        <h6 class="mt-2 text-base font-semibold">James Anderson</h6>
+                    </div>
+                    <div class="text-center swiper-slide">
+                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                            <img src="./assets/images/team2.jpg" class="rounded-full" />
+                        </div>
+                        <h6 class="mt-2 text-base font-semibold">David Thompson</h6>
+                    </div>
+                    <div class="text-center swiper-slide">
+                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                            <img src="./assets/images/team3.jpg" class="rounded-full" />
+                        </div>
+                        <h6 class="mt-2 text-base font-semibold">Michael Carter</h6>
+                    </div>
+                    <div class="text-center swiper-slide">
+                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                            <img src="./assets/images/team4.jpg" class="rounded-full" />
+                        </div>
+                        <h6 class="mt-2 text-base font-semibold">William Harris</h6>
+                    </div>
+                    <div class="text-center swiper-slide">
+                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                            <img src="./assets/images/team5.jpg" class="rounded-full" />
+                        </div>
+                        <h6 class="mt-2 text-base font-semibold">Sarah Miller</h6>
+                    </div>
+                    <div class="text-center swiper-slide">
+                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                            <img src="./assets/images/team6.jpg" class="rounded-full" />
+                        </div>
+                        <h6 class="mt-2 text-base font-semibold">Taylor Brooks</h6>
+                    </div>
+                    <div class="text-center swiper-slide">
+                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                            <img src="./assets/images/team7.jpg" class="rounded-full" />
+                        </div>
+                        <h6 class="mt-2 text-base font-semibold">Jordan Rivera</h6>
+                    </div>
+                    <div class="text-center swiper-slide">
+                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                            <img src="./assets/images/team8.jpg" class="rounded-full" />
+                        </div>
+                        <h6 class="mt-2 text-base font-semibold">Riley Cooper</h6>
+                    </div>
+                    <div class="text-center swiper-slide">
+                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                            <img src="./assets/images/team9.jpg" class="rounded-full" />
+                        </div>
+                        <h6 class="mt-2 text-base font-semibold">Alex Morgan</h6>
+                    </div>
+                    <div class="text-center swiper-slide">
+                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                            <img src="./assets/images/team5.jpg" class="rounded-full" />
+                        </div>
+                        <h6 class="mt-2 text-base font-semibold">James Anderson</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

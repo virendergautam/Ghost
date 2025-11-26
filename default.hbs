@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{meta_title}}</title>
+    <link rel="stylesheet" href="{{asset "./built/main.css"}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        :root{
+            --bg:{{@custom.background_color}};
+        }
+    </style>
+    
+</head>
+
+<body class="bg-[var(--bg)] text-gray-900">
+
+    {{!-- {{> header}} --}}
+
+    {{{body}}}
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const tagCards = document.querySelectorAll(".tag-specific-card");
+    const posts = document.querySelectorAll(".tag-specifc-post");
+    const container = document.getElementById("postsContainer");
+
+    tagCards.forEach(card => {
+        card.addEventListener("click", () => {
+            console.log(card.dataset.tags,"card.dataset.tag")
+            const selectedTag = card.dataset.tags.toLowerCase();
+
+            // Clear all posts
+            posts.forEach(p => p.style.display = "none");
+
+            // Show only posts that include this tag
+            posts.forEach(p => {
+            console.log(p.dataset.tags,"p.dataset.tags")
+
+                const tags = p.dataset.tags.split(",");
+                if(selectedTag=="all"){
+                    p.style.display = "block"
+                }
+                else if (tags.includes(selectedTag)) {
+                    p.style.display = "block";
+                }
+            });
+        });
+    });
+});
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper(".mySwiper", {
+            slidesPerView: 2,
+            spaceBetween: 40,
+            loop: true,
+            navigation: {
+                nextEl: "#team-swiper-btn-next",
+                prevEl: "#team-swiper-btn-prev",
+            },
+            breakpoints: {
+                768: { slidesPerView: 5 },
+                1024: { slidesPerView: 9 },
+            }
+        });
+    </script>
+
+    <script>
+        const swiper2 = new Swiper(".mySwiper2", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            navigation: {
+                nextEl: "#rec-swiper-btn-next",
+                prevEl: "#rec-swiper-btn-prev",
+            },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 4 },
+            }
+        });
+    </script>
+
+</body>
+
+</html>
