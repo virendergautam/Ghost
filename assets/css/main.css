@@ -28,6 +28,13 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--primaryBg, #fff);
+}
+
+#announcement-bar-root .gh-announcement-bar {
+  min-height: 40px;
+  padding: 5px 15px;
+  font-size: 14px;
 }
 
 h1,
@@ -45,7 +52,7 @@ h6 {
   padding-inline: 15px;
 
   @media (width >=112rem) {
-    max-width: 1820px;
+    max-width: 1730px;
   }
 }
 
@@ -82,7 +89,7 @@ img {
 }
 
 .bg-secondary {
-  background: #F8F8F8;
+  background: var(--secondaryBg, #F6F6F6);
 }
 
 .recommended-post-wrapper.swiper {

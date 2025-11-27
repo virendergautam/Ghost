@@ -3,21 +3,25 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{meta_title}}</title>
+    <link rel="preload" as="style" href="{{asset "./built/main.css"}}">
     <link rel="stylesheet" href="{{asset "./built/main.css"}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+    {{ghost_head}}
     <style>
-:root {
-    --headerBg: {{@custom.header_background}};
-    --primaryBg: {{@custom.primary_background}};
-    --primaryText: {{@custom.primary_text}};
-    --secondaryBg: {{@custom.secondary_background}};
-    --secondaryText: {{@custom.secondary_text}};
-    --headingFont: '{{@custom.heading_font}}', sans-serif;
-    --bodyFont: '{{@custom.body_font}}', sans-serif;
-    --darkMode: {{#if @custom.dark_mode}}1{{else}}0{{/if}};
-}
+    :root {
+        --bg:{{@custom.background_color}};
+        --headerBg: {{@custom.header_background}};
+        --primaryBg: {{@custom.primary_background}};
+        --primaryText: {{@custom.primary_text}};
+        --secondaryBg: {{@custom.secondary_background}};
+        --secondaryText: {{@custom.secondary_text}};
+        --headingFont: '{{@custom.heading_font}}', sans-serif;
+        --bodyFont: '{{@custom.body_font}}', sans-serif;
+        --darkMode: {{#if @custom.dark_mode}}1{{else}}0{{/if}};
+    }
 </style>
     
 </head>
