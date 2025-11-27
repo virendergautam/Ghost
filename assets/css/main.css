@@ -71,18 +71,6 @@ img {
   gap: .75rem;
 }
 
-.card-tags .card-tag {
-  align-items: center;
-  background-color: var(--color-gray-200);
-  border-radius: 20px;
-  color: var(--color-black);
-  display: inline-flex;
-  font-size: 14px;
-  line-height: 1;
-  padding: 6px 20px;
-  text-decoration: none;
-}
-
 .blog-posts {
   --media-width: 280px;
   --media-height: 680px;
