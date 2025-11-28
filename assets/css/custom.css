@@ -1,0 +1,72 @@
+
+.bg-ghost-secondary {
+  background: var(--secondaryBg, #F6F6F6);
+}
+
+:root {
+  --font-heading: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --color-black: #000;
+} 
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--primaryBg, #fff);
+}
+
+#announcement-bar-root .gh-announcement-bar {
+  min-height: 40px;
+  padding: 5px 15px;
+  font-size: 14px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  font-family: var(--font-heading);
+}
+
+.container {
+  width: 100%;
+  padding-inline: 15px;
+
+  @media (width >=112rem) {
+    max-width: 1730px;
+  }
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.featured-blog {
+  --media-height: 550px;
+}
+
+.card-tags {
+  display: flex;
+  gap: .75rem;
+}
+
+.blog-posts {
+  --media-width: 280px;
+  --media-height: 680px;
+}
+
+
+.recommended-post-wrapper.swiper {
+  padding-inline: inherit;
+}
+
+.recommended-post {
+  --media-height: 390px;
+}
