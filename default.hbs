@@ -95,6 +95,53 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     </script>
 
+    <script>
+  const html = document.documentElement;
+  const toggleBtn = document.getElementById("theme-toggle");
+  const lightIcon = document.getElementById("theme-toggle-light-icon");
+  const darkIcon = document.getElementById("theme-toggle-dark-icon");
+
+  // Load previous mode
+  if (localStorage.theme === 'dark' || 
+     (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    html.classList.add('dark');
+    darkIcon.classList.add('hidden');
+    lightIcon.classList.remove('hidden');
+  } else {
+    html.classList.remove('dark');
+    lightIcon.classList.add('hidden');
+    darkIcon.classList.remove('hidden');
+  }
+
+  // Toggle
+  toggleBtn.addEventListener("click", () => {
+    const html = document.documentElement;
+
+    const isDark = html.classList.contains("dark");
+
+    if (isDark) {
+        // Switch to LIGHT
+        html.classList.remove("dark");
+        html.classList.add("light");
+
+        localStorage.theme = "light";
+
+        lightIcon.classList.add("hidden");
+        darkIcon.classList.remove("hidden");
+    } else {
+        // Switch to DARK
+        html.classList.remove("light");
+        html.classList.add("dark");
+
+        localStorage.theme = "dark";
+
+        darkIcon.classList.add("hidden");
+        lightIcon.classList.remove("hidden");
+    }
+});
+</script>
+
+
 </body>
 
 </html>
