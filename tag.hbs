@@ -1,13 +1,14 @@
 {{!< default}}
 
 {{#tag}}
+<div class="container mx-auto">
     {{!-- Tag Cover Image --}}
     {{#if feature_image}}
-        <div class="w-full h-72 md:h-96 overflow-hidden rounded-b-xl">
+        <div class="w-41 h-41 mx-auto overflow-hidden rounded-full border border-[#EBEBEB] p-1.5">
             <img 
                 src="{{feature_image}}" 
                 alt="{{name}}" 
-                class="w-full h-full object-cover"
+                class="rounded-full"
             >
         </div>
     {{/if}}
@@ -28,6 +29,7 @@
             {{pagination.total}} posts found
         </p>
     </header>
+    </div>
 {{/tag}}
 
 {{!-- Posts Grid --}}
