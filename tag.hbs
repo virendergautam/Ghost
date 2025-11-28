@@ -1,0 +1,63 @@
+{{!< default}}
+
+{{#tag}}
+    {{!-- Tag Cover Image --}}
+    {{#if feature_image}}
+        <div class="w-full h-72 md:h-96 overflow-hidden rounded-b-xl">
+            <img 
+                src="{{feature_image}}" 
+                alt="{{name}}" 
+                class="w-full h-full object-cover"
+            >
+        </div>
+    {{/if}}
+
+    {{!-- Tag Header --}}
+    <header class="max-w-4xl mx-auto text-center mt-10 px-4">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+            {{name}}
+        </h1>
+
+        {{#if description}}
+            <p class="text-gray-600 text-lg mb-2">
+                {{description}}
+            </p>
+        {{/if}}
+
+        <p class="text-sm text-gray-500">
+            {{pagination.total}} posts found
+        </p>
+    </header>
+{{/tag}}
+
+{{!-- Posts Grid --}}
+<section class="max-w-6xl mx-auto mt-12 px-4 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {{#foreach posts}}
+        <article class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition shadow-gray-200">
+            <a href="{{url}}">
+                {{#if feature_image}}
+                    <img
+                        src="{{feature_image}}"
+                        alt="{{title}}"
+                        class="w-full h-48 object-cover"
+                    >
+                {{/if}}
+
+                <div class="p-5">
+                    <h2 class="text-xl font-semibold mb-3 hover:text-blue-600">
+                        {{title}}
+                    </h2>
+
+                    <p class="text-gray-600 text-sm">
+                        {{excerpt}}
+                    </p>
+                </div>
+            </a>
+        </article>
+    {{/foreach}}
+</section>
+
+{{!-- Pagination --}}
+<div class="max-w-6xl mx-auto px-4 mt-12 mb-20">
+    {{pagination}}
+</div>

@@ -48,7 +48,48 @@
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-2.5">
-                            <!-- CARD -->
+
+
+                            {{#get "tags" limit="all" include="count.posts"}}
+                            {{#foreach tags}}
+                            <div
+                                class="relative h-96 md:flex-1 rounded-2xl overflow-hidden group hover:md:flex-2 transition-[flex] duration-500 ease-in-out">
+                                <!-- Image -->
+                                <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/explore1.jpg{{/if}}"
+                                    alt="{{name}}"
+                                    class="object-cover transition-transform duration-500 group-hover:scale-105" />
+
+                                <!-- Gradient overlay -->
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent">
+                                </div>
+
+                                <!-- Bottom content -->
+                                <div class="absolute bottom-6 left-6 right-6 flex justify-between items-center">
+                                    <div>
+                                        <h3 class="text-white font-semibold text-lg mb-1.5">{{name}}</h3>
+                                        {{!-- <p class="text-white text-sm">4 Article</p> --}}
+                                        <p class="text-white text-sm">    {{plural count.posts empty="0 Articles" singular="1 Article" plural="% Articles"}}
+
+                                        </p>
+
+                                    </div>
+
+                                    <!-- Button -->
+                                    <button
+                                        class="w-9 h-9 rounded-full  flex items-center justify-center border border-white text-white hover:bg-white hover:text-black transition">
+                                        <svg width="13" height="12" viewBox="0 0 13 12" fill="none">
+                                            <path
+                                                d="M0.75 4.77295C0.335786 4.77295 4.47035e-08 5.10874 4.47035e-08 5.52295C4.47035e-08 5.93716 0.335786 6.27295 0.75 6.27295V5.52295V4.77295ZM12.594 6.05328C12.8869 5.76039 12.8869 5.28551 12.594 4.99262L7.82107 0.219649C7.52817 -0.0732447 7.0533 -0.0732447 6.76041 0.219649C6.46751 0.512542 6.46751 0.987416 6.76041 1.28031L11.003 5.52295L6.76041 9.76559C6.46751 10.0585 6.46751 10.5334 6.76041 10.8262C7.0533 11.1191 7.52817 11.1191 7.82107 10.8262L12.594 6.05328ZM0.75 5.52295V6.27295H12.0637V5.52295V4.77295H0.75V5.52295Z"
+                                                fill="currentColor" />
+                                        </svg>
+
+                                    </button>
+                                </div>
+                            </div>
+                            {{/foreach}}
+                            {{/get}}
+                            {{!-- <!-- CARD -->
                             <div
                                 class="relative h-96 md:flex-1 rounded-2xl overflow-hidden group hover:md:flex-2 transition-[flex] duration-500 ease-in-out">
                                 <!-- Image -->
@@ -174,30 +215,38 @@
 
                                     </button>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
 
                     </div>
                 </div>
             </section>
-
+    {{#get "posts" filter="featured:true" limit="1" include="authors,tags"}}
+    {{#foreach posts}}
             <section class="featured-blog py-14">
                 <div class="container mx-auto">
                     <div class="featured-blog-wrapper relative">
                         <div class="featured-blog-media rounded-2xl overflow-hidden h-[var(--media-height)]">
-                            <img src="./assets/images/featured-blog.jpg" alt="{{title}}" />
+                            {{!-- <img src="./assets/images/featured-blog.jpg" alt="{{title}}" /> --}}
+                                                <img src="{{feature_image}}" alt="{{title}}" />
+
                         </div>
                         <div class="featured-blog-content absolute inset-0 p-8 flex flex-col justify-between">
                             <div class="featured-blog-content-top flex items-center justify-between">
                                 <div class="card-tags">
-                                    <a href="#" class="card-tag">Lifestyle</a>
-                                    <a href="#" class="card-tag">Fashion</a>
+                                     {{#foreach tags}}
+                            <a href="#" class="card-tag">{{name}}</a>
+                            {{/foreach}}
+                                    {{!-- <a href="#" class="card-tag">Lifestyle</a>
+                                    <a href="#" class="card-tag">Fashion</a> --}}
                                 </div>
                                 <div class="featured-card-meta flex gap-x-4 items-center">
                                     <div class="post-card-author flex gap-x-2 items-center">
                                         <a href="#"
                                             class="post-card-author-img-link block w-[34px] h-[34px] rounded-full overflow-hidden">
-                                            <img src="./assets/images/team9.jpg" alt="{{primary_author.name}}" />
+                                            {{!-- <img src="./assets/images/team9.jpg" alt="{{primary_author.name}}" /> --}}
+                                                                                <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}" />
+
                                         </a>
                                         <div class="post-card-author-name-wrapper text-white">
                                             <span class="post-card-author-name">by {{primary_author.name}} /</span>
@@ -208,373 +257,381 @@
                                     </div>
                                     <div
                                         class="post-card-time text-black bg-white rounded-full text-sm py-[6px] px-[10px]">
-                                        6 min Read
+                                        {{reading_time}} min Read
                                     </div>
                                 </div>
                             </div>
-                        <div class="featured-blog-content-bottom max-w-[660px] flex items-start flex-col gap-y-6">
-                            <h2 class="text-4xl font-semibold text-white">Fresh Insights from the Fashion World</h2>
-                            <p class="text-sm text-white">Explore expert perspectives, emerging styles, and behind-the-scenes stories that inspire the future of fashion.....</p>
-                            <a href="{{url}}"
-                                class="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
-                                Read More
-                            </a>
+                            <div class="featured-blog-content-bottom max-w-[660px] flex items-start flex-col gap-y-6">
+                                <h2 class="text-4xl font-semibold text-white">{{title}}</h2>
+                                <p class="text-sm text-white">{{excerpt}}</p>
+                                <a href="{{url}}"
+                                    class="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
+                                    Read More
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-        </div>
-        </section>
+            </section>
+            {{/foreach}}
+            {{/get}}
 
-        <section class="blog-posts py-20">
-            <div class="container mx-auto">
-                <div class="blog-posts-wrapper grid grid-cols-2 gap-x-[25px]">
-                    {{#get "posts" filter="featured:true" limit="1" include="authors,tags"}}
-                    {{#foreach posts}}
-                    <div class="relative rounded-3xl overflow-hidden">
-                        <div class="min-h-[var(--media-height)] h-full">
-                            {{!-- <img src="./assets/images/featured-blog.jpg" /> --}}
-                            <img src="{{feature_image}}" alt="{{title}}" />
+            <section class="blog-posts py-20">
+                <div class="container mx-auto">
+                    <div class="blog-posts-wrapper grid grid-cols-2 gap-x-[25px]">
+                        {{#get "posts" filter="featured:true" limit="1" include="authors,tags"}}
+                        {{#foreach posts}}
+                        <div class="relative rounded-3xl overflow-hidden">
+                            <div class="min-h-[var(--media-height)] h-full">
+                                {{!-- <img src="./assets/images/featured-blog.jpg" /> --}}
+                                <img src="{{feature_image}}" alt="{{title}}" />
 
-                        </div>
-                        <!-- Overlay -->
-                        <div class="absolute inset-0 bg-black/40"></div>
-                        <!-- Content -->
-                        <div class="absolute inset-0 p-8 text-white flex flex-col justify-between">
-                            <div class="card-tags">
-                                {{#foreach tags}}
-                                <a href="#" class="card-tag">{{name}}</a>
-                                {{/foreach}}
-                                {{!-- <span class="card-tag">Lifestyle</span>
-                                <span class="card-tag">Fashion</span> --}}
                             </div>
-                            <div class="">
-                                <h1 class="text-4xl font-semibold mb-6">
-                                    {{title}}
-                                </h1>
+                            <!-- Overlay -->
+                            <div class="absolute inset-0 bg-black/40"></div>
+                            <!-- Content -->
+                            <div class="absolute inset-0 p-8 text-white flex flex-col justify-between">
+                                <div class="card-tags">
+                                    {{#foreach tags}}
+                                    <a href="#" class="card-tag">{{name}}</a>
+                                    {{/foreach}}
+                                    {{!-- <span class="card-tag">Lifestyle</span>
+                                    <span class="card-tag">Fashion</span> --}}
+                                </div>
+                                <div class="">
+                                    <h1 class="text-4xl font-semibold mb-6">
+                                        {{title}}
+                                    </h1>
 
-                                <p class="text-base max-w-xl mb-4">
-                                    {{excerpt}}
-                                </p>
+                                    <p class="text-base max-w-xl mb-4">
+                                        {{excerpt}}
+                                    </p>
 
-                                <!-- Author -->
-                                <div class="flex items-center gap-3 text-sm">
-                                    <div class="post-card-author-img w-[34px] h-[34px] rounded-full overflow-hidden">
-                                        {{!-- <img src="https://randomuser.me/api/portraits/women/32.jpg" />
-                                        --}}
-                                        <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}" />
+                                    <!-- Author -->
+                                    <div class="flex items-center gap-3 text-sm">
+                                        <div
+                                            class="post-card-author-img w-[34px] h-[34px] rounded-full overflow-hidden">
+                                            {{!-- <img src="https://randomuser.me/api/portraits/women/32.jpg" />
+                                            --}}
+                                            <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}" />
 
+                                        </div>
+                                        <span>by {{primary_author.name}} / {{date published_at format="MMMM DD,
+                                            YYYY"}}</span>
                                     </div>
-                                    <span>by {{primary_author.name}} / {{date published_at format="MMMM DD,
-                                        YYYY"}}</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    {{/foreach}}
-                    {{/get}}
-                    <!-- RIGHT COLUMN -->
-                    <div class="space-y-6">
-                        <h2 class="text-xl font-semibold mb-3">Featured Article</h2>
-                        {{#get "posts" filter="featured:true" limit="3" include="authors,tags" }}
-                        {{#foreach posts}}
-                        {{#unless @first}}
-                        {{>"featuredArticleCard"}}
-                        {{/unless}}
                         {{/foreach}}
                         {{/get}}
+                        <!-- RIGHT COLUMN -->
+                        <div class="space-y-6">
+                            <h2 class="text-xl font-semibold mb-3">Featured Article</h2>
+                            {{#get "posts" filter="featured:true" limit="3" include="authors,tags" }}
+                            {{#foreach posts}}
+                            {{#unless @first}}
+                            {{>"featuredArticleCard"}}
+                            {{/unless}}
+                            {{/foreach}}
+                            {{/get}}
 
-                        <!-- Small Article Card -->
-                        {{!-- <div class="flex gap-4 border border-gray-200 rounded-2xl p-5 items-start">
-                            <div class="w-[var(--media-width)] h-[155px] rounded-2xl overflow-hidden">
-                                <img src="./assets/images/featured-blog.jpg" />
-                            </div>
-                            <div class="flex-1">
-                                <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Health</span>
-                                <h6 class="mt-[10px] text-xl font-semibold">
-                                    The mind and body are not separate. what affects one,
-                                    affects the other. what affects one, affects the other.
-                                </h6>
-                                <div class="flex items-center gap-2 mt-5 text-sm text-black">
-                                    <div class="w-[34px] h-[34px] rounded-full overflow-hidden">
-                                        <img src="./assets/images/featured-blog.jpg" />
+                            <!-- Small Article Card -->
+                            {{!-- <div class="flex gap-4 border border-gray-200 rounded-2xl p-5 items-start">
+                                <div class="w-[var(--media-width)] h-[155px] rounded-2xl overflow-hidden">
+                                    <img src="./assets/images/featured-blog.jpg" />
+                                </div>
+                                <div class="flex-1">
+                                    <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Health</span>
+                                    <h6 class="mt-[10px] text-xl font-semibold">
+                                        The mind and body are not separate. what affects one,
+                                        affects the other. what affects one, affects the other.
+                                    </h6>
+                                    <div class="flex items-center gap-2 mt-5 text-sm text-black">
+                                        <div class="w-[34px] h-[34px] rounded-full overflow-hidden">
+                                            <img src="./assets/images/featured-blog.jpg" />
+                                        </div>
+                                        <span>by Breana Flatley / November 14, 2025</span>
                                     </div>
-                                    <span>by Breana Flatley / November 14, 2025</span>
                                 </div>
                             </div>
+                            <!-- Small Article Card -->
+                            <div class="flex gap-4 border border-gray-200 rounded-2xl p-5 items-start">
+                                <div class="w-[var(--media-width)] h-[155px] rounded-2xl overflow-hidden">
+                                    <img src="./assets/images/featured-blog.jpg" />
+                                </div>
+                                <div class="flex-1">
+                                    <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Health</span>
+                                    <h6 class="mt-[10px] text-xl font-semibold">
+                                        The mind and body are not separate. what affects one,
+                                        affects the other. what affects one, affects the other.
+                                    </h6>
+                                    <div class="flex items-center gap-2 mt-5 text-sm text-black">
+                                        <div class="w-[34px] h-[34px] rounded-full overflow-hidden">
+                                            <img src="./assets/images/featured-blog.jpg" />
+                                        </div>
+                                        <span>by Breana Flatley / November 14, 2025</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Small Article Card -->
+                            <div class="flex gap-4 border border-gray-200 rounded-2xl p-5 items-start">
+                                <div class="w-[var(--media-width)] h-[155px] rounded-2xl overflow-hidden">
+                                    <img src="./assets/images/featured-blog.jpg" />
+                                </div>
+                                <div class="flex-1">
+                                    <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Health</span>
+                                    <h6 class="mt-[10px] text-xl font-semibold">
+                                        The mind and body are not separate. what affects one,
+                                        affects the other. what affects one, affects the other.
+                                    </h6>
+                                    <div class="flex items-center gap-2 mt-5 text-sm text-black">
+                                        <div class="w-[34px] h-[34px] rounded-full overflow-hidden">
+                                            <img src="./assets/images/featured-blog.jpg" />
+                                        </div>
+                                        <span>by Breana Flatley / November 14, 2025</span>
+                                    </div>
+                                </div>
+                            </div> --}}
                         </div>
-                        <!-- Small Article Card -->
-                        <div class="flex gap-4 border border-gray-200 rounded-2xl p-5 items-start">
-                            <div class="w-[var(--media-width)] h-[155px] rounded-2xl overflow-hidden">
-                                <img src="./assets/images/featured-blog.jpg" />
-                            </div>
-                            <div class="flex-1">
-                                <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Health</span>
-                                <h6 class="mt-[10px] text-xl font-semibold">
-                                    The mind and body are not separate. what affects one,
-                                    affects the other. what affects one, affects the other.
-                                </h6>
-                                <div class="flex items-center gap-2 mt-5 text-sm text-black">
-                                    <div class="w-[34px] h-[34px] rounded-full overflow-hidden">
-                                        <img src="./assets/images/featured-blog.jpg" />
-                                    </div>
-                                    <span>by Breana Flatley / November 14, 2025</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Small Article Card -->
-                        <div class="flex gap-4 border border-gray-200 rounded-2xl p-5 items-start">
-                            <div class="w-[var(--media-width)] h-[155px] rounded-2xl overflow-hidden">
-                                <img src="./assets/images/featured-blog.jpg" />
-                            </div>
-                            <div class="flex-1">
-                                <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Health</span>
-                                <h6 class="mt-[10px] text-xl font-semibold">
-                                    The mind and body are not separate. what affects one,
-                                    affects the other. what affects one, affects the other.
-                                </h6>
-                                <div class="flex items-center gap-2 mt-5 text-sm text-black">
-                                    <div class="w-[34px] h-[34px] rounded-full overflow-hidden">
-                                        <img src="./assets/images/featured-blog.jpg" />
-                                    </div>
-                                    <span>by Breana Flatley / November 14, 2025</span>
-                                </div>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
 
-        <section class="recommended-post bg-secondary py-15">
-            <div class="container mx-auto">
-                <div class="recommended-post-header flex justify-between mb-8">
-                    <h2 class="text-4xl font-semibold">Recommended Post Article </h2>
-                    <a href="#" class="flex items-center gap-x-2 text-base font-medium">View All
-                        <svg width="13" height="12" viewBox="0 0 13 12" fill="none">
-                            <path
-                                d="M0.75 4.77344C0.335786 4.77344 0 5.10922 0 5.52344C0 5.93765 0.335786 6.27344 0.75 6.27344V5.52344V4.77344ZM12.594 6.05377C12.8869 5.76087 12.8869 5.286 12.594 4.99311L7.82107 0.220137C7.52817 -0.0727568 7.0533 -0.0727568 6.76041 0.220137C6.46751 0.51303 6.46751 0.987904 6.76041 1.2808L11.003 5.52344L6.76041 9.76608C6.46751 10.059 6.46751 10.5338 6.76041 10.8267C7.0533 11.1196 7.52817 11.1196 7.82107 10.8267L12.594 6.05377ZM0.75 5.52344V6.27344L12.0637 6.27344V5.52344V4.77344L0.75 4.77344V5.52344Z"
-                                fill="#1F1E1E" />
-                        </svg>
-                    </a>
-                </div>
-                <div class="recommended-post-wrapper swiper mySwiper2 px-[20px]">
-                    <div class="swiper-wrapper">
-                        {{!-- {{#foreach posts}}
-                        {{>"postCard"}}
-                        {{/foreach}} --}}
-
-                        <div class="recommended-post-item swiper-slide">
-                            <div class="bg-white rounded-xl border border-gray-200 p-5">
-                                <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
-                                    <img src="./assets/images/r1.jpg">
-                                    <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
-                                        6
-                                        min read</div>
-                                </div>
-                                <div class="recommended-post-item-content">
-                                    <div class="recommended-post-meta flex items-center gap-[10px] mb-4">
-                                        <span
-                                            class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">Category</span>
-                                        <span class="recommended-post-date text-xs text-black">November 14, 2025
-                                        </span>
-                                    </div>
-                                    <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New
-                                        Experience</h2>
-                                    <p class="text-base">Explore expert perspectives, emerging styles, and
-                                        behind-the-scenes
-                                        stories that inspire the future of fashion.....</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="recommended-post-item swiper-slide">
-                            <div class="bg-white rounded-xl border border-gray-200 p-5">
-                                <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
-                                    <img src="./assets/images/r2.jpg">
-                                    <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
-                                        6
-                                        min read</div>
-                                </div>
-                                <div class="recommended-post-item-content">
-                                    <div class="recommended-post-meta flex items-center gap-[10px] mb-4">
-                                        <span
-                                            class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">Category</span>
-                                        <span class="recommended-post-date text-xs text-black">November 14, 2025
-                                        </span>
-                                    </div>
-                                    <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New
-                                        Experience</h2>
-                                    <p class="text-base">Explore expert perspectives, emerging styles, and
-                                        behind-the-scenes
-                                        stories that inspire the future of fashion.....</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="recommended-post-item swiper-slide">
-                            <div class="bg-white rounded-xl border border-gray-200 p-5">
-                                <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
-                                    <img src="./assets/images/r3.jpg">
-                                    <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
-                                        6
-                                        min read</div>
-                                </div>
-                                <div class="recommended-post-item-content">
-                                    <div class="recommended-post-meta flex items-center gap-[10px] mb-4">
-                                        <span
-                                            class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">Category</span>
-                                        <span class="recommended-post-date text-xs text-black">November 14, 2025
-                                        </span>
-                                    </div>
-                                    <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New
-                                        Experience</h2>
-                                    <p class="text-base">Explore expert perspectives, emerging styles, and
-                                        behind-the-scenes
-                                        stories that inspire the future of fashion.....</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="recommended-post-item swiper-slide">
-                            <div class="bg-white rounded-xl border border-gray-200 p-5">
-                                <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
-                                    <img src="./assets/images/r4.jpg">
-                                    <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
-                                        6
-                                        min read</div>
-                                </div>
-                                <div class="recommended-post-item-content">
-                                    <div class="recommended-post-meta flex items-center gap-[10px] mb-4">
-                                        <span
-                                            class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">Category</span>
-                                        <span class="recommended-post-date text-xs text-black">November 14, 2025
-                                        </span>
-                                    </div>
-                                    <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New
-                                        Experience</h2>
-                                    <p class="text-base">Explore expert perspectives, emerging styles, and
-                                        behind-the-scenes
-                                        stories that inspire the future of fashion.....</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="recommended-post-item swiper-slide">
-                            <div class="bg-white rounded-xl border border-gray-200 p-5">
-                                <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
-                                    <img src="./assets/images/r1.jpg">
-                                    <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
-                                        6
-                                        min read</div>
-                                </div>
-                                <div class="recommended-post-item-content">
-                                    <div class="recommended-post-meta flex items-center gap-[10px] mb-4">
-                                        <span
-                                            class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">Category</span>
-                                        <span class="recommended-post-date text-xs text-black">November 14, 2025
-                                        </span>
-                                    </div>
-                                    <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New
-                                        Experience</h2>
-                                    <p class="text-base">Explore expert perspectives, emerging styles, and
-                                        behind-the-scenes
-                                        stories that inspire the future of fashion.....</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="swiper-navigation flex justify-between gap-3 absolute inset-0 items-center z-10 pointer-events-none">
-                        <button id="rec-swiper-btn-prev" type="button"
-                            class="swiper-nav-prev swiper-button cursor-pointer w-[40px] h-[40px] border border-gray-300 bg-gray-200 rounded-full flex items-center justify-center pointer-events-auto">
-                            <svg width="15" height="12" viewBox="0 0 15 12" fill="none">
+            <section class="recommended-post bg-secondary py-15">
+                <div class="container mx-auto">
+                    <div class="recommended-post-header flex justify-between mb-8">
+                        <h2 class="text-4xl font-semibold">Recommended Post Article </h2>
+                        <a href="#" class="flex items-center gap-x-2 text-base font-medium">View All
+                            <svg width="13" height="12" viewBox="0 0 13 12" fill="none">
                                 <path
-                                    d="M13.3203 4.77344C13.7345 4.77344 14.0703 5.10922 14.0703 5.52344C14.0703 5.93765 13.7345 6.27344 13.3203 6.27344V5.52344V4.77344ZM0.219195 6.05377C-0.073698 5.76087 -0.073698 5.286 0.219195 4.99311L4.99217 0.220137C5.28506 -0.0727568 5.75993 -0.0727568 6.05283 0.220137C6.34572 0.51303 6.34572 0.987904 6.05283 1.2808L1.81019 5.52344L6.05283 9.76608C6.34572 10.059 6.34572 10.5338 6.05283 10.8267C5.75993 11.1196 5.28506 11.1196 4.99217 10.8267L0.219195 6.05377ZM13.3203 5.52344V6.27344L0.749525 6.27344V5.52344V4.77344L13.3203 4.77344V5.52344Z"
-                                    fill="#252525" />
+                                    d="M0.75 4.77344C0.335786 4.77344 0 5.10922 0 5.52344C0 5.93765 0.335786 6.27344 0.75 6.27344V5.52344V4.77344ZM12.594 6.05377C12.8869 5.76087 12.8869 5.286 12.594 4.99311L7.82107 0.220137C7.52817 -0.0727568 7.0533 -0.0727568 6.76041 0.220137C6.46751 0.51303 6.46751 0.987904 6.76041 1.2808L11.003 5.52344L6.76041 9.76608C6.46751 10.059 6.46751 10.5338 6.76041 10.8267C7.0533 11.1196 7.52817 11.1196 7.82107 10.8267L12.594 6.05377ZM0.75 5.52344V6.27344L12.0637 6.27344V5.52344V4.77344L0.75 4.77344V5.52344Z"
+                                    fill="#1F1E1E" />
                             </svg>
-                        </button>
-                        <button id="rec-swiper-btn-next" type="button"
-                            class="swiper-nav-next swiper-button cursor-pointer w-[40px] h-[40px] border border-gray-300 bg-gray-200 rounded-full flex items-center justify-center pointer-events-auto">
-                            <svg width="15" height="12" viewBox="0 0 15 12" fill="none">
-                                <path
-                                    d="M0.75 4.77344C0.335786 4.77344 0 5.10922 0 5.52344C0 5.93765 0.335786 6.27344 0.75 6.27344V5.52344V4.77344ZM13.8511 6.05377C14.144 5.76087 14.144 5.286 13.8511 4.99311L9.07815 0.220137C8.78525 -0.0727568 8.31038 -0.0727568 8.01749 0.220137C7.72459 0.51303 7.72459 0.987904 8.01749 1.2808L12.2601 5.52344L8.01749 9.76608C7.72459 10.059 7.72459 10.5338 8.01749 10.8267C8.31038 11.1196 8.78525 11.1196 9.07815 10.8267L13.8511 6.05377ZM0.75 5.52344V6.27344L13.3208 6.27344V5.52344V4.77344L0.75 4.77344V5.52344Z"
-                                    fill="#252525" />
-                            </svg>
-                        </button>
+                        </a>
+                    </div>
+                    <div class="recommended-post-wrapper swiper mySwiper2 px-[20px]">
+                        <div class="swiper-wrapper">
+                            {{#foreach posts}}
+                            {{>"postCard"}}
+                            {{/foreach}}
+
+                            <div class="recommended-post-item swiper-slide">
+                                <div class="bg-white rounded-xl border border-gray-200 p-5">
+                                    <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
+                                        <img src="./assets/images/r1.jpg">
+                                        <div
+                                            class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
+                                            6
+                                            min read</div>
+                                    </div>
+                                    <div class="recommended-post-item-content">
+                                        <div class="recommended-post-meta flex items-center gap-[10px] mb-4">
+                                            <span
+                                                class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">Category</span>
+                                            <span class="recommended-post-date text-xs text-black">November 14, 2025
+                                            </span>
+                                        </div>
+                                        <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New
+                                            Experience</h2>
+                                        <p class="text-base">Explore expert perspectives, emerging styles, and
+                                            behind-the-scenes
+                                            stories that inspire the future of fashion.....</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="recommended-post-item swiper-slide">
+                                <div class="bg-white rounded-xl border border-gray-200 p-5">
+                                    <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
+                                        <img src="./assets/images/r2.jpg">
+                                        <div
+                                            class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
+                                            6
+                                            min read</div>
+                                    </div>
+                                    <div class="recommended-post-item-content">
+                                        <div class="recommended-post-meta flex items-center gap-[10px] mb-4">
+                                            <span
+                                                class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">Category</span>
+                                            <span class="recommended-post-date text-xs text-black">November 14, 2025
+                                            </span>
+                                        </div>
+                                        <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New
+                                            Experience</h2>
+                                        <p class="text-base">Explore expert perspectives, emerging styles, and
+                                            behind-the-scenes
+                                            stories that inspire the future of fashion.....</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="recommended-post-item swiper-slide">
+                                <div class="bg-white rounded-xl border border-gray-200 p-5">
+                                    <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
+                                        <img src="./assets/images/r3.jpg">
+                                        <div
+                                            class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
+                                            6
+                                            min read</div>
+                                    </div>
+                                    <div class="recommended-post-item-content">
+                                        <div class="recommended-post-meta flex items-center gap-[10px] mb-4">
+                                            <span
+                                                class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">Category</span>
+                                            <span class="recommended-post-date text-xs text-black">November 14, 2025
+                                            </span>
+                                        </div>
+                                        <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New
+                                            Experience</h2>
+                                        <p class="text-base">Explore expert perspectives, emerging styles, and
+                                            behind-the-scenes
+                                            stories that inspire the future of fashion.....</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="recommended-post-item swiper-slide">
+                                <div class="bg-white rounded-xl border border-gray-200 p-5">
+                                    <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
+                                        <img src="./assets/images/r4.jpg">
+                                        <div
+                                            class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
+                                            6
+                                            min read</div>
+                                    </div>
+                                    <div class="recommended-post-item-content">
+                                        <div class="recommended-post-meta flex items-center gap-[10px] mb-4">
+                                            <span
+                                                class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">Category</span>
+                                            <span class="recommended-post-date text-xs text-black">November 14, 2025
+                                            </span>
+                                        </div>
+                                        <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New
+                                            Experience</h2>
+                                        <p class="text-base">Explore expert perspectives, emerging styles, and
+                                            behind-the-scenes
+                                            stories that inspire the future of fashion.....</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="recommended-post-item swiper-slide">
+                                <div class="bg-white rounded-xl border border-gray-200 p-5">
+                                    <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
+                                        <img src="./assets/images/r1.jpg">
+                                        <div
+                                            class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
+                                            6
+                                            min read</div>
+                                    </div>
+                                    <div class="recommended-post-item-content">
+                                        <div class="recommended-post-meta flex items-center gap-[10px] mb-4">
+                                            <span
+                                                class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">Category</span>
+                                            <span class="recommended-post-date text-xs text-black">November 14, 2025
+                                            </span>
+                                        </div>
+                                        <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New
+                                            Experience</h2>
+                                        <p class="text-base">Explore expert perspectives, emerging styles, and
+                                            behind-the-scenes
+                                            stories that inspire the future of fashion.....</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="swiper-navigation flex justify-between gap-3 absolute inset-0 items-center z-10 pointer-events-none">
+                            <button id="rec-swiper-btn-prev" type="button"
+                                class="swiper-nav-prev swiper-button cursor-pointer w-[40px] h-[40px] border border-gray-300 bg-gray-200 rounded-full flex items-center justify-center pointer-events-auto">
+                                <svg width="15" height="12" viewBox="0 0 15 12" fill="none">
+                                    <path
+                                        d="M13.3203 4.77344C13.7345 4.77344 14.0703 5.10922 14.0703 5.52344C14.0703 5.93765 13.7345 6.27344 13.3203 6.27344V5.52344V4.77344ZM0.219195 6.05377C-0.073698 5.76087 -0.073698 5.286 0.219195 4.99311L4.99217 0.220137C5.28506 -0.0727568 5.75993 -0.0727568 6.05283 0.220137C6.34572 0.51303 6.34572 0.987904 6.05283 1.2808L1.81019 5.52344L6.05283 9.76608C6.34572 10.059 6.34572 10.5338 6.05283 10.8267C5.75993 11.1196 5.28506 11.1196 4.99217 10.8267L0.219195 6.05377ZM13.3203 5.52344V6.27344L0.749525 6.27344V5.52344V4.77344L13.3203 4.77344V5.52344Z"
+                                        fill="#252525" />
+                                </svg>
+                            </button>
+                            <button id="rec-swiper-btn-next" type="button"
+                                class="swiper-nav-next swiper-button cursor-pointer w-[40px] h-[40px] border border-gray-300 bg-gray-200 rounded-full flex items-center justify-center pointer-events-auto">
+                                <svg width="15" height="12" viewBox="0 0 15 12" fill="none">
+                                    <path
+                                        d="M0.75 4.77344C0.335786 4.77344 0 5.10922 0 5.52344C0 5.93765 0.335786 6.27344 0.75 6.27344V5.52344V4.77344ZM13.8511 6.05377C14.144 5.76087 14.144 5.286 13.8511 4.99311L9.07815 0.220137C8.78525 -0.0727568 8.31038 -0.0727568 8.01749 0.220137C7.72459 0.51303 7.72459 0.987904 8.01749 1.2808L12.2601 5.52344L8.01749 9.76608C7.72459 10.059 7.72459 10.5338 8.01749 10.8267C8.31038 11.1196 8.78525 11.1196 9.07815 10.8267L13.8511 6.05377ZM0.75 5.52344V6.27344L13.3208 6.27344V5.52344V4.77344L0.75 4.77344V5.52344Z"
+                                        fill="#252525" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="team-section py-15">
+                <div class="container mx-auto">
+                    <div class="team-heading mb-8">
+                        <h2 class="text-4xl font-semibold">Meet The Team</h2>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-9 items-center justify-center gap-10 py-8">
+                        {{#get "authors" limit="all"}}
+                        {{#foreach authors}}
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="{{profile_image}}" alt="{{name}}" class="rounded-full" />
+                            </div>
+                            <h6 class="mt-2 text-base font-semibold">{{name}}</h6>
+                        </div>
+                        {{/foreach}}
+                        {{/get}} 
+
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team1.jpg" class="rounded-full" />
+                            </div>
+                            <h6 class="mt-2 text-base font-semibold">James Anderson</h6>
+                        </div>
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team2.jpg" class="rounded-full" />
+                            </div>
+                            <h6 class="mt-2 text-base font-semibold">David Thompson</h6>
+                        </div>
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team3.jpg" class="rounded-full" />
+                            </div>
+                            <h6 class="mt-2 text-base font-semibold">Michael Carter</h6>
+                        </div>
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team4.jpg" class="rounded-full" />
+                            </div>
+                            <h6 class="mt-2 text-base font-semibold">William Harris</h6>
+                        </div>
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team5.jpg" class="rounded-full" />
+                            </div>
+                            <h6 class="mt-2 text-base font-semibold">Sarah Miller</h6>
+                        </div>
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team6.jpg" class="rounded-full" />
+                            </div>
+                            <h6 class="mt-2 text-base font-semibold">Taylor Brooks</h6>
+                        </div>
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team7.jpg" class="rounded-full" />
+                            </div>
+                            <h6 class="mt-2 text-base font-semibold">Jordan Rivera</h6>
+                        </div>
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team8.jpg" class="rounded-full" />
+                            </div>
+                            <h6 class="mt-2 text-base font-semibold">Riley Cooper</h6>
+                        </div>
+                        <div class="text-center">
+                            <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                                <img src="./assets/images/team8.jpg" class="rounded-full" />
+                            </div>
+                            <h6 class="mt-2 text-base font-semibold">Riley Cooper</h6>
+                        </div>
                     </div>
                 </div>
-
-            </div>
-        </section>
-
-        <section class="team-section py-15">
-            <div class="container mx-auto">
-                <div class="team-heading mb-8">
-                    <h2 class="text-4xl font-semibold">Meet The Team</h2>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-9 items-center justify-center gap-10 py-8">
-                    {{!-- {{#get "authors" limit="all"}}
-                    {{#foreach authors}}
-                    <div class="text-center">
-                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                            <img src="{{profile_image}}" alt="{{name}}" class="rounded-full" />
-                        </div>
-                        <h6 class="mt-2 text-base font-semibold">{{name}}</h6>
-                    </div>
-                    {{/foreach}}
-                    {{/get}} --}}
-
-                    <div class="text-center">
-                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                            <img src="./assets/images/team1.jpg" class="rounded-full" />
-                        </div>
-                        <h6 class="mt-2 text-base font-semibold">James Anderson</h6>
-                    </div>
-                    <div class="text-center">
-                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                            <img src="./assets/images/team2.jpg" class="rounded-full" />
-                        </div>
-                        <h6 class="mt-2 text-base font-semibold">David Thompson</h6>
-                    </div>
-                    <div class="text-center">
-                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                            <img src="./assets/images/team3.jpg" class="rounded-full" />
-                        </div>
-                        <h6 class="mt-2 text-base font-semibold">Michael Carter</h6>
-                    </div>
-                    <div class="text-center">
-                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                            <img src="./assets/images/team4.jpg" class="rounded-full" />
-                        </div>
-                        <h6 class="mt-2 text-base font-semibold">William Harris</h6>
-                    </div>
-                    <div class="text-center">
-                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                            <img src="./assets/images/team5.jpg" class="rounded-full" />
-                        </div>
-                        <h6 class="mt-2 text-base font-semibold">Sarah Miller</h6>
-                    </div>
-                    <div class="text-center">
-                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                            <img src="./assets/images/team6.jpg" class="rounded-full" />
-                        </div>
-                        <h6 class="mt-2 text-base font-semibold">Taylor Brooks</h6>
-                    </div>
-                    <div class="text-center">
-                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                            <img src="./assets/images/team7.jpg" class="rounded-full" />
-                        </div>
-                        <h6 class="mt-2 text-base font-semibold">Jordan Rivera</h6>
-                    </div>
-                    <div class="text-center">
-                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                            <img src="./assets/images/team8.jpg" class="rounded-full" />
-                        </div>
-                        <h6 class="mt-2 text-base font-semibold">Riley Cooper</h6>
-                    </div>
-                    <div class="text-center">
-                        <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                            <img src="./assets/images/team8.jpg" class="rounded-full" />
-                        </div>
-                        <h6 class="mt-2 text-base font-semibold">Riley Cooper</h6>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
