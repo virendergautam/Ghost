@@ -53,6 +53,8 @@
                             {{#get "tags" limit="4" include="count.posts"}}
                             {{#foreach tags}}
                                                 <div
+                                                onclick="window.location.href='/tag/{{slug}}/'"
+
                         class="relative h-96 md:flex-1 rounded-2xl overflow-hidden group hover:md:flex-2 transition-[flex] duration-500 ease-in-out">
                         <!-- Image -->
                                                         <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/explore1.jpg{{/if}}"
@@ -85,7 +87,7 @@
                             {{/get}}
 
                     <!-- CARD -->
-                    <div
+                    {{!-- <div
                         class="relative h-96 md:flex-1 rounded-2xl overflow-hidden group hover:md:flex-2 transition-[flex] duration-500 ease-in-out">
                         <!-- Image -->
                         <img src="./assets/images/explore1.jpg"
@@ -206,7 +208,7 @@
 
                             </button>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
 
             </div>
@@ -234,7 +236,7 @@
                         </div>
                         <div class="featured-card-meta flex gap-x-4 items-center">
                             <div class="post-card-author flex gap-x-2 items-center">
-                                <a href="#"
+                                <a href="/author/{{primary_author.name}}/"
                                     class="post-card-author-img-link block w-[34px] h-[34px] rounded-full overflow-hidden">
                                     {{!-- <img src="./assets/images/team9.jpg" alt="{{primary_author.name}}" /> --}}
                               <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}" />
@@ -382,7 +384,7 @@
         </div>
     </section>
 
-    <section class="blog-posts py-20">
+    {{!-- <section class="blog-posts py-20">
         <div class="container mx-auto">
             <h2 class="font-bold text-[38px] mb-9">Discover Our Featured Posts</h2>
             <div class="grid gap-6 lg:grid-cols-4 grid-rows-2">
@@ -520,7 +522,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     {{#get "posts"  limit="4" include="authors,tags"}}
 <section class="blog-posts py-20">
     <div class="container mx-auto">
@@ -655,7 +657,7 @@
     <section class="recommended-post bg-secondary py-15">
         <div class="container mx-auto">
             <div class="recommended-post-header flex justify-between mb-8">
-                <h2 class="text-4xl font-semibold">Recommended Post Article </h2>
+                <h2 class="text-4xl font-semibold">Read Our Latest Posts </h2>
                 <a href="#" class="flex items-center gap-x-2 text-base font-medium">View All
                     <svg width="13" height="12" viewBox="0 0 13 12" fill="none">
                         <path

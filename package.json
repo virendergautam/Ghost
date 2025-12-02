@@ -35,8 +35,52 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-"config": {
+  "config": {
     "custom": {
+      "hero_heading": {
+        "type": "text",
+        "default": "Hello 👋, we are exploring fashion, lifestyle and health.",
+        "group": "homepage"
+      },
+      "hero_subheading": {
+        "type": "text",
+        "default": "Get the email newsletter and unlock access to members-only content and updates Shine is a modern classic blog theme for Ghost.",
+        "group": "homepage"
+      },
+      "hero_image_1": {
+        "type": "image",
+        "default": "/assets/images/banner1.jpg",
+        "group": "homepage"
+      },
+      "hero_image_2": {
+        "type": "image",
+        "default": "/assets/images/banner2.jpg",
+        "group": "homepage"
+      },
+      "hero_image_3": {
+        "type": "image",
+        "default": "/assets/images/banner3.jpg",
+        "group": "homepage"
+      },
+      "dark_mode": {
+        "type": "boolean",
+        "default": false,
+        "label": "Enable Dark Mode",
+        "group": "homepage"
+      },
+      "color_scheme": {
+        "type": "select",
+        "options": [
+          "scheme_1",
+          "scheme_2",
+          "scheme_3"
+        ],
+        "default": "scheme_1"
+      },
+      "custom_scheme": {
+        "type": "boolean",
+        "default": "false"
+      },
       "header_background": {
         "type": "color",
         "default": "#ffffff",
@@ -64,20 +108,27 @@
       },
       "heading_font": {
         "type": "select",
-        "options": ["Inter", "Roboto", "Poppins", "Open Sans", "Montserrat"],
+        "options": [
+          "Inter",
+          "Roboto",
+          "Poppins",
+          "Open Sans",
+          "Montserrat"
+        ],
         "default": "Inter",
         "label": "Heading Font"
       },
       "body_font": {
         "type": "select",
-        "options": ["Inter", "Roboto", "Poppins", "Open Sans", "Montserrat"],
+        "options": [
+          "Inter",
+          "Roboto",
+          "Poppins",
+          "Open Sans",
+          "Montserrat"
+        ],
         "default": "Inter",
         "label": "Body Font"
-      },
-      "dark_mode": {
-        "type": "boolean",
-        "default": false,
-        "label": "Enable Dark Mode"
       }
     }
   }
