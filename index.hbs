@@ -610,7 +610,7 @@
                 {{#if @first}}
                 <article
                     class="blog-post-item relative rounded-3xl overflow-hidden col-span-2 row-span-2 group">
-                    <a href="{{url}}">
+                    <a href="{{url}}" class="block w-full h-full">
                         <div class="w-full h-full">
                         <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
                             alt="{{title}}" class="transition-transform duration-500 group-hover:scale-105" />
@@ -657,14 +657,13 @@
                 {{/foreach}}
                 {{!-- 🔵 2nd + 3rd Posts - Top Right --}}
                 {{#foreach posts from="2" to="3"}}
-                <article class="blog-post-item relative rounded-3xl overflow-hidden">
-                    <a href="{{url}}">
+                <article class="blog-post-item relative rounded-3xl overflow-hidden group">
+                    <a href="{{url}}" class="block w-full h-full">
                         <div class="w-full h-full">
                         <img src="{{feature_image}}" alt="{{title}}"
                             class="transition-transform duration-500 group-hover:scale-105" />
-                            </div>
+                        </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
-
                         <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-6.5">
                             <div class="flex gap-2 flex-wrap">
                                 {{#foreach tags limit="1"}}
@@ -698,12 +697,12 @@
                 {{!-- 🔵 4th Post - Bottom Wide --}}
                 {{#foreach posts}}
                 {{#if @last}}
-                <article class="blog-post-item relative rounded-3xl overflow-hidden col-span-2">
-                    <a href="{{url}}">
-                        <div class="w-full h-full">
-                        <img src="{{feature_image}}" alt="{{title}}"
-                            class="transition-transform duration-500 group-hover:scale-105" />
-                            </div>
+                <article class="blog-post-item relative rounded-3xl overflow-hidden col-span-2 group">
+                    <a href="{{url}}" class="block w-full h-full">
+                    <div class="w-full h-full">
+                    <img src="{{feature_image}}" alt="{{title}}"
+                    class="transition-transform duration-500 group-hover:scale-105" />
+                    </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
 
                         <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-6.5">
@@ -785,8 +784,8 @@
 
     <section class="team-section bg-primary py-10">
         <div class="container mx-auto">
-            <div class="section-heading mb-10">
-                <h2 class="text-[38px] font-bold mb-6">Meet The Team</h2>
+            <div class="section-heading mb-9">
+                <h2 class="text-[38px] font-bold">Meet The Team</h2>
             </div>
             <div
                 class="grid items-start grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 items-center justify-center gap-4 sm:gap-6 lg:gap-10">
