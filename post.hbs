@@ -112,8 +112,7 @@
         <div class="mt-10 rounded-3xl overflow-hidden">
             <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=1600&q=80"
                 alt="Yoga on the beach" />
-        </div>
-
+        </div> --}}
         <div class="mt-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs border-b border-[#EBEBEB] pb-7.5">
 
             <div class="flex items-center gap-2">
@@ -193,6 +192,7 @@
 
 
         </div>
+{{#if @custom.show_subscribe_newsletter_section}}
 
         <div class="max-w-2xl mx-auto bg-secondary rounded-3xl p-10 text-center mt-12.5">
             <h2 class="text-xl font-bold">
@@ -214,7 +214,40 @@
                 </div>
             </form>
 
-        </div> --}}
+        </div>
+        {{/if}}
+    
+
+
+
+    {{#if tags}}
+        {{#foreach tags limit="1"}}
+        <section class="mt-12">
+            <h3 class="text-2xl font-bold mb-6">Related Posts</h3>
+
+            {{#get "posts"
+                limit="4"
+                include="tags,authors"
+                filter="tag:{{slug}}+id:-{{../id}}"
+                as |related|
+            }}
+
+                {{#if related}}
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        {{#foreach related}}
+                           {{>"postCard"}}
+                        {{/foreach}}
+                    </div>
+                {{else}}
+                    <p class="text-gray-500">No related posts found.</p>
+                {{/if}}
+
+            {{/get}}
+
+        </section>
+        {{/foreach}}
+    {{/if}}
+
 
     </div>
 

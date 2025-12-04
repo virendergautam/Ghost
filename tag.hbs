@@ -34,7 +34,14 @@
                     <h2>More Topics:</h2>
                 </div>
                 <div class="flex flex-wrap gap-2">
-                    <a href="#" class="py-2.5 px-5 border border-[#EBEBEB] rounded-full text-sm bg-white">
+                    {{#get "tags" filter="slug:-{{tag.slug}}" limit ="all"}}
+                    {{#foreach tags}}
+                      <a href={{url}} class="py-2.5 px-5 border border-[#EBEBEB] rounded-full text-sm bg-white">
+                        {{name}}
+                    </a>
+                    {{/foreach}}
+                    {{/get}}
+                    {{!-- <a href="#" class="py-2.5 px-5 border border-[#EBEBEB] rounded-full text-sm bg-white">
                         Travel Adventure
                     </a>
                     <a href="#" class="py-2.5 px-5 border border-[#EBEBEB] rounded-full text-sm bg-white">
@@ -48,12 +55,12 @@
                     </a>
                     <a href="#" class="py-2.5 px-5 border border-[#EBEBEB] rounded-full text-sm bg-white">
                         Runway Highlights
-                    </a>
+                    </a> --}}
                 </div>
             </div>
             <div class="grid grid-cols-4 gap-y-12.5 gap-x-4.5">
                 {{#foreach posts}}
-                <article
+                {{!-- <article
                     class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition shadow-gray-200">
                     <a href="{{url}}">
                         {{#if feature_image}}
@@ -70,7 +77,8 @@
                             </p>
                         </div>
                     </a>
-                </article>
+                </article> --}}
+                {{> "postCard"}}
                 {{/foreach}}
             </div>
         </div>

@@ -106,7 +106,7 @@
         "default": "#333333",
         "label": "Secondary Text Color"
       },
-      "show_newsletter": {
+      "show_subscribe_newsletter_section": {
         "type": "boolean",
         "default": true,
         "group":"post"
