@@ -602,17 +602,19 @@
         <div class="container mx-auto">
             <h2 class="font-bold text-[38px] mb-9">Discover Our Featured Posts</h2>
 
-            <div class="grid gap-6 lg:grid-cols-4 grid-rows-2">
+            <div class="grid gap-6 lg:grid-cols-4 grid-rows-2 auto-rows-[minmax(360px,auto)]">
 
                 {{!-- 🔵 1st Post - Large Left --}}
                 {{!-- Index 0 --}}
                 {{#foreach posts}}
                 {{#if @first}}
                 <article
-                    class="relative rounded-3xl overflow-hidden lg:col-span-2 lg:row-span-2 group auto-rows-[minmax(0,360px)]">
+                    class="relative rounded-3xl overflow-hidden lg:col-span-2 lg:row-span-2 group">
                     <a href="{{url}}">
+                        <div class="w-full h-full">
                         <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
                             alt="{{title}}" class="transition-transform duration-500 group-hover:scale-105" />
+                        </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
 
                         <div class="absolute inset-0 z-10 p-6.5 flex flex-col justify-between h-full">
@@ -655,13 +657,14 @@
                 {{/foreach}}
 
                 {{!-- 🔵 2nd + 3rd Posts - Top Right --}}
-                <div class="lg:col-span-2 grid gap-6 md:grid-cols-2 row-span-2">
 
                     {{#foreach posts from="2" to="3"}}
                     <article class="relative rounded-3xl overflow-hidden bg-gray-900 group">
                         <a href="{{url}}">
+                            <div class="w-full h-full">
                             <img src="{{feature_image}}" alt="{{title}}"
                                 class="transition-transform duration-500 group-hover:scale-105" />
+                                </div>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
 
                             <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-6.5">
@@ -698,10 +701,12 @@
                     {{!-- 🔵 4th Post - Bottom Wide --}}
                     {{#foreach posts}}
                     {{#if @last}}
-                    <article class="relative rounded-3xl overflow-hidden bg-gray-900 group md:col-span-2 min-h-[220px]">
+                    <article class="relative rounded-3xl overflow-hidden bg-gray-900 group md:col-span-2">
                         <a href="{{url}}">
+                            <div class="w-full h-full">
                             <img src="{{feature_image}}" alt="{{title}}"
                                 class="transition-transform duration-500 group-hover:scale-105" />
+                                </div>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
 
                             <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-6.5">
@@ -734,7 +739,6 @@
                     </article>
                     {{/if}}
                     {{/foreach}}
-                </div>
 
             </div>
         </div>
