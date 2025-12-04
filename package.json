@@ -33,7 +33,10 @@
     "build": "npx tailwindcss -i ./assets/css/main.css -o ./assets/built/main.css --minify"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "virender",
+    "email": "virender@yopmail.com"
+  },
   "license": "ISC",
   "config": {
     "custom": {
@@ -49,17 +52,14 @@
       },
       "hero_image_1": {
         "type": "image",
-        "default": "/assets/images/banner1.jpg",
         "group": "homepage"
       },
       "hero_image_2": {
         "type": "image",
-        "default": "/assets/images/banner2.jpg",
         "group": "homepage"
       },
       "hero_image_3": {
         "type": "image",
-        "default": "/assets/images/banner3.jpg",
         "group": "homepage"
       },
       "dark_mode": {
@@ -79,7 +79,7 @@
       },
       "custom_scheme": {
         "type": "boolean",
-        "default": "false"
+        "default": false
       },
       "header_background": {
         "type": "color",
