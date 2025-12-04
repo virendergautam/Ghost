@@ -106,29 +106,16 @@
         "default": "#333333",
         "label": "Secondary Text Color"
       },
-      "heading_font": {
-        "type": "select",
-        "options": [
-          "Inter",
-          "Roboto",
-          "Poppins",
-          "Open Sans",
-          "Montserrat"
-        ],
-        "default": "Inter",
-        "label": "Heading Font"
+      "show_newsletter": {
+        "type": "boolean",
+        "default": true,
+        "group":"post"
       },
-      "body_font": {
-        "type": "select",
-        "options": [
-          "Inter",
-          "Roboto",
-          "Poppins",
-          "Open Sans",
-          "Montserrat"
-        ],
-        "default": "Inter",
-        "label": "Body Font"
+      "show_related_post": {
+        "type": "boolean",
+        "default": true,
+                "group":"post"
+
       }
     }
   }
