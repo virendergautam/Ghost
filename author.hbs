@@ -1,90 +1,85 @@
 {{!< default}} {{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template
-  --}} <div class="container mx-auto">
+  --}}
   {{#author}}
-  <section class="post-card post-card-large">
+<div class="bg-primary py-10">
+  <div class="post-card-content-link max-w-235 mx-auto">
 
-    <div class="post-card-content">
-      <div class="post-card-content-link max-w-235 mx-auto">
-
-        {{#if profile_image}}
-        <div class="w-41 h-41 rounded-full mx-auto overflow-hidden border border-[#EBEBEB] p-1.5">
-          <img class="author-profile-pic rounded-full" src="{{profile_image}}" alt="{{name}}" />
-        </div>
-        {{/if}}
-
-        <header class="post-card-header mt-6">
-          <h2 class="text-[54px] text-center font-bold post-card-title">{{name}}</h2>
-        </header>
-
-        {{#if bio}}
-        <div class="post-card-excerpt mt-6">
-          <div class="flex items-center gap-2.5 justify-center mt-6">
-          {{#if location}}
-          <div class="author-profile-location text-sm">{{location}}</div>
-          {{/if}}
-          <div class="text-xs bg-secondary border border-[#EBEBEB] rounded-3xl py-[6px] px-[20px]">15 Article</div>
-          </div>
-          <p class="text-base text-center mt-6">{{bio}}</p>
-        </div>
-        {{/if}}
-
-        <footer class="author-profile-footer">
-          <div class="author-profile-meta flex items-center justify-center gap-5 pt-5 mt-9 border-t border-[#EBEBEB]">
-            {{#if website}}
-            <a class="author-profile-social-link w-9.5 h-9.5 flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{website}}" target="_blank" rel="noopener">{{website}}</a>
-            {{/if}}
-            {{#if twitter}}
-            <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" twitter"}}" target="_blank"
-              rel="noopener">{{> "icons/twitter"}}</a>
-            {{/if}}
-            {{#if facebook}}
-            <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" facebook"}}" target="_blank"
-              rel="noopener">{{> "icons/facebook"}}</a>
-            {{/if}}
-            {{#if linkedin}}
-            <a class="author-profile-social-link w-9.5 h-9.5 flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" linkedin"}}" target="_blank"
-              rel="noopener">{{> "icons/linkedin"}}</a>
-            {{/if}}
-            {{#if bluesky}}
-            <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" bluesky"}}" target="_blank"
-              rel="noopener">{{> "icons/bluesky"}}</a>
-            {{/if}}
-            {{#if threads}}
-            <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" threads"}}" target="_blank"
-              rel="noopener">{{> "icons/threads"}}</a>
-            {{/if}}
-            {{#if mastodon}}
-            <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" mastodon"}}" target="_blank"
-              rel="noopener">{{> "icons/mastodon"}}</a>
-            {{/if}}
-            {{#if tiktok}}
-            <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" tiktok"}}" target="_blank"
-              rel="noopener">{{> "icons/tiktok"}}</a>
-            {{/if}}
-            {{#if youtube}}
-            <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" youtube"}}" target="_blank"
-              rel="noopener">{{> "icons/youtube"}}</a>
-            {{/if}}
-            {{#if instagram}}
-            <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" instagram"}}" target="_blank"
-              rel="noopener">{{> "icons/instagram"}}</a>
-            {{/if}}
-          </div>
-        </footer>
-        <div class="">
-          {{#get "posts" filter="authors:{{slug}}" limit="all"}}
-                  {{#foreach posts}}
-                   {{>"postCard"}}
-{{/foreach}}
-{{/get}}
-</div>
-
-      </div>
-      <div class="">
-        
-      </div>
+    {{#if profile_image}}
+    <div class="w-41 h-41 rounded-full mx-auto overflow-hidden border border-[#EBEBEB] p-1.5">
+      <img class="author-profile-pic rounded-full" src="{{profile_image}}" alt="{{name}}" />
     </div>
+    {{/if}}
 
-  </section>
-  {{/author}}
+    <header class="post-card-header mt-6">
+      <h2 class="text-[54px] text-center font-bold post-card-title">{{name}}</h2>
+    </header>
+
+    {{#if bio}}
+    <div class="post-card-excerpt mt-6">
+      <div class="flex items-center gap-2.5 justify-center mt-6">
+      {{#if location}}
+      <div class="author-profile-location text-sm">{{location}}</div>
+      {{/if}}
+      <div class="text-xs bg-secondary border border-[#EBEBEB] rounded-3xl py-[6px] px-[20px]">15 Article</div>
+      </div>
+      <p class="text-base text-center mt-6">{{bio}}</p>
+    </div>
+    {{/if}}
+
+    <footer class="author-profile-footer">
+      <div class="author-profile-meta flex items-center justify-center gap-5 pt-5 mt-9 border-t border-[#EBEBEB]">
+        {{#if website}}
+        <a class="author-profile-social-link w-9.5 h-9.5 flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{website}}" target="_blank" rel="noopener">{{website}}</a>
+        {{/if}}
+        {{#if twitter}}
+        <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" twitter"}}" target="_blank"
+          rel="noopener">{{> "icons/twitter"}}</a>
+        {{/if}}
+        {{#if facebook}}
+        <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" facebook"}}" target="_blank"
+          rel="noopener">{{> "icons/facebook"}}</a>
+        {{/if}}
+        {{#if linkedin}}
+        <a class="author-profile-social-link w-9.5 h-9.5 flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" linkedin"}}" target="_blank"
+          rel="noopener">{{> "icons/linkedin"}}</a>
+        {{/if}}
+        {{#if bluesky}}
+        <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" bluesky"}}" target="_blank"
+          rel="noopener">{{> "icons/bluesky"}}</a>
+        {{/if}}
+        {{#if threads}}
+        <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" threads"}}" target="_blank"
+          rel="noopener">{{> "icons/threads"}}</a>
+        {{/if}}
+        {{#if mastodon}}
+        <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" mastodon"}}" target="_blank"
+          rel="noopener">{{> "icons/mastodon"}}</a>
+        {{/if}}
+        {{#if tiktok}}
+        <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" tiktok"}}" target="_blank"
+          rel="noopener">{{> "icons/tiktok"}}</a>
+        {{/if}}
+        {{#if youtube}}
+        <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" youtube"}}" target="_blank"
+          rel="noopener">{{> "icons/youtube"}}</a>
+        {{/if}}
+        {{#if instagram}}
+        <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type=" instagram"}}" target="_blank"
+          rel="noopener">{{> "icons/instagram"}}</a>
+        {{/if}}
+      </div>
+    </footer>
   </div>
+</div>
+<div class="author-articles bg-secondary py-20">
+  <div class="container mx-auto">
+    <div class="grid grid-cols-4 gap-y-12.5 gap-x-4.5">
+      {{#get "posts" filter="authors:{{slug}}" limit="all"}}
+              {{#foreach posts}}
+                {{>"postCard"}}
+      {{/foreach}}
+      {{/get}}
+    </div>
+  </div>
+</div>
+{{/author}}
