@@ -76,6 +76,10 @@ img {
   --media-height: 680px;
 }
 
+.blog-posts-wrapper {
+    grid-auto-rows: minmax(360px, 1fr);
+}
+
 .recommended-post {
   --media-height: 390px;
 }

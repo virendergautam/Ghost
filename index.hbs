@@ -1,15 +1,15 @@
 {{!< default}} <!-- Top orange strip -->
 
-    <section class="hero-banner bg-secondary py-14">
+    <section class="hero-banner bg-secondary py-10">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
                     <h1 class="text-[54px] font-semibold mb-6">{{@custom.hero_heading}}
                     </h1>
                     <p class="text-xl max-w-2xl">{{@custom.hero_subheading}}</p>
-                    <form class="mt-11">
+                    <form class="mt-9">
                         <div
-                            class="flex items-center max-w-[500px] bg-slate-100 rounded-full border border-gray-200 min-h-[48px] p-[3px]">
+                            class="flex items-center max-w-[500px] bg-[#F1F1F2] rounded-full border border-[#DFDFDF] min-h-[48px] p-[3px]">
                             <input type="email" placeholder="Enter your email"
                                 class="flex-1 bg-transparent px-4 text-sm md:text-base text-slate-800 placeholder:text-slate-400 focus:outline-none" />
                             <button type="submit"
@@ -107,7 +107,7 @@
 
     </section>
 
-    <section class="explore-tags py-14">
+    <section class="explore-tags bg-primary py-10">
         <div class="container mx-auto">
             <div class="explore-tags-wrapper">
                 <div class="explore-tags-header flex justify-between mb-8.5">
@@ -279,9 +279,10 @@
             </div>
         </div>
     </section>
+
     {{#get "posts" filter="featured:true" limit="1" include="authors,tags"}}
     {{#foreach posts}}
-    <section class="featured-blog py-14">
+    <section class="featured-blog bg-primary py-10">
         <div class="container mx-auto">
             <div class="featured-blog-wrapper relative">
                 <div class="featured-blog-media rounded-2xl overflow-hidden h-[var(--media-height)]">
@@ -340,7 +341,7 @@
     {{/foreach}}
     {{/get}}
 
-    <section class="trust-icons">
+    <section class="trust-icons bg-primary py-10">
         <div class="container mx-auto">
             <h2 class="font-bold text-[38px] mb-8.5">Why Choose Us</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -598,18 +599,17 @@
         </div>
     </section> --}}
     {{#get "posts" limit="4" include="authors,tags"}}
-    <section class="blog-posts py-20">
+    <section class="blog-posts bg-primary py-10">
         <div class="container mx-auto">
             <h2 class="font-bold text-[38px] mb-9">Discover Our Featured Posts</h2>
 
-            <div class="grid gap-6 lg:grid-cols-4 grid-rows-2 auto-rows-[minmax(360px,auto)]">
-
+            <div class="blog-posts-wrapper grid gap-6 grid-cols-4">
                 {{!-- 🔵 1st Post - Large Left --}}
                 {{!-- Index 0 --}}
                 {{#foreach posts}}
                 {{#if @first}}
                 <article
-                    class="relative rounded-3xl overflow-hidden lg:col-span-2 lg:row-span-2 group">
+                    class="blog-post-item relative rounded-3xl overflow-hidden col-span-2 row-span-2 group">
                     <a href="{{url}}">
                         <div class="w-full h-full">
                         <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
@@ -655,99 +655,93 @@
                 </article>
                 {{/if}}
                 {{/foreach}}
-
                 {{!-- 🔵 2nd + 3rd Posts - Top Right --}}
+                {{#foreach posts from="2" to="3"}}
+                <article class="blog-post-item relative rounded-3xl overflow-hidden">
+                    <a href="{{url}}">
+                        <div class="w-full h-full">
+                        <img src="{{feature_image}}" alt="{{title}}"
+                            class="transition-transform duration-500 group-hover:scale-105" />
+                            </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
 
-                    {{#foreach posts from="2" to="3"}}
-                    <article class="relative rounded-3xl overflow-hidden bg-gray-900 group">
-                        <a href="{{url}}">
-                            <div class="w-full h-full">
-                            <img src="{{feature_image}}" alt="{{title}}"
-                                class="transition-transform duration-500 group-hover:scale-105" />
-                                </div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
+                        <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-6.5">
+                            <div class="flex gap-2 flex-wrap">
+                                {{#foreach tags limit="1"}}
+                                <span
+                                    class="px-3 py-1 text-xs font-medium rounded-full bg-white/30 text-white backdrop-blur-sm">
+                                    {{name}}
+                                </span>
+                                {{/foreach}}
+                            </div>
 
-                            <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-6.5">
-                                <div class="flex gap-2 flex-wrap">
-                                    {{#foreach tags limit="1"}}
-                                    <span
-                                        class="px-3 py-1 text-xs font-medium rounded-full bg-white/30 text-white backdrop-blur-sm">
-                                        {{name}}
-                                    </span>
-                                    {{/foreach}}
-                                </div>
+                            <div>
+                                <h3 class="text-white text-lg font-semibold mb-5">
+                                    {{title}}
+                                </h3>
 
-                                <div>
-                                    <h3 class="text-white text-lg font-semibold mb-5">
-                                        {{title}}
-                                    </h3>
+                                <div class="flex items-center gap-3 text-[11px] text-white/80">
+                                    {{#if authors.[0].profile_image}}
 
-                                    <div class="flex items-center gap-3 text-[11px] text-white/80">
-                                        {{#if authors.[0].profile_image}}
-
-                                        <div class="w-9 h-9 rounded-full overflow-hidden">
-                                            <img src="{{authors.[0].profile_image}}" alt="{{authors.[0].name}}" />
-                                        </div>
-                                        {{/if}}
-                                        <span>By {{authors.[0].name}} / {{date format="MMMM DD, YYYY"}}</span>
+                                    <div class="w-9 h-9 rounded-full overflow-hidden">
+                                        <img src="{{authors.[0].profile_image}}" alt="{{authors.[0].name}}" />
                                     </div>
+                                    {{/if}}
+                                    <span>By {{authors.[0].name}} / {{date format="MMMM DD, YYYY"}}</span>
                                 </div>
                             </div>
-                        </a>
-                    </article>
-                    {{/foreach}}
+                        </div>
+                    </a>
+                </article>
+                {{/foreach}}
 
+                {{!-- 🔵 4th Post - Bottom Wide --}}
+                {{#foreach posts}}
+                {{#if @last}}
+                <article class="blog-post-item relative rounded-3xl overflow-hidden col-span-2">
+                    <a href="{{url}}">
+                        <div class="w-full h-full">
+                        <img src="{{feature_image}}" alt="{{title}}"
+                            class="transition-transform duration-500 group-hover:scale-105" />
+                            </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
 
-                    {{!-- 🔵 4th Post - Bottom Wide --}}
-                    {{#foreach posts}}
-                    {{#if @last}}
-                    <article class="relative rounded-3xl overflow-hidden bg-gray-900 group md:col-span-2">
-                        <a href="{{url}}">
-                            <div class="w-full h-full">
-                            <img src="{{feature_image}}" alt="{{title}}"
-                                class="transition-transform duration-500 group-hover:scale-105" />
-                                </div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
+                        <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-6.5">
+                            <div class="flex">
+                                {{#foreach tags limit="1"}}
+                                <span
+                                    class="px-3 py-1 text-xs font-medium rounded-full bg-white/30 text-white backdrop-blur-sm">
+                                    {{name}}
+                                </span>
+                                {{/foreach}}
+                            </div>
 
-                            <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-6.5">
-                                <div class="flex">
-                                    {{#foreach tags limit="1"}}
-                                    <span
-                                        class="px-3 py-1 text-xs font-medium rounded-full bg-white/30 text-white backdrop-blur-sm">
-                                        {{name}}
-                                    </span>
-                                    {{/foreach}}
-                                </div>
+                            <div>
+                                <h3 class="text-white text-lg sm:text-xl font-semibold mb-5 max-w-2xl">
+                                    {{title}}
+                                </h3>
 
-                                <div>
-                                    <h3 class="text-white text-lg sm:text-xl font-semibold mb-5 max-w-2xl">
-                                        {{title}}
-                                    </h3>
+                                <div class="flex items-center gap-3 text-[11px] text-white/80">
+                                    {{#if authors.[0].profile_image}}
 
-                                    <div class="flex items-center gap-3 text-[11px] text-white/80">
-                                        {{#if authors.[0].profile_image}}
-
-                                        <div class="w-9 h-9 rounded-full overflow-hidden">
-                                            <img src="{{authors.[0].profile_image}}" alt="{{authors.[0].name}}" />
-                                        </div>
-                                        {{/if}}
-                                        <span>By {{authors.[0].name}} / {{date format="MMMM DD, YYYY"}}</span>
+                                    <div class="w-9 h-9 rounded-full overflow-hidden">
+                                        <img src="{{authors.[0].profile_image}}" alt="{{authors.[0].name}}" />
                                     </div>
+                                    {{/if}}
+                                    <span>By {{authors.[0].name}} / {{date format="MMMM DD, YYYY"}}</span>
                                 </div>
                             </div>
-                        </a>
-                    </article>
-                    {{/if}}
-                    {{/foreach}}
-
+                        </div>
+                    </a>
+                </article>
+                {{/if}}
+                {{/foreach}}
             </div>
         </div>
     </section>
     {{/get}}
 
-
-
-    <section class="recommended-post bg-secondary py-15">
+    <section class="recommended-post bg-secondary py-10">
         <div class="container mx-auto">
             <div class="recommended-post-header flex justify-between mb-8">
                 <h2 class="text-4xl font-semibold">Read Our Latest Posts </h2>
@@ -789,7 +783,7 @@
         </div>
     </section>
 
-    <section class="team-section py-10">
+    <section class="team-section bg-primary py-10">
         <div class="container mx-auto">
             <div class="section-heading mb-10">
                 <h2 class="text-[38px] font-bold mb-6">Meet The Team</h2>
