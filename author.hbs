@@ -71,6 +71,13 @@
             {{/if}}
           </div>
         </footer>
+        <div class="">
+          {{#get "posts" filter="authors:{{slug}}" limit="all"}}
+                  {{#foreach posts}}
+                   {{>"postCard"}}
+{{/foreach}}
+{{/get}}
+</div>
 
       </div>
       <div class="">

@@ -799,7 +799,7 @@
 
                 {{#get "authors" limit="all"}}
                 {{#foreach authors}}
-                <a href="" class="group text-center">
+                <a href={{url}} class="group text-center">
                     <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
                         {{#if profile_image}}
                         <img src="{{profile_image}}" alt="{{name}}" class="rounded-full" />
@@ -823,14 +823,7 @@
                 </a>
                 {{/foreach}}
                 {{/get}}
-                <a href="" class="group text-center">
-                    <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
-                        <div class="w-full h-full rounded-full overflow-hidden flex justify-center items-center">
-                            <span class="font-bold text-2xl sm:text-4xl">RA</span>
-                        </div>
-                    </div>
-                    <div class="mt-2 text-base font-semibold">Riley Cooper</div>
-                </a>
+              
             </div>
         </div>
     </section>
