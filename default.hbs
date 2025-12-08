@@ -28,6 +28,30 @@
 </head>
 
 <body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const box = document.getElementById("randomColorBox");
+
+    // Predefined combinations
+    const colorCombos = [
+        { bg: "#1E90FF", text: "#FFFFFF" }, // Blue + White
+        { bg: "#FF6347", text: "#FFFFFF" }, // Tomato + White
+        { bg: "#32CD32", text: "#000000" }, // Lime + Black
+        { bg: "#FFD700", text: "#000000" }, // Gold + Black
+        { bg: "#6A5ACD", text: "#FFFFFF" }, // SlateBlue + White
+        { bg: "#000000", text: "#FFD700" }, // Black + Gold
+        { bg: "#FF1493", text: "#FFFFFF" }, // Pink + White
+    ];
+
+    // Pick a random one
+    const random = colorCombos[Math.floor(Math.random() * colorCombos.length)];
+
+    // Apply the colors
+    box.style.backgroundColor = random.bg;
+    box.style.color = random.text;
+});
+</script>
+
     <div class="main-viewport">
      <header class="bg-primary py-4">
         <div class="container mx-auto">
