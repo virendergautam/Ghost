@@ -40,6 +40,15 @@
   "license": "ISC",
   "config": {
     "custom": {
+      "header_layout": {
+        "type": "select",
+        "options": [
+          "stacked",
+          "animated",
+          "always_visible"
+        ],
+        "default": "Stacked"
+      },
       "hero_heading": {
         "type": "text",
         "default": "Hello 👋, we are exploring fashion, lifestyle and health.",
@@ -109,13 +118,12 @@
       "show_subscribe_newsletter_section": {
         "type": "boolean",
         "default": true,
-        "group":"post"
+        "group": "post"
       },
       "show_related_post": {
         "type": "boolean",
         "default": true,
-                "group":"post"
-
+        "group": "post"
       }
     }
   }

@@ -1,6 +1,25 @@
 {{!< default}}
-{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
-<div>
-    <h2>page detail</h2>
-</div>
+{{#post}}
+<section class="max-w-4xl mx-auto px-4 py-16">
 
+    {{! Page Title }}
+    <h1 class="text-4xl font-bold mb-6 text-gray-900">
+        {{title}}
+    </h1>
+
+    {{! Featured Image (optional) }}
+    {{#if feature_image}}
+        <img 
+            src="{{feature_image}}" 
+            alt="{{title}}" 
+            class="w-full rounded-xl mb-8 shadow"
+        >
+    {{/if}}
+
+    {{! Main Page Content from Ghost Admin }}
+    <div class="prose max-w-none text-gray-800">
+        {{content}}
+    </div>
+
+</section>
+{{/post}}
