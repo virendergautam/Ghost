@@ -47,6 +47,31 @@ h6 {
   font-family: var(--headingFont);
 }
 
+.page-content h1 {
+  font-size: 54px;
+  font-weight: 700;
+}
+.page-content h2 {
+  font-size: 54px;
+  font-weight: 700;
+}
+.page-content h3 {
+  font-size: 28px;
+  font-weight: 700;
+}
+.page-content h4 {
+  font-size: 54px;
+  font-weight: 700;
+}
+.page-content h5 {
+  font-size: 54px;
+  font-weight: 700;
+}
+.page-content h6 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
 .container {
   width: 100%;
   padding-inline: 15px;
@@ -92,4 +117,19 @@ img {
 
 .recommended-post {
   --media-height: 390px;
+}
+
+.page-content>[id]+*,
+.page-content .kg-card {
+    margin-top: 20px;
+}
+
+.page-content>[id]:not(:first-child) {
+  margin-top: 50px;
+}
+
+.page-content ul,
+.page-content li+li,
+.page-content p+p {
+   margin-top: 20px;
 }
