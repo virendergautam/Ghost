@@ -1,25 +1,39 @@
-{{!< default}}
-{{#post}}
-<section class="max-w-4xl mx-auto px-4 py-16">
+{{!< default}} {{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+    {{#post}} 
+    <main id="site-main" class="site-main py-20">
+    <div class="container mx-auto">
+        <div class="max-w-[1050px] mx-auto">
+            <article class="article {{post_class}}">
 
-    {{! Page Title }}
-    <h1 class="text-4xl font-bold mb-6 text-gray-900">
-        {{title}}
-    </h1>
+                {{#match @page.show_title_and_feature_image}}
+                <header class="article-header gh-canvas">
 
-    {{! Featured Image (optional) }}
-    {{#if feature_image}}
-        <img 
-            src="{{feature_image}}" 
-            alt="{{title}}" 
-            class="w-full rounded-xl mb-8 shadow"
-        >
-    {{/if}}
+                    <h1 class="article-title text-[54px] font-bold mb-7">{{title}}</h1>
 
-    {{! Main Page Content from Ghost Admin }}
-    <div class="prose max-w-none text-gray-800">
-        {{content}}
+                    {{#if feature_image}}
+                    <figure class="article-image">
+                        {{!-- This is a responsive image, it loads different sizes depending on device
+                        https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
+                        --}}
+                        <img srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image size="m" }} 600w,
+                            {{img_url feature_image size="l" }} 1000w, {{img_url feature_image size="xl" }} 2000w"
+                            sizes="(min-width: 1400px) 1400px, 92vw" src="{{img_url feature_image size=" xl"}}"
+                            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
+                        {{#if feature_image_caption}}
+                        <figcaption>{{feature_image_caption}}</figcaption>
+                        {{/if}}
+                    </figure>
+                    {{/if}}
+
+                </header>
+                {{/match}}
+
+                <section class="page-content">
+                    {{content}}
+                </section>
+
+            </article>
+        </div>
     </div>
-
-</section>
-{{/post}}
+    </main>
+    {{/post}}
