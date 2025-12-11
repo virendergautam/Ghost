@@ -9,23 +9,26 @@
                 <img src="/assets/images/no-image.png" alt="No Image">
             {{/if}}
             {{!-- <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs"> 6 min read</div> --}}
-                       <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
+                       {{!-- <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
                 {{reading_time}}
-            </div>
+            </div> --}}
+            {{#if primary_tag}}
+                    <span class="absolute top-4 left-4 text-xs bg-white/30 text-white backdrop-blur-sm border border-white/10 rounded-3xl px-3 py-1">
+                        {{primary_tag.name}}
+                    </span>
+                {{/if}}
         </div>
         <div class="recommended-post-item-content">
             <div class="recommended-post-meta flex items-center gap-[10px] mb-4">
                 {{!-- <span
                     class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">Category</span> --}}
-                                    {{#if primary_tag}}
-                    <span class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">
-                        {{primary_tag.name}}
-                    </span>
-                {{/if}}
+                
+                
                 {{!-- <span class="recommended-post-date text-xs text-black">November 14, 2025 </span> --}}
                  <span class="recommended-post-date text-xs text-black">
                     {{date format="MMMM DD, YYYY"}}
                 </span>
+                <span class="bg-secondary px-[10px] py-[6px] rounded-3xl text-xs font-medium">{{reading_time}}</span>
             </div>
             {{!-- <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New Experience</h2> --}}
              <h2 class="text-lg font-semibold mb-4">{{title}}</h2>
