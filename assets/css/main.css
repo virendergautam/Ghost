@@ -23,7 +23,7 @@
 
 
 body {
-  font-family: var(--bodyFont);
+  font-family: var(--gh-font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -44,29 +44,38 @@ h4,
 h5,
 h6 {
   line-height: 1.2;
-  font-family: var(--headingFont);
+  font-family: var(--gh-font-heading);
+}
+
+button.button {
+  background-color: var(--ghost-accent-color);
 }
 
 .page-content h1 {
   font-size: 54px;
   font-weight: 700;
 }
+
 .page-content h2 {
   font-size: 54px;
   font-weight: 700;
 }
+
 .page-content h3 {
   font-size: 28px;
   font-weight: 700;
 }
+
 .page-content h4 {
   font-size: 54px;
   font-weight: 700;
 }
+
 .page-content h5 {
   font-size: 54px;
   font-weight: 700;
 }
+
 .page-content h6 {
   font-size: 22px;
   font-weight: 700;
@@ -88,13 +97,13 @@ img {
 }
 
 .header-menu .nav {
-    align-items: center;
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  align-items: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .featured-blog {
@@ -112,7 +121,7 @@ img {
 }
 
 .blog-posts-wrapper {
-    grid-auto-rows: minmax(180px, 360px);
+  grid-auto-rows: minmax(180px, 360px);
 }
 
 .recommended-post {
@@ -121,7 +130,7 @@ img {
 
 .page-content>[id]+*,
 .page-content .kg-card {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .page-content>[id]:not(:first-child) {
@@ -131,5 +140,13 @@ img {
 .page-content ul,
 .page-content li+li,
 .page-content p+p {
-   margin-top: 20px;
+  margin-top: 20px;
+}
+
+blockquote {
+  border-left: 3px solid var(--ghost-accent-color);
+  font-style: italic;
+  padding: 0px 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
