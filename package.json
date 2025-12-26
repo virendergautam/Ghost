@@ -43,9 +43,9 @@
       "header_layout": {
         "type": "select",
         "options": [
-          "stacked",
+          "always",
           "animated",
-          "always_visible"
+          "none"
         ],
         "default": "Stacked"
       },

@@ -33,24 +33,62 @@ document.addEventListener("DOMContentLoaded", () => {
     const box = document.getElementById("randomColorBox");
 
     // Predefined combinations
-    const colorCombos = [
-        { bg: "#1E90FF", text: "#FFFFFF" }, // Blue + White
-        { bg: "#FF6347", text: "#FFFFFF" }, // Tomato + White
-        { bg: "#32CD32", text: "#000000" }, // Lime + Black
-        { bg: "#FFD700", text: "#000000" }, // Gold + Black
-        { bg: "#6A5ACD", text: "#FFFFFF" }, // SlateBlue + White
-        { bg: "#000000", text: "#FFD700" }, // Black + Gold
-        { bg: "#FF1493", text: "#FFFFFF" }, // Pink + White
-    ];
+const themes = [
+  "color-theme-1",
+  "color-theme-2",
+  "color-theme-3",
+  "color-theme-4",
+  "color-theme-5",
+  "color-theme-6"
+];
 
     // Pick a random one
-    const random = colorCombos[Math.floor(Math.random() * colorCombos.length)];
-
-    // Apply the colors
-    box.style.backgroundColor = random.bg;
-    box.style.color = random.text;
+  const randomClass = themes[Math.floor(Math.random() * themes.length)];
+  box.classList.add(randomClass);
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.getElementById("siteHeader");
+  if (!header) return;
+
+  const style = header.dataset.headerStyle; // always | animated | none
+
+  const STICKY_CLASS = "header-sticky";
+  const HIDDEN_CLASS = "is-hidden";
+
+  let lastScrollY = window.scrollY;
+
+  /* --------------------------------
+     Apply base behavior
+  ---------------------------------*/
+  if (style === "always" || style === "animated") {
+    header.classList.add(STICKY_CLASS);
+  } else {
+    header.classList.remove(STICKY_CLASS, HIDDEN_CLASS);
+  }
+
+  /* --------------------------------
+     Animated scroll behavior
+  ---------------------------------*/
+  if (style === "animated") {
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        // scrolling down → hide
+        header.classList.add(HIDDEN_CLASS);
+      } else {
+        // scrolling up → show
+        header.classList.remove(HIDDEN_CLASS);
+      }
+
+      lastScrollY = currentScrollY;
+    });
+  }
+});
+</script>
+
 
     <div class="main-viewport">
  {{> "header"}}

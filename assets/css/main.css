@@ -114,6 +114,11 @@ img {
   transition: .5s cubic-bezier(.6, 0, .4, 1);
 }
 
+.header-sticky.is-hidden {
+    top: calc(100% * -1);
+    transition: .5s cubic-bezier(.6, 0, .4, 1);
+}
+
 .featured-blog {
   --media-height: 550px;
 }
@@ -157,4 +162,35 @@ blockquote {
   padding: 0px 20px;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+/* author name random colors */
+.color-theme-1 {
+  background-color: #6A89A7;
+  color: #ffffff;
+}
+
+.color-theme-2 {
+  background-color: #BBB791;
+  color: #ffffff;
+}
+
+.color-theme-3 {
+  background-color: #a8dcabb8;
+  color: #14741a;
+}
+
+.color-theme-4 {
+  background-color: #CCCCFF;
+  color: #4747a7;
+}
+
+.color-theme-5 {
+  background-color: #F7D9BC;
+  color: #705a45;
+}
+
+.color-theme-6 {
+  background-color: #d1c397b8;
+  color: #605942;
 }

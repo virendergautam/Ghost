@@ -612,8 +612,8 @@
                     class="blog-post-item relative rounded-3xl overflow-hidden md:col-span-2 md:row-span-2 group">
                     <a href="{{url}}" class="block w-full h-full">
                         <div class="w-full h-full">
-                        <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
-                            alt="{{title}}" class="transition-transform duration-500 group-hover:scale-105" />
+                            <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
+                                alt="{{title}}" class="transition-transform duration-500 group-hover:scale-105" />
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
 
@@ -660,8 +660,8 @@
                 <article class="blog-post-item relative rounded-3xl overflow-hidden group">
                     <a href="{{url}}" class="block w-full h-full">
                         <div class="w-full h-full">
-                        <img src="{{feature_image}}" alt="{{title}}"
-                            class="transition-transform duration-500 group-hover:scale-105" />
+                            <img src="{{feature_image}}" alt="{{title}}"
+                                class="transition-transform duration-500 group-hover:scale-105" />
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
                         <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-6.5">
@@ -699,10 +699,10 @@
                 {{#if @last}}
                 <article class="blog-post-item relative rounded-3xl overflow-hidden md:col-span-2 group">
                     <a href="{{url}}" class="block w-full h-full">
-                    <div class="w-full h-full">
-                    <img src="{{feature_image}}" alt="{{title}}"
-                    class="transition-transform duration-500 group-hover:scale-105" />
-                    </div>
+                        <div class="w-full h-full">
+                            <img src="{{feature_image}}" alt="{{title}}"
+                                class="transition-transform duration-500 group-hover:scale-105" />
+                        </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
 
                         <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-6.5">
@@ -797,7 +797,8 @@
                         {{#if profile_image}}
                         <img src="{{profile_image}}" alt="{{name}}" class="rounded-full" />
                         {{else}}
-<div id="randomColorBox" class="w-full h-full rounded-full overflow-hidden flex justify-center items-center">
+                        <div id="randomColorBox"
+                            class="w-full h-full rounded-full overflow-hidden flex justify-center items-center">
                             <span class="font-bold text-2xl sm:text-4xl">
                                 {{~#split name separator=" " as |words|~}}
                                 {{~#foreach words~}}
@@ -816,7 +817,7 @@
                 </a>
                 {{/foreach}}
                 {{/get}}
-              
+
             </div>
         </div>
     </section>
