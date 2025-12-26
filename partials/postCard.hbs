@@ -1,12 +1,12 @@
 <a href="{{url}}" class="recommended-post-item swiper-slide"
 >
-    <div class="bg-white rounded-xl border border-gray-200 p-5 h-full">
+    <div class="bg-white rounded-xl border border-gray-200 p-5 h-full group">
         <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
             {{!-- <img src="./assets/images/r1.jpg"> --}}
              {{#if feature_image}}
-                <img src="{{feature_image}}" alt="{{slug}}">
+                <img src="{{feature_image}}" class="transition-transform duration-500 group-hover:scale-105" alt="{{slug}}">
             {{else}}
-                <img src="/assets/images/no-image.png" alt="No Image">
+                <img src="/assets/images/no-image.png" class="transition-transform duration-500 group-hover:scale-105" alt="No Image">
             {{/if}}
             {{!-- <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs"> 6 min read</div> --}}
                        {{!-- <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">

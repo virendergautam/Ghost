@@ -603,13 +603,13 @@
         <div class="container mx-auto">
             <h2 class="font-bold text-[38px] mb-9">Discover Our Featured Posts</h2>
 
-            <div class="blog-posts-wrapper grid gap-6 grid-cols-4">
+            <div class="blog-posts-wrapper grid grid-cols-1 gap-4 md:gap-6 md:grid-cols-4">
                 {{!-- 🔵 1st Post - Large Left --}}
                 {{!-- Index 0 --}}
                 {{#foreach posts}}
                 {{#if @first}}
                 <article
-                    class="blog-post-item relative rounded-3xl overflow-hidden col-span-2 row-span-2 group">
+                    class="blog-post-item relative rounded-3xl overflow-hidden md:col-span-2 md:row-span-2 group">
                     <a href="{{url}}" class="block w-full h-full">
                         <div class="w-full h-full">
                         <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
@@ -697,7 +697,7 @@
                 {{!-- 🔵 4th Post - Bottom Wide --}}
                 {{#foreach posts}}
                 {{#if @last}}
-                <article class="blog-post-item relative rounded-3xl overflow-hidden col-span-2 group">
+                <article class="blog-post-item relative rounded-3xl overflow-hidden md:col-span-2 group">
                     <a href="{{url}}" class="block w-full h-full">
                     <div class="w-full h-full">
                     <img src="{{feature_image}}" alt="{{title}}"
