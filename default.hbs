@@ -24,7 +24,7 @@
         --darkMode: {{#if @custom.dark_mode}}1{{else}}0{{/if}};
     }
 </style>
-    
+ <script src="{{asset "js/main.js"}}"></script>
 </head>
 
 <body>
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
                 <!-- Newsletter -->
-                <div class="max-w-[480px] ml-auto">
+                <div class="max-w-[480px] ml-auto mt-10 md:mt-0">
                     <h4 class="text-base font-bold mb-6">
                         Subscribe to our newsletter
                     </h4>
@@ -156,8 +156,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         Join our newsletter to stay up to date on features and releases.
                     </p>
                     <form
-                        class="flex items-center bg-transparent rounded-full border border-[#EBEBEB] p-[3px] h-[50px] overflow-hidden">
-                        <input type="email" class="flex-1 px-4 text-sm bg-transparent outline-none"
+                        class="grid grid-cols-(--my-grid-cols) bg-transparent rounded-full border border-[#EBEBEB] p-[3px] h-[50px] overflow-hidden">
+                        <input type="email" class="min-w-0 flex-1 px-4 text-sm bg-transparent outline-none"
                             placeholder="Enter your email" />
                         <button type="submit"
                             class="px-6 py-2 text-sm font-semibold h-full text-white rounded-full bg-[#FF7044]">

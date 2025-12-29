@@ -4,14 +4,14 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h1 class="text-[54px] font-semibold mb-6">{{@custom.hero_heading}}
+                    <h1 class="text-[28px] md:text-[54px] font-semibold mb-4 md:mb-6">{{@custom.hero_heading}}
                     </h1>
-                    <p class="text-xl max-w-2xl">{{@custom.hero_subheading}}</p>
-                    <form class="mt-9">
+                    <p class="text-base md:text-xl max-w-2xl">{{@custom.hero_subheading}}</p>
+                    <form class="mt-6 md:mt-9">
                         <div
-                            class="flex items-center max-w-[500px] bg-[#F1F1F2] rounded-full border border-[#DFDFDF] min-h-[48px] p-[3px]">
+                            class="grid grid-cols-(--my-grid-cols) max-w-[500px] bg-[#F1F1F2] rounded-full border border-[#DFDFDF] min-h-[48px] p-[3px]">
                             <input type="email" placeholder="Enter your email"
-                                class="flex-1 bg-transparent px-4 text-sm md:text-base text-slate-800 placeholder:text-slate-400 focus:outline-none" />
+                                class="min-w-0 flex-1 bg-transparent px-4 text-sm md:text-base text-slate-800 placeholder:text-slate-400 focus:outline-none" />
                             <button type="submit"
                                 class="button min-h-[48px] px-5 md:px-8 py-2.5 text-base font-medium rounded-full cursor-pointer text-white">
                                 Subscribe
@@ -45,7 +45,7 @@
 
                 </div> --}}
                 {{!-- Build Slot 1 (first available image) --}}
-                <div class="flex items-center gap-6">
+                <div class="flex items-center gap-3 md:gap-6">
 
                     {{!-- ---------------------- SLOT 1 ---------------------- --}}
                     <div class="flex-1">
@@ -67,7 +67,7 @@
 
 
                     {{!-- ---------------------- RIGHT SIDE ---------------------- --}}
-                    <div class="flex-1 flex gap-6 flex-col">
+                    <div class="flex-1 flex gap-3 md:gap-6 flex-col">
 
                         {{!-- ---------------------- SLOT 2 ---------------------- --}}
                         <div class="w-full overflow-hidden rounded-2xl">
@@ -112,14 +112,14 @@
             <div class="explore-tags-wrapper">
                 <div class="explore-tags-header flex justify-between mb-8.5">
                     <div class="explore-tag-heading">
-                        <h3 class="text-4xl font-semibold">Explore by topic</h3>
+                        <h3 class="text-2xl md:text-4xl font-semibold">Explore by topic</h3>
                     </div>
                 </div>
-                <div class="flex flex-wrap gap-2.5">
+                <div class="grid grid-cols-2 md:flex md:flex-wrap gap-2.5">
                     {{#get "tags" limit="4" include="count.posts"}}
                     {{#foreach tags}}
                     <a href='/tag/{{slug}}/'
-                        class="relative h-96 md:flex-1 rounded-2xl overflow-hidden group hover:md:flex-2 transition-[flex] duration-500 ease-in-out">
+                        class="relative h-50 md:h-96 md:flex-1 rounded-2xl overflow-hidden group hover:md:flex-2 transition-[flex] duration-500 ease-in-out">
                         <!-- Image -->
                         <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
                             alt="{{name}}"
@@ -129,17 +129,17 @@
                         </div>
 
                         <!-- Bottom content -->
-                        <div class="absolute bottom-6 left-6 right-6 flex justify-between items-center">
+                        <div class="absolute bottom-2.5 left-2.5 right-2.5 md:bottom-6 md:left-6 md:right-6 flex justify-between items-center">
                             <div>
-                                <h3 class="text-white font-semibold text-lg mb-1.5">{{name}}</h3>
-                                <p class="text-white text-sm">{{plural count.posts empty="0 Articles" singular="1
+                                <h3 class="text-white font-semibold text-sm md:text-lg mb-1.5 break-all">{{name}}</h3>
+                                <p class="text-white text-xs md:text-sm">{{plural count.posts empty="0 Articles" singular="1
                                     Article" plural="% Articles"}}</p>
                             </div>
 
                             <!-- Button -->
                             <button
-                                class="w-9 h-9 rounded-full  flex items-center justify-center border border-white text-white hover:bg-white hover:text-black transition">
-                                <svg width="13" height="12" viewBox="0 0 13 12" fill="none">
+                                class="w-5 h-5 min-w-5 md:w-9 md:h-9 rounded-full  flex items-center justify-center border border-white text-white hover:bg-white hover:text-black transition">
+                                <svg class="w-2 h-2 md:w-3 md:h-3" width="13" height="12" viewBox="0 0 13 12" fill="none">
                                     <path
                                         d="M0.75 4.77295C0.335786 4.77295 4.47035e-08 5.10874 4.47035e-08 5.52295C4.47035e-08 5.93716 0.335786 6.27295 0.75 6.27295V5.52295V4.77295ZM12.594 6.05328C12.8869 5.76039 12.8869 5.28551 12.594 4.99262L7.82107 0.219649C7.52817 -0.0732447 7.0533 -0.0732447 6.76041 0.219649C6.46751 0.512542 6.46751 0.987416 6.76041 1.28031L11.003 5.52295L6.76041 9.76559C6.46751 10.0585 6.46751 10.5334 6.76041 10.8262C7.0533 11.1191 7.52817 11.1191 7.82107 10.8262L12.594 6.05328ZM0.75 5.52295V6.27295H12.0637V5.52295V4.77295H0.75V5.52295Z"
                                         fill="currentColor" />
@@ -290,8 +290,8 @@
                     <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
                         alt="{{title}}" />
                 </div>
-                <div class="featured-blog-content absolute inset-0 p-8 flex flex-col justify-between">
-                    <div class="featured-blog-content-top flex items-center justify-between">
+                <div class="featured-blog-content absolute inset-0 p-4 md:p-8 flex flex-col justify-between">
+                    <div class="featured-blog-content-top flex flex-wrap gap-y-3 items-center justify-between">
                         <div class="card-tags">
                             {{#foreach tags}}
                             <a href="#"
@@ -303,7 +303,7 @@
                                 class="card-tag px-3 py-1 text-xs font-medium rounded-full bg-white/30 text-white backdrop-blur-sm">Fashion</a>
                             --}}
                         </div>
-                        <div class="featured-card-meta flex gap-x-4 items-center">
+                        <div class="featured-card-meta flex flex-wrap gap-y-3 gap-x-4 items-center">
                             <div class="post-card-author flex gap-x-2 items-center">
                                 {{#if primary_author.profile_image}}
 
@@ -327,7 +327,7 @@
                         </div>
                     </div>
                     <div class="featured-blog-content-bottom max-w-[660px] flex items-start flex-col gap-y-6">
-                        <h2 class="text-4xl font-semibold text-white">{{title}}</h2>
+                        <h2 class="text-2xl md:text-4xl font-semibold text-white">{{title}}</h2>
                         <p class="text-sm text-white">{{excerpt}}</p>
                         <a href="{{url}}"
                             class="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
@@ -343,10 +343,10 @@
 
     <section class="trust-icons bg-primary py-10">
         <div class="container mx-auto">
-            <h2 class="font-bold text-[38px] mb-8.5">Why Choose Us</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <h2 class="font-bold text-2xl md:text-[38px] mb-8.5">Why Choose Us</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mobile-swipe">
                 <div
-                    class="border border-[#EBEBEB] rounded-2xl px-7.5 py-14 hover:bg-[#FF7044] hover:text-white group transition-[background] duration-500">
+                    class="border border-[#EBEBEB] rounded-2xl px-6 md:px-7.5 py-6 md:py-14 hover:bg-[var(--primaryText)] hover:text-white group transition-[background] duration-500">
                     <div
                         class="w-19 h-19 rounded-full bg-[#F6F6F6] flex items-center justify-center border border-[#EBEBEB]">
                         <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
@@ -369,7 +369,7 @@
 
                     </div>
 
-                    <h3 class="text-[22px] font-bold my-6">Premium Features Access</h3>
+                    <h3 class="text-[18px] md:text-[22px] font-bold my-6">Premium Features Access</h3>
                     <p class="text-sm">
                         Unlock exclusive tools, templates, and advanced features available only to Shine
                         members.Everything you need to elevate your projects with premium, high-quality
@@ -377,7 +377,7 @@
                     </p>
                 </div>
                 <div
-                    class="border border-[#EBEBEB] rounded-2xl px-7.5 py-14 hover:bg-[#FF7044] hover:text-white transition-[background] duration-500">
+                    class="border border-[#EBEBEB] rounded-2xl px-6 md:px-7.5 py-6 md:py-14 hover:bg-[var(--primaryText)] hover:text-white transition-[background] duration-500">
                     <div
                         class="w-19 h-19 rounded-full bg-[#F6F6F6] flex items-center justify-center border border-[#EBEBEB]">
                         <svg width="37" height="37" viewBox="0 0 37 37" fill="none">
@@ -396,7 +396,7 @@
 
                     </div>
 
-                    <h3 class="text-[22px] font-bold my-6">Fresh Updates Weekly</h3>
+                    <h3 class="text-[18px] md:text-[22px] font-bold my-6">Fresh Updates Weekly</h3>
                     <p class="text-sm">
                         Unlock exclusive tools, templates, and advanced features available only to Shine
                         members. Everything you need to elevate your projects with premium, high-quality
@@ -404,7 +404,7 @@
                     </p>
                 </div>
                 <div
-                    class="border border-[#EBEBEB] rounded-2xl px-7.5 py-14 hover:bg-[#FF7044] hover:text-white transition-[background] duration-500">
+                    class="border border-[#EBEBEB] rounded-2xl px-6 md:px-7.5 py-6 md:py-14 hover:bg-[var(--primaryText)] hover:text-white transition-[background] duration-500">
                     <div
                         class="w-19 h-19 rounded-full bg-[#F6F6F6] flex items-center justify-center border border-[#EBEBEB]">
                         <svg width="43" height="36" viewBox="0 0 43 36" fill="none">
@@ -419,7 +419,7 @@
 
                     </div>
 
-                    <h3 class="text-[22px] font-bold my-6">Exclusive Member Savings</h3>
+                    <h3 class="text-[18px] md:text-[22px] font-bold my-6">Exclusive Member Savings</h3>
                     <p class="text-sm">
                         Unlock exclusive tools, templates, and advanced features available only to Shine
                         members. Everything you need to elevate your projects with premium, high-quality
@@ -427,7 +427,7 @@
                     </p>
                 </div>
                 <div
-                    class="border border-[#EBEBEB] rounded-2xl px-7.5 py-14 hover:bg-[#FF7044] hover:text-white transition-[background] duration-500">
+                    class="border border-[#EBEBEB] rounded-2xl px-6 md:px-7.5 py-6 md:py-14 hover:bg-[var(--primaryText)] hover:text-white transition-[background] duration-500">
                     <div
                         class="w-19 h-19 rounded-full bg-[#F6F6F6] flex items-center justify-center border border-[#EBEBEB]">
                         <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
@@ -448,7 +448,7 @@
 
                     </div>
 
-                    <h3 class="text-[22px] font-bold my-6">Premium Features Access</h3>
+                    <h3 class="text-[18px] md:text-[22px] font-bold my-6">Premium Features Access</h3>
                     <p class="text-sm">
                         Unlock exclusive tools, templates, and advanced features available only to Shine
                         members.Everything you need to elevate your projects with premium, high-quality
@@ -601,7 +601,7 @@
     {{#get "posts" limit="4" include="authors,tags"}}
     <section class="blog-posts bg-primary py-10">
         <div class="container mx-auto">
-            <h2 class="font-bold text-[38px] mb-9">Discover Our Featured Posts</h2>
+            <h2 class="font-bold text-2xl md:text-[38px] mb-9">Discover Our Featured Posts</h2>
 
             <div class="blog-posts-wrapper grid grid-cols-1 gap-4 md:gap-6 md:grid-cols-4">
                 {{!-- 🔵 1st Post - Large Left --}}
@@ -617,7 +617,7 @@
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
 
-                        <div class="absolute inset-0 z-10 p-6.5 flex flex-col justify-between h-full">
+                        <div class="absolute inset-0 z-10 p-4 md:p-6.5 flex flex-col justify-between h-full">
 
                             {{!-- Tags --}}
                             <div class="flex gap-2 flex-wrap">
@@ -630,11 +630,11 @@
                             </div>
 
                             <div>
-                                <h2 class="text-white text-2xl sm:text-3xl font-semibold mb-7.5">
+                                <h2 class="text-white text-[22px] md:text-2xl font-semibold mb-5 md:mb-7.5">
                                     {{title}}
                                 </h2>
 
-                                <p class="text-white text-sm max-w-xl mb-7.5">
+                                <p class="text-white text-sm max-w-xl mb-5 md:mb-7.5">
                                     {{excerpt}}
                                 </p>
 
@@ -664,7 +664,7 @@
                                 class="transition-transform duration-500 group-hover:scale-105" />
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
-                        <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-6.5">
+                        <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-4 md:p-6.5">
                             <div class="flex gap-2 flex-wrap">
                                 {{#foreach tags limit="1"}}
                                 <span
@@ -705,7 +705,7 @@
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
 
-                        <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-6.5">
+                        <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-4 md:p-6.5">
                             <div class="flex">
                                 {{#foreach tags limit="1"}}
                                 <span
@@ -742,15 +742,8 @@
 
     <section class="recommended-post bg-secondary py-10">
         <div class="container mx-auto">
-            <div class="recommended-post-header flex justify-between mb-8">
-                <h2 class="text-4xl font-semibold">Read Our Latest Posts </h2>
-                <a href="#" class="flex items-center gap-x-2 text-base font-medium">View All
-                    <svg width="13" height="12" viewBox="0 0 13 12" fill="none">
-                        <path
-                            d="M0.75 4.77344C0.335786 4.77344 0 5.10922 0 5.52344C0 5.93765 0.335786 6.27344 0.75 6.27344V5.52344V4.77344ZM12.594 6.05377C12.8869 5.76087 12.8869 5.286 12.594 4.99311L7.82107 0.220137C7.52817 -0.0727568 7.0533 -0.0727568 6.76041 0.220137C6.46751 0.51303 6.46751 0.987904 6.76041 1.2808L11.003 5.52344L6.76041 9.76608C6.46751 10.059 6.46751 10.5338 6.76041 10.8267C7.0533 11.1196 7.52817 11.1196 7.82107 10.8267L12.594 6.05377ZM0.75 5.52344V6.27344L12.0637 6.27344V5.52344V4.77344L0.75 4.77344V5.52344Z"
-                            fill="#1F1E1E" />
-                    </svg>
-                </a>
+            <div class="recommended-post-header mb-6 md:mb-8">
+                <h2 class="text-2xl md:text-4xl font-semibold">Read Our Latest Posts </h2>
             </div>
             <div class="recommended-post-wrapper swiper mySwiper2">
                 <div class="swiper-wrapper">
@@ -785,10 +778,10 @@
     <section class="team-section bg-primary py-10">
         <div class="container mx-auto">
             <div class="section-heading mb-9">
-                <h2 class="text-[38px] font-bold">Meet The Team</h2>
+                <h2 class="text-2xl md:text-[38px] font-bold">Meet The Team</h2>
             </div>
             <div
-                class="grid items-start grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 items-center justify-center gap-4 sm:gap-6 lg:gap-10">
+                class="grid md:items-start md:grid-cols-6 lg:grid-cols-9 md:items-center md:justify-center gap-4 sm:gap-6 lg:gap-10 mobile-swipe mobile-column-2">
 
                 {{#get "authors" limit="all"}}
                 {{#foreach authors}}

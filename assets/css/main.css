@@ -57,7 +57,7 @@ button.button {
 }
 
 .page-content h2 {
-  font-size: 54px;
+  font-size: 38px;
   font-weight: 700;
 }
 
@@ -67,17 +67,17 @@ button.button {
 }
 
 .page-content h4 {
-  font-size: 54px;
+  font-size: 22px;
   font-weight: 700;
 }
 
 .page-content h5 {
-  font-size: 54px;
+  font-size: 20px;
   font-weight: 700;
 }
 
 .page-content h6 {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -115,8 +115,17 @@ img {
 }
 
 .header-sticky.is-hidden {
-    top: calc(100% * -1);
-    transition: .5s cubic-bezier(.6, 0, .4, 1);
+  top: calc(100% * -1);
+  transition: .5s cubic-bezier(.6, 0, .4, 1);
+}
+
+.header-nav-close {
+  display: none;
+}
+
+.hero-banner,
+footer {
+  --my-grid-cols: 1fr auto;
 }
 
 .featured-blog {
@@ -144,6 +153,8 @@ img {
 .page-content>[id]+*,
 .page-content .kg-card {
   margin-top: 20px;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .page-content>[id]:not(:first-child) {
@@ -193,4 +204,92 @@ blockquote {
 .color-theme-6 {
   background-color: #d1c397b8;
   color: #605942;
+}
+
+
+@media (max-width:767px) {
+  .page-content h1 {
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .page-content h2 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .page-content h3 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .page-content h4 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .page-content h5 {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .page-content h6 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .mobile-swipe {
+    display: grid;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(85%, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(85%, 1fr));
+    gap: var(--columnGap, 10px);
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    margin-right: -15px;
+    padding-right: 15px;
+  }
+
+  .mobile-swipe.mobile-column-2 {
+    grid-auto-columns: minmax(43%, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(43%, 1fr));
+  }
+
+  .header-menu {
+    background: #fff;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    padding: 2rem;
+    position: fixed;
+    top: 0;
+    transform: translateX(100%);
+    visibility: hidden;
+    width: 100%;
+    z-index: 99999;
+    transition: all .3s ease;
+  }
+
+  .header-menu.is-open {
+    transform: none;
+    visibility: visible;
+  }
+
+  .header-menu .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .header-nav-close {
+    display: block;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+  }
 }
