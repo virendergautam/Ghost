@@ -12,9 +12,9 @@
             <h1 class="text-4xl md:text-5xl font-bold mb-4">
                 {{name}}
             </h1>
-
-            <div class="text-xs bg-secondary border border-[#EBEBEB] rounded-3xl py-[6px] px-[20px] inline-flex">15
-                Article</div>
+{{log ../pagination.total "dsfsf"}}
+            <div class="text-xs bg-secondary border border-[#EBEBEB] rounded-3xl py-[6px] px-[20px] inline-flex">   {{plural ../pagination.total empty="No articles" singular="% article" plural="% articles"}}
+</div>
 
             {{#if description}}
             <p class="text-gray-600 text-lg mt-6 mb-2">
