@@ -206,6 +206,42 @@ blockquote {
   color: #605942;
 }
 
+@media (max-width:1023px) {
+  .header-menu {
+    background: #fff;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    padding: 2rem;
+    position: fixed;
+    top: 0;
+    transform: translateX(100%);
+    visibility: hidden;
+    width: 100%;
+    z-index: 99999;
+    transition: all .3s ease;
+  }
+
+  .header-menu.is-open {
+    transform: none;
+    visibility: visible;
+  }
+
+  .header-menu .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .header-nav-close {
+    display: block;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+  }
+}
+
+
 
 @media (max-width:767px) {
   .page-content h1 {
@@ -258,38 +294,5 @@ blockquote {
   .mobile-swipe.mobile-column-2 {
     grid-auto-columns: minmax(43%, 1fr);
     grid-template-columns: repeat(auto-fill, minmax(43%, 1fr));
-  }
-
-  .header-menu {
-    background: #fff;
-    height: 100%;
-    left: 0;
-    overflow: auto;
-    padding: 2rem;
-    position: fixed;
-    top: 0;
-    transform: translateX(100%);
-    visibility: hidden;
-    width: 100%;
-    z-index: 99999;
-    transition: all .3s ease;
-  }
-
-  .header-menu.is-open {
-    transform: none;
-    visibility: visible;
-  }
-
-  .header-menu .nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  .header-nav-close {
-    display: block;
-    position: absolute;
-    right: 1.5rem;
-    top: 1.5rem;
   }
 }
