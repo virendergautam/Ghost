@@ -4,7 +4,8 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h1 class="text-[28px] md:text-[34px] lg:text-[54px] font-semibold mb-4 md:mb-6">{{@custom.hero_heading}}
+                    <h1 class="text-[28px] md:text-[34px] lg:text-[54px] font-semibold mb-4 md:mb-6">
+                        {{@custom.hero_heading}}
                     </h1>
                     <p class="text-base md:text-xl max-w-2xl">{{@custom.hero_subheading}}</p>
                     <form class="mt-6 md:mt-9">
@@ -129,17 +130,20 @@
                         </div>
 
                         <!-- Bottom content -->
-                        <div class="absolute bottom-2.5 left-2.5 right-2.5 md:bottom-6 md:left-6 md:right-6 flex justify-between items-center">
+                        <div
+                            class="absolute bottom-2.5 left-2.5 right-2.5 md:bottom-6 md:left-6 md:right-6 flex justify-between items-center">
                             <div>
                                 <h3 class="text-white font-semibold text-sm md:text-lg mb-1.5 break-all">{{name}}</h3>
-                                <p class="text-white text-xs md:text-sm">{{plural count.posts empty="0 Articles" singular="1
+                                <p class="text-white text-xs md:text-sm">{{plural count.posts empty="0 Articles"
+                                    singular="1
                                     Article" plural="% Articles"}}</p>
                             </div>
 
                             <!-- Button -->
                             <button
                                 class="w-5 h-5 min-w-5 md:w-9 md:h-9 rounded-full  flex items-center justify-center border border-white text-white hover:bg-white hover:text-black transition">
-                                <svg class="w-2 h-2 md:w-3 md:h-3" width="13" height="12" viewBox="0 0 13 12" fill="none">
+                                <svg class="w-2 h-2 md:w-3 md:h-3" width="13" height="12" viewBox="0 0 13 12"
+                                    fill="none">
                                     <path
                                         d="M0.75 4.77295C0.335786 4.77295 4.47035e-08 5.10874 4.47035e-08 5.52295C4.47035e-08 5.93716 0.335786 6.27295 0.75 6.27295V5.52295V4.77295ZM12.594 6.05328C12.8869 5.76039 12.8869 5.28551 12.594 4.99262L7.82107 0.219649C7.52817 -0.0732447 7.0533 -0.0732447 6.76041 0.219649C6.46751 0.512542 6.46751 0.987416 6.76041 1.28031L11.003 5.52295L6.76041 9.76559C6.46751 10.0585 6.46751 10.5334 6.76041 10.8262C7.0533 11.1191 7.52817 11.1191 7.82107 10.8262L12.594 6.05328ZM0.75 5.52295V6.27295H12.0637V5.52295V4.77295H0.75V5.52295Z"
                                         fill="currentColor" />
@@ -694,7 +698,7 @@
                 {{/foreach}}
 
                 {{!-- 🔵 4th Post - Bottom Wide --}}
-                {{#foreach  posts from="4"}}
+                {{#foreach posts from="4"}}
                 {{#if @last}}
                 <article class="blog-post-item relative rounded-3xl overflow-hidden col-span-2 group">
                     <a href="{{url}}" class="block w-full h-full">
@@ -744,7 +748,7 @@
             <div class="recommended-post-header mb-6 md:mb-8">
                 <h2 class="text-2xl md:text-4xl font-semibold">Read Our Latest Posts </h2>
             </div>
-            <div class="recommended-post-wrapper swiper mySwiper2">
+            <div class="recommended-post-wrapper slide-equal-height swiper mySwiper2">
                 <div class="swiper-wrapper">
                     {{#foreach posts}}
                     {{>"postCard"}}
@@ -809,6 +813,154 @@
                 </a>
                 {{/foreach}}
                 {{/get}}
+
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-secondary py-10">
+        <div class="max-w-7xl m-auto px-[15px]">
+            <h2 class="text-center md:text-[38px] font-bold">
+                Frequently Asked Questions
+            </h2>
+
+            <div class="mt-8 space-y-4">
+                <!-- Item -->
+                <details class="group rounded-[10px] bg-white">
+                    <summary
+                        class="list-none cursor-pointer select-none flex items-center justify-between gap-4 px-5 py-5">
+                        <span class="text-lg font-semibold">
+                            How does your pricing structure work?
+                        </span>
+                        <span class="shrink-0">
+                            <svg class="h-5 w-5 text-neutral-700 group-open:hidden" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg>
+                            <svg class="h-5 w-5 text-neutral-700 hidden group-open:block" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <path d="M5 12h14" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="px-5 pb-5">
+                        <p class="text-sm leading-6">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                            Ipsum has been the industry's standard dummy text ever since the dummy text
+                            Lorem Ipsum has been the industry's standard dummy text ever since the dummy
+                            text
+                        </p>
+                    </div>
+                </details>
+                <details class="group rounded-[10px] bg-white">
+                    <summary
+                        class="list-none cursor-pointer select-none flex items-center justify-between gap-4 px-5 py-5">
+                        <span class="text-lg font-semibold">
+                            How does your pricing structure work?
+                        </span>
+                        <span class="shrink-0">
+                            <svg class="h-5 w-5 text-neutral-700 group-open:hidden" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg>
+                            <svg class="h-5 w-5 text-neutral-700 hidden group-open:block" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <path d="M5 12h14" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="px-5 pb-5">
+                        <p class="text-sm leading-6">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                            Ipsum has been the industry's standard dummy text ever since the dummy text
+                            Lorem Ipsum has been the industry's standard dummy text ever since the dummy
+                            text
+                        </p>
+                    </div>
+                </details>
+                <details class="group rounded-[10px] bg-white">
+                    <summary
+                        class="list-none cursor-pointer select-none flex items-center justify-between gap-4 px-5 py-5">
+                        <span class="text-lg font-semibold">
+                            How does your pricing structure work?
+                        </span>
+                        <span class="shrink-0">
+                            <svg class="h-5 w-5 text-neutral-700 group-open:hidden" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg>
+                            <svg class="h-5 w-5 text-neutral-700 hidden group-open:block" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <path d="M5 12h14" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="px-5 pb-5">
+                        <p class="text-sm leading-6">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                            Ipsum has been the industry's standard dummy text ever since the dummy text
+                            Lorem Ipsum has been the industry's standard dummy text ever since the dummy
+                            text
+                        </p>
+                    </div>
+                </details>
+                <details class="group rounded-[10px] bg-white">
+                    <summary
+                        class="list-none cursor-pointer select-none flex items-center justify-between gap-4 px-5 py-5">
+                        <span class="text-lg font-semibold">
+                            How does your pricing structure work?
+                        </span>
+                        <span class="shrink-0">
+                            <svg class="h-5 w-5 text-neutral-700 group-open:hidden" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg>
+                            <svg class="h-5 w-5 text-neutral-700 hidden group-open:block" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <path d="M5 12h14" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="px-5 pb-5">
+                        <p class="text-sm leading-6">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                            Ipsum has been the industry's standard dummy text ever since the dummy text
+                            Lorem Ipsum has been the industry's standard dummy text ever since the dummy
+                            text
+                        </p>
+                    </div>
+                </details>
+                <details class="group rounded-[10px] bg-white">
+                    <summary
+                        class="list-none cursor-pointer select-none flex items-center justify-between gap-4 px-5 py-5">
+                        <span class="text-lg font-semibold">
+                            How does your pricing structure work?
+                        </span>
+                        <span class="shrink-0">
+                            <svg class="h-5 w-5 text-neutral-700 group-open:hidden" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg>
+                            <svg class="h-5 w-5 text-neutral-700 hidden group-open:block" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <path d="M5 12h14" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="px-5 pb-5">
+                        <p class="text-sm leading-6">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                            Ipsum has been the industry's standard dummy text ever since the dummy text
+                            Lorem Ipsum has been the industry's standard dummy text ever since the dummy
+                            text
+                        </p>
+                    </div>
+                </details>
 
             </div>
         </div>

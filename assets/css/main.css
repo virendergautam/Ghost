@@ -153,6 +153,9 @@ footer {
 .page-content>[id]+*,
 .page-content .kg-card {
   margin-top: 20px;
+}
+
+.page-content .kg-card {
   border-radius: 20px;
   overflow: hidden;
 }
@@ -206,6 +209,10 @@ blockquote {
   color: #605942;
 }
 
+.slide-equal-height .swiper-slide {
+    height: auto;
+}
+
 @media (max-width:1023px) {
   .header-menu {
     background: #fff;
@@ -240,8 +247,6 @@ blockquote {
     top: 1.5rem;
   }
 }
-
-
 
 @media (max-width:767px) {
   .page-content h1 {
