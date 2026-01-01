@@ -31,9 +31,11 @@
 
             <!-- Author -->
             <div class="flex items-center justify-center gap-3 text-xs">
+                {{#if primary_author.profile_image}}
                 <div class="w-9.5 h-9.5 rounded-full overflow-hidden">
                     <img src={{primary_author.profile_image}} alt={{title}} />
                 </div>
+                {{/if}}
                 <span>
                     by <span class="font-medium">{{primary_author.name}}</span>
                     &nbsp;•&nbsp; {{date published_at format="DD MMM YYYY"}} &nbsp;/&nbsp; {{reading_time}} min read
@@ -162,6 +164,9 @@
         </div>
     </div>
     </div>
+<section class="comments">
+  {{comments}}
+</section>
 
     {{!-- related post start --}}
     {{#if @custom.show_related_post}}
