@@ -1,6 +1,6 @@
 {{!< default}} {{#tag}} <div class="container mx-auto">
     {{!-- Tag Cover Image --}}
-    <div class="py-15">
+    <div class="py-10 md:py-15">
         {{#if feature_image}}
         <div class="w-41 h-41 mx-auto overflow-hidden rounded-2xl">
             <img src="{{feature_image}}" alt="{{name}}" class="">
@@ -9,7 +9,7 @@
 
         {{!-- Tag Header --}}
         <header class="max-w-4xl mx-auto text-center mt-6">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+            <h1 class="text-[28px] md:text-5xl font-bold mb-4">
                 {{name}}
             </h1>
 {{log ../pagination.total "dsfsf"}}
@@ -27,16 +27,16 @@
     {{/tag}}
 
     {{!-- Posts Grid --}}
-    <section class="bg-secondary py-12.5">
+    <section class="bg-secondary py-10 md:py-12.5">
         <div class="container mx-auto">
-            <div class="flex flex-wrap gap-5 items-center mb-12">
-                <div class="shrink-0 text-xs uppercase font-semibold">
+            <div class="flex gap-5 items-center mb-12">
+                <div class="shrink-0 text-lg uppercase font-bold">
                     <h2>More Topics:</h2>
                 </div>
-                <div class="flex flex-wrap gap-2">
+                <div class="flex text-nowrap overflow-x-auto gap-2.5">
                     {{#get "tags" filter="slug:-{{tag.slug}}" limit ="all"}}
                     {{#foreach tags}}
-                      <a href={{url}} class="py-2.5 px-5 border border-[#EBEBEB] rounded-full text-sm bg-white">
+                      <a href={{url}} class="py-2.5 px-5 border border-[#EBEBEB] rounded-full text-sm font-medium bg-[var(--primaryBg)] hover:bg-[var(--secondaryText)] hover:text-[var(--primaryBg)]">
                         {{name}}
                     </a>
                     {{/foreach}}

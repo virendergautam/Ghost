@@ -1,6 +1,101 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --color-primary-text: #000000;
+  --color-primary-bg: #ffffff;
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
+  --color-secondary-text: #000000;
+  --color-secondary-bg: #f6f6f6;
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
+  --color-accent-bg: var(--ghost-accent-color);
+}
+
+:root {
+  --headingFont: '{{@custom.heading_font}}',
+  sans-serif;
+  --bodyFont: '{{@custom.body_font}}',
+  sans-serif;
+}
+
+.scheme-1 {
+  --primaryBg: #ffffff;
+  --primaryAlternateBg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --primaryText: #000000;
+  --secondaryBg: #f6f6f6;
+  --secondaryAlternateBg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --secondaryText: #000000;
+}
+
+.scheme-2 {
+  --primaryBg: #ffffff;
+  --primaryAlternateBg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --primaryText: #000000;
+  --secondaryBg: #f6f6f6;
+  --secondaryAlternateBg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --secondaryText: #000000;
+}
+
+.scheme-3 {
+  --primaryBg: #ffffff;
+  --primaryAlternateBg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --primaryText: #000000;
+  --secondaryBg: #f6f6f6;
+  --secondaryAlternateBg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --secondaryText: #000000;
+}
+
+.scheme-4 {
+  --primaryBg: #ffffff;
+  --primaryAlternateBg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --primaryText: #000000;
+  --secondaryBg: #f6f6f6;
+  --secondaryAlternateBg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --secondaryText: #000000;
+}
+
+.scheme-5 {
+  --primaryBg: #ffffff;
+  --primaryAlternateBg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --primaryText: #000000;
+  --secondaryBg: #f6f6f6;
+  --secondaryAlternateBg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --secondaryText: #000000;
+}
+
+.color-theme-1 {
+  background-color: #6A89A7;
+  color: #ffffff;
+}
+
+.color-theme-2 {
+  background-color: #BBB791;
+  color: #ffffff;
+}
+
+.color-theme-3 {
+  background-color: #a8dcabb8;
+  color: #14741a;
+}
+
+.color-theme-4 {
+  background-color: #CCCCFF;
+  color: #4747a7;
+}
+
+.color-theme-5 {
+  background-color: #F7D9BC;
+  color: #705a45;
+}
+
+.color-theme-6 {
+  background-color: #d1c397b8;
+  color: #605942;
+}
+
+
+
+
 
 /* Ghost Koenig required classes */
 .kg-width-wide {
@@ -14,13 +109,6 @@
   margin-left: auto;
   margin-right: auto;
 }
-
-
-.bg-secondary {
-  background: var(--secondaryBg, #F6F6F6);
-  color: var(--secondaryText, #000000);
-}
-
 
 body {
   font-family: var(--gh-font-body);
@@ -153,6 +241,9 @@ footer {
 .page-content>[id]+*,
 .page-content .kg-card {
   margin-top: 20px;
+}
+
+.page-content .kg-card {
   border-radius: 20px;
   overflow: hidden;
 }
@@ -175,35 +266,8 @@ blockquote {
   margin-bottom: 20px;
 }
 
-/* author name random colors */
-.color-theme-1 {
-  background-color: #6A89A7;
-  color: #ffffff;
-}
-
-.color-theme-2 {
-  background-color: #BBB791;
-  color: #ffffff;
-}
-
-.color-theme-3 {
-  background-color: #a8dcabb8;
-  color: #14741a;
-}
-
-.color-theme-4 {
-  background-color: #CCCCFF;
-  color: #4747a7;
-}
-
-.color-theme-5 {
-  background-color: #F7D9BC;
-  color: #705a45;
-}
-
-.color-theme-6 {
-  background-color: #d1c397b8;
-  color: #605942;
+.slide-equal-height .swiper-slide {
+  height: auto;
 }
 
 @media (max-width:1023px) {
@@ -240,8 +304,6 @@ blockquote {
     top: 1.5rem;
   }
 }
-
-
 
 @media (max-width:767px) {
   .page-content h1 {
