@@ -1,43 +1,39 @@
 {{!< default}} <!-- Top orange strip -->
 
-    <section class="hero-banner bg-secondary-bg text-secondary-text py-10">
-                {{#if @site.cover_image}}
-            {{!-- This is a responsive image, it loads different sizes depending on device
-            https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
-            <img class="site-header-cover"
-                srcset="{{img_url @site.cover_image size="s"}} 300w,
-                        {{img_url @site.cover_image size="m"}} 600w,
-                        {{img_url @site.cover_image size="l"}} 1000w,
-                        {{img_url @site.cover_image size="xl"}} 2000w"
-                sizes="100vw"
-                src="{{img_url @site.cover_image size="xl"}}"
-                alt="{{@site.title}}"
-            />
-    {{/if}}
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h1 class="text-[28px] md:text-[34px] lg:text-[54px] font-semibold mb-4 md:mb-6">
-                        {{@custom.hero_heading}}
-                    </h1>
-                    <p class="text-base md:text-xl max-w-2xl">{{@custom.hero_subheading}}</p>
-                    <form class="mt-6 md:mt-9">
-                        <div
-                            class="grid grid-cols-(--my-grid-cols) max-w-[500px] bg-[#F1F1F2] rounded-full border border-[#DFDFDF] min-h-[48px] p-[3px]">
-                            <input type="email" placeholder="Enter your email"
-                                class="min-w-0 flex-1 bg-transparent px-4 text-sm md:text-base text-slate-800 placeholder:text-slate-400 focus:outline-none" />
-                            <button type="submit"
-                                class="button min-h-[48px] px-5 md:px-8 py-2.5 text-base font-medium rounded-full cursor-pointer text-white">
-                                Subscribe
-                            </button>
-                        </div>
-                    </form>
-                </div>
-               
-             
-
-
-    </section>
+<section class="hero-banner relative py-17.5 min-h-dvh flex items-end">
+    <div class="background-image absolute inset-0">        
+        {{#if @site.cover_image}}
+        <img class="site-header-cover"
+        srcset="{{img_url @site.cover_image size="s"}} 300w,
+        {{img_url @site.cover_image size="m"}} 600w,
+        {{img_url @site.cover_image size="l"}} 1000w,
+        {{img_url @site.cover_image size="xl"}} 2000w"
+        sizes="100vw"
+        src="{{img_url @site.cover_image size="xl"}}"
+        alt="{{@site.title}}"
+        />
+        {{/if}}
+    </div>
+    <div class="hero-content relative w-full px-4 flex justify-center">
+        <div class="max-w-[740px] text-center text-white">
+            <h1 class="text-[28px] md:text-[34px] lg:text-[54px] font-semibold mb-4 md:mb-6">
+            {{@custom.hero_heading}}
+            </h1>
+            <p class="text-base md:text-xl">{{@custom.hero_subheading}}</p>
+            <form class="mt-6 md:mt-9">
+            <div
+            class="grid grid-cols-(--my-grid-cols) max-w-[500px] mx-auto bg-[#F1F1F2] rounded-full border border-[#DFDFDF] min-h-[48px] p-[3px]">
+            <input type="email" placeholder="Enter your email"
+            class="min-w-0 flex-1 bg-transparent px-4 text-sm md:text-base text-slate-800 placeholder:text-slate-400 focus:outline-none" />
+            <button type="submit"
+            class="button min-h-[48px] px-5 md:px-8 py-2.5 text-base font-medium rounded-full cursor-pointer text-white">
+            Subscribe
+            </button>
+            </div>
+            </form>
+        </div>
+    </div>
+</section>
 
 <section class="explore-tags py-10">
     <div class="container mx-auto">
