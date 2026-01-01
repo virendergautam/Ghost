@@ -86,35 +86,6 @@
         ],
         "default": "scheme_1"
       },
-      "custom_scheme": {
-        "type": "boolean",
-        "default": false
-      },
-      "header_background": {
-        "type": "color",
-        "default": "#ffffff",
-        "label": "Header Background Color"
-      },
-      "primary_background": {
-        "type": "color",
-        "default": "#000000",
-        "label": "Primary Background Color"
-      },
-      "primary_text": {
-        "type": "color",
-        "default": "#ffffff",
-        "label": "Primary Text Color"
-      },
-      "secondary_background": {
-        "type": "color",
-        "default": "#f5f5f5",
-        "label": "Secondary Background Color"
-      },
-      "secondary_text": {
-        "type": "color",
-        "default": "#333333",
-        "label": "Secondary Text Color"
-      },
       "show_subscribe_newsletter_section": {
         "type": "boolean",
         "default": true,
