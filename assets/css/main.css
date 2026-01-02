@@ -9,6 +9,7 @@
   --color-secondary-bg: #f6f6f6;
   --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
   --color-accent-bg: var(--ghost-accent-color);
+  --color-accent-border: color-mix(in srgb, var(--color-accent-bg) 100%, white 30%);
 }
 
 :root {
