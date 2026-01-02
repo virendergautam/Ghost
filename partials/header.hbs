@@ -1,3 +1,16 @@
+{{!-- <div class="my-fancy-nav-wrapper">
+    <ul class="nav">
+        <!-- Loop through the navigation items -->
+        {{#foreach navigation}}
+        {{log slug "nav slug"}}
+        <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+        {{/foreach}}
+        <!-- End the loop -->
+    </ul>
+</div> --}}
+
+
+
 <header id="siteHeader" data-header-style="{{@custom.header_layout}}" class="">
     <div class="max-w-[1215px] mx-auto relative">
         <div class="flex items-center gap-8 absolute inset-x-0 bg-white p-2.5 rounded-[50px] mt-5">
@@ -14,12 +27,7 @@
             <!-- CENTER MENU -->
             <nav class="header-menu">
                 {{navigation}}
-                {{!-- {{#unless @site.members_enabled}}
-                {{#match @custom.navigation_layout "Stacked"}}
-                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{>
-                    "icons/search"}}</button>
-                {{/match}}
-                {{/unless}} --}}
+                {{!-- {{> main-navigation}} --}}
                 <div
                     class="header-nav-account-links flex gap-4 items-center lg:hidden border-t border-[#EBEBEB] mt-10 pt-10">
                        {{#if @member}}
@@ -164,4 +172,4 @@
 
         </div>
     </div>
-</header>
+</header> 
