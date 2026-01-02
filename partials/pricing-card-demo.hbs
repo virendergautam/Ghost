@@ -1,0 +1,58 @@
+<article
+  class="relative rounded-3xl border border-gray-200 bg-white p-8 text-gray-900 shadow-sm"
+  data-plan="{{name}}"
+  data-monthly="{{monthly}}"
+  data-yearly="{{yearly}}"
+  data-monthly-suffix="/ per month"
+  data-yearly-suffix="/ per year"
+>
+  <div class="flex items-start gap-3">
+    <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-gray-100">{{icon}}</span>
+    <div>
+      <h3 class="text-lg font-semibold leading-none">{{name}}</h3>
+      {{#if desc}}
+        <p class="mt-2 text-sm text-gray-600">{{desc}}</p>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="mt-8 flex items-end gap-2">
+    <div class="text-4xl font-bold leading-none js-price">{{monthly}}</div>
+    <div class="pb-1 text-sm text-gray-600 js-suffix">/ per month</div>
+  </div>
+
+  <div class="mt-8 border-t border-gray-200 pt-6">
+    <p class="text-sm font-semibold">Features</p>
+
+    {{#match name "Free"}}
+      <ul class="mt-4 space-y-3 text-sm">
+        <li class="flex gap-3"><span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100">✓</span><span class="text-gray-700">Basic access</span></li>
+        <li class="flex gap-3"><span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100">✓</span><span class="text-gray-700">Weekly newsletter</span></li>
+        <li class="flex gap-3"><span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100">✓</span><span class="text-gray-700">Community support</span></li>
+      </ul>
+    {{else}}
+      {{#match name "Premium"}}
+        <ul class="mt-4 space-y-3 text-sm">
+          <li class="flex gap-3"><span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100">✓</span><span class="text-gray-700">Everything in Free</span></li>
+          <li class="flex gap-3"><span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100">✓</span><span class="text-gray-700">Premium content</span></li>
+          <li class="flex gap-3"><span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100">✓</span><span class="text-gray-700">Email support</span></li>
+        </ul>
+      {{else}}
+        <ul class="mt-4 space-y-3 text-sm">
+          <li class="flex gap-3"><span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100">✓</span><span class="text-gray-700">Everything in Premium</span></li>
+          <li class="flex gap-3"><span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100">✓</span><span class="text-gray-700">Team access</span></li>
+          <li class="flex gap-3"><span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100">✓</span><span class="text-gray-700">Priority support</span></li>
+        </ul>
+      {{/match}}
+    {{/match}}
+  </div>
+
+  <div class="mt-10">
+    <a
+      href="#"
+      class="inline-flex w-full items-center justify-center rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-gray-900"
+    >
+      {{btn}}
+    </a>
+  </div>
+</article>
