@@ -249,6 +249,22 @@ footer {
   overflow: hidden;
 }
 
+.page-content .kg-card.kg-toggle-card {
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--color-primary-alt-bg);
+  box-shadow: none;
+}
+
+.page-content .kg-toggle-heading svg {
+  color: currentColor;
+}
+
+.page-content .kg-card.kg-toggle-card[data-kg-toggle-state="open"] {
+  background: var(--color-primary-text);
+  color: var(--color-primary-bg);
+}
+
 .page-content>[id]:not(:first-child) {
   margin-top: 50px;
 }
