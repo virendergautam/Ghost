@@ -8,227 +8,468 @@
     <link rel="preload" as="style" href="{{asset "./built/main.css"}}">
     <link rel="stylesheet" href="{{asset "./built/main.css"}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    {{!-- <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap" rel="stylesheet"> --}}
+    {{!--
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap"
+        rel="stylesheet"> --}}
 
     {{ghost_head}}
- <script src="{{asset "js/main.js"}}"></script>
+    <script src="{{asset " js/main.js"}}"></script>
 </head>
 
 <body>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const box = document.getElementById("randomColorBox");
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const box = document.getElementById("randomColorBox");
 
-    // Predefined combinations
-const themes = [
-  "color-theme-1",
-  "color-theme-2",
-  "color-theme-3",
-  "color-theme-4",
-  "color-theme-5",
-  "color-theme-6"
-];
+            // Predefined combinations
+            const themes = [
+                "color-theme-1",
+                "color-theme-2",
+                "color-theme-3",
+                "color-theme-4",
+                "color-theme-5",
+                "color-theme-6"
+            ];
 
-    // Pick a random one
-  const randomClass = themes[Math.floor(Math.random() * themes.length)];
-  box.classList.add(randomClass);
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const header = document.getElementById("siteHeader");
-  if (!header) return;
+            // Pick a random one
+            const randomClass = themes[Math.floor(Math.random() * themes.length)];
+            box.classList.add(randomClass);
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const header = document.getElementById("siteHeader");
+            if (!header) return;
 
-  const style = header.dataset.headerStyle; // always | animated | none
+            const style = header.dataset.headerStyle; // always | animated | none
 
-  const STICKY_CLASS = "header-sticky";
-  const HIDDEN_CLASS = "is-hidden";
+            const STICKY_CLASS = "header-sticky";
+            const HIDDEN_CLASS = "is-hidden";
 
-  let lastScrollY = window.scrollY;
+            let lastScrollY = window.scrollY;
 
-  /* --------------------------------
-     Apply base behavior
-  ---------------------------------*/
-  if (style === "always" || style === "animated") {
-    header.classList.add(STICKY_CLASS);
-  } else {
-    header.classList.remove(STICKY_CLASS, HIDDEN_CLASS);
-  }
+            /* --------------------------------
+               Apply base behavior
+            ---------------------------------*/
+            if (style === "always" || style === "animated") {
+                header.classList.add(STICKY_CLASS);
+            } else {
+                header.classList.remove(STICKY_CLASS, HIDDEN_CLASS);
+            }
 
-  /* --------------------------------
-     Animated scroll behavior
-  ---------------------------------*/
-  if (style === "animated") {
-    window.addEventListener("scroll", () => {
-      const currentScrollY = window.scrollY;
+            /* --------------------------------
+               Animated scroll behavior
+            ---------------------------------*/
+            if (style === "animated") {
+                window.addEventListener("scroll", () => {
+                    const currentScrollY = window.scrollY;
 
-      if (currentScrollY > lastScrollY && currentScrollY > 120) {
-        // scrolling down → hide
-        header.classList.add(HIDDEN_CLASS);
-      } else {
-        // scrolling up → show
-        header.classList.remove(HIDDEN_CLASS);
-      }
+                    if (currentScrollY > lastScrollY && currentScrollY > 120) {
+                        // scrolling down → hide
+                        header.classList.add(HIDDEN_CLASS);
+                    } else {
+                        // scrolling up → show
+                        header.classList.remove(HIDDEN_CLASS);
+                    }
 
-      lastScrollY = currentScrollY;
-    });
-  }
-});
-</script>
+                    lastScrollY = currentScrollY;
+                });
+            }
+        });
+    </script>
 
 
     <div class="main-viewport">
- {{> "header"}}
+        {{> "header"}}
 
-    
-    {{{body}}}
-    
 
-    <footer class="border-t border-[#EBEBEB] pt-16">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2">
-                <div class="grid gap-10 md:grid-cols-4">
-                    <!-- Column 1 -->
-                    <div>
-                        <h4 class="text-base font-bold mb-6">Features</h4>
-                        <ul class="space-y-2 text-sm">
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Style Guide</a></li>
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Tags</a></li>
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Authors</a></li>
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Features</a></li>
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Contact</a></li>
-                        </ul>
-                    </div>
+        {{{body}}}
 
-                    <!-- Column 2 -->
-                    <div>
-                        <h4 class="text-base font-bold mb-6">Pages</h4>
-                        <ul class="space-y-2 text-sm">
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Membership</a></li>
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Sign In</a></li>
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Sign Up</a></li>
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Account Free</a></li>
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Account Paid</a></li>
-                        </ul>
-                    </div>
 
-                    <!-- Column 3 -->
-                    <div>
-                        <h4 class="text-base font-bold mb-6">About</h4>
-                        <ul class="space-y-2 text-sm">
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Privacy Policy</a></li>
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Terms</a></li>
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Contact</a></li>
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">404 Error</a></li>
-                        </ul>
-                    </div>
 
-                    <!-- Column 4 -->
-                    <div>
-                        <h4 class="text-base font-bold mb-6">Quick Links</h4>
-                        <ul class="space-y-2 text-sm">
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Signin</a></li>
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Signup</a></li>
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Free Account</a></li>
-                            <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Paid Account</a></li>
-                        </ul>
-                    </div>
+
+        <!-- Slide-in panel container (right side) -->
+        <div id="customizer"
+            class="fixed right-[-320px] top-1/2 z-50 -translate-y-1/2 transition duration-300 ease-out">
+            <!-- Toggle pill -->
+            <button id="customizerToggle" type="button"
+                class="group flex items-center gap-2 rounded-full bg-accent-bg border-4 border-accent-border px-5 py-2 text-white writing-mode-vertical absolute top-1/2 right-12/12 translate-y-[-50%] cursor-pointer"
+                aria-controls="customizerPanel" aria-expanded="false">
+                <svg width="12" height="15" viewBox="0 0 12 15" fill="none">
+                    <path
+                        d="M1.875 0.625L1.875 3.21375C0.799844 3.49328 0 4.46359 0 5.625C0 6.78641 0.799844 7.75672 1.875 8.03625L1.875 13.625C1.875 13.9702 2.15484 14.25 2.5 14.25C2.84516 14.25 3.125 13.9702 3.125 13.625L3.125 8.03625C4.20016 7.75672 5 6.78641 5 5.625C5 4.46359 4.20016 3.49328 3.125 3.21375V0.625C3.125 0.279843 2.84516 0 2.5 0C2.15484 0 1.875 0.279843 1.875 0.625ZM3.75 5.625C3.75 6.31437 3.18937 6.875 2.5 6.875C1.81062 6.875 1.25 6.31437 1.25 5.625C1.25 4.93563 1.81062 4.375 2.5 4.375C3.18937 4.375 3.75 4.93563 3.75 5.625ZM8.5 0.625V6.21375C7.42484 6.49328 6.625 7.46359 6.625 8.625C6.625 9.78641 7.42484 10.7567 8.5 11.0363V13.625C8.5 13.9702 8.77984 14.25 9.125 14.25C9.47016 14.25 9.75 13.9702 9.75 13.625V11.0363C10.8252 10.7567 11.625 9.78641 11.625 8.625C11.625 7.46359 10.8252 6.49328 9.75 6.21375V0.625C9.75 0.279843 9.47016 0 9.125 0C8.77984 0 8.5 0.279843 8.5 0.625ZM10.375 8.625C10.375 9.31437 9.81437 9.875 9.125 9.875C8.43563 9.875 7.875 9.31437 7.875 8.625C7.875 7.93563 8.43563 7.375 9.125 7.375C9.81437 7.375 10.375 7.93563 10.375 8.625Z"
+                        fill="currentColor" />
+                </svg>
+                Customize
+            </button>
+
+            <!-- Panel -->
+            <div id="customizerPanel"
+                class="ml-3 w-[320px] max-w-[85vw] rounded-2xl bg-white p-5 border border-[#E6E6E6]">
+                <!-- Brand color -->
+                <!-- Brand color -->
+<div class="space-y-2">
+  <p class="text-xs font-semibold text-neutral-500">BRAND COLOR</p>
+
+  <div class="flex items-center gap-3">
+    <!-- Color picker -->
+    <input
+      id="brandColorInput"
+      type="color"
+      value="#db2777"
+      class="h-9 w-full rounded-lg border border-neutral-200"
+      aria-label="Select brand color"
+    />
+
+    <!-- Preview swatch -->
+    {{!-- <div
+      id="brandColorPreview"
+      class="h-9 w-full rounded-lg border border-neutral-200"
+      style="background:#db2777"
+    ></div> --}}
+  </div>
+</div>
+
+
+                <!-- Sticky header -->
+                <div class="flex items-center justify-between py-3 border-b border-[#E6E6E6]">
+                    <p class="text-xs font-semibold text-neutral-500">STICKY HEADER</p>
+                    <input type="checkbox" class="h-4 w-4 accent-blue-600" checked />
                 </div>
-                <!-- Newsletter -->
-                <div class="max-w-[480px] lg:ml-auto mt-10 md:mt-10 lg:mt-0">
-                    <h4 class="text-base font-bold mb-6">
-                        Subscribe to our newsletter
-                    </h4>
-                    <p class="text-sm mb-6">
-                        Join our newsletter to stay up to date on features and releases.
-                    </p>
-                    <form
-                        class="grid grid-cols-(--my-grid-cols) bg-transparent rounded-full border border-[#EBEBEB] p-[3px] h-[50px] overflow-hidden">
-                        <input type="email" class="min-w-0 flex-1 px-4 text-sm bg-transparent outline-none"
-                            placeholder="Enter your email" />
-                        <button type="submit"
-                            class="button px-6 py-2 text-sm font-semibold h-full text-white rounded-full">
-                            Subscribe
+
+                <!-- Theme toggle -->
+                <div class="flex items-center justify-between py-3">
+                    <p class="text-xs font-semibold text-neutral-500">THEME TOGGLE</p>
+                    <div class="flex items-center gap-0.5 border border-[#E6E6E6] rounded-sm p-1">
+                        <button class="h-7 w-7 inline-flex items-center justify-center aria-selected:bg-gray-200"
+                            aria-selected="true">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M7.99967 12.6665C8.16296 12.6665 8.32057 12.7265 8.44259 12.835C8.56461 12.9435 8.64257 13.093 8.66167 13.2552L8.66634 13.3332V13.9998C8.66615 14.1698 8.60109 14.3332 8.48444 14.4567C8.3678 14.5803 8.20837 14.6547 8.03874 14.6646C7.86912 14.6746 7.70209 14.6194 7.57179 14.5103C7.44148 14.4013 7.35774 14.2466 7.33767 14.0778L7.33301 13.9998V13.3332C7.33301 13.1564 7.40325 12.9868 7.52827 12.8618C7.65329 12.7367 7.82286 12.6665 7.99967 12.6665Z"
+                                    fill="#333333" />
+                                <path
+                                    d="M12.2085 11.2733L12.2712 11.3286L12.7378 11.7953C12.8574 11.9153 12.9268 12.0763 12.932 12.2456C12.9371 12.4149 12.8777 12.5798 12.7657 12.7068C12.6536 12.8339 12.4975 12.9135 12.3288 12.9296C12.1602 12.9456 11.9918 12.8969 11.8578 12.7933L11.7952 12.738L11.3285 12.2713C11.2134 12.1565 11.1443 12.0035 11.1341 11.8413C11.1239 11.6791 11.1734 11.5187 11.2731 11.3903C11.3729 11.262 11.5161 11.1745 11.6758 11.1444C11.8356 11.1142 12.0008 11.1435 12.1405 11.2266L12.2085 11.2733Z"
+                                    fill="#333333" />
+                                <path
+                                    d="M4.67132 11.3287C4.78611 11.4435 4.85506 11.5963 4.86525 11.7583C4.87543 11.9203 4.82616 12.0805 4.72665 12.2087L4.67132 12.2714L4.20465 12.7381C4.08468 12.8576 3.9237 12.9271 3.7544 12.9322C3.5851 12.9374 3.42018 12.8779 3.29314 12.7659C3.16609 12.6539 3.08645 12.4977 3.07039 12.3291C3.05433 12.1605 3.10305 11.9921 3.20665 11.8581L3.26199 11.7954L3.72865 11.3287C3.85367 11.2038 4.02321 11.1335 4.19999 11.1335C4.37676 11.1335 4.5463 11.2038 4.67132 11.3287Z"
+                                    fill="#333333" />
+                                <path
+                                    d="M2.66658 7.33325C2.8365 7.33344 2.99993 7.3985 3.12349 7.51515C3.24705 7.6318 3.3214 7.79122 3.33136 7.96085C3.34132 8.13048 3.28613 8.2975 3.17707 8.42781C3.06801 8.55811 2.91331 8.64185 2.74458 8.66192L2.66658 8.66659H1.99991C1.82999 8.6664 1.66656 8.60133 1.543 8.48469C1.41944 8.36804 1.34509 8.20862 1.33513 8.03899C1.32517 7.86936 1.38036 7.70233 1.48942 7.57203C1.59848 7.44173 1.75318 7.35799 1.92191 7.33792L1.99991 7.33325H2.66658Z"
+                                    fill="#333333" />
+                                <path
+                                    d="M13.9996 7.3335C14.1695 7.33368 14.3329 7.39875 14.4565 7.51539C14.5801 7.63204 14.6544 7.79146 14.6644 7.96109C14.6743 8.13072 14.6191 8.29775 14.5101 8.42805C14.401 8.55835 14.2463 8.64209 14.0776 8.66216L13.9996 8.66683H13.3329C13.163 8.66664 12.9996 8.60158 12.876 8.48493C12.7525 8.36828 12.6781 8.20886 12.6681 8.03923C12.6582 7.86961 12.7134 7.70258 12.8224 7.57227C12.9315 7.44197 13.0862 7.35823 13.2549 7.33816L13.3329 7.3335H13.9996Z"
+                                    fill="#333333" />
+                                <path
+                                    d="M4.14208 3.20665L4.20475 3.26198L4.67142 3.72865C4.79098 3.84862 4.8604 4.00961 4.86557 4.17891C4.87074 4.34821 4.81127 4.51312 4.69925 4.64017C4.58723 4.76721 4.43105 4.84685 4.26243 4.86292C4.09382 4.87898 3.92541 4.83026 3.79142 4.72665L3.72875 4.67132L3.26208 4.20465C3.14748 4.08977 3.07871 3.93703 3.06866 3.77507C3.05862 3.61311 3.10799 3.45305 3.20753 3.32489C3.30706 3.19673 3.44992 3.10927 3.60933 3.07891C3.76874 3.04855 3.93374 3.07738 4.07342 3.15998L4.14208 3.20665Z"
+                                    fill="#333333" />
+                                <path
+                                    d="M12.7377 3.26209C12.8525 3.37688 12.9215 3.52961 12.9317 3.69163C12.9418 3.85365 12.8926 4.01382 12.7931 4.14209L12.7377 4.20475L12.2711 4.67142C12.1511 4.79098 11.9901 4.8604 11.8208 4.86557C11.6515 4.87074 11.4866 4.81128 11.3595 4.69925C11.2325 4.58723 11.1529 4.43105 11.1368 4.26244C11.1207 4.09382 11.1695 3.92541 11.2731 3.79142L11.3284 3.72875L11.7951 3.26209C11.9201 3.1371 12.0896 3.06689 12.2664 3.06689C12.4432 3.06689 12.6127 3.1371 12.7377 3.26209Z"
+                                    fill="#333333" />
+                                <path
+                                    d="M7.99967 1.3335C8.16296 1.33352 8.32057 1.39347 8.44259 1.50197C8.56461 1.61048 8.64257 1.76 8.66167 1.92216L8.66634 2.00016V2.66683C8.66615 2.83675 8.60109 3.00018 8.48444 3.12374C8.3678 3.2473 8.20837 3.32165 8.03874 3.33161C7.86912 3.34157 7.70209 3.28638 7.57179 3.17732C7.44148 3.06826 7.35774 2.91356 7.33767 2.74483L7.33301 2.66683V2.00016C7.33301 1.82335 7.40325 1.65378 7.52827 1.52876C7.65329 1.40373 7.82286 1.3335 7.99967 1.3335Z"
+                                    fill="#333333" />
+                                <path
+                                    d="M8.00033 4.6665C8.65344 4.66647 9.29218 4.8583 9.83721 5.21817C10.3822 5.57804 10.8095 6.0901 11.066 6.69074C11.3225 7.29139 11.3969 7.95415 11.28 8.59671C11.163 9.23927 10.8599 9.83332 10.4082 10.3051C9.95653 10.7768 9.37622 11.1055 8.73935 11.2503C8.10247 11.395 7.43711 11.3495 6.82588 11.1193C6.21466 10.8892 5.68452 10.4846 5.3013 9.95568C4.91808 9.42681 4.69867 8.79701 4.67033 8.1445L4.66699 7.99984L4.67033 7.85517C4.70761 6.997 5.07473 6.18636 5.69514 5.59228C6.31555 4.9982 7.14135 4.66655 8.00033 4.6665Z"
+                                    fill="#333333" />
+                            </svg>
+
                         </button>
-                    </form>
-                </div>
-            </div>
+                        <button class="h-7 w-7 inline-flex items-center justify-center aria-selected:bg-gray-200"
+                            aria-selected="false">
+                            <svg width="13" height="14" viewBox="0 0 13 14" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6.66544 0C5.45858 0.000221776 4.27442 0.328048 3.23926 0.948509C2.20411 1.56897 1.3568 2.45879 0.78771 3.52306C0.218624 4.58732 -0.0508885 5.7861 0.0079214 6.99153C0.0667313 8.19696 0.451657 9.36381 1.12164 10.3676C1.79162 11.3714 2.72153 12.1746 3.81216 12.6913C4.9028 13.2081 6.11325 13.4191 7.3144 13.3018C8.51556 13.1845 9.66235 12.7434 10.6325 12.0255C11.6026 11.3076 12.3596 10.3398 12.8228 9.22533C13.0501 8.67867 12.5054 8.12933 11.9574 8.352C11.0182 8.73245 9.97538 8.77171 9.01022 8.46295C8.04505 8.1542 7.21862 7.51695 6.67461 6.66201C6.13059 5.80708 5.9034 4.78852 6.03254 3.78344C6.16168 2.77835 6.63897 1.85031 7.38144 1.16067L7.43278 1.10733C7.80011 0.687333 7.50811 0.00533334 6.92744 0.00533334H6.75011L6.70478 0.00133332L6.66478 0H6.66544Z"
+                                    fill="#666666" />
+                            </svg>
 
-            <!-- Divider -->
-            <div
-                class="border-t border-gray-200 mt-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-                <p>© 2025 Shine. Published with Ghost and Shine Themes.</p>
-
-                <!-- Social icons (placeholder SVGs) -->
-                <div class="flex items-center gap-2 text-gray-700">
-                    <!-- Facebook -->
-                    <a href="#" aria-label="Facebook"
-                        class="flex items-center justify-center w-6 h-6 hover:text-gray-900">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M13 22v-7h3l1-4h-4V8a1 1 0 0 1 1-1h3V3h-3a5 5 0 0 0-5 5v3H6v4h3v7h4z" />
-                        </svg>
-                    </a>
-                    <!-- X / Twitter -->
-                    <a href="#" aria-label="X" class="flex items-center justify-center w-6 h-6 hover:text-gray-900">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.1 3H20l-6.6 7.5L20.7 21H16l-4.3-5.7L7 21H4.1l7-7.9L3.7 3H8l3.8 5.1L17.1 3z" />
-                        </svg>
-                    </a>
-                    <!-- Instagram -->
-                    <a href="#" aria-label="Instagram"
-                        class="flex items-center justify-center w-6 h-6 hover:text-gray-900">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.75 6a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17.75 6z" />
-                        </svg>
-                    </a>
-                    <!-- TikTok -->
-                    <a href="#" aria-label="TikTok"
-                        class="flex items-center justify-center w-6 h-6 hover:text-gray-900">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M19 7.1a4.5 4.5 0 0 1-2.7-1.3A4.7 4.7 0 0 1 15 3h-2v12.1A2.4 2.4 0 0 1 10.6 17 2.6 2.6 0 0 1 8 14.4 2.6 2.6 0 0 1 10.6 12a2.3 2.3 0 0 1 1.1.3V9.2a5.2 5.2 0 0 0-1.1-.1 5.4 5.4 0 0 0-5.6 5.3A5.3 5.3 0 0 0 10.6 20 5.1 5.1 0 0 0 16 15V9.6a6.5 6.5 0 0 0 3 1z" />
-                        </svg>
-                    </a>
+                        </button>
+                    </div>
                 </div>
+
+                <!-- Selects -->
+                <div class="space-y-3">
+                    <div class="space-y-1">
+                        <p class="text-xs font-semibold text-neutral-500 mb-2">HEADING FONT</p>
+                        <div
+                            class="select-box relative after:content-[''] after:absolute after:right-3 after:w-1.5 after:h-1.5 after:border-b after:border-r after:border-[#000] after:top-1/2 after:transform after:-translate-y-1/2 after:-translate-y-[calc(2px)] after:rotate-45">
+                            <select
+                                class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none">
+                                <option>Manrope</option>
+                                <option>Inter</option>
+                                <option>Poppins</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <p class="text-xs font-semibold text-neutral-500 mb-2">BODY FONT</p>
+                        <div
+                            class="select-box relative after:content-[''] after:absolute after:right-3 after:w-1.5 after:h-1.5 after:border-b after:border-r after:border-[#000] after:top-1/2 after:transform after:-translate-y-1/2 after:-translate-y-[calc(2px)] after:rotate-45">
+                            <select
+                                class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none">
+                                <option>Inter</option>
+                                <option>Manrope</option>
+                                <option>System</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <p class="text-xs font-semibold text-neutral-500 mb-2">POST CARD STYLE</p>
+                        <div
+                            class="select-box relative after:content-[''] after:absolute after:right-3 after:w-1.5 after:h-1.5 after:border-b after:border-r after:border-[#000] after:top-1/2 after:transform after:-translate-y-1/2 after:-translate-y-[calc(2px)] after:rotate-45">
+                            <select
+                                class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none">
+                                <option>Minimal</option>
+                                <option>Classic</option>
+                                <option>Featured</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button
+                    class="w-full rounded-sm bg-neutral-100 py-2 text-xs font-semibold text-neutral-700 hover:bg-neutral-200 mt-3">
+                    Reset
+                </button>
             </div>
         </div>
-    </footer>
-    {{ghost_foot}}
+<script>
+  (function () {
+    const input = document.getElementById("brandColorInput");
+    const resetBtn = document.getElementById("customizerReset");
+
+    if (!input) return;
+
+    const KEY = "theme_brand_color";
+
+    // Apply override
+    function applyColor(color) {
+      // Override the base variable your Tailwind mapping uses
+      document.documentElement.style.setProperty("--ghost-accent-color", color);
+    }
+
+    // Remove override and fall back to CSS default
+    function clearColor() {
+      document.documentElement.style.removeProperty("--ghost-accent-color");
+    }
+
+    // 1) Load saved color on page load
+    const saved = localStorage.getItem(KEY);
+    if (saved) {
+      input.value = saved;
+      applyColor(saved);
+    } else {
+      // If nothing saved, don't override Ghost accent
+      clearColor();
+    }
+
+    // 2) On change, set + save
+    input.addEventListener("input", (e) => {
+      const color = e.target.value;
+      applyColor(color);
+      localStorage.setItem(KEY, color);
+    });
+
+    // 3) Reset button clears storage + resets to Ghost accent
+    if (resetBtn) {
+      resetBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.removeItem(KEY);
+        clearColor();
+      });
+    }
+  })();
+</script>
+        <style>
+            .writing-mode-vertical {
+                writing-mode: vertical-rl;
+                transform: rotate(180deg);
+            }
+        </style>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const toggle = document.getElementById("customizerToggle");
+                const closeBtn = document.getElementById("customizerClose");
+                const panel = document.getElementById("customizer");
+
+                const openPanel = () => {
+                    panel.classList.remove("translate-x-0");
+                    panel.classList.add("translate-x-[-100%]");
+                    toggle.setAttribute("aria-expanded", "true");
+                };
+
+                const closePanel = () => {
+                    panel.classList.add("translate-x-0");
+                    panel.classList.remove("translate-x-[-100%]");
+                    toggle.setAttribute("aria-expanded", "false");
+                };
+
+                toggle.addEventListener("click", () => {
+                    const isOpen = toggle.getAttribute("aria-expanded") === "true";
+                    isOpen ? closePanel() : openPanel();
+                });
+
+                closeBtn.addEventListener("click", closePanel);
+
+                // Optional: close on ESC
+                document.addEventListener("keydown", (e) => {
+                    if (e.key === "Escape") closePanel();
+                });
+            });
+        </script>
+
+        <footer class="border-t border-[#EBEBEB] pt-16">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="grid gap-10 md:grid-cols-4">
+                        <!-- Column 1 -->
+                        <div>
+                            <h4 class="text-base font-bold mb-6">Features</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Style Guide</a></li>
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Tags</a></li>
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Authors</a></li>
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Features</a></li>
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Column 2 -->
+                        <div>
+                            <h4 class="text-base font-bold mb-6">Pages</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Membership</a></li>
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Sign In</a></li>
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Sign Up</a></li>
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Account Free</a></li>
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Account Paid</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Column 3 -->
+                        <div>
+                            <h4 class="text-base font-bold mb-6">About</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Privacy Policy</a></li>
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Terms</a></li>
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Contact</a></li>
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">404 Error</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Column 4 -->
+                        <div>
+                            <h4 class="text-base font-bold mb-6">Quick Links</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Signin</a></li>
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Signup</a></li>
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Free Account</a></li>
+                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Paid Account</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Newsletter -->
+                    <div class="max-w-[480px] lg:ml-auto mt-10 md:mt-10 lg:mt-0">
+                        <h4 class="text-base font-bold mb-6">
+                            Subscribe to our newsletter
+                        </h4>
+                        <p class="text-sm mb-6">
+                            Join our newsletter to stay up to date on features and releases.
+                        </p>
+                        <form
+                            class="grid grid-cols-(--my-grid-cols) bg-transparent rounded-full border border-[#EBEBEB] p-[3px] h-[50px] overflow-hidden">
+                            <input type="email" class="min-w-0 flex-1 px-4 text-sm bg-transparent outline-none"
+                                placeholder="Enter your email" />
+                            <button type="submit"
+                                class="button px-6 py-2 text-sm font-semibold h-full text-white rounded-full">
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div
+                    class="border-t border-gray-200 mt-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+                    <p>© 2025 Shine. Published with Ghost and Shine Themes.</p>
+
+                    <!-- Social icons (placeholder SVGs) -->
+                    <div class="flex items-center gap-2 text-gray-700">
+                        <!-- Facebook -->
+                        <a href="#" aria-label="Facebook"
+                            class="flex items-center justify-center w-6 h-6 hover:text-gray-900">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M13 22v-7h3l1-4h-4V8a1 1 0 0 1 1-1h3V3h-3a5 5 0 0 0-5 5v3H6v4h3v7h4z" />
+                            </svg>
+                        </a>
+                        <!-- X / Twitter -->
+                        <a href="#" aria-label="X" class="flex items-center justify-center w-6 h-6 hover:text-gray-900">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M17.1 3H20l-6.6 7.5L20.7 21H16l-4.3-5.7L7 21H4.1l7-7.9L3.7 3H8l3.8 5.1L17.1 3z" />
+                            </svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="#" aria-label="Instagram"
+                            class="flex items-center justify-center w-6 h-6 hover:text-gray-900">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.75 6a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17.75 6z" />
+                            </svg>
+                        </a>
+                        <!-- TikTok -->
+                        <a href="#" aria-label="TikTok"
+                            class="flex items-center justify-center w-6 h-6 hover:text-gray-900">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19 7.1a4.5 4.5 0 0 1-2.7-1.3A4.7 4.7 0 0 1 15 3h-2v12.1A2.4 2.4 0 0 1 10.6 17 2.6 2.6 0 0 1 8 14.4 2.6 2.6 0 0 1 10.6 12a2.3 2.3 0 0 1 1.1.3V9.2a5.2 5.2 0 0 0-1.1-.1 5.4 5.4 0 0 0-5.6 5.3A5.3 5.3 0 0 0 10.6 20 5.1 5.1 0 0 0 16 15V9.6a6.5 6.5 0 0 0 3 1z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        {{ghost_foot}}
 
     </div>
 
-{{!-- <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const tagCards = document.querySelectorAll(".tag-specific-card");
-    const posts = document.querySelectorAll(".tag-specifc-post");
-    const container = document.getElementById("postsContainer");
+    {{!--
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tagCards = document.querySelectorAll(".tag-specific-card");
+            const posts = document.querySelectorAll(".tag-specifc-post");
+            const container = document.getElementById("postsContainer");
 
-    tagCards.forEach(card => {
-        card.addEventListener("click", () => {
-            console.log(card.dataset.tags,"card.dataset.tag")
-            const selectedTag = card.dataset.tags.toLowerCase();
+            tagCards.forEach(card => {
+                card.addEventListener("click", () => {
+                    console.log(card.dataset.tags, "card.dataset.tag")
+                    const selectedTag = card.dataset.tags.toLowerCase();
 
-            // Clear all posts
-            posts.forEach(p => p.style.display = "none");
+                    // Clear all posts
+                    posts.forEach(p => p.style.display = "none");
 
-            // Show only posts that include this tag
-            posts.forEach(p => {
-            console.log(p.dataset.tags,"p.dataset.tags")
+                    // Show only posts that include this tag
+                    posts.forEach(p => {
+                        console.log(p.dataset.tags, "p.dataset.tags")
 
-                const tags = p.dataset.tags.split(",");
-                if(selectedTag=="all"){
-                    p.style.display = "block"
-                }
-                else if (tags.includes(selectedTag)) {
-                    p.style.display = "block";
-                }
+                        const tags = p.dataset.tags.split(",");
+                        if (selectedTag == "all") {
+                            p.style.display = "block"
+                        }
+                        else if (tags.includes(selectedTag)) {
+                            p.style.display = "block";
+                        }
+                    });
+                });
             });
         });
-    });
-});
-</script> --}}
+    </script> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
@@ -264,50 +505,50 @@ document.addEventListener("DOMContentLoaded", function () {
     </script>
 
     <script>
-  const html = document.documentElement;
-  const toggleBtn = document.getElementById("theme-toggle");
-  const lightIcon = document.getElementById("theme-toggle-light-icon");
-  const darkIcon = document.getElementById("theme-toggle-dark-icon");
+        const html = document.documentElement;
+        const toggleBtn = document.getElementById("theme-toggle");
+        const lightIcon = document.getElementById("theme-toggle-light-icon");
+        const darkIcon = document.getElementById("theme-toggle-dark-icon");
 
-  // Load previous mode
-  if (localStorage.theme === 'dark' || 
-     (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    html.classList.add('dark');
-    darkIcon.classList.add('hidden');
-    lightIcon.classList.remove('hidden');
-  } else {
-    html.classList.remove('dark');
-    lightIcon.classList.add('hidden');
-    darkIcon.classList.remove('hidden');
-  }
+        // Load previous mode
+        if (localStorage.theme === 'dark' ||
+            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            darkIcon.classList.add('hidden');
+            lightIcon.classList.remove('hidden');
+        } else {
+            html.classList.remove('dark');
+            lightIcon.classList.add('hidden');
+            darkIcon.classList.remove('hidden');
+        }
 
-  // Toggle
-  toggleBtn.addEventListener("click", () => {
-    const html = document.documentElement;
+        // Toggle
+        toggleBtn.addEventListener("click", () => {
+            const html = document.documentElement;
 
-    const isDark = html.classList.contains("dark");
+            const isDark = html.classList.contains("dark");
 
-    if (isDark) {
-        // Switch to LIGHT
-        html.classList.remove("dark");
-        html.classList.add("light");
+            if (isDark) {
+                // Switch to LIGHT
+                html.classList.remove("dark");
+                html.classList.add("light");
 
-        localStorage.theme = "light";
+                localStorage.theme = "light";
 
-        lightIcon.classList.add("hidden");
-        darkIcon.classList.remove("hidden");
-    } else {
-        // Switch to DARK
-        html.classList.remove("light");
-        html.classList.add("dark");
+                lightIcon.classList.add("hidden");
+                darkIcon.classList.remove("hidden");
+            } else {
+                // Switch to DARK
+                html.classList.remove("light");
+                html.classList.add("dark");
 
-        localStorage.theme = "dark";
+                localStorage.theme = "dark";
 
-        darkIcon.classList.add("hidden");
-        lightIcon.classList.remove("hidden");
-    }
-});
-</script>
+                darkIcon.classList.add("hidden");
+                lightIcon.classList.remove("hidden");
+            }
+        });
+    </script>
 
 
 </body>

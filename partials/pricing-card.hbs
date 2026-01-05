@@ -1,55 +1,61 @@
-<article
-  class="relative rounded-3xl border border-gray-200 bg-white p-8 text-gray-900 shadow-sm"
-  data-plan="{{name}}"
-  {{#if monthly_price}}data-monthly="{{price monthly_price}}"{{/if}}
-  {{#if yearly_price}}data-yearly="{{price yearly_price}}"{{/if}}
-  data-monthly-suffix="/ per month"
-  data-yearly-suffix="/ per year"
->
-  <div class="flex items-start gap-3">
-    <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-gray-100">⭐</span>
-    <div>
-      <h3 class="text-lg font-semibold leading-none">{{name}}</h3>
-      {{#if description}}
-        <p class="mt-2 text-sm text-gray-600">{{description}}</p>
-      {{/if}}
-    </div>
+<article class="relative group hover:bg-accent-bg hover:text-white rounded-4xl border border-[#EBEBEB] bg-white p-5 md:p-10" data-plan="{{name}}" {{#if
+  monthly_price}}data-monthly="{{price monthly_price}}" {{/if}} {{#if yearly_price}}data-yearly="{{price yearly_price}}"
+  {{/if}} data-monthly-suffix="/ per month" data-yearly-suffix="/ per year">
+
+  <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-black">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <path
+        d="M19.9479 7.24277C19.8169 6.83779 19.4577 6.55016 19.0328 6.51186L13.2602 5.9877L10.9776 0.645006C10.8093 0.253455 10.426 0 10.0001 0C9.57422 0 9.19091 0.253455 9.0226 0.645921L6.73998 5.9877L0.966514 6.51186C0.542309 6.55107 0.184023 6.83779 0.0523365 7.24277C-0.0793503 7.64775 0.0422654 8.09194 0.363166 8.37195L4.72653 12.1986L3.43987 17.8664C3.34573 18.2831 3.50747 18.7139 3.85325 18.9638C4.0391 19.0981 4.25655 19.1664 4.47582 19.1664C4.66488 19.1664 4.85242 19.1155 5.02073 19.0148L10.0001 16.0388L14.9776 19.0148C15.3419 19.2339 15.801 19.2139 16.146 18.9638C16.492 18.7131 16.6536 18.2822 16.5594 17.8664L15.2728 12.1986L19.6361 8.37271C19.957 8.09194 20.0796 7.64851 19.9479 7.24277Z"
+        fill="#FFC107" />
+    </svg>
+  </div>
+  <div class="mt-6">
+    <h3 class="text-[24px] font-bold">{{name}}</h3>
+    {{#if description}}
+    <p class="mt-2.5 text-sm">{{description}}</p>
+    {{/if}}
   </div>
 
-  <div class="mt-8 flex items-end gap-2">
-    <div class="text-4xl font-bold leading-none js-price">
-      {{#if monthly_price}}{{price monthly_price}}{{else}}{{#if yearly_price}}{{price yearly_price}}{{else}}0{{/if}}{{/if}}
+  <div class="mt-7 flex items-end gap-2">
+    <div class="text-5xl font-bold js-price">
+      {{#if monthly_price}}{{price monthly_price}}{{else}}{{#if yearly_price}}{{price
+      yearly_price}}{{else}}0{{/if}}{{/if}}
     </div>
-    <div class="pb-1 text-sm text-gray-600 js-suffix">
+    <div class="pb-1 text-sm js-suffix">
       {{#if monthly_price}}/ per month{{else}}{{#if yearly_price}}/ per year{{/if}}{{/if}}
     </div>
   </div>
 
-  <div class="mt-8 border-t border-gray-200 pt-6">
-    <p class="text-sm font-semibold">Features</p>
+  <div class="mt-7 border-t border-gray-200 pt-6">
+    <p class="text-base font-semibold">Features</p>
 
     {{#if benefits}}
-      <ul class="mt-4 space-y-3 text-sm">
-        {{#foreach benefits}}
-          <li class="flex gap-3">
-            <span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100">✓</span>
-            <span class="text-gray-700">{{this}}</span>
-          </li>
-        {{/foreach}}
-      </ul>
+    <ul class="mt-4 space-y-3 text-sm">
+      {{#foreach benefits}}
+      <li class="flex items-center gap-2">
+        <div>
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <path
+              d="M11.8831 2.455C14.5297 5.10167 14.4831 9.42164 11.7497 12.015C9.22306 14.4083 5.12307 14.4083 2.58973 12.015C-0.150266 9.42164 -0.196941 5.10167 2.45639 2.455C5.05639 -0.151667 9.28307 -0.151667 11.8831 2.455Z"
+              stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M4.33594 7.1562L6.2226 9.04286L10.0026 5.26953" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+        <span class="text-sm md:text-base">{{this}}</span>
+      </li>
+      {{/foreach}}
+    </ul>
     {{else}}
-      <p class="mt-3 text-sm text-gray-600">
-        Add benefits for this tier in Ghost Admin.
-      </p>
+    <p class="mt-3 text-sm">
+      Add benefits for this tier in Ghost Admin.
+    </p>
     {{/if}}
   </div>
 
   <div class="mt-10">
-    <a
-      href="/signup/"
-      data-portal="signup"
-      class="inline-flex w-full items-center justify-center rounded-full bg-gray-900 px-5 py-3 text-sm font-semibold text-white"
-    >
+    <a href="/signup/" data-portal="signup"
+      class="inline-flex w-full items-center justify-center rounded-full bg-gray-900 px-5 py-3 text-sm font-semibold text-white group-hover:bg-white group-hover:text-black">
       Sign up
     </a>
   </div>

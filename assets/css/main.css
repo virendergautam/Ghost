@@ -9,6 +9,7 @@
   --color-secondary-bg: #f6f6f6;
   --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
   --color-accent-bg: var(--ghost-accent-color);
+  --color-accent-border: color-mix(in srgb, var(--color-accent-bg) 100%, white 30%);
 }
 
 :root {
@@ -246,6 +247,22 @@ footer {
 .page-content .kg-card {
   border-radius: 20px;
   overflow: hidden;
+}
+
+.page-content .kg-card.kg-toggle-card {
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--color-primary-alt-bg);
+  box-shadow: none;
+}
+
+.page-content .kg-toggle-heading svg {
+  color: currentColor;
+}
+
+.page-content .kg-card.kg-toggle-card[data-kg-toggle-state="open"] {
+  background: var(--color-primary-text);
+  color: var(--color-primary-bg);
 }
 
 .page-content>[id]:not(:first-child) {
