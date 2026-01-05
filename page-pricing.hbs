@@ -1,5 +1,5 @@
 {{!< default}}
-
+{{#post}}
 <main class="bg-white">
   <section class="mx-auto max-w-6xl px-4 py-16 sm:py-20">
 
@@ -11,7 +11,7 @@
       <h1 class="mt-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
         {{title}}
       </h1>
-
+{{content}}
       {{#if custom_excerpt}}
         <p class="mx-auto mt-3 max-w-2xl text-sm text-gray-600 sm:text-base">
           {{custom_excerpt}}
@@ -60,6 +60,7 @@
       {{else}}
 
         {{#get "tiers" include="monthly_price,yearly_price,benefits" limit="all"}}
+        {{log tiers "Fetched membership tiers for pricing page"}}
           {{#if tiers}}
             {{#foreach tiers}}
               {{> "pricing-card"}}
@@ -119,3 +120,4 @@
     })();
   </script>
 </main>
+{{/post}}
