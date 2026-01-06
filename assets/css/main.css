@@ -12,12 +12,12 @@
   --color-accent-border: color-mix(in srgb, var(--color-accent-bg) 100%, white 30%);
 }
 
-:root {
+/* :root {
   --headingFont: '{{@custom.heading_font}}',
   sans-serif;
   --bodyFont: '{{@custom.body_font}}',
   sans-serif;
-}
+} */
 
 .scheme-1 {
   --primaryBg: #ffffff;
