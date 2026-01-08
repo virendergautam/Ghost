@@ -59,24 +59,6 @@
         "default": "Get the email newsletter and unlock access to members-only content and updates Shine is a modern classic blog theme for Ghost.",
         "group": "homepage"
       },
-      "hero_image_1": {
-        "type": "image",
-        "group": "homepage"
-      },
-      "hero_image_2": {
-        "type": "image",
-        "group": "homepage"
-      },
-      "hero_image_3": {
-        "type": "image",
-        "group": "homepage"
-      },
-      "dark_mode": {
-        "type": "boolean",
-        "default": false,
-        "label": "Enable Dark Mode",
-        "group": "homepage"
-      },
       "color_scheme": {
         "type": "select",
         "options": [
