@@ -1,84 +1,65 @@
 {{!< default}} <!-- Top orange strip -->
 
-<section class="hero-banner relative py-17.5 min-h-dvh flex items-end bg-accent-bg">
-    <div class="background-image absolute inset-0">        
-        {{#if @site.cover_image}}
-        <img class="site-header-cover"
-        srcset="{{img_url @site.cover_image size="s"}} 300w,
-        {{img_url @site.cover_image size="m"}} 600w,
-        {{img_url @site.cover_image size="l"}} 1000w,
-        {{img_url @site.cover_image size="xl"}} 2000w"
-        sizes="100vw"
-        src="{{img_url @site.cover_image size="xl"}}"
-        alt="{{@site.title}}"
-        />
-        {{/if}}
-    </div>
-    <div class="hero-content relative w-full px-4 flex justify-center">
-        <div class="max-w-[740px] text-center text-white">
-            <h1 class="text-[28px] md:text-[34px] lg:text-[54px] font-semibold mb-4 md:mb-6">
-            {{@custom.hero_heading}}
-            </h1>
-            <p class="text-base md:text-xl">{{@custom.hero_subheading}}</p>
-            <form class="mt-6 md:mt-9">
-            <div
-            class="grid grid-cols-(--my-grid-cols) max-w-[500px] mx-auto bg-[#F1F1F2] rounded-full border border-[#DFDFDF] min-h-[48px] p-[3px]">
-            <input type="email" placeholder="Enter your email"
-            class="min-w-0 flex-1 bg-transparent px-4 text-sm md:text-base text-slate-800 placeholder:text-slate-400 focus:outline-none" />
-            <button type="submit"
-            class="button min-h-[48px] px-5 md:px-8 py-2.5 text-base font-medium rounded-full cursor-pointer text-white">
-            Subscribe
-            </button>
-            </div>
-            </form>
+    <section class="hero-banner relative py-17.5 min-h-dvh flex items-end bg-accent-bg">
+        <div class="background-image absolute inset-0">
+            {{#if @site.cover_image}}
+            <img class="site-header-cover" srcset="{{img_url @site.cover_image size=" s"}} 300w, {{img_url
+                @site.cover_image size="m" }} 600w, {{img_url @site.cover_image size="l" }} 1000w, {{img_url
+                @site.cover_image size="xl" }} 2000w" sizes="100vw" src="{{img_url @site.cover_image size=" xl"}}"
+                alt="{{@site.title}}" />
+            {{/if}}
         </div>
-    </div>
-</section>
-
-<section class="explore-tags py-10">
-    <div class="container mx-auto">
-        <div class="explore-tags-wrapper">
-            <div class="explore-tags-header flex justify-between mb-8.5">
-                <div class="explore-tag-heading">
-                    <h3 class="text-2xl md:text-4xl font-semibold">Explore by topic</h3>
-                </div>
-            </div>
-            <div class="grid grid-cols-4 gap-2.5">
-                {{#get "tags" limit="4" include="count.posts"}} {{#foreach tags}}
-                <a href="/tag/{{slug}}/" class="relative block p-4 rounded-2xl overflow-hidden group explore-tags-item bg-primary-alt-bg">
-                    <div class="overflow-hidden aspect-[4/3] rounded-2xl mb-4 relative z-1">
-                        <img
-                            src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
-                            alt="{{name}}"
-                            class="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
+        <div class="hero-content relative w-full px-4 flex justify-center">
+            <div class="max-w-[740px] text-center text-white">
+                <h1 class="text-[28px] md:text-[34px] lg:text-[54px] font-semibold mb-4 md:mb-6">
+                    {{@custom.hero_heading}}
+                </h1>
+                <p class="text-base max-w-xl m-auto">{{@custom.hero_subheading}}</p>
+                <form class="mt-6 md:mt-9">
+                    <div
+                        class="grid grid-cols-(--my-grid-cols) max-w-[500px] mx-auto bg-white/20 backdrop-blur-2xl rounded-full border border-white/20 min-h-[48px] p-1.5">
+                        <input type="email" placeholder="Enter your email"
+                            class="min-w-0 flex-1 bg-transparent px-4 text-sm text-white placeholder:text-white focus:outline-none" />
+                        <button type="submit"
+                            class="bg-black min-h-[42px] px-5 md:px-6.5 py-2.5 text-sm font-medium rounded-full cursor-pointer text-white">
+                            Subscribe
+                        </button>
                     </div>
-                    <div class="flex justify-between items-center relative z-1">
-                        <div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="explore-tags py-10">
+        <div class="container mx-auto">
+            <div class="explore-tags-wrapper">
+                <div class="explore-tags-header mb-12.5 max-w-[676px] m-auto text-center">
+                    <div
+                        class="inline-flex items-center justify-center rounded-full border border-[#DDDDDD] bg-[#F0EFEF] px-5 py-2 text-xs mb-7.5">
+                        EXPLORE BY TOPICS
+                    </div>
+                    <h2 class="text-2xl md:text-5xl font-semibold">Uncover the Wonders of the Natural World</h2>
+                </div>
+                <div class="grid grid-cols-4 gap-7">
+                    {{#get "tags" limit="4" include="count.posts"}} {{#foreach tags}}
+                    <a href="/tag/{{slug}}/" class="relative block rounded-2xl overflow-hidden group explore-tags-item">
+                        <div class="aspect-[2/3]">
+                            <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
+                                alt="{{name}}"
+                                class="object-cover transition-transform duration-500 group-hover:scale-105" />
+                        </div>
+                        <div class="absolute bottom-0 flex justify-between items-center">
                             <h3 class="font-semibold text-sm md:text-lg mb-1.5 break-all">{{name}}</h3>
                             <p class="text-xs md:text-sm">
                                 {{plural count.posts empty="0 Articles" singular="1 Article" plural="% Articles"}}
                             </p>
                         </div>
-
-                        <button
-                            class="cursor-pointer w-5 h-5 min-w-5 md:w-9 md:h-9 rounded-full flex items-center justify-center border border-primary-text hover:bg-primary-text hover:text-primary-bg transition"
-                        >
-                            <svg class="w-2 h-2 md:w-3 md:h-3" width="13" height="12" viewBox="0 0 13 12" fill="none">
-                                <path
-                                    d="M0.75 4.77295C0.335786 4.77295 4.47035e-08 5.10874 4.47035e-08 5.52295C4.47035e-08 5.93716 0.335786 6.27295 0.75 6.27295V5.52295V4.77295ZM12.594 6.05328C12.8869 5.76039 12.8869 5.28551 12.594 4.99262L7.82107 0.219649C7.52817 -0.0732447 7.0533 -0.0732447 6.76041 0.219649C6.46751 0.512542 6.46751 0.987416 6.76041 1.28031L11.003 5.52295L6.76041 9.76559C6.46751 10.0585 6.46751 10.5334 6.76041 10.8262C7.0533 11.1191 7.52817 11.1191 7.82107 10.8262L12.594 6.05328ZM0.75 5.52295V6.27295H12.0637V5.52295V4.77295H0.75V5.52295Z"
-                                    fill="currentColor"
-                                />
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="absolute inset-0 bg-accent-bg transform-[translateY(-100%)] group-hover:transform-[translateY(0)] transition duration-500 ease-in-out transition-transform"></div>
-                </a>
-                {{/foreach}} {{/get}}
+                    </a>
+                    {{/foreach}} {{/get}}
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
     {{#get "posts" filter="featured:true" limit="1" include="authors,tags"}}
