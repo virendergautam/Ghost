@@ -8,6 +8,11 @@
     <link rel="preload" as="style" href="{{asset "./built/main.css"}}">
     <link rel="stylesheet" href="{{asset "./built/main.css"}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     {{!--
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
     <link
@@ -191,32 +196,56 @@
                 </div>
 
                 <!-- Selects -->
-                <div class="space-y-3">
-                    <div class="space-y-1">
-                        <p class="text-xs font-semibold text-neutral-500 mb-2">HEADING FONT</p>
-                        <div
-                            class="select-box relative after:content-[''] after:absolute after:right-3 after:w-1.5 after:h-1.5 after:border-b after:border-r after:border-[#000] after:top-1/2 after:transform after:-translate-y-1/2 after:-translate-y-[calc(2px)] after:rotate-45">
-                            <select
-                                class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none">
-                                <option>Manrope</option>
-                                <option>Inter</option>
-                                <option>Poppins</option>
-                            </select>
-                        </div>
-                    </div>
 
-                    <div class="space-y-1">
-                        <p class="text-xs font-semibold text-neutral-500 mb-2">BODY FONT</p>
-                        <div
-                            class="select-box relative after:content-[''] after:absolute after:right-3 after:w-1.5 after:h-1.5 after:border-b after:border-r after:border-[#000] after:top-1/2 after:transform after:-translate-y-1/2 after:-translate-y-[calc(2px)] after:rotate-45">
-                            <select
-                                class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none">
-                                <option>Inter</option>
-                                <option>Manrope</option>
-                                <option>System</option>
-                            </select>
-                        </div>
-                    </div>
+                <div class="space-y-3">
+                                    <p class="text-xs font-semibold">HEADING FONT</p>
+<select id="headingFontSelect"
+  class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none">
+  <option value="Default">Default</option>
+  <option value="Cardo">Cardo</option>
+  <option value="Chakra Petch">Chakra Petch</option>
+  <option value="Fira Mono">Fira Mono</option>
+  <option value="Fira Sans">Fira Sans</option>
+  <option value="IBM Plex Serif">IBM Plex Serif</option>
+  <option value="Inter">Inter</option>
+  <option value="JetBrains Mono">JetBrains Mono</option>
+  <option value="Libre Baskerville">Libre Baskerville</option>
+  <option value="Lora">Lora</option>
+  <option value="Manrope">Manrope</option>
+  <option value="Merriweather">Merriweather</option>
+  <option value="Noto Sans">Noto Sans</option>
+  <option value="Noto Serif">Noto Serif</option>
+  <option value="Nunito">Nunito</option>
+  <option value="Old Standard TT">Old Standard TT</option>
+  <option value="Poppins">Poppins</option>
+  <option value="Roboto">Roboto</option>
+  <option value="Rufina">Rufina</option>
+  <option value="Space Grotesk">Space Grotesk</option>
+  <option value="Space Mono">Space Mono</option>
+  <option value="Tenor Sans">Tenor Sans</option>
+</select>
+                                    <p class="text-xs font-semibold">BODY FONT</p>
+
+<select id="bodyFontSelect"
+  class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none">
+  <option value="Default">Default</option>
+  <option value="Fira Mono">Fira Mono</option>
+  <option value="Fira Sans">Fira Sans</option>
+  <option value="IBM Plex Serif">IBM Plex Serif</option>
+  <option value="Inter">Inter</option>
+  <option value="JetBrains Mono">JetBrains Mono</option>
+  <option value="Lora">Lora</option>
+  <option value="Manrope">Manrope</option>
+  <option value="Merriweather">Merriweather</option>
+  <option value="Noto Sans">Noto Sans</option>
+  <option value="Noto Serif">Noto Serif</option>
+  <option value="Nunito">Nunito</option>
+  <option value="Poppins">Poppins</option>
+  <option value="Roboto">Roboto</option>
+  <option value="Space Mono">Space Mono</option>
+</select>
+
+
 
                     <div class="space-y-1">
                         <p class="text-xs font-semibold text-neutral-500 mb-2">POST CARD STYLE</p>
@@ -285,6 +314,149 @@
     }
   })();
 </script>
+<script>
+(function () {
+  if (location.pathname.startsWith('/ghost/')) return;
+
+  const headingSelect = document.getElementById('headingFontSelect');
+  const bodySelect = document.getElementById('bodyFontSelect');
+  const resetBtn = document.getElementById('customizerReset');
+
+  if (!headingSelect || !bodySelect) return;
+
+  const SYSTEM_STACK = 'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif';
+  const SERIF_STACK  = 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif';
+  const MONO_STACK   = 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
+
+  const FONT_STACKS = {
+    "Default": null, // means: use Ghost defaults
+
+    // shared fonts
+    "Fira Mono": `"Fira Mono", ${MONO_STACK}`,
+    "Fira Sans": `"Fira Sans", ${SYSTEM_STACK}`,
+    "IBM Plex Serif": `"IBM Plex Serif", ${SERIF_STACK}`,
+    "Inter": `"Inter", ${SYSTEM_STACK}`,
+    "JetBrains Mono": `"JetBrains Mono", ${MONO_STACK}`,
+    "Lora": `"Lora", ${SERIF_STACK}`,
+    "Manrope": `"Manrope", ${SYSTEM_STACK}`,
+    "Merriweather": `"Merriweather", ${SERIF_STACK}`,
+    "Noto Sans": `"Noto Sans", ${SYSTEM_STACK}`,
+    "Noto Serif": `"Noto Serif", ${SERIF_STACK}`,
+    "Nunito": `"Nunito", ${SYSTEM_STACK}`,
+    "Poppins": `"Poppins", ${SYSTEM_STACK}`,
+    "Roboto": `"Roboto", ${SYSTEM_STACK}`,
+    "Space Mono": `"Space Mono", ${MONO_STACK}`,
+
+    // heading-only extras (keep if your heading list uses these)
+    "Cardo": `"Cardo", ${SERIF_STACK}`,
+    "Chakra Petch": `"Chakra Petch", ${SYSTEM_STACK}`,
+    "Libre Baskerville": `"Libre Baskerville", ${SERIF_STACK}`,
+    "Old Standard TT": `"Old Standard TT", ${SERIF_STACK}`,
+    "Rufina": `"Rufina", ${SERIF_STACK}`,
+    "Space Grotesk": `"Space Grotesk", ${SYSTEM_STACK}`,
+    "Tenor Sans": `"Tenor Sans", ${SYSTEM_STACK}`
+  };
+
+  const GF = {
+    "Cardo": "https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap",
+    "Chakra Petch": "https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap",
+    "Fira Mono": "https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap",
+    "Fira Sans": "https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap",
+    "IBM Plex Serif": "https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&display=swap",
+    "Inter": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "JetBrains Mono": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap",
+    "Libre Baskerville": "https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap",
+    "Lora": "https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap",
+    "Manrope": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap",
+    "Merriweather": "https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap",
+    "Noto Sans": "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap",
+    "Noto Serif": "https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&display=swap",
+    "Nunito": "https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap",
+    "Old Standard TT": "https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&display=swap",
+    "Poppins": "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap",
+    "Roboto": "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap",
+    "Rufina": "https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap",
+    "Space Grotesk": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap",
+    "Space Mono": "https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap",
+    "Tenor Sans": "https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap"
+  };
+
+  function ensurePreconnect() {
+    if (document.getElementById("gf-preconnect-1")) return;
+
+    const p1 = document.createElement("link");
+    p1.id = "gf-preconnect-1";
+    p1.rel = "preconnect";
+    p1.href = "https://fonts.googleapis.com";
+    document.head.appendChild(p1);
+
+    const p2 = document.createElement("link");
+    p2.id = "gf-preconnect-2";
+    p2.rel = "preconnect";
+    p2.href = "https://fonts.gstatic.com";
+    p2.crossOrigin = "anonymous";
+    document.head.appendChild(p2);
+  }
+
+  function ensureFontLoaded(name) {
+    const href = GF[name];
+    if (!href) return;
+
+    const id = "gf-" + name.toLowerCase().replace(/\s+/g, "-");
+    if (document.getElementById(id)) return;
+
+    ensurePreconnect();
+
+    const link = document.createElement("link");
+    link.id = id;
+    link.rel = "stylesheet";
+    link.href = href;
+    document.head.appendChild(link);
+  }
+
+  function applyHeading(name) {
+    if (name === "Default") {
+      document.documentElement.style.removeProperty("--preview-font-heading");
+      document.documentElement.style.setProperty("--preview-font-heading", "var(--gh-font-heading, var(--gh-font-body))");
+      return;
+    }
+    ensureFontLoaded(name);
+    document.documentElement.style.setProperty("--preview-font-heading", FONT_STACKS[name] || SYSTEM_STACK);
+  }
+
+  function applyBody(name) {
+    if (name === "Default") {
+      document.documentElement.style.removeProperty("--preview-font-body");
+      document.documentElement.style.setProperty("--preview-font-body", "var(--gh-font-body)");
+      return;
+    }
+    ensureFontLoaded(name);
+    document.documentElement.style.setProperty("--preview-font-body", FONT_STACKS[name] || SYSTEM_STACK);
+  }
+
+  // Defaults = follow Ghost settings
+  headingSelect.value = "Default";
+  bodySelect.value = "Default";
+  applyHeading("Default");
+  applyBody("Default");
+
+  headingSelect.addEventListener("change", () => applyHeading(headingSelect.value));
+  bodySelect.addEventListener("change", () => applyBody(bodySelect.value));
+
+  if (resetBtn) {
+    resetBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      headingSelect.value = "Default";
+      bodySelect.value = "Default";
+      applyHeading("Default");
+      applyBody("Default");
+    });
+  }
+})();
+</script>
+
+
+
         <style>
             .writing-mode-vertical {
                 writing-mode: vertical-rl;

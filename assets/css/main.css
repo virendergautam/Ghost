@@ -18,6 +18,15 @@
   --bodyFont: '{{@custom.body_font}}',
   sans-serif;
 } */
+:root{
+  --preview-font-heading: var(--gh-font-heading, var(--gh-font-body));
+  --preview-font-body: var(--gh-font-body);
+}
+
+h1,h2,h3,h4,h5,h6 { font-family: var(--preview-font-heading); }
+body { font-family: var(--preview-font-body); }
+
+
 
 .scheme-1 {
   --primaryBg: #ffffff;
@@ -112,7 +121,7 @@
 }
 
 body {
-  font-family: var(--gh-font-body);
+  /* font-family: var(--gh-font-body); */
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -133,7 +142,7 @@ h4,
 h5,
 h6 {
   line-height: 1.2;
-  font-family: var(--gh-font-heading);
+  /* font-family: var(--gh-font-heading); */
 }
 
 button.button {
