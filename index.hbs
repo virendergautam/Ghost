@@ -49,8 +49,10 @@
                                 class="object-cover transition-transform duration-500 group-hover:scale-105" />
                         </div>
                         <div class="absolute inset-0 flex justify-between items-end p-4.5">
-                            <h3 class="font-medium text-sm md:text-base break-all bg-white px-6 py-2.5 rounded-3xl">{{name}}</h3>
-                            <p class="text-xs md:text-base text-white bg-white/20 backdrop-blur-xl px-5 py-2.5 rounded-3xl">
+                            <h3 class="font-medium text-sm md:text-base break-all bg-white px-6 py-2.5 rounded-3xl">
+                                {{name}}</h3>
+                            <p
+                                class="text-xs md:text-base text-white bg-white/20 backdrop-blur-xl px-5 py-2.5 rounded-3xl">
                                 {{plural count.posts empty="0 Articles" singular="1 Article" plural="% Articles"}}
                             </p>
                         </div>
@@ -64,27 +66,34 @@
 
     {{#get "posts" filter="featured:true" limit="1" include="authors,tags"}}
     {{#foreach posts}}
-    <section class="featured-blog py-10">
+    <section class="bg-secondary-bg featured-blog pt-10">
         <div class="container mx-auto">
+            <div class="featured-blog mb-12.5 max-w-[676px] m-auto text-center">
+                <div
+                    class="inline-flex items-center justify-center rounded-full border border-[#DDDDDD] bg-[#F0EFEF] px-5 py-2 text-xs mb-7.5">
+                    JOURNEY GUIDE
+                </div>
+                <h2 class="text-2xl md:text-5xl font-bold">Your Travel Companion for Every Journey</h2>
+                <p class="text-base mt-5">Travel stories, destination guides, and thoughtful tips to help you explore
+                    the world confidently and travel smarter.</p>
+            </div>
             <div class="featured-blog-wrapper relative">
-                <div class="featured-blog-media rounded-2xl overflow-hidden h-[var(--media-height)]">
-                    {{!-- <img src="./assets/images/featured-blog.jpg" alt="{{title}}" /> --}}
+                <div class="featured-blog-media rounded-4xl overflow-hidden h-[var(--media-height)]">
                     <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
                         alt="{{title}}" />
                 </div>
-                <div class="featured-blog-content absolute inset-0 p-4 md:p-8 flex flex-col justify-between">
-                    <div class="featured-blog-content-top flex flex-wrap gap-y-3 items-center justify-between">
-                        <div class="card-tags">
-                            {{#foreach tags}}
-                            <a href="#"
-                                class="card-tag px-3 py-1 text-xs font-medium rounded-full bg-white/30 text-white backdrop-blur-sm">{{name}}</a>
-                            {{/foreach}}
-                            {{!-- <a href="#"
-                                class="card-tag px-3 py-1 text-xs font-medium rounded-full bg-white/30 text-white backdrop-blur-sm">Lifestyle</a>
-                            <a href="#"
-                                class="card-tag px-3 py-1 text-xs font-medium rounded-full bg-white/30 text-white backdrop-blur-sm">Fashion</a>
-                            --}}
+                <div
+                    class="featured-blog-content absolute inset-0 p-4 md:p-8 flex flex-col justify-center items-center">
+                    <div class="featured-blog-content-bottom max-w-[660px] flex items-center flex-col gap-y-6">
+                        <div class="featured-blog-content-top flex flex-wrap gap-y-3">
+                            <div class="card-tags">
+                                {{#foreach tags}}
+                                <a href="#"
+                                    class="card-tag px-3 py-1 text-xs font-medium rounded-full bg-[#D6E8CB] text-black backdrop-blur-sm">{{name}}</a>
+                                {{/foreach}}
+                            </div>
                         </div>
+                        <h2 class="text-2xl md:text-4xl font-semibold text-white text-center">{{title}}</h2>
                         <div class="featured-card-meta flex flex-wrap gap-y-3 gap-x-4 items-center">
                             <div class="post-card-author flex gap-x-2 items-center">
                                 {{#if primary_author.profile_image}}
@@ -108,14 +117,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="featured-blog-content-bottom max-w-[660px] flex items-start flex-col gap-y-6">
-                        <h2 class="text-2xl md:text-4xl font-semibold text-white">{{title}}</h2>
-                        <p class="text-sm text-white">{{excerpt}}</p>
-                        <a href="{{url}}"
-                            class="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
-                            Read More
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -123,8 +124,136 @@
     {{/foreach}}
     {{/get}}
 
+    <section>
+        <!-- Wrapper (light gray section like screenshot) -->
+        <section class="bg-secondary-bg pt-6 pb-12">
+            <div class="container mx-auto">
+                <!-- Cards row -->
+                <div class="grid gap-2.5 md:grid-cols-3">
+                    <!-- Card 1 -->
+                    <article class="flex gap-4 rounded-[20px] border border-[#dddddd] bg-white p-5">
+                        <div class="rounded-[20px] overflow-hidden w-[200px]">
+                            <img class="h-20 w-28 rounded-xl object-cover"
+                                src="https://images.unsplash.com/photo-1520975958225-8f2b55f6f3c2?auto=format&fit=crop&w=600&q=80"
+                                alt="Paragliding" />
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <div class="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
+                                <span class="rounded-full bg-green-100 px-2 py-1 font-medium text-green-800">
+                                    Sky Adventure
+                                </span>
+                                <span>Nov 14, 2025</span>
+                            </div>
+
+                            <h3 class="mt-5 text-base font-bold">Boating Adventures on Calm Waters</h3>
+                            <p class="mt-5 text-sm">Traveling is more meaningful when you look beyond popular
+                                attractions...</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="flex gap-4 rounded-[20px] border border-[#dddddd] bg-white p-5">
+                        <div class="rounded-[20px] overflow-hidden w-[200px]">
+                            <img class="h-20 w-28 rounded-xl object-cover"
+                                src="https://images.unsplash.com/photo-1526481280695-3c687fd5432c?auto=format&fit=crop&w=600&q=80"
+                                alt="Hiking" />
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <div class="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
+                                <span class="rounded-full bg-amber-100 px-2 py-1 font-medium text-amber-800">
+                                    Trekking
+                                </span>
+                                <span>Nov 14, 2025</span>
+                            </div>
+
+                            <h3 class="mt-5 text-base font-bold">Boating Adventures on Calm Waters</h3>
+                            <p class="mt-5 text-sm">Traveling is more meaningful when you look beyond popular
+                                attractions...</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="flex gap-4 rounded-[20px] border border-[#dddddd] bg-white p-5">
+                        <div class="rounded-[20px] overflow-hidden w-[200px]">
+                            <img class=""
+                                src="https://images.unsplash.com/photo-1526470608268-f674ce90ebd4?auto=format&fit=crop&w=600&q=80"
+                                alt="Kayak" />
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <div class="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
+                                <span class="rounded-full bg-blue-100 px-2 py-1 font-medium text-blue-800">
+                                    Water Activity
+                                </span>
+                                <span>Nov 14, 2025</span>
+                            </div>
+
+                            <h3 class="mt-5 text-base font-bold">Boating Adventures on Calm Waters</h3>
+                            <p class="mt-5 text-sm">Traveling is more meaningful when you look beyond popular
+                                attractions...</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
     <section class="trust-icons bg-primary py-10">
         {{>"static-section"}}
+    </section>
+
+    <section class="h-screen w-full overflow-hidden">
+
+        <!-- LEFT LIST -->
+        <aside class="w-[380px] bg-black/40 backdrop-blur-md p-4 space-y-2 z-10">
+            <!-- Item -->
+            <div class="group flex gap-3 rounded-xl p-3 cursor-pointer hover:bg-white/10 transition"
+                data-image="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+                <img class="h-14 w-14 rounded-lg object-cover"
+                    src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" />
+                <div>
+                    <p class="text-xs text-white/60">Nov 14, 2025 · Breana Fraley</p>
+                    <h4 class="text-sm font-semibold">
+                        From underground gigs to stadium rock anthems
+                    </h4>
+                </div>
+            </div>
+
+            <div class="group flex gap-3 rounded-xl p-3 cursor-pointer hover:bg-white/10 transition"
+                data-image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+                <img class="h-14 w-14 rounded-lg object-cover"
+                    src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" />
+                <div>
+                    <p class="text-xs text-white/60">Nov 14, 2025 · Breana Fraley</p>
+                    <h4 class="text-sm font-semibold">
+                        Moments That Make You Feel Alive While Travelling
+                    </h4>
+                </div>
+            </div>
+
+            <div class="group flex gap-3 rounded-xl p-3 cursor-pointer hover:bg-white/10 transition"
+                data-image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+                <img class="h-14 w-14 rounded-lg object-cover"
+                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" />
+                <div>
+                    <p class="text-xs text-white/60">Nov 14, 2025 · Breana Fraley</p>
+                    <h4 class="text-sm font-semibold">
+                        Diving into Nature’s Blue Heart Underwater Journeys
+                    </h4>
+                </div>
+            </div>
+        </aside>
+
+        <!-- RIGHT BACKGROUND -->
+        <div class="">
+            <div class="">
+                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="">
+            </div>
+
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-black/30"></div>
+        </div>
+
     </section>
 
     {{!-- <section class="blog-posts py-20">
@@ -412,31 +541,10 @@
             <div class="recommended-post-header mb-6 md:mb-8">
                 <h2 class="text-2xl md:text-4xl font-semibold">Read Our Latest Posts </h2>
             </div>
-            <div class="recommended-post-wrapper slide-equal-height swiper mySwiper2">
-                <div class="swiper-wrapper">
-                    {{#foreach posts}}
-                    {{>"postCard"}}
-                    {{/foreach}}
-                </div>
-                <div
-                    class="swiper-navigation flex justify-between gap-3 absolute inset-0 items-center z-10 pointer-events-none">
-                    <button id="rec-swiper-btn-prev" type="button"
-                        class="swiper-nav-prev swiper-button cursor-pointer w-[40px] h-[40px] border border-gray-300 bg-gray-200 rounded-full flex items-center justify-center pointer-events-auto">
-                        <svg width="15" height="12" viewBox="0 0 15 12" fill="none">
-                            <path
-                                d="M13.3203 4.77344C13.7345 4.77344 14.0703 5.10922 14.0703 5.52344C14.0703 5.93765 13.7345 6.27344 13.3203 6.27344V5.52344V4.77344ZM0.219195 6.05377C-0.073698 5.76087 -0.073698 5.286 0.219195 4.99311L4.99217 0.220137C5.28506 -0.0727568 5.75993 -0.0727568 6.05283 0.220137C6.34572 0.51303 6.34572 0.987904 6.05283 1.2808L1.81019 5.52344L6.05283 9.76608C6.34572 10.059 6.34572 10.5338 6.05283 10.8267C5.75993 11.1196 5.28506 11.1196 4.99217 10.8267L0.219195 6.05377ZM13.3203 5.52344V6.27344L0.749525 6.27344V5.52344V4.77344L13.3203 4.77344V5.52344Z"
-                                fill="#252525" />
-                        </svg>
-                    </button>
-                    <button id="rec-swiper-btn-next" type="button"
-                        class="swiper-nav-next swiper-button cursor-pointer w-[40px] h-[40px] border border-gray-300 bg-gray-200 rounded-full flex items-center justify-center pointer-events-auto">
-                        <svg width="15" height="12" viewBox="0 0 15 12" fill="none">
-                            <path
-                                d="M0.75 4.77344C0.335786 4.77344 0 5.10922 0 5.52344C0 5.93765 0.335786 6.27344 0.75 6.27344V5.52344V4.77344ZM13.8511 6.05377C14.144 5.76087 14.144 5.286 13.8511 4.99311L9.07815 0.220137C8.78525 -0.0727568 8.31038 -0.0727568 8.01749 0.220137C7.72459 0.51303 7.72459 0.987904 8.01749 1.2808L12.2601 5.52344L8.01749 9.76608C7.72459 10.059 7.72459 10.5338 8.01749 10.8267C8.31038 11.1196 8.78525 11.1196 9.07815 10.8267L13.8511 6.05377ZM0.75 5.52344V6.27344L13.3208 6.27344V5.52344V4.77344L0.75 4.77344V5.52344Z"
-                                fill="#252525" />
-                        </svg>
-                    </button>
-                </div>
+            <div class="recommended-post-wrapper grid md:grid-cols-4 gap-5">
+                {{#foreach posts}}
+                {{>"postCard"}}
+                {{/foreach}}
             </div>
 
         </div>

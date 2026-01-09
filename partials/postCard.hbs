@@ -1,4 +1,4 @@
-<a href="{{url}}" class="recommended-post-item swiper-slide"
+<a href="{{url}}" class="recommended-post-item"
 >
     <div class="bg-white rounded-xl border border-gray-200 p-5 h-full group">
         <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
@@ -28,7 +28,9 @@
                  <span class="recommended-post-date text-xs text-black">
                     {{date format="MMMM DD, YYYY"}}
                 </span>
-                <span class="bg-secondary px-[10px] py-[6px] rounded-3xl text-xs font-medium">{{reading_time}}</span>
+                {{#if reading_time}}
+                <span class="bg-secondary-bg px-[10px] py-[6px] rounded-3xl text-xs font-medium">{{reading_time}}</span>
+                {{/if}}
             </div>
             {{!-- <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New Experience</h2> --}}
              <h2 class="text-lg font-semibold mb-4">{{title}}</h2>
