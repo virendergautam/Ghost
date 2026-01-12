@@ -645,19 +645,27 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        const swiper = new Swiper(".mySwiper", {
-            slidesPerView: 2,
-            spaceBetween: 40,
-            loop: true,
-            navigation: {
-                nextEl: "#team-swiper-btn-next",
-                prevEl: "#team-swiper-btn-prev",
-            },
-            breakpoints: {
-                768: { slidesPerView: 5 },
-                1024: { slidesPerView: 9 },
-            }
-        });
+        const swiper = new Swiper('.featured-blog-swiper', {
+    slidesPerView: 1,
+    loop: true,
+    speed: 700,
+    spaceBetween: 30,
+
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+
+    navigation: {
+      nextEl: '.swiper-nav-next',
+      prevEl: '.swiper-nav-prev'
+    },
+
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    }
+  });
     </script>
 
     <script>
@@ -668,10 +676,6 @@
             navigation: {
                 nextEl: "#rec-swiper-btn-next",
                 prevEl: "#rec-swiper-btn-prev",
-            },
-            breakpoints: {
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 4 },
             }
         });
     </script>

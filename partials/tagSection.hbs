@@ -1,0 +1,41 @@
+<section class="explore-tags py-10">
+    <div class="container mx-auto">
+        <div class="explore-tags-wrapper">
+            {{#get "pages" filter="tag:hash-section-tag-cards" limit="1"}}
+            {{#if pages}}
+            {{#foreach pages}}
+            <div class="explore-tags-header mb-12.5 max-w-[676px] m-auto text-center">
+                {{#if excerpt}}
+                <div
+                    class="inline-flex items-center justify-center rounded-full border border-[#DDDDDD] bg-[#F0EFEF] px-5 py-2 text-xs mb-7.5">
+                    {{excerpt}}
+                </div>
+                {{/if}}
+                {{#if title}}
+                <h2 class="text-2xl md:text-5xl font-semibold"> {{title}}</h2>
+                {{/if}}
+            </div>
+            {{/foreach}}
+            {{/if}}
+            {{/get}}
+            <div class="grid grid-cols-4 gap-7">
+                {{#get "tags" filter="visibility:public" limit="4" include="count.posts"}} {{#foreach tags}}
+                <a href="/tag/{{slug}}/" class="relative block rounded-2xl overflow-hidden group explore-tags-item">
+                    <div class="aspect-square">
+                        <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
+                            alt="{{name}}"
+                            class="object-cover transition-transform duration-500 group-hover:scale-105" />
+                    </div>
+                    <div class="absolute inset-0 flex justify-between items-end p-4.5">
+                        <h3 class="font-medium text-sm md:text-base break-all bg-white px-6 py-2.5 rounded-3xl">
+                            {{name}}</h3>
+                        <p class="text-xs md:text-base text-white bg-white/20 backdrop-blur-xl px-5 py-2.5 rounded-3xl">
+                            {{plural count.posts empty="0 Articles" singular="1 Article" plural="% Articles"}}
+                        </p>
+                    </div>
+                </a>
+                {{/foreach}} {{/get}}
+            </div>
+        </div>
+    </div>
+</section>

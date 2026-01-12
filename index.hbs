@@ -30,99 +30,8 @@
         </div>
     </section>
 
-    <section class="explore-tags py-10">
-        <div class="container mx-auto">
-            <div class="explore-tags-wrapper">
-                <div class="explore-tags-header mb-12.5 max-w-[676px] m-auto text-center">
-                    <div
-                        class="inline-flex items-center justify-center rounded-full border border-[#DDDDDD] bg-[#F0EFEF] px-5 py-2 text-xs mb-7.5">
-                        EXPLORE BY TOPICS
-                    </div>
-                    <h2 class="text-2xl md:text-5xl font-semibold">Uncover the Wonders of the Natural World</h2>
-                </div>
-                <div class="grid grid-cols-4 gap-7">
-                    {{#get "tags" filter="visibility:public"  limit="4"  include="count.posts"}} {{#foreach tags}}
-                    <a href="/tag/{{slug}}/" class="relative block rounded-2xl overflow-hidden group explore-tags-item">
-                        <div class="aspect-square">
-                            <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
-                                alt="{{name}}"
-                                class="object-cover transition-transform duration-500 group-hover:scale-105" />
-                        </div>
-                        <div class="absolute inset-0 flex justify-between items-end p-4.5">
-                            <h3 class="font-medium text-sm md:text-base break-all bg-white px-6 py-2.5 rounded-3xl">
-                                {{name}}</h3>
-                            <p
-                                class="text-xs md:text-base text-white bg-white/20 backdrop-blur-xl px-5 py-2.5 rounded-3xl">
-                                {{plural count.posts empty="0 Articles" singular="1 Article" plural="% Articles"}}
-                            </p>
-                        </div>
-                    </a>
-                    {{/foreach}} {{/get}}
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    {{#get "posts" filter="featured:true" limit="1" include="authors,tags"}}
-    {{#foreach posts}}
-    <section class="bg-secondary-bg featured-blog pt-10">
-        <div class="container mx-auto">
-            <div class="featured-blog mb-12.5 max-w-[676px] m-auto text-center">
-                <div
-                    class="inline-flex items-center justify-center rounded-full border border-[#DDDDDD] bg-[#F0EFEF] px-5 py-2 text-xs mb-7.5">
-                    JOURNEY GUIDE
-                </div>
-                <h2 class="text-2xl md:text-5xl font-bold">Your Travel Companion for Every Journey</h2>
-                <p class="text-base mt-5">Travel stories, destination guides, and thoughtful tips to help you explore
-                    the world confidently and travel smarter.</p>
-            </div>
-            <div class="featured-blog-wrapper relative">
-                <div class="featured-blog-media rounded-4xl overflow-hidden h-[var(--media-height)]">
-                    <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
-                        alt="{{title}}" />
-                </div>
-                <div
-                    class="featured-blog-content absolute inset-0 p-4 md:p-8 flex flex-col justify-center items-center">
-                    <div class="featured-blog-content-bottom max-w-[660px] flex items-center flex-col gap-y-6">
-                        <div class="featured-blog-content-top flex flex-wrap gap-y-3">
-                            <div class="card-tags">
-                                {{#foreach tags}}
-                                <a href="#"
-                                    class="card-tag px-3 py-1 text-xs font-medium rounded-full bg-[#D6E8CB] text-black backdrop-blur-sm">{{name}}</a>
-                                {{/foreach}}
-                            </div>
-                        </div>
-                        <h2 class="text-2xl md:text-4xl font-semibold text-white text-center">{{title}}</h2>
-                        <div class="featured-card-meta flex flex-wrap gap-y-3 gap-x-4 items-center">
-                            <div class="post-card-author flex gap-x-2 items-center">
-                                {{#if primary_author.profile_image}}
-
-                                <a href="/author/{{primary_author.name}}/"
-                                    class="post-card-author-img-link block w-[34px] h-[34px] rounded-full overflow-hidden">
-                                    {{!-- <img src="./assets/images/team9.jpg" alt="{{primary_author.name}}" /> --}}
-                                    <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}" />
-                                </a>
-                                {{/if}}
-                                <div class="post-card-author-name-wrapper text-white text-xs">
-                                    <span class="post-card-author-name">by {{primary_author.name}} /</span>
-                                    <span class="post-card-publish-date">{{date published_at format="MMMM
-                                        DD, YYYY"}}
-                                    </span>
-                                </div>
-                            </div>
-                            <div
-                                class="post-card-time font-medium rounded-full bg-white/30 text-white backdrop-blur-sm text-xs py-[6px] px-[10px]">
-                                {{reading_time}} min Read
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    {{/foreach}}
-    {{/get}}
+{{>"tagSection"}}
+{{>"featuredArticleSection"}}
 
     <section>
         <!-- Wrapper (light gray section like screenshot) -->
@@ -130,68 +39,35 @@
             <div class="container mx-auto">
                 <!-- Cards row -->
                 <div class="grid gap-2.5 md:grid-cols-3">
+                    {{#get "posts" limit="3" include="tags,authors"}}
+                    {{#foreach posts}}
                     <!-- Card 1 -->
                     <article class="flex gap-4 rounded-[20px] border border-[#dddddd] bg-white p-5">
                         <div class="rounded-[20px] overflow-hidden w-[200px]">
                             <img class="h-20 w-28 rounded-xl object-cover"
-                                src="https://images.unsplash.com/photo-1520975958225-8f2b55f6f3c2?auto=format&fit=crop&w=600&q=80"
-                                alt="Paragliding" />
+                                src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
+                                alt="{{title}}" />
                         </div>
                         <div class="min-w-0 flex-1">
                             <div class="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
+                                {{#if primary_tag}}
                                 <span class="rounded-full bg-green-100 px-2 py-1 font-medium text-green-800">
-                                    Sky Adventure
+                                    {{primary_tag.name}}
                                 </span>
-                                <span>Nov 14, 2025</span>
+                                {{/if}}
+                                <span>{{date published_at format="MMM DD, YYYY"}}</span>
                             </div>
 
-                            <h3 class="mt-5 text-base font-bold">Boating Adventures on Calm Waters</h3>
-                            <p class="mt-5 text-sm">Traveling is more meaningful when you look beyond popular
-                                attractions...</p>
+                            <h3 class="mt-5 text-base font-bold"> <a href="{{url}}" class="hover:underline">
+                                    {{title}}
+                                </a></h3>
+                            <p class="mt-5 text-sm">
+                                {{excerpt words="18"}}
+                            </p>
                         </div>
                     </article>
-
-                    <!-- Card 2 -->
-                    <article class="flex gap-4 rounded-[20px] border border-[#dddddd] bg-white p-5">
-                        <div class="rounded-[20px] overflow-hidden w-[200px]">
-                            <img class="h-20 w-28 rounded-xl object-cover"
-                                src="https://images.unsplash.com/photo-1526481280695-3c687fd5432c?auto=format&fit=crop&w=600&q=80"
-                                alt="Hiking" />
-                        </div>
-                        <div class="min-w-0 flex-1">
-                            <div class="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
-                                <span class="rounded-full bg-amber-100 px-2 py-1 font-medium text-amber-800">
-                                    Trekking
-                                </span>
-                                <span>Nov 14, 2025</span>
-                            </div>
-
-                            <h3 class="mt-5 text-base font-bold">Boating Adventures on Calm Waters</h3>
-                            <p class="mt-5 text-sm">Traveling is more meaningful when you look beyond popular
-                                attractions...</p>
-                        </div>
-                    </article>
-
-                    <!-- Card 3 -->
-                    <article class="flex gap-4 rounded-[20px] border border-[#dddddd] bg-white p-5">
-                        <div class="rounded-[20px] overflow-hidden w-[200px]">
-                            <img class=""
-                                src="https://images.unsplash.com/photo-1526470608268-f674ce90ebd4?auto=format&fit=crop&w=600&q=80"
-                                alt="Kayak" />
-                        </div>
-                        <div class="min-w-0 flex-1">
-                            <div class="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
-                                <span class="rounded-full bg-blue-100 px-2 py-1 font-medium text-blue-800">
-                                    Water Activity
-                                </span>
-                                <span>Nov 14, 2025</span>
-                            </div>
-
-                            <h3 class="mt-5 text-base font-bold">Boating Adventures on Calm Waters</h3>
-                            <p class="mt-5 text-sm">Traveling is more meaningful when you look beyond popular
-                                attractions...</p>
-                        </div>
-                    </article>
+                    {{/foreach}}
+                    {{/get}}
                 </div>
             </div>
         </section>
@@ -255,286 +131,6 @@
         </div>
 
     </section>
-
-    {{!-- <section class="blog-posts py-20">
-        <div class="container mx-auto">
-            <h2 class="font-bold text-[38px] mb-9">Discover Our Featured Posts</h2>
-            <div class="grid gap-6 lg:grid-cols-4 grid-rows-2">
-                <article
-                    class="relative rounded-3xl overflow-hidden lg:col-span-2 lg:row-span-2 group auto-rows-[minmax(0,360px)]">
-                    <img src="./assets/images/blog1.jpg" alt="Fashion"
-                        class="transition-transform duration-500 group-hover:scale-105" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
-
-                    <div class="absolute inset-0 z-10 p-6.5 flex flex-col justify-between h-full">
-
-                        <div class="flex gap-2">
-                            <span
-                                class="px-3 py-1 text-xs font-medium rounded-full bg-white/30 text-white backdrop-blur-sm">
-                                Lifestyle
-                            </span>
-                            <span
-                                class="px-3 py-1 text-xs font-medium rounded-full bg-white/30 text-white backdrop-blur-sm">
-                                Fashion
-                            </span>
-                        </div>
-                        <div>
-                            <h2 class="text-white text-2xl sm:text-3xl font-semibold mb-7.5">
-                                Fresh Insights from the Fashion World
-                            </h2>
-                            <p class="text-white text-sm max-w-xl mb-7.5">
-                                Explore expert perspectives, emerging styles, and behind-the-scenes stories that
-                                inspire the future...
-                            </p>
-
-                            <div class="flex items-center gap-3">
-                                <div class="w-9 h-9 rounded-full overflow-hidden">
-                                    <img src="./assets/images/blog2.jpg" alt="Author" />
-                                </div>
-                                <div class="text-xs text-white/80">
-                                    <div>By Breana Flatley</div>
-                                    <div class="opacity-80">November 14, 2025</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- RIGHT SIDE: NESTED GRID -->
-                <div class="lg:col-span-2 grid gap-6 md:grid-cols-2 row-span-2">
-
-                    <!-- Top-right card 1 -->
-                    <article class="relative rounded-3xl overflow-hidden bg-gray-900 group">
-                        <img src="./assets/images/blog2.jpg" alt="Health"
-                            class="transition-transform duration-500 group-hover:scale-105" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10">
-                        </div>
-
-                        <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-6.5">
-                            <div class="flex">
-                                <span
-                                    class="px-3 py-1 text-xs font-medium rounded-full bg-white/30 text-white backdrop-blur-sm">
-                                    Health
-                                </span>
-                            </div>
-
-                            <div>
-                                <h3 class="text-white text-lg font-semibold mb-5">
-                                    The mind and body are not separate. what affects one.
-                                </h3>
-                                <div class="flex items-center gap-3 text-[11px] text-white/80">
-                                    <div class="w-9 h-9 rounded-full overflow-hidden">
-                                        <img src="./assets/images/blog2.jpg" alt="Author" />
-                                    </div>
-                                    <span>By Breana Flatley / November 14, 2025</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Top-right card 2 -->
-                    <article class="relative rounded-3xl overflow-hidden bg-gray-900 group">
-                        <img src="./assets/images/blog3.jpg" alt="Tech"
-                            class="transition-transform duration-500 group-hover:scale-105" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10">
-                        </div>
-
-                        <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-6.5">
-                            <div class="flex">
-                                <span
-                                    class="px-3 py-1 text-xs font-medium rounded-full bg-white/30 text-white backdrop-blur-sm">
-                                    Technology
-                                </span>
-                            </div>
-
-                            <div>
-                                <h3 class="text-white text-lg font-semibold mb-5">
-                                    Best Laptops to Boost Your Office Productivity
-                                </h3>
-                                <div class="flex items-center gap-3 text-[11px] text-white/80">
-                                    <div class="w-9 h-9 rounded-full overflow-hidden">
-                                        <img src="./assets/images/blog3.jpg" alt="Author" />
-                                    </div>
-                                    <span>By Breana Flatley / November 14, 2025</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Bottom-wide card (spans 2 columns) -->
-                    <article class="relative rounded-3xl overflow-hidden bg-gray-900 group md:col-span-2 min-h-[220px]">
-                        <img src="./assets/images/blog4.jpg" alt="Travel"
-                            class="transition-transform duration-500 group-hover:scale-105" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10">
-                        </div>
-
-                        <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-6.5">
-                            <div class="flex">
-                                <span
-                                    class="px-3 py-1 text-xs font-medium rounded-full bg-white/30 text-white backdrop-blur-sm">
-                                    Fashion
-                                </span>
-                            </div>
-
-                            <div>
-                                <h3 class="text-white text-lg sm:text-xl font-semibold mb-5 max-w-2xl">
-                                    Discover Beautiful Places Worth Traveling This Year for Unforgettable
-                                    Experiences
-                                </h3>
-                                <div class="flex items-center gap-3 text-[11px] text-white/80">
-                                    <div class="w-9 h-9 rounded-full overflow-hidden">
-                                        <img src="./assets/images/blog4.jpg" alt="Author" />
-                                    </div>
-                                    <span>By Breana Flatley / November 14, 2025</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-        </div>
-    </section> --}}
-    {{#get "posts" limit="4" filter="featured:true" include="authors,tags"}}
-    <section class="blog-posts bg-primary py-10">
-        <div class="container mx-auto">
-            <h2 class="font-bold text-2xl md:text-[38px] mb-9">Discover Our Featured Posts</h2>
-
-            <div class="blog-posts-wrapper grid gap-6 grid-cols-4">
-                {{!-- 🔵 1st Post - Large Left --}}
-                {{!-- Index 0 --}}
-                {{#foreach posts}}
-                {{#if @first}}
-                <article class="blog-post-item relative rounded-3xl overflow-hidden col-span-2 row-span-2 group">
-                    <a href="{{url}}" class="block w-full h-full">
-                        <div class="w-full h-full">
-                            <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
-                                alt="{{title}}" class="transition-transform duration-500 group-hover:scale-105" />
-                        </div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
-
-                        <div class="absolute inset-0 z-10 p-4 md:p-6.5 flex flex-col justify-between h-full">
-
-                            {{!-- Tags --}}
-                            <div class="flex gap-2 flex-wrap">
-                                {{#foreach tags limit="2"}}
-                                <span
-                                    class="px-3 py-1 text-xs font-medium rounded-full bg-white/30 text-white backdrop-blur-sm">
-                                    {{name}}
-                                </span>
-                                {{/foreach}}
-                            </div>
-
-                            <div>
-                                <h2 class="text-white text-[22px] md:text-2xl font-semibold mb-5 md:mb-7.5">
-                                    {{title}}
-                                </h2>
-
-                                <p class="text-white text-sm max-w-xl mb-5 md:mb-7.5">
-                                    {{excerpt}}
-                                </p>
-
-                                <div class="flex items-center gap-3">
-                                    {{#if authors.[0].profile_image}}
-                                    <div class="w-9 h-9 rounded-full overflow-hidden">
-                                        <img src="{{authors.[0].profile_image}}" alt="{{authors.[0].name}}" />
-                                    </div>
-                                    {{/if}}
-                                    <div class="text-xs text-white/80">
-                                        <div>By {{authors.[0].name}}</div>
-                                        <div class="opacity-80">{{date format="MMMM DD, YYYY"}}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                {{/if}}
-                {{/foreach}}
-                {{!-- 🔵 2nd + 3rd Posts - Top Right --}}
-                {{#foreach posts from="2" to="3"}}
-                <article class="blog-post-item relative rounded-3xl overflow-hidden group">
-                    <a href="{{url}}" class="block w-full h-full">
-                        <div class="w-full h-full">
-                            <img src="{{feature_image}}" alt="{{title}}"
-                                class="transition-transform duration-500 group-hover:scale-105" />
-                        </div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
-                        <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-4 md:p-6.5">
-                            <div class="flex gap-2 flex-wrap">
-                                {{#foreach tags limit="1"}}
-                                <span
-                                    class="px-3 py-1 text-xs font-medium rounded-full bg-white/30 text-white backdrop-blur-sm">
-                                    {{name}}
-                                </span>
-                                {{/foreach}}
-                            </div>
-
-                            <div>
-                                <h3 class="text-white text-lg font-semibold mb-5">
-                                    {{title}}
-                                </h3>
-
-                                <div class="flex items-center gap-3 text-[11px] text-white/80">
-                                    {{#if authors.[0].profile_image}}
-
-                                    <div class="w-9 h-9 rounded-full overflow-hidden">
-                                        <img src="{{authors.[0].profile_image}}" alt="{{authors.[0].name}}" />
-                                    </div>
-                                    {{/if}}
-                                    <span>By {{authors.[0].name}} / {{date format="MMMM DD, YYYY"}}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                {{/foreach}}
-
-                {{!-- 🔵 4th Post - Bottom Wide --}}
-                {{#foreach posts from="4"}}
-                {{#if @last}}
-                <article class="blog-post-item relative rounded-3xl overflow-hidden col-span-2 group">
-                    <a href="{{url}}" class="block w-full h-full">
-                        <div class="w-full h-full">
-                            <img src="{{feature_image}}" alt="{{title}}"
-                                class="transition-transform duration-500 group-hover:scale-105" />
-                        </div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
-
-                        <div class="absolute inset-0 z-10 flex flex-col justify-between h-full p-4 md:p-6.5">
-                            <div class="flex">
-                                {{#foreach tags limit="1"}}
-                                <span
-                                    class="px-3 py-1 text-xs font-medium rounded-full bg-white/30 text-white backdrop-blur-sm">
-                                    {{name}}
-                                </span>
-                                {{/foreach}}
-                            </div>
-
-                            <div>
-                                <h3 class="text-white text-lg sm:text-xl font-semibold mb-5 max-w-2xl">
-                                    {{title}}
-                                </h3>
-
-                                <div class="flex items-center gap-3 text-[11px] text-white/80">
-                                    {{#if authors.[0].profile_image}}
-
-                                    <div class="w-9 h-9 rounded-full overflow-hidden">
-                                        <img src="{{authors.[0].profile_image}}" alt="{{authors.[0].name}}" />
-                                    </div>
-                                    {{/if}}
-                                    <span>By {{authors.[0].name}} / {{date format="MMMM DD, YYYY"}}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                {{/if}}
-                {{/foreach}}
-            </div>
-        </div>
-    </section>
-    {{/get}}
 
     <section class="recommended-post bg-secondary-bg text-secondary-text py-10">
         <div class="container mx-auto">
