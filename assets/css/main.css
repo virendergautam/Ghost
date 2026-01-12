@@ -353,7 +353,7 @@ blockquote {
 
 .trust-icons-cards .kg-product-card .kg-product-card-description * {
   font-size: 16px;
-  font-family: var(--gh-font-body);
+  /* font-family: var(--gh-font-body); */
   margin: 0 !important;
   color: #000;
 }
@@ -424,6 +424,10 @@ blockquote {
   .page-content h6 {
     font-size: 16px;
     font-weight: 700;
+  }
+
+  .trust-icons-cards {
+    grid-template-columns: 1fr;
   }
 
   .mobile-swipe {

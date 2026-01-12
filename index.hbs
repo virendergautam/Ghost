@@ -43,7 +43,7 @@
                     {{#foreach posts}}
                     <!-- Card 1 -->
                     <article class="flex gap-4 rounded-[20px] border border-[#dddddd] bg-white p-5">
-                        <div class="rounded-[20px] overflow-hidden w-[200px]">
+                        <div class="rounded-[20px] overflow-hidden w-[200px] h-[150px]">
                             <img class="h-20 w-28 rounded-xl object-cover"
                                 src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
                                 alt="{{title}}" />
@@ -51,7 +51,7 @@
                         <div class="min-w-0 flex-1">
                             <div class="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
                                 {{#if primary_tag}}
-                                <span class="rounded-full bg-green-100 px-2 py-1 font-medium text-green-800">
+                                <span class="rounded-full bg-[#D6E8CB] px-3 py-1.5 font-medium text-black">
                                     {{primary_tag.name}}
                                 </span>
                                 {{/if}}
