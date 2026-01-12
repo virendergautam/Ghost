@@ -78,48 +78,60 @@
         {{>"static-section"}}
     </section>
 
-    <section class="h-screen w-full overflow-hidden">
+    <section class="h-screen w-full overflow-hidden relative">
+        <div class="bg-white/40 backdrop-blur-[50px] z-10 absolute left-0 bottom-0 w-full">
+            <div class="container mx-auto">
+                <div class="flex flex-nowrap overflow-x-auto">
+                    <div
+                        class="group flex-[0_0_25%] flex gap-3 px-8.5 py-5.5 cursor-pointer hover:bg-white/10 transition">
+                        <div class="h-18.5 w-22.5 rounded-md overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" />
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-xs text-white">Nov 14, 2025 · Breana Fraley</p>
+                            <h4 class="text-sm font-bold text-white mt-4"> From underground gigs to stadium rock anthems
+                            </h4>
+                        </div>
+                    </div>
 
-        <!-- LEFT LIST -->
-        <aside class="w-[380px] bg-black/40 backdrop-blur-md p-4 space-y-2 z-10">
-            <!-- Item -->
-            <div class="group flex gap-3 rounded-xl p-3 cursor-pointer hover:bg-white/10 transition"
-                data-image="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
-                <img class="h-14 w-14 rounded-lg object-cover"
-                    src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" />
-                <div>
-                    <p class="text-xs text-white/60">Nov 14, 2025 · Breana Fraley</p>
-                    <h4 class="text-sm font-semibold">
-                        From underground gigs to stadium rock anthems
-                    </h4>
+                    <div
+                        class="group flex-[0_0_25%] flex gap-3 px-8.5 py-5.5 cursor-pointer hover:bg-white/10 transition border-l border-white/40">
+                        <div class="h-18.5 w-22.5 rounded-md overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" />
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-xs text-white">Nov 14, 2025 · Breana Fraley</p>
+                            <h4 class="text-sm font-bold text-white mt-4">Moments That Make You Feel Alive While
+                                Travelling</h4>
+                        </div>
+                    </div>
+
+                    <div
+                        class="group flex-[0_0_25%] flex gap-3 px-8.5 py-5.5 cursor-pointer hover:bg-white/10 transition border-l border-white/40">
+                        <div class="h-18.5 w-22.5 rounded-md overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" />
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-xs text-white">Nov 14, 2025 · Breana Fraley</p>
+                            <h4 class="text-sm font-bold text-white mt-4">Diving into Nature’s Blue Heart Underwater
+                                Journeys
+                        </div>
+                    </div>
+
+                    <div
+                        class="group flex-[0_0_25%] flex gap-3 px-8.5 py-5.5 cursor-pointer hover:bg-white/10 transition border-l border-white/40">
+                        <div class="h-18.5 w-22.5 rounded-md overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" />
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-xs text-white">Nov 14, 2025 · Breana Fraley</p>
+                            <h4 class="text-sm font-bold text-white mt-4">Diving into Nature’s Blue Heart Underwater
+                                Journeys
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="group flex gap-3 rounded-xl p-3 cursor-pointer hover:bg-white/10 transition"
-                data-image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-                <img class="h-14 w-14 rounded-lg object-cover"
-                    src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" />
-                <div>
-                    <p class="text-xs text-white/60">Nov 14, 2025 · Breana Fraley</p>
-                    <h4 class="text-sm font-semibold">
-                        Moments That Make You Feel Alive While Travelling
-                    </h4>
-                </div>
-            </div>
-
-            <div class="group flex gap-3 rounded-xl p-3 cursor-pointer hover:bg-white/10 transition"
-                data-image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-                <img class="h-14 w-14 rounded-lg object-cover"
-                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" />
-                <div>
-                    <p class="text-xs text-white/60">Nov 14, 2025 · Breana Fraley</p>
-                    <h4 class="text-sm font-semibold">
-                        Diving into Nature’s Blue Heart Underwater Journeys
-                    </h4>
-                </div>
-            </div>
-        </aside>
-
+        </div>
         <!-- RIGHT BACKGROUND -->
         <div class="">
             <div class="">
@@ -151,8 +163,7 @@
             <div class="section-heading mb-9">
                 <h2 class="text-2xl md:text-[38px] font-bold">Meet The Team</h2>
             </div>
-            <div
-                class="grid md:items-start md:grid-cols-6 lg:grid-cols-9 md:items-center md:justify-center gap-4 sm:gap-6 lg:gap-10 mobile-swipe mobile-column-2">
+            <div class="flex gap-4 sm:gap-6 lg:gap-10 mobile-swipe mobile-column-2">
 
                 {{#get "authors" limit="all"}}
                 {{#foreach authors}}
