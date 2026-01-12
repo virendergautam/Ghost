@@ -1,0 +1,69 @@
+<section class="h-screen w-full overflow-hidden relative">
+    <div class="bg-white/40 backdrop-blur-[50px] z-10 absolute left-0 bottom-0 w-full">
+        <div class="container mx-auto">
+            <div class="flex flex-nowrap overflow-x-auto">
+                {{#get "posts" include="authors,tags"}}
+                {{#foreach posts}}
+                <a href="{{url}}" class="group flex-[0_0_25%] flex gap-3 px-8.5 py-5.5 cursor-pointer hover:bg-white/10 transition"
+                    data-bg="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}">
+
+                    <div class="h-18.5 w-22.5 rounded-md overflow-hidden">
+                        {{#if feature_image}}
+                        <img src="{{feature_image}}" />
+                        {{else}}
+                        <img src="/assets/images/no-image.png">
+                        {{/if}}
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-xs text-white">{{date published_at format="DD MMM YYYY"}} &nbsp;.&nbsp;
+                            {{primary_author.name}}</p>
+                        <h4 class="text-sm font-bold text-white mt-4"> {{title}}
+                        </h4>
+                    </div>
+                </a>
+                {{/foreach}}
+                {{/get}}
+            </div>
+        </div>
+    </div>
+    <!-- RIGHT BACKGROUND -->
+    <!-- RIGHT BACKGROUND -->
+    <div class="absolute inset-0">
+        <img id="hero-bg" src="/assets/images/no-image.png" alt=""
+            class="h-full w-full object-cover transition-opacity duration-300" />
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/30"></div>
+    </div>
+
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const heroBg = document.getElementById("hero-bg");
+        const items = document.querySelectorAll("[data-bg]");
+
+        // ✅ Set first post image by default
+        if (items.length > 0) {
+            const firstBg = items[0].getAttribute("data-bg");
+            if (firstBg) {
+                heroBg.src = firstBg;
+            }
+        }
+
+        // Hover interaction
+        items.forEach(item => {
+            item.addEventListener("mouseenter", () => {
+                items.forEach(i => i.classList.remove("active"));
+                item.classList.add("active");
+                const newBg = item.getAttribute("data-bg");
+                if (!newBg || heroBg.src === newBg) return;
+
+                heroBg.style.opacity = "0";
+                setTimeout(() => {
+                    heroBg.src = newBg;
+                    heroBg.style.opacity = "1";
+                }, 150);
+            });
+        });
+    });
+</script>
