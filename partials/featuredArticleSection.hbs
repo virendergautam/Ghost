@@ -51,8 +51,10 @@
                                         <div class="featured-card-meta flex flex-wrap gap-x-4 items-center">
                                             <div class="post-card-author flex gap-x-2 items-center">
                                                 {{#if primary_author.profile_image}}
+                                                <div class="w-[34px] h-[34px] rounded-full overflow-hidden">
                                                 <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}"
-                                                    class="w-[34px] h-[34px] rounded-full" />
+                                                    class="" />
+                                                    </div>
                                                 {{/if}}
                                                 <div class="text-white text-xs">by {{primary_author.name}} / {{date published_at format="MMMM DD, YYYY"}}</div>
                                             </div>
