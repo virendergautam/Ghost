@@ -1,6 +1,6 @@
 {{!< default}} <!-- Top orange strip -->
 
-    <section class="hero-banner relative py-17.5 min-h-dvh flex items-end bg-accent-bg">
+    <section class="hero-banner relative pt-17.5 pb-40 min-h-dvh flex items-end bg-accent-bg">
         <div class="background-image absolute inset-0">
             {{#if @site.cover_image}}
             <img class="site-header-cover" srcset="{{img_url @site.cover_image size=" s"}} 300w, {{img_url
@@ -74,7 +74,7 @@
 
     </section>
 
-    <section class="trust-icons bg-primary py-10">
+    <section class="trust-icons bg-primary py-20">
         {{>"static-section"}}
     </section>
 
@@ -99,17 +99,17 @@
             <div class="section-heading mb-9">
                 <h2 class="text-2xl md:text-[38px] font-bold">Meet The Team</h2>
             </div>
-            <div class="flex gap-4 sm:gap-6 lg:gap-10 mobile-swipe mobile-column-2">
+            <div class="team-member-wrapper flex gap-4 sm:gap-6 lg:gap-10 mobile-swipe mobile-column-2">
 
                 {{#get "authors" limit="all"}}
                 {{#foreach authors}}
-                <a href={{url}} class="group text-center">
-                    <div class="border border-gray-200 rounded-full overflow-hidden aspect-square p-[6px]">
+                <a href={{url}} class="group text-center team-member-item relative flex-[0_0_25%]">
+                    <div class="rounded-3xl overflow-hidden aspect-square">
                         {{#if profile_image}}
-                        <img src="{{profile_image}}" alt="{{name}}" class="rounded-full" />
+                        <img src="{{profile_image}}" alt="{{name}}" class="" />
                         {{else}}
                         <div id="randomColorBox"
-                            class="w-full h-full rounded-full overflow-hidden flex justify-center items-center">
+                            class="w-full h-full rounded-3xl overflow-hidden flex justify-center items-center">
                             <span class="font-bold text-2xl sm:text-4xl">
                                 {{~#split name separator=" " as |words|~}}
                                 {{~#foreach words~}}
@@ -124,7 +124,10 @@
                         </div>
                         {{/if}}
                     </div>
-                    <div class="mt-2 text-base font-semibold">{{name}}</div>
+                    <div class="absolute inset-0 flex flex-col justify-end items-center p-5">
+                        <div class="text-base font-semibold text-white">{{name}}</div>
+                        <div class="mt-2 text-sm text-white">CEO & Founder</div>
+                    </div>
                 </a>
                 {{/foreach}}
                 {{/get}}
