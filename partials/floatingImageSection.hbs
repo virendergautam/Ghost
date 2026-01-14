@@ -53,8 +53,8 @@
         // Hover interaction
         items.forEach(item => {
             item.addEventListener("mouseenter", () => {
-                items.forEach(i => i.classList.remove("active"));
-                item.classList.add("active");
+                items.forEach(i => i.setAttribute("data-attribute","false"));
+                item.setAttribute("data-attribute","true");
                 const newBg = item.getAttribute("data-bg");
                 if (!newBg || heroBg.src === newBg) return;
 

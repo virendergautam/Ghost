@@ -68,6 +68,10 @@
         ],
         "default": "scheme_1"
       },
+      "Contact_form endpoint":{
+        "type": "text",
+        "default": ""
+      },
       "show_subscribe_newsletter_section": {
         "type": "boolean",
         "default": true,
