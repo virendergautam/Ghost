@@ -23,7 +23,7 @@
     <script src="{{asset " js/main.js"}}"></script>
 </head>
 
-<body>
+<body class="{{@custom.color_scheme}}">
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const box = document.getElementById("randomColorBox");
@@ -496,7 +496,7 @@
             });
         </script>
 
-        <footer class="border-t border-[#EBEBEB] pt-16">
+        {{!-- <footer class="border-t border-[#EBEBEB] pt-16">
             <div class="container mx-auto">
                 <div class="grid grid-cols-1 lg:grid-cols-2">
                     <div class="grid gap-10 md:grid-cols-4">
@@ -606,8 +606,8 @@
                     </div>
                 </div>
             </div>
-        </footer>
-        {{ghost_foot}}
+        </footer> --}}
+        {{> "footer"}}
 
     </div>
 

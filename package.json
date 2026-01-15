@@ -62,13 +62,18 @@
       "color_scheme": {
         "type": "select",
         "options": [
-          "scheme_1",
-          "scheme_2",
-          "scheme_3"
+          "Natural_Escape",
+          "Desert_Bloom",
+          "Urban_Mist",
+          "Greenway",
+          "Dark_Trail",
+          "Midnight",
+          "Aqua_Marine",
+          "Twilight"
         ],
-        "default": "scheme_1"
+        "default": "Natural_Escape"
       },
-      "Contact_form endpoint":{
+      "contact_form_endpoint":{
         "type": "text",
         "default": ""
       },
