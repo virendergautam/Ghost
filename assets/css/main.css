@@ -37,10 +37,10 @@ body {
 }
 
 .default {
-  --color-primary-bg: #ffffff;
+  --color-primary-bg: #f7f7f7;
   --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
   --color-primary-text: #000000;
-  --color-secondary-bg: #f6f6f6;
+  --color-secondary-bg: #ffffff;
   --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
   --color-secondary-text: #000000;
 }

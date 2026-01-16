@@ -34,14 +34,14 @@
 {{>"featuredArticleSection"}}
 
         <!-- Wrapper (light gray section like screenshot) -->
-        <section class="bg-secondary-bg pt-6 pb-12">
+        <section class="bg-primary-bg pt-6 pb-12">
             <div class="container mx-auto">
                 <!-- Cards row -->
                 <div class="grid gap-2.5 md:grid-cols-3">
                     {{#get "posts" limit="3" include="tags,authors"}}
                     {{#foreach posts}}
                     <!-- Card 1 -->
-                    <article class="flex gap-4 rounded-[20px] border border-[#dddddd] bg-primary-bg p-5">
+                    <article class="flex gap-4 rounded-[20px] border border-[#dddddd] bg-secondary-bg p-5">
                         <div class="rounded-[20px] overflow-hidden w-[200px] h-[150px]">
                             <img class="h-20 w-28 rounded-xl object-cover"
                                 src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
@@ -50,7 +50,7 @@
                         <div class="min-w-0 flex-1">
                             <div class="flex flex-wrap items-center gap-2 text-xs">
                                 {{#if primary_tag}}
-                                <span class="rounded-full bg-[#D6E8CB] px-3 py-1.5 font-medium">
+                                <span class="rounded-full bg-primary-bg px-3 py-1.5 font-medium">
                                     {{primary_tag.name}}
                                 </span>
                                 {{/if}}
@@ -71,7 +71,7 @@
             </div>
         </section>
 
-    <section class="trust-icons bg-primary py-20">
+    <section class="trust-icons bg-secondary-bg py-20">
         {{>"static-section"}}
     </section>
 
