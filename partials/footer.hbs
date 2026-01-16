@@ -1,13 +1,22 @@
 <footer class="border-t border-[#EBEBEB] pt-16">
   <div class="container mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-3">
-      <div>
+    <div class="flex flex-wrap">
+      <div class="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_30%] pr-0 md:pr-12.5 lg:pr-25 mb-10 md:mb-0">
+        <div class="footer-logo mb-2.5 w-25">
+          <a class="site-header-logo{{#unless @site.logo}} no-image{{/unless}}" href="{{@site.url}}">
+            {{#if @site.logo}}
+            <img src="{{@site.logo}}" alt="{{@site.title}}">
+            {{else}}
+            {{@site.title}}
+            {{/if}}
+          </a>
+        </div>
         <p>From ocean dives to sky trekking, we guide you through unforgettable travel experiences filled with
           adventure, discovery, and lasting memories.</p>
       </div>
 
-      <div id="footerGrid" class="grid gap-10 md:grid-cols-4"></div>
-      <div class="max-w-[480px] lg:ml-auto mt-10 md:mt-10 lg:mt-0">
+      <div id="footerGrid" class="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_45%] grid gap-10 md:grid-cols-3"></div>
+      <div class="md:flex-[0_0_100%] lg:flex-[0_0_25%] lg:ml-auto mt-10 md:mt-10 lg:mt-0">
         <h4 class="text-base font-bold mb-6">
           Subscribe to our newsletter
         </h4>

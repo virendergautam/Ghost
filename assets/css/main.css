@@ -36,51 +36,76 @@ body {
   font-family: var(--preview-font-body);
 }
 
-
-
-.scheme-1 {
-  --primaryBg: #ffffff;
-  --primaryAlternateBg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
-  --primaryText: #000000;
-  --secondaryBg: #f6f6f6;
-  --secondaryAlternateBg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
-  --secondaryText: #000000;
+.default {
+  --color-primary-bg: #ffffff;
+  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-text: #000000;
+  --color-secondary-bg: #f6f6f6;
+  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-text: #000000;
 }
 
-.scheme-2 {
-  --primaryBg: #ffffff;
-  --primaryAlternateBg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
-  --primaryText: #000000;
-  --secondaryBg: #f6f6f6;
-  --secondaryAlternateBg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
-  --secondaryText: #000000;
+.dark-trail {
+  --color-primary-bg: #ffffff;
+  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-text: #000000;
+  --color-secondary-bg: #f6f6f6;
+  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-text: #000000;
 }
 
-.scheme-3 {
-  --primaryBg: #ffffff;
-  --primaryAlternateBg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
-  --primaryText: #000000;
-  --secondaryBg: #f6f6f6;
-  --secondaryAlternateBg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
-  --secondaryText: #000000;
+.urban-mist {
+  --color-primary-bg: #ffffff;
+  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-text: #000000;
+  --color-secondary-bg: #f6f6f6;
+  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-text: #000000;
 }
 
-.scheme-4 {
-  --primaryBg: #ffffff;
-  --primaryAlternateBg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
-  --primaryText: #000000;
-  --secondaryBg: #f6f6f6;
-  --secondaryAlternateBg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
-  --secondaryText: #000000;
+.natural-escape {
+  --color-primary-bg: #ffffff;
+  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-text: #000000;
+  --color-secondary-bg: #f6f6f6;
+  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-text: #000000;
 }
 
-.scheme-5 {
-  --primaryBg: #ffffff;
-  --primaryAlternateBg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
-  --primaryText: #000000;
-  --secondaryBg: #f6f6f6;
-  --secondaryAlternateBg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
-  --secondaryText: #000000;
+.aqua-marine {
+  --color-primary-bg: #ffffff;
+  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-text: #000000;
+  --color-secondary-bg: #f6f6f6;
+  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-text: #000000;
+}
+
+.desert-bloom {
+  --color-primary-bg: #F9F4E3;
+  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-text: #7C2904;
+  --color-secondary-bg: #FFFDF2;
+  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-text: #7C2904;
+}
+
+.dark-amethyst {
+  --color-primary-bg: #ffffff;
+  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-text: #000000;
+  --color-secondary-bg: #f6f6f6;
+  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-text: #000000;
+}
+
+.mocha-dark {
+  --color-primary-bg: #ffffff;
+  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-text: #000000;
+  --color-secondary-bg: #f6f6f6;
+  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-text: #000000;
 }
 
 .color-theme-1 {
@@ -135,8 +160,8 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--primaryBg, #fff);
-  color: var(--primaryText, #000000);
+  background: var(--color-primary-bg, #fff);
+  color: var(--color-primary-text, #000000);
 }
 
 #announcement-bar-root .gh-announcement-bar {
