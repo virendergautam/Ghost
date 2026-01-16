@@ -62,16 +62,16 @@
       "color_scheme": {
         "type": "select",
         "options": [
-          "Natural_Escape",
-          "Desert_Bloom",
-          "Urban_Mist",
-          "Greenway",
-          "Dark_Trail",
-          "Midnight",
-          "Aqua_Marine",
-          "Twilight"
+          "Default",
+          "Dark Trail",
+          "Natural Escape",
+          "Urban Mist",
+          "Aqua Marine",
+          "Desert Bloom",
+          "Mocha Dark", 
+          "Datrk Amethyst"
         ],
-        "default": "Natural_Escape"
+        "default": "Natural Escape"
       },
       "contact_form_endpoint":{
         "type": "text",

@@ -23,7 +23,20 @@
     <script src="{{asset " js/main.js"}}"></script>
 </head>
 
-<body class="{{@custom.color_scheme}}">
+<body data-color-scheme="{{@custom.color_scheme}}">
+    <script>
+  (function () {
+    const scheme = document.body.dataset.colorScheme;
+    if (!scheme) return;
+
+    const slug = scheme
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, '-');
+
+    document.body.classList.add(`${slug}`);
+  })();
+</script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const box = document.getElementById("randomColorBox");
