@@ -46,12 +46,12 @@ body {
 }
 
 .dark-trail {
-  --color-primary-bg: #ffffff;
+  --color-primary-bg: #000000;
   --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
-  --color-primary-text: #000000;
-  --color-secondary-bg: #f6f6f6;
+  --color-primary-text: #ffffff;
+  --color-secondary-bg: #0E0E0E;
   --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
-  --color-secondary-text: #000000;
+  --color-secondary-text: #ffffff;
 }
 
 .urban-mist {
@@ -73,12 +73,12 @@ body {
 }
 
 .aqua-marine {
-  --color-primary-bg: #ffffff;
+  --color-primary-bg: #E6EFFF;
   --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
-  --color-primary-text: #000000;
-  --color-secondary-bg: #f6f6f6;
+  --color-primary-text: #253BAA;
+  --color-secondary-bg: #FFFFFF;
   --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
-  --color-secondary-text: #000000;
+  --color-secondary-text: #1A2D75;
 }
 
 .desert-bloom {
@@ -91,21 +91,21 @@ body {
 }
 
 .dark-amethyst {
-  --color-primary-bg: #ffffff;
+  --color-primary-bg: #2B1D3B;
   --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
-  --color-primary-text: #000000;
-  --color-secondary-bg: #f6f6f6;
+  --color-primary-text: #ffffff;
+  --color-secondary-bg: #3C2E4D;
   --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
-  --color-secondary-text: #000000;
+  --color-secondary-text: #ffffff;
 }
 
 .mocha-dark {
-  --color-primary-bg: #ffffff;
+  --color-primary-bg: #181214;
   --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
-  --color-primary-text: #000000;
-  --color-secondary-bg: #f6f6f6;
+  --color-primary-text: #EFDFB4;
+  --color-secondary-bg: #2A1E21;
   --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
-  --color-secondary-text: #000000;
+  --color-secondary-text: #EFDFB4;
 }
 
 .color-theme-1 {
