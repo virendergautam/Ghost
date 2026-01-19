@@ -1,42 +1,28 @@
-<a href="{{url}}" class="recommended-post-item"
->
-    <div class="bg-secondary-bg rounded-xl border border-gray-200 p-5 h-full group">
+<a href="{{url}}" class="recommended-post-item">
+    <div class="bg-secondary-bg rounded-xl border border-secondary-border p-5 h-full group">
         <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
-            {{!-- <img src="./assets/images/r1.jpg"> --}}
              {{#if feature_image}}
                 <img src="{{feature_image}}" class="transition-transform duration-500 group-hover:scale-105" alt="{{slug}}">
             {{else}}
                 <img src="/assets/images/no-image.png" class="transition-transform duration-500 group-hover:scale-105" alt="No Image">
             {{/if}}
-            {{!-- <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs"> 6 min read</div> --}}
-                       {{!-- <div class="absolute top-4 right-4 bg-white px-[10px] py-[6px] rounded-3xl text-xs">
-                {{reading_time}}
-            </div> --}}
             {{#if primary_tag}}
-                    <span class="absolute top-4 left-4 text-xs bg-white/30 text-white backdrop-blur-sm border border-white/10 rounded-3xl px-3 py-1">
-                        {{primary_tag.name}}
-                    </span>
-                {{/if}}
+                <span class="absolute top-4 left-4 text-xs bg-white/30 text-white backdrop-blur-sm border border-white/10 rounded-3xl px-3 py-1">
+                    {{primary_tag.name}}
+                </span>
+            {{/if}}
         </div>
         <div class="recommended-post-item-content">
-            <div class="recommended-post-meta flex items-center gap-[10px] mb-4">
-                {{!-- <span
-                    class="text-xs text-black bg-gray-200 border border-gray-300 rounded-3xl py-[6px] px-[20px]">Category</span> --}}
-                
-                
-                {{!-- <span class="recommended-post-date text-xs text-black">November 14, 2025 </span> --}}
+            <div class="recommended-post-meta flex items-center gap-2.5 mb-4">
                  <span class="recommended-post-date text-xs">
                     {{date format="MMMM DD, YYYY"}}
                 </span>
                 {{#if reading_time}}
-                <span class="bg-primary-bg px-[10px] py-[6px] rounded-3xl text-xs font-medium">{{reading_time}}</span>
+                <span class="bg-primary-bg px-2.5 py-1.5 rounded-3xl text-xs font-medium">{{reading_time}}</span>
                 {{/if}}
             </div>
-            {{!-- <h2 class="text-lg font-semibold mb-4">XE Entertainment Brings New Experience</h2> --}}
-             <h2 class="text-lg font-semibold mb-4">{{title}}</h2>
-            {{!-- <p class="text-base">Explore expert perspectives, emerging styles, and behind-the-scenes
-                stories that inspire the future of fashion.....</p> --}}
-                  <p class="text-sm break-all">{{excerpt}}</p>
+            <h2 class="text-lg font-semibold mb-4">{{title}}</h2>
+            <p class="text-sm break-all">{{excerpt}}</p>
         </div>
     </div>
 </a>
