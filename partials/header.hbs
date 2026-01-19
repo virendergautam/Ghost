@@ -101,12 +101,12 @@
                     </svg>
                 </button> --}}
                 <button
-                    class="gh-search w-7 h-7 md:w-9.5 md:h-9.5 flex items-center justify-center rounded-full hover:bg-gray-200 hover:text-black cursor-pointer"
+                    class="gh-search w-7 h-7 md:w-9.5 md:h-9.5 flex items-center justify-center rounded-full hover:bg-white hover:text-black text-black cursor-pointer"
                     data-ghost-search>{{> "icons/search"}}</button>
 
                 <!-- Dark mode icon -->
                 <button id="theme-toggle"
-                    class="w-7 h-7 md:w-9.5 md:h-9.5 flex items-center justify-center rounded-full hover:bg-gray-200 text-black dark:text-white cursor-pointer">
+                    class="w-7 h-7 md:w-9.5 md:h-9.5 flex items-center justify-center rounded-full hover:bg-white text-black dark:text-white cursor-pointer">
                     <!-- Sun -->
                     <svg id="theme-toggle-light-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
                         <path
@@ -148,12 +148,12 @@
 
                 {{#if @member}}
                 <a href="javascript:void(0)" data-members-signout
-                    class="px-5 py-2 text-sm font-medium rounded-full bg-black dark:bg-white dark:text-black text-white hover:bg-[#FF7044] transition">
+                    class="px-5 py-2 text-sm font-medium rounded-full bg-black dark:bg-white dark:text-black text-black hover:bg-[#FF7044] transition">
                     Sign Out
                 </a>
                 {{else}}
                 <!-- Sign In -->
-                <a href="#/portal/signin" class="hidden lg:block text-sm hover:text-[#FF7044]">Sign In</a>
+                <a href="#/portal/signin" class="hidden lg:block text-sm text-black">Sign In</a>
 
                 <!-- Button -->
                 <a href="#/portal/signup"
