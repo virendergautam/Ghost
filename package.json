@@ -25,6 +25,7 @@
     "picocolors": "^1.1.1",
     "postcss-value-parser": "^4.2.0",
     "source-map-js": "^1.2.1",
+    "taos": "^2.0.1",
     "update-browserslist-db": "^1.1.4"
   },
   "scripts": {
@@ -68,12 +69,12 @@
           "Urban Mist",
           "Aqua Marine",
           "Desert Bloom",
-          "Mocha Dark", 
+          "Mocha Dark",
           "Dark Amethyst"
         ],
         "default": "Natural Escape"
       },
-      "contact_form_endpoint":{
+      "contact_form_endpoint": {
         "type": "text",
         "default": ""
       },
