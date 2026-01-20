@@ -20,7 +20,8 @@
             {{/get}}
             <div class="grid grid-cols-4 gap-7">
                 {{#get "tags" filter="visibility:public" limit="4" include="count.posts"}} {{#foreach tags}}
-                <a href="/tag/{{slug}}/" class="relative block rounded-2xl overflow-hidden group explore-tags-item">
+                <a href="/tag/{{slug}}/" class="relative block rounded-2xl overflow-hidden group explore-tags-item" {{#if @even}}data-aos="fade-up" data-aos-duration="600"  {{/if}}
+    {{#if @odd}}data-aos="fade-down" data-aos-duration="1200" {{/if}}>
                     <div class="aspect-square">
                         <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
                             alt="{{name}}"

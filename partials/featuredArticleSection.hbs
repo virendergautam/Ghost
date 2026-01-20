@@ -3,7 +3,7 @@
         {{#get "pages" filter="tag:hash-section-featured-post" limit="1"}}
         {{#if pages}}
         {{#foreach pages}}
-        <div class="featured-blog mb-12.5 max-w-[676px] m-auto text-center">
+        <div class="featured-blog mb-12.5 max-w-[676px] m-auto text-center" data-aos="fade-up" data-aos-duration="1000">
             {{#if excerpt}}
             <div
                 class="inline-flex items-center justify-center rounded-full border border-secondary-border bg-secondary-bg px-5 py-2 text-xs mb-7.5">
@@ -23,7 +23,7 @@
             {{#get "posts" filter="featured:true" limit ="1" include="authors,tags"}}
             {{#foreach posts}}
             <div class="featured-blog-wrapper relative">
-                <div class="featured-blog-media rounded-4xl overflow-hidden h-[var(--media-height)]">
+                <div class="featured-blog-media rounded-4xl overflow-hidden h-[var(--media-height)]" data-aos="zoom-in-up" data-aos-duration="1000">
                     <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
                         alt="{{title}}" />
                 </div>
@@ -86,7 +86,8 @@
             <!-- Card 1 -->
             {{#if @first}}
             {{else}}
-            <article class="flex gap-4 rounded-[20px] border border-secondary-border bg-secondary-bg p-5">
+            <article class="flex gap-4 rounded-[20px] border border-secondary-border bg-secondary-bg p-5" {{#if @even}}data-aos="fade-up" data-aos-duration="600"  {{/if}}
+    {{#if @odd}}data-aos="fade-up" data-aos-duration="600" {{/if}}>
                 <div class="rounded-[20px] overflow-hidden w-[200px] h-[150px]">
                     <img class="h-20 w-28 rounded-xl object-cover"
                         src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
