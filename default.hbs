@@ -22,13 +22,12 @@
         rel="stylesheet"> --}}
 
     {{ghost_head}}
-    <script src="{{asset " js/main.js"}}"></script>
-     <script>document.documentElement.classList.add('js')</script>
+    <script src="{{asset "js/main.js"}}"></script>
+    
 </head>
 
 <body data-color-scheme="{{@custom.color_scheme}}">
-      <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
-</body>
+      
     <script>
         (function () {
             const scheme = document.body.dataset.colorScheme;
@@ -768,7 +767,6 @@
             }
         });
     </script>
-
 
 </body>
 

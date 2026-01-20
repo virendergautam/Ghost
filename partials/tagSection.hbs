@@ -27,8 +27,18 @@
                             class="object-cover transition-transform duration-500 group-hover:scale-105" />
                     </div>
                     <div class="absolute inset-0 flex justify-between items-end p-4.5">
-                        <h3 class="font-medium text-sm md:text-base break-all bg-white text-black px-6 py-2.5 rounded-3xl">
-                            {{name}}</h3>
+                        <div class="bg-white px-6 py-2.5 rounded-3xl">
+                            <div class="h-5 overflow-hidden">
+                                <div class="group-hover:translate-y-[-50%] transition-transform duration-500">
+                                    <h3 class="font-medium text-sm md:text-base break-all text-black">
+                                        {{name}}
+                                    </h3>
+                                    <h3 class="font-medium text-sm md:text-base break-all text-black">
+                                        {{name}}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
                         <p class="text-xs md:text-base text-white bg-white/20 backdrop-blur-xl px-5 py-2.5 rounded-3xl">
                             {{plural count.posts empty="0 Articles" singular="1 Article" plural="% Articles"}}
                         </p>
