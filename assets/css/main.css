@@ -416,6 +416,22 @@ blockquote {
   flex: 0 0 calc(25% - 18.5px);
 }
 
+.explore-tags-wrapper .explore-tags-item:nth-child(1) {
+  transition-duration: .5s;
+}
+
+.explore-tags-wrapper .explore-tags-item:nth-child(2) {
+  transition-duration: 1s;
+}
+
+.explore-tags-wrapper .explore-tags-item:nth-child(3) {
+  transition-duration: 1.5s;
+}
+
+.explore-tags-wrapper .explore-tags-item:nth-child(4) {
+  transition-duration: 2s;
+}
+
 @media (max-width:1023px) {
   .header-menu {
     background: #fff;

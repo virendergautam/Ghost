@@ -4,7 +4,7 @@
             {{#get "pages" filter="tag:hash-section-tag-cards" limit="1"}}
             {{#if pages}}
             {{#foreach pages}}
-            <div class="explore-tags-header mb-12.5 max-w-[676px] m-auto text-center">
+            <div class="explore-tags-header mb-12.5 max-w-[676px] m-auto text-center" data-aos="slide-up" data-aos-duration="1000">
                 {{#if excerpt}}
                 <div
                     class="inline-flex items-center justify-center rounded-full border border-secondary-border bg-secondary-bg px-5 py-2 text-xs mb-7.5">
@@ -20,7 +20,7 @@
             {{/get}}
             <div class="grid grid-cols-4 gap-7">
                 {{#get "tags" filter="visibility:public" limit="4" include="count.posts"}} {{#foreach tags}}
-                <a href="/tag/{{slug}}/" class="relative block rounded-2xl overflow-hidden group explore-tags-item">
+                <a href="/tag/{{slug}}/" class="relative block rounded-2xl overflow-hidden group explore-tags-item" data-aos="fade-up">
                     <div class="aspect-square">
                         <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
                             alt="{{name}}"
