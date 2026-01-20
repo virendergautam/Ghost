@@ -1,6 +1,4 @@
 @import "tailwindcss";
-/* ##################### */
-@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-primary-text: #000000;
@@ -11,16 +9,10 @@
   --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
   --color-accent-bg: var(--ghost-accent-color);
   --color-accent-border: color-mix(in srgb, var(--color-accent-bg) 100%, white 30%);
-  --color-primary-border:#DDDDDD;
-  --color-secondary-border:#EBEBEB;
+  --color-primary-border: #DDDDDD;
+  --color-secondary-border: #EBEBEB;
 }
 
-/* :root {
-  --headingFont: '{{@custom.heading_font}}',
-  sans-serif;
-  --bodyFont: '{{@custom.body_font}}',
-  sans-serif;
-} */
 :root {
   --preview-font-heading: var(--gh-font-heading, var(--gh-font-body));
   --preview-font-body: var(--gh-font-body);
@@ -55,8 +47,8 @@ body {
   --color-secondary-bg: #ffffff;
   --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
   --color-secondary-text: #000000;
-  --color-primary-border:#DDDDDD;
-  --color-secondary-border:#EBEBEB;
+  --color-primary-border: #DDDDDD;
+  --color-secondary-border: #EBEBEB;
 }
 
 .dark-trail {
@@ -66,8 +58,8 @@ body {
   --color-secondary-bg: #0E0E0E;
   --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
   --color-secondary-text: #ffffff;
-  --color-primary-border:#343435;
-  --color-secondary-border:#666666;
+  --color-primary-border: #343435;
+  --color-secondary-border: #666666;
 }
 
 .urban-mist {
@@ -77,8 +69,8 @@ body {
   --color-secondary-bg: #f6f6f6;
   --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
   --color-secondary-text: #000000;
-  --color-primary-border:#DDDDDD;
-  --color-secondary-border:#EBEBEB;
+  --color-primary-border: #DDDDDD;
+  --color-secondary-border: #EBEBEB;
 }
 
 .natural-escape {
@@ -88,8 +80,8 @@ body {
   --color-secondary-bg: #f6f6f6;
   --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
   --color-secondary-text: #000000;
-  --color-primary-border:#DDDDDD;
-  --color-secondary-border:#EBEBEB;
+  --color-primary-border: #DDDDDD;
+  --color-secondary-border: #EBEBEB;
 }
 
 .aqua-marine {
@@ -99,8 +91,8 @@ body {
   --color-secondary-bg: #FFFFFF;
   --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
   --color-secondary-text: #1A2D75;
-  --color-primary-border:#DDDDDD;
-  --color-secondary-border:#EBEBEB;
+  --color-primary-border: #DDDDDD;
+  --color-secondary-border: #EBEBEB;
 }
 
 .desert-bloom {
@@ -110,8 +102,8 @@ body {
   --color-secondary-bg: #FFFDF2;
   --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
   --color-secondary-text: #7C2904;
-  --color-primary-border:#F0DDD0;
-  --color-secondary-border:#F0DDD0;
+  --color-primary-border: #F0DDD0;
+  --color-secondary-border: #F0DDD0;
 }
 
 .dark-amethyst {
@@ -121,8 +113,8 @@ body {
   --color-secondary-bg: #3C2E4D;
   --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
   --color-secondary-text: #ffffff;
-  --color-primary-border:#644D7C;
-  --color-secondary-border:#644D7C;
+  --color-primary-border: #644D7C;
+  --color-secondary-border: #644D7C;
 }
 
 .mocha-dark {
@@ -132,8 +124,8 @@ body {
   --color-secondary-bg: #2A1E21;
   --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
   --color-secondary-text: #EFDFB4;
-  --color-primary-border:#45343999;
-  --color-secondary-border:#453439;
+  --color-primary-border: #45343999;
+  --color-secondary-border: #453439;
 }
 
 .color-theme-1 {
@@ -166,11 +158,8 @@ body {
   color: #605942;
 }
 
-
-
-
-
 /* Ghost Koenig required classes */
+
 .kg-width-wide {
   max-width: 1200px;
   margin-left: auto;
@@ -289,6 +278,13 @@ footer {
   --my-grid-cols: 1fr auto;
 }
 
+.hero-banner {
+  position: sticky;
+  top: 0;
+  z-index: -1;
+  isolation: isolate;
+}
+
 .featured-blog {
   --media-height: 640px;
 }
@@ -322,10 +318,10 @@ footer {
 }
 
 .page-content .kg-card.kg-toggle-card {
-    border-radius: 10px;
-    overflow: hidden;
-    background: var(--color-secondary-bg);
-    box-shadow: none;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--color-secondary-bg);
+  box-shadow: none;
 }
 
 .page-content .kg-toggle-heading svg {
@@ -412,9 +408,12 @@ blockquote {
 }
 
 /* trust icons */
+.team-member-wrapper {
+  gap: 25px;
+}
 
 .team-member-item {
-    flex: 0 0 calc(25% - 18.5px);
+  flex: 0 0 calc(25% - 18.5px);
 }
 
 @media (max-width:1023px) {

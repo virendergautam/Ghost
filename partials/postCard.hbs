@@ -1,20 +1,27 @@
 <a href="{{url}}" class="recommended-post-item">
     <div class="bg-secondary-bg rounded-xl border border-secondary-border p-5 h-full group">
-        <div class="rounded-xl mb-5 overflow-hidden relative aspect-square">
-             {{#if feature_image}}
-                <img src="{{feature_image}}" class="transition-transform duration-500 group-hover:scale-105" alt="{{slug}}">
+        <div class="rounded-xl mb-5 overflow-hidden relative h-70">
+            {{#if feature_image}}
+            <img src="{{feature_image}}" class="transition-transform duration-500 group-hover:scale-105" alt="{{slug}}">
             {{else}}
-                <img src="/assets/images/no-image.png" class="transition-transform duration-500 group-hover:scale-105" alt="No Image">
+            <img src="/assets/images/no-image.png" class="transition-transform duration-500 group-hover:scale-105"
+                alt="No Image">
             {{/if}}
             {{#if primary_tag}}
-                <span class="absolute top-4 left-4 text-xs bg-white/30 text-white backdrop-blur-sm border border-white/10 rounded-3xl px-3 py-1">
-                    {{primary_tag.name}}
-                </span>
+            <div
+                class="absolute top-4 left-4 text-xs bg-white/30 text-white backdrop-blur-sm border border-white/10 rounded-3xl px-3 py-1">
+                <div class="h-4 overflow-hidden">
+                    <div class="group-hover:translate-y-[-50%] transition-transform duration-500">
+                        <div>{{primary_tag.name}}</div>
+                        <div>{{primary_tag.name}}</div>
+                    </div>
+                </div>
+            </div>
             {{/if}}
         </div>
         <div class="recommended-post-item-content">
             <div class="recommended-post-meta flex items-center gap-2.5 mb-4">
-                 <span class="recommended-post-date text-xs">
+                <span class="recommended-post-date text-xs">
                     {{date format="MMMM DD, YYYY"}}
                 </span>
                 {{#if reading_time}}
