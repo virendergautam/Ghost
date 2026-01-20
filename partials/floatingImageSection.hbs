@@ -2,7 +2,7 @@
     <div class="bg-white/40 backdrop-blur-[50px] z-10 absolute left-0 bottom-0 w-full">
         <div class="container mx-auto">
             <div class="flex flex-nowrap overflow-x-auto">
-                {{#get "posts" include="authors,tags"}}
+                {{#get "posts" include="authors,tags" limit="4"}}
                 {{#foreach posts}}
                 <a href="{{url}}" class="group flex-[0_0_25%] flex gap-3 px-8.5 py-5.5 cursor-pointer hover:bg-white/10 transition border-t-2 border-transparent hover:border-white active:border-white"
                     data-bg="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}">

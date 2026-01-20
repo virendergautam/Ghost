@@ -14,6 +14,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     {{!--
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
@@ -23,24 +24,23 @@
 
     {{ghost_head}}
     <script src="{{asset " js/main.js"}}"></script>
-     <script>document.documentElement.classList.add('js')</script>
+    {{!-- <script>document.documentElement.classList.add('js')</script> --}}
 </head>
 
 <body data-color-scheme="{{@custom.color_scheme}}">
-      <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
-</body>
+
     <script>
-        (function () {
-            const scheme = document.body.dataset.colorScheme;
-            if (!scheme) return;
+            (function () {
+                const scheme = document.body.dataset.colorScheme;
+                if (!scheme) return;
 
-            const slug = scheme
-                .trim()
-                .toLowerCase()
-                .replace(/\s+/g, '-');
+                const slug = scheme
+                    .trim()
+                    .toLowerCase()
+                    .replace(/\s+/g, '-');
 
-            document.body.classList.add(`${slug}`);
-        })();
+                document.body.classList.add(`${slug}`);
+            })();
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -280,36 +280,36 @@
 
             </div>
         </div>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const select = document.getElementById("colorSchemeSelect");
-    if (!select) return;
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const select = document.getElementById("colorSchemeSelect");
+                if (!select) return;
 
-    const schemes = [
-      "default",
-      "dark-trail",
-      "natural-escape",
-      "urban-mist",
-      "aqua-marine",
-      "desert-bloom",
-      "mocha-dark",
-      "dark-amethyst"
-    ];
+                const schemes = [
+                    "default",
+                    "dark-trail",
+                    "natural-escape",
+                    "urban-mist",
+                    "aqua-marine",
+                    "desert-bloom",
+                    "mocha-dark",
+                    "dark-amethyst"
+                ];
 
-    function applyScheme(value) {
-      document.body.classList.remove(...schemes);
-      document.body.classList.add(value);
-    }
+                function applyScheme(value) {
+                    document.body.classList.remove(...schemes);
+                    document.body.classList.add(value);
+                }
 
-    // Apply on load
-    applyScheme(select.value);
+                // Apply on load
+                applyScheme(select.value);
 
-    // Apply on change
-    select.addEventListener("change", (e) => {
-      applyScheme(e.target.value);
-    });
-  });
-</script>
+                // Apply on change
+                select.addEventListener("change", (e) => {
+                    applyScheme(e.target.value);
+                });
+            });
+        </script>
         <script>
             (function () {
                 const input = document.getElementById("brandColorInput");
@@ -768,6 +768,12 @@
             }
         });
     </script>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
 
 
 </body>

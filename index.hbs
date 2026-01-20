@@ -33,43 +33,6 @@
 {{>"tagSection"}}
 {{>"featuredArticleSection"}}
 
-        <!-- Wrapper (light gray section like screenshot) -->
-        <section class="bg-primary-bg pt-6 pb-12">
-            <div class="container mx-auto">
-                <!-- Cards row -->
-                <div class="grid gap-2.5 md:grid-cols-3">
-                    {{#get "posts" limit="3" include="tags,authors"}}
-                    {{#foreach posts}}
-                    <!-- Card 1 -->
-                    <article class="flex gap-4 rounded-[20px] border border-secondary-border bg-secondary-bg p-5">
-                        <div class="rounded-[20px] overflow-hidden w-[200px] h-[150px]">
-                            <img class="h-20 w-28 rounded-xl object-cover"
-                                src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
-                                alt="{{title}}" />
-                        </div>
-                        <div class="min-w-0 flex-1">
-                            <div class="flex flex-wrap items-center gap-2 text-xs">
-                                {{#if primary_tag}}
-                                <span class="rounded-full bg-primary-bg px-3 py-1.5 font-medium">
-                                    {{primary_tag.name}}
-                                </span>
-                                {{/if}}
-                                <span>{{date published_at format="MMM DD, YYYY"}}</span>
-                            </div>
-
-                            <h3 class="mt-5 text-base font-bold"> <a href="{{url}}" class="hover:underline">
-                                    {{title}}
-                                </a></h3>
-                            <p class="mt-5 text-sm">
-                                {{excerpt words="18"}}
-                            </p>
-                        </div>
-                    </article>
-                    {{/foreach}}
-                    {{/get}}
-                </div>
-            </div>
-        </section>
 
     <section class="trust-icons bg-secondary-bg py-20">
         {{>"static-section"}}
@@ -132,4 +95,4 @@
             </div>
         </div>
     </section>
-    {{>"meetTheTeam"}}
+    {{!-- {{>"meetTheTeam"}} --}}
