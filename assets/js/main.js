@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   const burger = document.querySelector('.header-utils-burger');
-  const menu = document.querySelector('.header-menu');
+  const menu = document.querySelector('.mobile-header-menu');
   const menuClose = document.querySelector('.header-nav-close');
 
   if (!burger || !menu) return;

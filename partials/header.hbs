@@ -1,19 +1,6 @@
-{{!-- <div class="my-fancy-nav-wrapper">
-    <ul class="nav">
-        <!-- Loop through the navigation items -->
-        {{#foreach navigation}}
-        {{log slug "nav slug"}}
-        <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
-        {{/foreach}}
-        <!-- End the loop -->
-    </ul>
-</div> --}}
-
-
-
-<header id="siteHeader" data-header-style="{{@custom.header_layout}}" class="">
-    <div class="max-w-[1215px] mx-auto relative">
-        <div class="flex items-center gap-8 absolute inset-x-0 bg-white/70 backdrop-blur-md border border-white/50 p-2.5 rounded-[50px] mt-5 pl-7.5">
+<header id="siteHeader" data-header-style="{{@custom.header_layout}}" class="header-main">
+    <div class="max-w-[1215px] w-[93%] mx-auto relative">
+        <div class="header-inner flex items-center gap-8 absolute inset-x-0 bg-white/70 backdrop-blur-md border border-white/50 p-2.5 rounded-[50px] mt-5 pl-7.5">
             <div class="header-logo">
                 <a class="site-header-logo{{#unless @site.logo}} no-image{{/unless}}" href="{{@site.url}}">
                     {{#if @site.logo}}
@@ -25,9 +12,8 @@
             </div>
 
             <!-- CENTER MENU -->
-            <nav class="header-menu">
+            <nav class="header-menu hidden lg:block">
                 {{navigation}}
-                {{!-- {{> main-navigation}} --}}
                 <div
                     class="header-nav-account-links flex gap-4 items-center lg:hidden border-t border-[#EBEBEB] mt-10 pt-10">
                        {{#if @member}}
@@ -36,70 +22,18 @@
                     Sign Out
                 </a>
                 {{else}}
-                    <!-- Sign In -->
                     <a href="#/portal/signin" class="inline-flex text-sm text-black">Sign In</a>
 
-                    <!-- Button -->
-                    <!-- Button -->
                 <a href="#/portal/signup"
                     class="hidden lg:inline-flex items-center px-5 py-2 min-h-11 text-sm font-medium rounded-full bg-black text-white hover:text-white hover:bg-accent-bg transition">
                     Become a Subscriber
                 </a>
                     {{/if}}
                 </div>
-                <button class="header-nav-close">
-                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M17.5686 17.5078C17.2135 17.8628 16.6379 17.8628 16.2829 17.5078L0.854299 2.07922C0.499259 1.72418 0.499259 1.14854 0.854299 0.793503C1.20934 0.438463 1.78497 0.438463 2.14001 0.793503L17.5686 16.2221C17.9236 16.5771 17.9236 17.1527 17.5686 17.5078Z"
-                            fill="currentColor"></path>
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M17.5686 0.793667C17.9236 1.14871 17.9236 1.72434 17.5686 2.07938L2.14001 17.5079C1.78497 17.863 1.20933 17.863 0.854294 17.5079C0.499254 17.1529 0.499254 16.5773 0.854294 16.2222L16.2829 0.793667C16.6379 0.438627 17.2135 0.438627 17.5686 0.793667Z"
-                            fill="currentColor"></path>
-                    </svg>
-                </button>
             </nav>
-            {{!-- <ul class="hidden md:flex items-center gap-7.5 text-sm font-medium">
-                <li><a href="#" class="hover:text-[#FF7044]">Home</a></li>
-
-                <li class="relative group flex items-center gap-1 cursor-pointer hover:text-black">
-                    <div class="flex items-center gap-1 hover:text-[#FF7044]">
-                        <span>Topics</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6"></path>
-                        </svg>
-                    </div>
-                    <div class="absolute left-0 top-[100%] mt-3 w-40 bg-white border border-gray-200 shadow-lg
-              rounded-lg py-2 opacity-0 invisible translate-y-2
-              group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
-              transition-all duration-200">
-                        <a class="block px-4 py-2 hover:bg-gray-50 hover:text-[#FF7044] text-sm">Lifestyle</a>
-                        <a class="block px-4 py-2 hover:bg-gray-50 hover:text-[#FF7044] text-sm">Health</a>
-                        <a class="block px-4 py-2 hover:bg-gray-50 hover:text-[#FF7044] text-sm">Fashion</a>
-                    </div>
-                </li>
-
-                <li><a href="#" class="hover:text-[#FF7044]">About</a></li>
-                <li><a href="#" class="hover:text-[#FF7044]">Get Theme</a></li>
-
-                <li class="flex items-center gap-1 cursor-pointer hover:text-[#FF7044]">
-                    <span>Pages</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                </li>
-            </ul> --}}
 
             <!-- RIGHT SECTION -->
             <div class="flex items-center gap-3 ml-auto">
-
-                <!-- Search Icon -->
-                {{!-- <button aria-label="Search"
-                    class="w-9.5 h-9.5 flex items-center justify-center rounded-full hover:bg-gray-200 hover:text-black cursor-pointer">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <circle cx="11" cy="11" r="7"></circle>
-                        <line x1="16" y1="16" x2="21" y2="21"></line>
-                    </svg>
-                </button> --}}
                 <button
                     class="gh-search w-7 h-7 md:w-9.5 md:h-9.5 flex items-center justify-center rounded-full hover:bg-white hover:text-black text-black cursor-pointer"
                     data-ghost-search>{{> "icons/search"}}</button>
@@ -171,5 +105,38 @@
             </div>
 
         </div>
+        <nav class="mobile-header-menu block lg:hidden">
+            {{navigation}}
+            {{!-- {{> main-navigation}} --}}
+            <div
+                class="header-nav-account-links flex gap-4 items-center lg:hidden border-t border-[#EBEBEB] mt-10 pt-10">
+                    {{#if @member}}
+            <a href="javascript:void(0)" data-members-signout
+                class="px-5 py-2 text-sm font-medium rounded-full bg-black dark:bg-white dark:text-black text-white hover:bg-[#FF7044] transition">
+                Sign Out
+            </a>
+            {{else}}
+                <!-- Sign In -->
+                <a href="#/portal/signin" class="inline-flex text-sm text-black">Sign In</a>
+
+                <!-- Button -->
+                <!-- Button -->
+            <a href="#/portal/signup"
+                class="hidden lg:inline-flex items-center px-5 py-2 min-h-11 text-sm font-medium rounded-full bg-black text-white hover:text-white hover:bg-accent-bg transition">
+                Become a Subscriber
+            </a>
+                {{/if}}
+            </div>
+            <button class="header-nav-close">
+                <svg width="19" height="19" viewBox="0 0 19 19" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M17.5686 17.5078C17.2135 17.8628 16.6379 17.8628 16.2829 17.5078L0.854299 2.07922C0.499259 1.72418 0.499259 1.14854 0.854299 0.793503C1.20934 0.438463 1.78497 0.438463 2.14001 0.793503L17.5686 16.2221C17.9236 16.5771 17.9236 17.1527 17.5686 17.5078Z"
+                        fill="currentColor"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M17.5686 0.793667C17.9236 1.14871 17.9236 1.72434 17.5686 2.07938L2.14001 17.5079C1.78497 17.863 1.20933 17.863 0.854294 17.5079C0.499254 17.1529 0.499254 16.5773 0.854294 16.2222L16.2829 0.793667C16.6379 0.438627 17.2135 0.438627 17.5686 0.793667Z"
+                        fill="currentColor"></path>
+                </svg>
+            </button>
+        </nav>
     </div>
 </header> 

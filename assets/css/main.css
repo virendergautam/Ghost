@@ -278,13 +278,6 @@ footer {
   --my-grid-cols: 1fr auto;
 }
 
-.hero-banner {
-  position: sticky;
-  top: 0;
-  z-index: -1;
-  isolation: isolate;
-}
-
 .featured-blog {
   --media-height: 640px;
 }
@@ -432,28 +425,41 @@ blockquote {
   transition-duration: 2s;
 }
 
-@media (max-width:1023px) {
-  .header-menu {
-    background: #fff;
-    height: 100%;
-    left: 0;
-    overflow: auto;
-    padding: 2rem;
-    position: fixed;
+@media (min-width:768px) {
+  .hero-banner {
+    position: sticky;
     top: 0;
-    transform: translateX(100%);
+    z-index: 0;
+    isolation: isolate;
+  }
+}
+
+@media (max-width:1023px) {
+  .mobile-header-menu {
+    background: #fff;
+    height: calc(100vh - 146px);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 20px;
+    position: fixed;
+    top: 126px;
+    transform: translateY(-100%);
     visibility: hidden;
-    width: 100%;
+    width: 93%;
     z-index: 99999;
     transition: all .3s ease;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
 
-  .header-menu.is-open {
+  .mobile-header-menu.is-open {
     transform: none;
     visibility: visible;
   }
 
-  .header-menu .nav {
+  .mobile-header-menu .nav {
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
@@ -464,6 +470,18 @@ blockquote {
     position: absolute;
     right: 1.5rem;
     top: 1.5rem;
+  }
+
+  .header-main:has(.is-open) .header-inner {
+    border-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background: #fff;
+  }
+
+  .mobile-header-menu ul {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
@@ -519,8 +537,26 @@ blockquote {
     padding-right: 15px;
   }
 
+  .floating-images-wrapper.mobile-swipe {
+    margin-right: 0px;
+    padding-right: 0px;
+  }
+
   .mobile-swipe.mobile-column-2 {
     grid-auto-columns: minmax(43%, 1fr);
     grid-template-columns: repeat(auto-fill, minmax(43%, 1fr));
+  }
+
+  .trust-icons-cards .kg-product-card .kg-product-card-container {
+    padding: 25px;
+    grid-row-gap: 30px;
+  }
+
+  .trust-icons-cards .kg-product-card .kg-product-card-title {
+    font-size: 20px;
+  }
+
+  .trust-icons-cards .kg-product-card .kg-product-card-description * {
+    font-size: 14px;
   }
 }
