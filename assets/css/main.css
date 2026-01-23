@@ -454,6 +454,14 @@ blockquote {
     border-bottom-right-radius: 20px;
   }
 
+  body:not(:has(.gh-announcement-bar)) .mobile-header-menu {
+    top: 70px;
+  }
+
+  body:has(.mobile-header-menu.is-open) {
+    overflow: hidden;
+  }
+
   .mobile-header-menu.is-open {
     transform: none;
     visibility: visible;
