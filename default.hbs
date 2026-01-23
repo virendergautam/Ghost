@@ -30,17 +30,17 @@
 <body data-color-scheme="{{@custom.color_scheme}}">
       
     <script>
-            (function () {
-                const scheme = document.body.dataset.colorScheme;
-                if (!scheme) return;
+           (function () {
+  const scheme = document.body.dataset.colorScheme;
+  if (!scheme) return;
 
-                const slug = scheme
-                    .trim()
-                    .toLowerCase()
-                    .replace(/\s+/g, '-');
+  // If Ghost already has a scheme class, do nothing
+  if (document.body.classList.length > 0) return;
 
-                document.body.classList.add(`${slug}`);
-            })();
+  const slug = scheme.trim().toLowerCase().replace(/\s+/g, "-");
+  document.body.classList.add(slug);
+})();
+
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -283,6 +283,7 @@
         <script>
             document.addEventListener("DOMContentLoaded", () => {
                 const select = document.getElementById("colorSchemeSelect");
+                select.value=document.body.classList
                 if (!select) return;
 
                 const schemes = [
@@ -300,9 +301,6 @@
                     document.body.classList.remove(...schemes);
                     document.body.classList.add(value);
                 }
-
-                // Apply on load
-                applyScheme(select.value);
 
                 // Apply on change
                 select.addEventListener("change", (e) => {
@@ -768,6 +766,32 @@
             }
         });
     </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const posts = document.querySelectorAll(".post-item");
+    const loadMoreBtn = document.getElementById("loadMoreBtn");
+
+    let visible = 0;
+    const STEP = 4;
+
+    function showNextPosts() {
+      for (let i = visible; i < visible + STEP && i < posts.length; i++) {
+        posts[i].classList.remove("hidden");
+      }
+
+      visible += STEP;
+
+      if (visible >= posts.length) {
+        loadMoreBtn.style.display = "none";
+      }
+    }
+
+    // Initial load
+    showNextPosts();
+
+    loadMoreBtn.addEventListener("click", showNextPosts);
+  });
+</script>
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
