@@ -1,143 +1,7 @@
-{{!-- <ul id="siteNav" class="flex flex-wrap items-center gap-6">
-  {{#foreach navigation}}
-    <li class="nav-item relative" data-nav-item>
-      <a class="nav-link inline-flex items-center gap-2 text-sm font-medium"
-         href="{{url}}"
-         data-href="{{url}}">
-        {{label}}
-      </a>
-    </li>
-  {{/foreach}}
-</ul>
-
-<script>
-(function () {
-  if (location.pathname.startsWith('/ghost/')) return;
-
-  const nav = document.getElementById('siteNav');
-  if (!nav) return;
-
-  const origin = window.location.origin;
-  const items = Array.from(nav.querySelectorAll('[data-nav-item]'));
-
-  function getPath(href) {
-    try {
-      const u = new URL(href, origin);
-      if (u.origin !== origin) return null;
-      let p = u.pathname || '/';
-      if (!p.endsWith('/')) p += '/';
-      return p;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  const navData = items.map(li => {
-    const a = li.querySelector('a[data-href]');
-    const href = a ? a.getAttribute('href') : '';
-    return { li, a, href, path: getPath(href) };
-  });
-
-  const parents = navData.filter(x => x.path && x.path !== '/');
-
-  function bestParentFor(childPath) {
-    let best = null;
-    for (const p of parents) {
-      if (!p.path) continue;
-      if (childPath.startsWith(p.path) && childPath !== p.path) {
-        if (!best || p.path.length > best.path.length) best = p;
-      }
-    }
-    return best;
-  }
-
-  const childrenMap = new Map();
-
-  for (const child of navData) {
-    if (!child.path || child.path === '/') continue;
-
-    const parent = bestParentFor(child.path);
-    if (!parent) continue;
-
-    if (!childrenMap.has(parent.li)) {
-      childrenMap.set(parent.li, []);
-    }
-    childrenMap.get(parent.li).push(child.li);
-  }
-
-  for (const [parentLI, childLIs] of childrenMap.entries()) {
-    const realChildren = childLIs.filter(li => li !== parentLI);
-    if (!realChildren.length) continue;
-
-    const parentA = parentLI.querySelector('a');
-    if (!parentA) continue;
-
-    parentLI.classList.add('has-dropdown');
-
-    // Add caret icon once
-    if (!parentA.querySelector('[data-caret]')) {
-      parentA.insertAdjacentHTML('beforeend', `
-        <svg data-caret class="h-4 w-4 opacity-70" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
-        </svg>
-      `);
-    }
-
-    const dropdown = document.createElement('ul');
-    dropdown.className =
-      'absolute left-0 top-full z-50 mt-2 min-w-56 rounded-xl border border-neutral-200 bg-white p-2 shadow-lg ' +
-      'opacity-0 invisible translate-y-1 transition';
-
-    realChildren.forEach(childLI => {
-      const childA = childLI.querySelector('a');
-      if (!childA) return;
-
-      const li = document.createElement('li');
-      const a = childA.cloneNode(true);
-      a.className = 'block rounded-lg px-3 py-2 text-sm text-neutral-800 hover:bg-neutral-100';
-      li.appendChild(a);
-      dropdown.appendChild(li);
-
-      childLI.remove();
-    });
-
-    parentLI.appendChild(dropdown);
-
-    // CLICK TO TOGGLE DROPDOWN
-    parentA.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-
-      document.querySelectorAll('#siteNav li.is-open').forEach(li => {
-        if (li !== parentLI) li.classList.remove('is-open');
-      });
-
-      parentLI.classList.toggle('is-open');
-    });
-  }
-
-  // CLICK OUTSIDE TO CLOSE
-  document.addEventListener('click', function () {
-    document.querySelectorAll('#siteNav li.is-open')
-      .forEach(li => li.classList.remove('is-open'));
-  });
-
-})();
-</script>
-<style>
-  #siteNav li.is-open > ul {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-</style> --}}
-
-
-
 {{!-- saffffffffffffffffffffffffffffffffffffffffffffffff------------------------------------------------------------------------------- --}}
 
 
-<ul id="siteNav" class="flex flex-wrap items-center gap-6">
+<ul id="siteNav" class="flex flex-wrap items-center gap-6" data-site-nav>
   {{#foreach navigation}}
     <li class="nav-item relative" data-nav-item>
       <a class="nav-link inline-flex items-center gap-2 text-sm font-medium text-black"
@@ -152,7 +16,10 @@
 (function () {
   if (location.pathname.startsWith('/ghost/')) return;
 
-  const nav = document.getElementById('siteNav');
+  // const nav = document.getElementById('siteNav');
+  const navs = document.querySelectorAll('[data-site-nav]');
+navs.forEach(nav => {
+
   if (!nav) return;
 
   const items = Array.from(nav.querySelectorAll('[data-nav-item]'));
@@ -214,15 +81,20 @@
     if (!parentA || !childLIs.length) continue;
 
     parentLI.classList.add('has-dropdown');
-
+console.log(parentA,"sdhasdhkasjdhjksd")
     // Add caret icon once
-    if (!parentA.querySelector('[data-caret]')) {
-      parentA.insertAdjacentHTML('beforeend', `
+const observer = new MutationObserver(() => {
+  if (!parentA.querySelector('[data-caret]')) {
+    parentA.insertAdjacentHTML('beforeend', `
         <svg data-caret class="h-4 w-4 opacity-70" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
         </svg>
       `);
-    }
+  }
+});
+
+observer.observe(parentA, { childList: true });
+
 
     const dropdown = document.createElement('ul');
     dropdown.className =
@@ -264,7 +136,7 @@
     document.querySelectorAll('#siteNav li.is-open')
       .forEach(li => li.classList.remove('is-open'));
   });
-
+})
 })();
 </script>
 
