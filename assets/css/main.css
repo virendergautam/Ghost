@@ -435,7 +435,7 @@ blockquote {
 }
 
 @media (max-width:1023px) {
-  .mobile-header-menu {
+.mobile-header-menu {
     background: #fff;
     height: calc(100vh - 146px);
     left: 0;
@@ -445,14 +445,15 @@ blockquote {
     padding: 20px;
     position: fixed;
     top: 126px;
-    transform: translateY(-100%);
-    visibility: hidden;
+    /* transform: translateY(-100%); */
+    /* visibility: hidden; */
     width: 93%;
     z-index: 99999;
-    transition: all .3s ease;
+    transition: clip-path 0.7s ease-out;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-  }
+    clip-path: inset(0% 0 100% 0);
+}
 
   body:not(:has(.gh-announcement-bar)) .mobile-header-menu {
     top: 70px;
@@ -463,8 +464,7 @@ blockquote {
   }
 
   .mobile-header-menu.is-open {
-    transform: none;
-    visibility: visible;
+    clip-path: inset(0 0 0 0);
   }
 
   .mobile-header-menu .nav {
