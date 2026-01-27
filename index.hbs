@@ -16,8 +16,7 @@
             </h1>
             <p class="text-base max-w-xl m-auto">{{@custom.hero_subheading}}</p>
             <form class="mt-6 md:mt-9">
-                <div
-                    class="grid grid-cols-(--my-grid-cols) max-w-[500px] mx-auto bg-white/20 backdrop-blur-2xl rounded-full border border-white/20 min-h-[48px] p-1.5">
+                <div class="grid grid-cols-(--my-grid-cols) max-w-[500px] mx-auto bg-white/20 backdrop-blur-2xl rounded-full border border-white/20 min-h-[48px] p-1.5">
                     <input type="email" placeholder="Enter your email"
                         class="min-w-0 flex-1 bg-transparent px-4 text-sm text-white placeholder:text-white focus:outline-none" />
                     <button type="submit"
@@ -38,59 +37,58 @@
     {{>"static-section"}}
 </section>
 
-    {{>"floatingImageSection"}}
+{{>"floatingImageSection"}}
 
-    <section class="recommended-post bg-primary-bg text-secondary-text py-20">
-        <div class="container mx-auto">
-            <div class="recommended-post-header mb-6 md:mb-12.5 text-center">
-                <h2 class="text-2xl md:text-4xl font-semibold" data-aos="fade-up" data-aos-duration="600">Read Our
-                    Latest Posts </h2>
-            </div>
-            <div class="recommended-post-wrapper grid md:grid-cols-4 gap-5">
-                <script>
-                    document.addEventListener("DOMContentLoaded", () => {
-                        const posts = document.querySelectorAll(".post-item");
-                        const loadMoreBtn = document.getElementById("loadMoreBtn");
+<section class="recommended-post bg-primary-bg text-secondary-text py-10 md:py-20">
+    <div class="container mx-auto">
+        <div class="recommended-post-header mb-6 md:mb-12.5 text-center">
+            <h2 class="text-2xl md:text-4xl font-semibold" data-aos="fade-up" data-aos-duration="600">Read Our
+                Latest Posts </h2>
+        </div>
+        <div class="recommended-post-wrapper grid md:grid-cols-4 gap-5">
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const posts = document.querySelectorAll(".post-item");
+                    const loadMoreBtn = document.getElementById("loadMoreBtn");
 
-                        let visible = 0;
-                        const STEP = 4;
+                    let visible = 0;
+                    const STEP = 4;
 
-                        function showNextPosts() {
-                            for (let i = visible; i < visible + STEP && i < posts.length; i++) {
-                                posts[i].classList.remove("hidden");
-                            }
-
-                            visible += STEP;
-
-                            if (visible >= posts.length) {
-                                loadMoreBtn.style.display = "none";
-                            }
+                    function showNextPosts() {
+                        for (let i = visible; i < visible + STEP && i < posts.length; i++) {
+                            posts[i].classList.remove("hidden");
                         }
 
-                        // Initial load
-                        showNextPosts();
+                        visible += STEP;
 
-                        loadMoreBtn.addEventListener("click", showNextPosts);
-                    });
-                </script>
-                {{#get "posts" limit="all"}}
-                {{#foreach posts}}
-                <div class="post-item hidden">
-                    {{>"postCard"}}
-                </div>
-                {{/foreach}}
-                {{/get}}
+                        if (visible >= posts.length) {
+                            loadMoreBtn.style.display = "none";
+                        }
+                    }
+
+                    // Initial load
+                    showNextPosts();
+
+                    loadMoreBtn.addEventListener("click", showNextPosts);
+                });
+            </script>
+            {{#get "posts" limit="all"}}
+            {{#foreach posts}}
+            <div class="post-item hidden">
+                {{>"postCard"}}
             </div>
-
-            <div class="mt-12 text-center">
-                <button id="loadMoreBtn" style="cursor: pointer;" class="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold
-               bg-black text-white hover:bg-neutral-800 transition">
-                    Load more
-                </button>
-            </div>
-
+            {{/foreach}}
+            {{/get}}
         </div>
-    </section>
 
+        <div class="mt-12 text-center">
+            <button id="loadMoreBtn" style="cursor: pointer;" class="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold
+            bg-black text-white hover:bg-neutral-800 transition">
+                Load more
+            </button>
+        </div>
 
-    {{>"meetTheTeam"}}
+    </div>
+</section>
+
+{{>"meetTheTeam"}}

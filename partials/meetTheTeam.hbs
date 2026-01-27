@@ -7,8 +7,8 @@
 
             {{#get "authors" limit="all"}}
             {{#foreach authors}}
-            <a href={{url}} class="group text-center team-member-item relative" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
-                <div class="rounded-3xl overflow-hidden aspect-square">
+            <div class="group rounded-3xl overflow-hidden text-center team-member-item relative" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+                <a href={{url}} class="aspect-square">
                     {{#if profile_image}}
                     <img src="{{profile_image}}" alt="{{name}}" class="" />
                     {{else}}
@@ -27,53 +27,55 @@
                         </span>
                     </div>
                     {{/if}}
-                </div>
-                <div class="absolute inset-0 flex flex-col justify-end items-center p-5">
+                </a>
+                <div class="absolute inset-0 flex flex-col justify-end items-center p-5 pointer-events-none">
+                <div class="">
                     <div class="text-base font-semibold text-white">{{name}}</div>
                     <div class="mt-2 text-sm text-white">CEO & Founder</div>
                 </div>
-                      <div class="author-profile-meta flex items-center justify-center gap-5 pt-5 mt-9 border-t border-[#EBEBEB]">
-        {{#if website}}
-        <a class="author-profile-social-link w-9.5 h-9.5 flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{website}}" target="_blank" rel="noopener"></a>
-        {{/if}}
-        {{#if twitter}}
-        <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type="twitter"}}" target="_blank"
-          rel="noopener">{{> "icons/twitter"}}</a>
-        {{/if}}
-        {{#if facebook}}
-        <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type="facebook"}}" target="_blank"
-          rel="noopener">{{> "icons/facebook"}}</a>
-        {{/if}}
-        {{#if linkedin}}
-        <a class="author-profile-social-link w-9.5 h-9.5 flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type="linkedin"}}" target="_blank"
-          rel="noopener">{{> "icons/linkedin"}}</a>
-        {{/if}}
-        {{#if bluesky}}
-        <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type="bluesky"}}" target="_blank"
-          rel="noopener">{{> "icons/bluesky"}}</a>
-        {{/if}}
-        {{#if threads}}
-        <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type="threads"}}" target="_blank"
-          rel="noopener">{{> "icons/threads"}}</a>
-        {{/if}}
-        {{#if mastodon}}
-        <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type="mastodon"}}" target="_blank"
-          rel="noopener">{{> "icons/mastodon"}}</a>
-        {{/if}}
-        {{#if tiktok}}
-        <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type="tiktok"}}" target="_blank"
-          rel="noopener">{{> "icons/tiktok"}}</a>
-        {{/if}}
-        {{#if youtube}}
-        <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type="youtube"}}" target="_blank"
-          rel="noopener">{{> "icons/youtube"}}</a>
-        {{/if}}
-        {{#if instagram}}
-        <a class="author-profile-social-link w-9.5 h-9.5  flex items-center justify-center rounded-full border border-[#EBEBEB] bg-secondary" href="{{social_url type="instagram"}}" target="_blank"
-          rel="noopener">{{> "icons/instagram"}}</a>
-        {{/if}}
-      </div>
-            </a>
+                <div class="author-profile-meta flex items-center justify-center gap-1.5 md:gap-2.5 mt-3 pointer-events-auto">
+      {{#if website}}
+      <a class="cursor-pointer author-profile-social-link w-5.5 md:w-9.5 h-5.5 md:h-9.5 flex items-center justify-center rounded-full bg-white/60 hover:bg-black hover:text-white" href="{{website}}" target="_blank" rel="noopener"></a>
+      {{/if}}
+      {{#if twitter}}
+      <a class="cursor-pointer author-profile-social-link w-5.5 md:w-9.5 h-5.5 md:h-9.5  flex items-center justify-center rounded-full bg-white/60 hover:bg-black hover:text-white" href="{{social_url type="twitter"}}" target="_blank"
+        rel="noopener">{{> "icons/twitter"}}</a>
+      {{/if}}
+      {{#if facebook}}
+      <a class="cursor-pointer author-profile-social-link w-5.5 md:w-9.5 h-5.5 md:h-9.5  flex items-center justify-center rounded-full bg-white/60 hover:bg-black hover:text-white" href="{{social_url type="facebook"}}" target="_blank"
+        rel="noopener">{{> "icons/facebook"}}</a>
+      {{/if}}
+      {{#if linkedin}}
+      <a class="cursor-pointer author-profile-social-link w-5.5 md:w-9.5 h-5.5 md:h-9.5 flex items-center justify-center rounded-full bg-white/60 hover:bg-black hover:text-white" href="{{social_url type="linkedin"}}" target="_blank"
+        rel="noopener">{{> "icons/linkedin"}}</a>
+      {{/if}}
+      {{#if bluesky}}
+      <a class="cursor-pointer author-profile-social-link w-5.5 md:w-9.5 h-5.5 md:h-9.5  flex items-center justify-center rounded-full bg-white/60 hover:bg-black hover:text-white" href="{{social_url type="bluesky"}}" target="_blank"
+        rel="noopener">{{> "icons/bluesky"}}</a>
+      {{/if}}
+      {{#if threads}}
+      <a class="cursor-pointer author-profile-social-link w-5.5 md:w-9.5 h-5.5 md:h-9.5  flex items-center justify-center rounded-full bg-white/60 hover:bg-black hover:text-white" href="{{social_url type="threads"}}" target="_blank"
+        rel="noopener">{{> "icons/threads"}}</a>
+      {{/if}}
+      {{#if mastodon}}
+      <a class="cursor-pointer author-profile-social-link w-5.5 md:w-9.5 h-5.5 md:h-9.5  flex items-center justify-center rounded-full bg-white/60 hover:bg-black hover:text-white" href="{{social_url type="mastodon"}}" target="_blank"
+        rel="noopener">{{> "icons/mastodon"}}</a>
+      {{/if}}
+      {{#if tiktok}}
+      <a class="cursor-pointer author-profile-social-link w-5.5 md:w-9.5 h-5.5 md:h-9.5  flex items-center justify-center rounded-full bg-white/60 hover:bg-black hover:text-white" href="{{social_url type="tiktok"}}" target="_blank"
+        rel="noopener">{{> "icons/tiktok"}}</a>
+      {{/if}}
+      {{#if youtube}}
+      <a class="cursor-pointer author-profile-social-link w-5.5 md:w-9.5 h-5.5 md:h-9.5  flex items-center justify-center rounded-full bg-white/60 hover:bg-black hover:text-white" href="{{social_url type="youtube"}}" target="_blank"
+        rel="noopener">{{> "icons/youtube"}}</a>
+      {{/if}}
+      {{#if instagram}}
+      <a class="cursor-pointer author-profile-social-link w-5.5 md:w-9.5 h-5.5 md:h-9.5  flex items-center justify-center rounded-full bg-white/60 hover:bg-black hover:text-white" href="{{social_url type="instagram"}}" target="_blank"
+        rel="noopener">{{> "icons/instagram"}}</a>
+      {{/if}}
+                </div>
+                </div>
+            </div>
             {{/foreach}}
             {{/get}}
 

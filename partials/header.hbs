@@ -1,6 +1,7 @@
 <header id="siteHeader" data-header-style="{{@custom.header_layout}}" class="header-main">
     <div class="max-w-[1215px] w-[93%] mx-auto relative">
-        <div class="header-inner z-1 flex items-center gap-8 absolute inset-x-0 bg-white/70 backdrop-blur-md border border-white/50 p-2.5 rounded-[50px] mt-5 pl-7.5">
+        <div
+            class="header-inner z-1 flex items-center gap-8 absolute inset-x-0 bg-white/70 backdrop-blur-md border border-white/50 p-4.5 md:p-2.5 rounded-[50px] mt-5 md:pl-7.5">
             <div class="header-logo">
                 <a class="site-header-logo{{#unless @site.logo}} no-image{{/unless}}" href="{{@site.url}}">
                     {{#if @site.logo}}
@@ -10,32 +11,30 @@
                     {{/if}}
                 </a>
             </div>
-
             <!-- CENTER MENU -->
             <nav class="header-menu hidden lg:block">
                 {{navigation}}
                 <div
                     class="header-nav-account-links flex gap-4 items-center lg:hidden border-t border-[#EBEBEB] mt-10 pt-10">
-                       {{#if @member}}
-                <a href="javascript:void(0)" data-members-signout
-                    class="px-5 py-2 text-sm font-medium rounded-full bg-black dark:bg-white dark:text-black text-white hover:bg-[#FF7044] transition">
-                    Sign Out
-                </a>
-                {{else}}
+                    {{#if @member}}
+                    <a href="javascript:void(0)" data-members-signout
+                        class="px-5 py-2 text-sm font-medium rounded-full bg-black dark:bg-white dark:text-black text-white hover:bg-[#FF7044] transition">
+                        Sign Out
+                    </a>
+                    {{else}}
                     <a href="#/portal/signin" class="inline-flex text-sm text-black">Sign In</a>
 
-                <a href="#/portal/signup"
-                    class="hidden lg:inline-flex items-center px-5 py-2 min-h-11 text-sm font-medium rounded-full bg-black text-white hover:text-white hover:bg-accent-bg transition">
-                    Become a Subscriber
-                </a>
+                    <a href="#/portal/signup"
+                        class="hidden lg:inline-flex items-center px-5 py-2 min-h-11 text-sm font-medium rounded-full bg-black text-white hover:text-white hover:bg-accent-bg transition">
+                        Become a Subscriber
+                    </a>
                     {{/if}}
                 </div>
             </nav>
-
             <!-- RIGHT SECTION -->
             <div class="flex items-center gap-3 ml-auto">
                 <button
-                    class="gh-search w-7 h-7 md:w-9.5 md:h-9.5 flex items-center justify-center rounded-full hover:bg-white hover:text-black text-black cursor-pointer"
+                    class="gh-search w-6 h-6 md:w-9.5 md:h-9.5 flex items-center justify-center rounded-full hover:bg-white hover:text-black text-black cursor-pointer"
                     data-ghost-search>{{> "icons/search"}}</button>
 
                 {{#if @member}}
@@ -53,48 +52,46 @@
                     Become a Subscriber
                 </a>
                 {{/if}}
-                <button class="header-utils-burger w-6 h-6 lg:hidden">
-                    <svg viewBox="0 0 21 16" fill="none">
-                        <path
-                            d="M20.0769 1.77778H0.923077C0.678154 1.77778 0.443077 1.68415 0.27077 1.51704C0.0972311 1.35111 0 1.12474 0 0.888889C0 0.653037 0.0972311 0.426666 0.27077 0.26074C0.443077 0.0936294 0.678154 0 0.923077 0H20.0769C20.3218 0 20.5569 0.0936294 20.7292 0.26074C20.9028 0.426666 21 0.653037 21 0.888889C21 1.12474 20.9028 1.35111 20.7292 1.51704C20.5569 1.68415 20.3218 1.77778 20.0769 1.77778ZM21 8C21 7.76415 20.9028 7.53778 20.7292 7.37185C20.5569 7.20474 20.3218 7.11111 20.0769 7.11111H4.92308C4.67815 7.11111 4.44308 7.20474 4.27077 7.37185C4.09723 7.53778 4 7.76415 4 8C4 8.23585 4.09723 8.46222 4.27077 8.62815C4.44308 8.79526 4.67815 8.88889 4.92308 8.88889H20.0769C20.3218 8.88889 20.5569 8.79526 20.7292 8.62815C20.9028 8.46222 21 8.23585 21 8ZM21 15.1111C21 14.8753 20.9028 14.6489 20.7292 14.483C20.5569 14.3159 20.3218 14.2222 20.0769 14.2222H0.923077C0.678154 14.2222 0.443077 14.3159 0.270769 14.483C0.0972308 14.6489 0 14.8753 0 15.1111C0 15.347 0.0972308 15.5733 0.270769 15.7393C0.443077 15.9064 0.678154 16 0.923077 16H20.0769C20.3218 16 20.5569 15.9064 20.7292 15.7393C20.9028 15.5733 21 15.347 21 15.1111Z"
-                            fill="currentColor" />
-                    </svg>
+                <button class="header-utils-burger w-7 h-4 lg:hidden relative">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
+                {{!-- <button class="header-nav-close">
+                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M17.5686 17.5078C17.2135 17.8628 16.6379 17.8628 16.2829 17.5078L0.854299 2.07922C0.499259 1.72418 0.499259 1.14854 0.854299 0.793503C1.20934 0.438463 1.78497 0.438463 2.14001 0.793503L17.5686 16.2221C17.9236 16.5771 17.9236 17.1527 17.5686 17.5078Z"
+                            fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M17.5686 0.793667C17.9236 1.14871 17.9236 1.72434 17.5686 2.07938L2.14001 17.5079C1.78497 17.863 1.20933 17.863 0.854294 17.5079C0.499254 17.1529 0.499254 16.5773 0.854294 16.2222L16.2829 0.793667C16.6379 0.438627 17.2135 0.438627 17.5686 0.793667Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </button> --}}
             </div>
-
         </div>
+
         <nav class="mobile-header-menu block lg:hidden">
             {{navigation}}
             {{!-- {{> main-navigation}} --}}
             <div
                 class="header-nav-account-links flex gap-4 items-center lg:hidden border-t border-[#EBEBEB] mt-10 pt-10">
-                    {{#if @member}}
-            <a href="javascript:void(0)" data-members-signout
-                class="px-5 py-2 text-sm font-medium rounded-full bg-black dark:bg-white dark:text-black text-white hover:bg-[#FF7044] transition">
-                Sign Out
-            </a>
-            {{else}}
+                {{#if @member}}
+                <a href="javascript:void(0)" data-members-signout
+                    class="px-5 py-2 text-sm font-medium rounded-full bg-black dark:bg-white dark:text-black text-white hover:bg-[#FF7044] transition">
+                    Sign Out
+                </a>
+                {{else}}
                 <!-- Sign In -->
-                <a href="#/portal/signin" class="inline-flex text-sm text-black">Sign In</a>
+                <a href="#/portal/signin" class="inline-flex text-base lg:text-sm text-black">Sign In</a>
 
                 <!-- Button -->
                 <!-- Button -->
-            <a href="#/portal/signup"
-                class="hidden lg:inline-flex items-center px-5 py-2 min-h-11 text-sm font-medium rounded-full bg-black text-white hover:text-white hover:bg-accent-bg transition">
-                Become a Subscriber
-            </a>
+                <a href="#/portal/signup"
+                    class="hidden lg:inline-flex items-center px-5 py-2 min-h-11 text-sm font-medium rounded-full bg-black text-white hover:text-white hover:bg-accent-bg transition">
+                    Become a Subscriber
+                </a>
                 {{/if}}
             </div>
-            <button class="header-nav-close">
-                <svg width="19" height="19" viewBox="0 0 19 19" fill="none">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M17.5686 17.5078C17.2135 17.8628 16.6379 17.8628 16.2829 17.5078L0.854299 2.07922C0.499259 1.72418 0.499259 1.14854 0.854299 0.793503C1.20934 0.438463 1.78497 0.438463 2.14001 0.793503L17.5686 16.2221C17.9236 16.5771 17.9236 17.1527 17.5686 17.5078Z"
-                        fill="currentColor"></path>
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M17.5686 0.793667C17.9236 1.14871 17.9236 1.72434 17.5686 2.07938L2.14001 17.5079C1.78497 17.863 1.20933 17.863 0.854294 17.5079C0.499254 17.1529 0.499254 16.5773 0.854294 16.2222L16.2829 0.793667C16.6379 0.438627 17.2135 0.438627 17.5686 0.793667Z"
-                        fill="currentColor"></path>
-                </svg>
-            </button>
         </nav>
     </div>
-</header> 
+</header>
