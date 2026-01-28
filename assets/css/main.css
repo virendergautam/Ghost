@@ -235,9 +235,29 @@ button.button {
   width: 100%;
   padding-inline: 15px;
 
+  @media (width >=48rem) {
+    max-width: 100%;
+  }
+
   @media (width >=112rem) {
     max-width: 1730px;
   }
+
+}
+
+.container-sm {
+  width: 100%;
+  padding-inline: 15px;
+
+  @media (width >=48rem) {
+    max-width: 100%;
+  }
+
+  @media (width >=95rem) {
+    max-width: 1552px;
+  }
+
+
 }
 
 img {
@@ -348,7 +368,7 @@ blockquote {
 
 .trust-icons-cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
@@ -430,9 +450,22 @@ blockquote {
   }
 }
 
-@media (min-width:1023px) {
-  .header-nav-close {
-    display: none;
+@media (min-width:1025px) {
+  .trust-icons-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .team-member-wrapper.team-member-animate .team-member-item {
+    flex: 1;
+    border-radius: 130px;
+    /* transition: flex 0.6s ease; */
+  }
+
+  .team-member-wrapper.team-member-animate .team-member-item.active,
+  .team-member-wrapper.team-member-animate .team-member-item:hover {
+    flex: 2;
+    border-radius: 40px;
+    /* transition: flex 0.6s ease; */
   }
 }
 
@@ -482,7 +515,7 @@ blockquote {
     overflow: auto;
     padding: 20px;
     position: fixed;
-    top: 126px;
+    top: 138px;
     width: 93%;
     z-index: 99999;
     transition: clip-path 0.4s ease-out;
@@ -518,7 +551,8 @@ blockquote {
     opacity: 0;
     visibility: hidden;
   }
-/* 
+
+  /* 
   .header-main:has(.mobile-header-menu.is-open) .header-utils-burger {
     opacity: 0;
     visibility: hidden;

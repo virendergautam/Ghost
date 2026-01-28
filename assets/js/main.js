@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   loadMorePosts();
   customizerBox();
   customizerFunctions();
+  teamHoverActive();
   if (window.AOS) {
     AOS.refreshHard(); // or AOS.refresh()
   }
@@ -313,8 +314,10 @@ const customizerFunctions = () => {
 };
 
 const randomColorBox = () => { 
-  console.log("randommmmmmmmmmmmmmmmmmmmmmmm")
-   const box = document.getElementById("randomColorBox");
+  
+  const box = document.querySelectorAll(".randomColorBox");
+
+  console.log("randommmmmmmmmmmmmmmmmmmmmmmm",box)
 
             // Predefined combinations
             const themes = [
@@ -327,6 +330,23 @@ const randomColorBox = () => {
             ];
 
             // Pick a random one
-            const randomClass = themes[Math.floor(Math.random() * themes.length)];
-            box.classList.add(randomClass);
+            box.forEach((b) => {
+    const randomClass = themes[Math.floor(Math.random() * themes.length)];
+    b.classList.add(randomClass);
+  }
+  );
 }
+
+const teamHoverActive = () => {
+  const wrapper = document.querySelector('.team-member-wrapper');
+  if (!wrapper) return;
+
+  const cards = wrapper.children;
+
+  Array.from(cards).forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      Array.from(cards).forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+    });
+  });
+};

@@ -109,115 +109,117 @@
             </button>
 
             <!-- Panel -->
-            <div id="customizerPanel"
-                class="ml-3 w-[320px] max-w-[85vw] rounded-2xl bg-primary-bg p-5 border border-primary-border">
-                <!-- Brand color -->
-                <!-- Brand color -->
-                <div class="space-y-2">
-                    <p class="text-xs font-semibold">BRAND COLOR</p>
-
-                    <div class="flex items-center h-9 w-full">
-                        <!-- Color picker -->
-                        <input id="brandColorInput" type="color" value="#db2777" class="h-full w-full appearance-none"
-                            aria-label="Select brand color" />
-
-                        <!-- Preview swatch -->
-                        {{!-- <div id="brandColorPreview" class="h-9 w-full rounded-lg border border-neutral-200"
-                            style="background:#db2777"></div> --}}
+            <div id="customizerPanel" class="ml-3 w-[320px] max-w-[85vw] rounded-xl bg-primary-bg p-1 border border-primary-border">
+                <div class="px-4 pt-4">
+                    <div class="space-y-2">
+                        <p class="text-xs font-semibold">BRAND COLOR</p>
+                        <div class="flex items-center h-9 w-full">
+                            <!-- Color picker -->
+                            <input id="brandColorInput" type="color" value="#db2777" class="h-full w-full appearance-none"
+                                aria-label="Select brand color" />
+                        </div>
                     </div>
-                </div>
 
 
-                <!-- Sticky header -->
-                <div class="flex items-center justify-between py-3 border-b border-[#E6E6E6]">
-                    <p class="text-xs font-semibold text-neutral-500">STICKY HEADER</p>
-                    <input type="checkbox" class="h-4 w-4 accent-blue-600" checked />
-                </div>
-
-                <!-- Theme toggle -->
-                <div class="flex items-center justify-between py-3">
-                    <p class="text-xs font-semibold text-neutral-500">THEME TOGGLE</p>
-                    <div class="flex items-center gap-0.5 border border-[#E6E6E6] rounded-sm p-1">
-                        <button class="h-7 w-7 inline-flex items-center justify-center aria-selected:bg-gray-200"
-                            aria-selected="true">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7.99967 12.6665C8.16296 12.6665 8.32057 12.7265 8.44259 12.835C8.56461 12.9435 8.64257 13.093 8.66167 13.2552L8.66634 13.3332V13.9998C8.66615 14.1698 8.60109 14.3332 8.48444 14.4567C8.3678 14.5803 8.20837 14.6547 8.03874 14.6646C7.86912 14.6746 7.70209 14.6194 7.57179 14.5103C7.44148 14.4013 7.35774 14.2466 7.33767 14.0778L7.33301 13.9998V13.3332C7.33301 13.1564 7.40325 12.9868 7.52827 12.8618C7.65329 12.7367 7.82286 12.6665 7.99967 12.6665Z"
-                                    fill="#333333" />
-                                <path
-                                    d="M12.2085 11.2733L12.2712 11.3286L12.7378 11.7953C12.8574 11.9153 12.9268 12.0763 12.932 12.2456C12.9371 12.4149 12.8777 12.5798 12.7657 12.7068C12.6536 12.8339 12.4975 12.9135 12.3288 12.9296C12.1602 12.9456 11.9918 12.8969 11.8578 12.7933L11.7952 12.738L11.3285 12.2713C11.2134 12.1565 11.1443 12.0035 11.1341 11.8413C11.1239 11.6791 11.1734 11.5187 11.2731 11.3903C11.3729 11.262 11.5161 11.1745 11.6758 11.1444C11.8356 11.1142 12.0008 11.1435 12.1405 11.2266L12.2085 11.2733Z"
-                                    fill="#333333" />
-                                <path
-                                    d="M4.67132 11.3287C4.78611 11.4435 4.85506 11.5963 4.86525 11.7583C4.87543 11.9203 4.82616 12.0805 4.72665 12.2087L4.67132 12.2714L4.20465 12.7381C4.08468 12.8576 3.9237 12.9271 3.7544 12.9322C3.5851 12.9374 3.42018 12.8779 3.29314 12.7659C3.16609 12.6539 3.08645 12.4977 3.07039 12.3291C3.05433 12.1605 3.10305 11.9921 3.20665 11.8581L3.26199 11.7954L3.72865 11.3287C3.85367 11.2038 4.02321 11.1335 4.19999 11.1335C4.37676 11.1335 4.5463 11.2038 4.67132 11.3287Z"
-                                    fill="#333333" />
-                                <path
-                                    d="M2.66658 7.33325C2.8365 7.33344 2.99993 7.3985 3.12349 7.51515C3.24705 7.6318 3.3214 7.79122 3.33136 7.96085C3.34132 8.13048 3.28613 8.2975 3.17707 8.42781C3.06801 8.55811 2.91331 8.64185 2.74458 8.66192L2.66658 8.66659H1.99991C1.82999 8.6664 1.66656 8.60133 1.543 8.48469C1.41944 8.36804 1.34509 8.20862 1.33513 8.03899C1.32517 7.86936 1.38036 7.70233 1.48942 7.57203C1.59848 7.44173 1.75318 7.35799 1.92191 7.33792L1.99991 7.33325H2.66658Z"
-                                    fill="#333333" />
-                                <path
-                                    d="M13.9996 7.3335C14.1695 7.33368 14.3329 7.39875 14.4565 7.51539C14.5801 7.63204 14.6544 7.79146 14.6644 7.96109C14.6743 8.13072 14.6191 8.29775 14.5101 8.42805C14.401 8.55835 14.2463 8.64209 14.0776 8.66216L13.9996 8.66683H13.3329C13.163 8.66664 12.9996 8.60158 12.876 8.48493C12.7525 8.36828 12.6781 8.20886 12.6681 8.03923C12.6582 7.86961 12.7134 7.70258 12.8224 7.57227C12.9315 7.44197 13.0862 7.35823 13.2549 7.33816L13.3329 7.3335H13.9996Z"
-                                    fill="#333333" />
-                                <path
-                                    d="M4.14208 3.20665L4.20475 3.26198L4.67142 3.72865C4.79098 3.84862 4.8604 4.00961 4.86557 4.17891C4.87074 4.34821 4.81127 4.51312 4.69925 4.64017C4.58723 4.76721 4.43105 4.84685 4.26243 4.86292C4.09382 4.87898 3.92541 4.83026 3.79142 4.72665L3.72875 4.67132L3.26208 4.20465C3.14748 4.08977 3.07871 3.93703 3.06866 3.77507C3.05862 3.61311 3.10799 3.45305 3.20753 3.32489C3.30706 3.19673 3.44992 3.10927 3.60933 3.07891C3.76874 3.04855 3.93374 3.07738 4.07342 3.15998L4.14208 3.20665Z"
-                                    fill="#333333" />
-                                <path
-                                    d="M12.7377 3.26209C12.8525 3.37688 12.9215 3.52961 12.9317 3.69163C12.9418 3.85365 12.8926 4.01382 12.7931 4.14209L12.7377 4.20475L12.2711 4.67142C12.1511 4.79098 11.9901 4.8604 11.8208 4.86557C11.6515 4.87074 11.4866 4.81128 11.3595 4.69925C11.2325 4.58723 11.1529 4.43105 11.1368 4.26244C11.1207 4.09382 11.1695 3.92541 11.2731 3.79142L11.3284 3.72875L11.7951 3.26209C11.9201 3.1371 12.0896 3.06689 12.2664 3.06689C12.4432 3.06689 12.6127 3.1371 12.7377 3.26209Z"
-                                    fill="#333333" />
-                                <path
-                                    d="M7.99967 1.3335C8.16296 1.33352 8.32057 1.39347 8.44259 1.50197C8.56461 1.61048 8.64257 1.76 8.66167 1.92216L8.66634 2.00016V2.66683C8.66615 2.83675 8.60109 3.00018 8.48444 3.12374C8.3678 3.2473 8.20837 3.32165 8.03874 3.33161C7.86912 3.34157 7.70209 3.28638 7.57179 3.17732C7.44148 3.06826 7.35774 2.91356 7.33767 2.74483L7.33301 2.66683V2.00016C7.33301 1.82335 7.40325 1.65378 7.52827 1.52876C7.65329 1.40373 7.82286 1.3335 7.99967 1.3335Z"
-                                    fill="#333333" />
-                                <path
-                                    d="M8.00033 4.6665C8.65344 4.66647 9.29218 4.8583 9.83721 5.21817C10.3822 5.57804 10.8095 6.0901 11.066 6.69074C11.3225 7.29139 11.3969 7.95415 11.28 8.59671C11.163 9.23927 10.8599 9.83332 10.4082 10.3051C9.95653 10.7768 9.37622 11.1055 8.73935 11.2503C8.10247 11.395 7.43711 11.3495 6.82588 11.1193C6.21466 10.8892 5.68452 10.4846 5.3013 9.95568C4.91808 9.42681 4.69867 8.79701 4.67033 8.1445L4.66699 7.99984L4.67033 7.85517C4.70761 6.997 5.07473 6.18636 5.69514 5.59228C6.31555 4.9982 7.14135 4.66655 8.00033 4.6665Z"
-                                    fill="#333333" />
-                            </svg>
-
-                        </button>
-                        <button class="h-7 w-7 inline-flex items-center justify-center aria-selected:bg-gray-200"
-                            aria-selected="false">
-                            <svg width="13" height="14" viewBox="0 0 13 14" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M6.66544 0C5.45858 0.000221776 4.27442 0.328048 3.23926 0.948509C2.20411 1.56897 1.3568 2.45879 0.78771 3.52306C0.218624 4.58732 -0.0508885 5.7861 0.0079214 6.99153C0.0667313 8.19696 0.451657 9.36381 1.12164 10.3676C1.79162 11.3714 2.72153 12.1746 3.81216 12.6913C4.9028 13.2081 6.11325 13.4191 7.3144 13.3018C8.51556 13.1845 9.66235 12.7434 10.6325 12.0255C11.6026 11.3076 12.3596 10.3398 12.8228 9.22533C13.0501 8.67867 12.5054 8.12933 11.9574 8.352C11.0182 8.73245 9.97538 8.77171 9.01022 8.46295C8.04505 8.1542 7.21862 7.51695 6.67461 6.66201C6.13059 5.80708 5.9034 4.78852 6.03254 3.78344C6.16168 2.77835 6.63897 1.85031 7.38144 1.16067L7.43278 1.10733C7.80011 0.687333 7.50811 0.00533334 6.92744 0.00533334H6.75011L6.70478 0.00133332L6.66478 0H6.66544Z"
-                                    fill="#666666" />
-                            </svg>
-
-                        </button>
+                    <!-- Sticky header -->
+                    <div class="flex items-center justify-between py-4">
+                        <p class="text-xs font-semibold">STICKY HEADER</p>
+                        <input type="checkbox" class="h-4 w-4 accent-blue-600" checked />
                     </div>
+
+                    <!-- Theme toggle -->
+                    {{!-- <div class="flex items-center justify-between py-4">
+                        <p class="text-xs font-semibold">THEME TOGGLE</p>
+                        <div class="flex items-center gap-0.5 border border-[#E6E6E6] rounded-sm p-1">
+                            <button class="h-7 w-7 inline-flex items-center justify-center aria-selected:bg-gray-200"
+                                aria-selected="true">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7.99967 12.6665C8.16296 12.6665 8.32057 12.7265 8.44259 12.835C8.56461 12.9435 8.64257 13.093 8.66167 13.2552L8.66634 13.3332V13.9998C8.66615 14.1698 8.60109 14.3332 8.48444 14.4567C8.3678 14.5803 8.20837 14.6547 8.03874 14.6646C7.86912 14.6746 7.70209 14.6194 7.57179 14.5103C7.44148 14.4013 7.35774 14.2466 7.33767 14.0778L7.33301 13.9998V13.3332C7.33301 13.1564 7.40325 12.9868 7.52827 12.8618C7.65329 12.7367 7.82286 12.6665 7.99967 12.6665Z"
+                                        fill="#333333" />
+                                    <path
+                                        d="M12.2085 11.2733L12.2712 11.3286L12.7378 11.7953C12.8574 11.9153 12.9268 12.0763 12.932 12.2456C12.9371 12.4149 12.8777 12.5798 12.7657 12.7068C12.6536 12.8339 12.4975 12.9135 12.3288 12.9296C12.1602 12.9456 11.9918 12.8969 11.8578 12.7933L11.7952 12.738L11.3285 12.2713C11.2134 12.1565 11.1443 12.0035 11.1341 11.8413C11.1239 11.6791 11.1734 11.5187 11.2731 11.3903C11.3729 11.262 11.5161 11.1745 11.6758 11.1444C11.8356 11.1142 12.0008 11.1435 12.1405 11.2266L12.2085 11.2733Z"
+                                        fill="#333333" />
+                                    <path
+                                        d="M4.67132 11.3287C4.78611 11.4435 4.85506 11.5963 4.86525 11.7583C4.87543 11.9203 4.82616 12.0805 4.72665 12.2087L4.67132 12.2714L4.20465 12.7381C4.08468 12.8576 3.9237 12.9271 3.7544 12.9322C3.5851 12.9374 3.42018 12.8779 3.29314 12.7659C3.16609 12.6539 3.08645 12.4977 3.07039 12.3291C3.05433 12.1605 3.10305 11.9921 3.20665 11.8581L3.26199 11.7954L3.72865 11.3287C3.85367 11.2038 4.02321 11.1335 4.19999 11.1335C4.37676 11.1335 4.5463 11.2038 4.67132 11.3287Z"
+                                        fill="#333333" />
+                                    <path
+                                        d="M2.66658 7.33325C2.8365 7.33344 2.99993 7.3985 3.12349 7.51515C3.24705 7.6318 3.3214 7.79122 3.33136 7.96085C3.34132 8.13048 3.28613 8.2975 3.17707 8.42781C3.06801 8.55811 2.91331 8.64185 2.74458 8.66192L2.66658 8.66659H1.99991C1.82999 8.6664 1.66656 8.60133 1.543 8.48469C1.41944 8.36804 1.34509 8.20862 1.33513 8.03899C1.32517 7.86936 1.38036 7.70233 1.48942 7.57203C1.59848 7.44173 1.75318 7.35799 1.92191 7.33792L1.99991 7.33325H2.66658Z"
+                                        fill="#333333" />
+                                    <path
+                                        d="M13.9996 7.3335C14.1695 7.33368 14.3329 7.39875 14.4565 7.51539C14.5801 7.63204 14.6544 7.79146 14.6644 7.96109C14.6743 8.13072 14.6191 8.29775 14.5101 8.42805C14.401 8.55835 14.2463 8.64209 14.0776 8.66216L13.9996 8.66683H13.3329C13.163 8.66664 12.9996 8.60158 12.876 8.48493C12.7525 8.36828 12.6781 8.20886 12.6681 8.03923C12.6582 7.86961 12.7134 7.70258 12.8224 7.57227C12.9315 7.44197 13.0862 7.35823 13.2549 7.33816L13.3329 7.3335H13.9996Z"
+                                        fill="#333333" />
+                                    <path
+                                        d="M4.14208 3.20665L4.20475 3.26198L4.67142 3.72865C4.79098 3.84862 4.8604 4.00961 4.86557 4.17891C4.87074 4.34821 4.81127 4.51312 4.69925 4.64017C4.58723 4.76721 4.43105 4.84685 4.26243 4.86292C4.09382 4.87898 3.92541 4.83026 3.79142 4.72665L3.72875 4.67132L3.26208 4.20465C3.14748 4.08977 3.07871 3.93703 3.06866 3.77507C3.05862 3.61311 3.10799 3.45305 3.20753 3.32489C3.30706 3.19673 3.44992 3.10927 3.60933 3.07891C3.76874 3.04855 3.93374 3.07738 4.07342 3.15998L4.14208 3.20665Z"
+                                        fill="#333333" />
+                                    <path
+                                        d="M12.7377 3.26209C12.8525 3.37688 12.9215 3.52961 12.9317 3.69163C12.9418 3.85365 12.8926 4.01382 12.7931 4.14209L12.7377 4.20475L12.2711 4.67142C12.1511 4.79098 11.9901 4.8604 11.8208 4.86557C11.6515 4.87074 11.4866 4.81128 11.3595 4.69925C11.2325 4.58723 11.1529 4.43105 11.1368 4.26244C11.1207 4.09382 11.1695 3.92541 11.2731 3.79142L11.3284 3.72875L11.7951 3.26209C11.9201 3.1371 12.0896 3.06689 12.2664 3.06689C12.4432 3.06689 12.6127 3.1371 12.7377 3.26209Z"
+                                        fill="#333333" />
+                                    <path
+                                        d="M7.99967 1.3335C8.16296 1.33352 8.32057 1.39347 8.44259 1.50197C8.56461 1.61048 8.64257 1.76 8.66167 1.92216L8.66634 2.00016V2.66683C8.66615 2.83675 8.60109 3.00018 8.48444 3.12374C8.3678 3.2473 8.20837 3.32165 8.03874 3.33161C7.86912 3.34157 7.70209 3.28638 7.57179 3.17732C7.44148 3.06826 7.35774 2.91356 7.33767 2.74483L7.33301 2.66683V2.00016C7.33301 1.82335 7.40325 1.65378 7.52827 1.52876C7.65329 1.40373 7.82286 1.3335 7.99967 1.3335Z"
+                                        fill="#333333" />
+                                    <path
+                                        d="M8.00033 4.6665C8.65344 4.66647 9.29218 4.8583 9.83721 5.21817C10.3822 5.57804 10.8095 6.0901 11.066 6.69074C11.3225 7.29139 11.3969 7.95415 11.28 8.59671C11.163 9.23927 10.8599 9.83332 10.4082 10.3051C9.95653 10.7768 9.37622 11.1055 8.73935 11.2503C8.10247 11.395 7.43711 11.3495 6.82588 11.1193C6.21466 10.8892 5.68452 10.4846 5.3013 9.95568C4.91808 9.42681 4.69867 8.79701 4.67033 8.1445L4.66699 7.99984L4.67033 7.85517C4.70761 6.997 5.07473 6.18636 5.69514 5.59228C6.31555 4.9982 7.14135 4.66655 8.00033 4.6665Z"
+                                        fill="#333333" />
+                                </svg>
+
+                            </button>
+                            <button class="h-7 w-7 inline-flex items-center justify-center aria-selected:bg-gray-200"
+                                aria-selected="false">
+                                <svg width="13" height="14" viewBox="0 0 13 14" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M6.66544 0C5.45858 0.000221776 4.27442 0.328048 3.23926 0.948509C2.20411 1.56897 1.3568 2.45879 0.78771 3.52306C0.218624 4.58732 -0.0508885 5.7861 0.0079214 6.99153C0.0667313 8.19696 0.451657 9.36381 1.12164 10.3676C1.79162 11.3714 2.72153 12.1746 3.81216 12.6913C4.9028 13.2081 6.11325 13.4191 7.3144 13.3018C8.51556 13.1845 9.66235 12.7434 10.6325 12.0255C11.6026 11.3076 12.3596 10.3398 12.8228 9.22533C13.0501 8.67867 12.5054 8.12933 11.9574 8.352C11.0182 8.73245 9.97538 8.77171 9.01022 8.46295C8.04505 8.1542 7.21862 7.51695 6.67461 6.66201C6.13059 5.80708 5.9034 4.78852 6.03254 3.78344C6.16168 2.77835 6.63897 1.85031 7.38144 1.16067L7.43278 1.10733C7.80011 0.687333 7.50811 0.00533334 6.92744 0.00533334H6.75011L6.70478 0.00133332L6.66478 0H6.66544Z"
+                                        fill="#666666" />
+                                </svg>
+
+                            </button>
+                        </div>
+                    </div> --}}
                 </div>
 
                 <!-- Selects -->
 
-                <div class="space-y-3">
-                    <p class="text-xs font-semibold">HEADING FONT</p>
-                    <select id="headingFontSelect"
-                        class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none">
-                        <option value="Default">Default</option>
-                        <option value="Cardo">Cardo</option>
-                        <option value="Chakra Petch">Chakra Petch</option>
-                        <option value="Fira Mono">Fira Mono</option>
-                        <option value="Fira Sans">Fira Sans</option>
-                        <option value="IBM Plex Serif">IBM Plex Serif</option>
-                        <option value="Inter">Inter</option>
-                        <option value="JetBrains Mono">JetBrains Mono</option>
-                        <option value="Libre Baskerville">Libre Baskerville</option>
-                        <option value="Lora">Lora</option>
-                        <option value="Manrope">Manrope</option>
-                        <option value="Merriweather">Merriweather</option>
-                        <option value="Noto Sans">Noto Sans</option>
-                        <option value="Noto Serif">Noto Serif</option>
-                        <option value="Nunito">Nunito</option>
-                        <option value="Old Standard TT">Old Standard TT</option>
-                        <option value="Poppins">Poppins</option>
-                        <option value="Roboto">Roboto</option>
-                        <option value="Rufina">Rufina</option>
-                        <option value="Space Grotesk">Space Grotesk</option>
-                        <option value="Space Mono">Space Mono</option>
-                        <option value="Tenor Sans">Tenor Sans</option>
-                    </select>
-                    <p class="text-xs font-semibold">BODY FONT</p>
+                <div class=" bg-secondary-bg px-4 py-5 rounded-[8px]">
+                    <p class="text-xs font-semibold mb-2">HEADING FONT</p>
+                    <div class="relative mb-5">
+                        <select id="headingFontSelect"
+                            class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none bg-primary-bg">
+                            <option value="Default">Default</option>
+                            <option value="Cardo">Cardo</option>
+                            <option value="Chakra Petch">Chakra Petch</option>
+                            <option value="Fira Mono">Fira Mono</option>
+                            <option value="Fira Sans">Fira Sans</option>
+                            <option value="IBM Plex Serif">IBM Plex Serif</option>
+                            <option value="Inter">Inter</option>
+                            <option value="JetBrains Mono">JetBrains Mono</option>
+                            <option value="Libre Baskerville">Libre Baskerville</option>
+                            <option value="Lora">Lora</option>
+                            <option value="Manrope">Manrope</option>
+                            <option value="Merriweather">Merriweather</option>
+                            <option value="Noto Sans">Noto Sans</option>
+                            <option value="Noto Serif">Noto Serif</option>
+                            <option value="Nunito">Nunito</option>
+                            <option value="Old Standard TT">Old Standard TT</option>
+                            <option value="Poppins">Poppins</option>
+                            <option value="Roboto">Roboto</option>
+                            <option value="Rufina">Rufina</option>
+                            <option value="Space Grotesk">Space Grotesk</option>
+                            <option value="Space Mono">Space Mono</option>
+                            <option value="Tenor Sans">Tenor Sans</option>
+                        </select>
+                        <div class="absolute right-2.5 top-[50%]">
+                            <svg width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                <path d="M0.787109 0.787476L3.28711 2.78748L5.78711 0.787476" stroke="currentColor" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg> 
+                        </div>
+                    </div>
 
+                    <p class="text-xs font-semibold mb-2">BODY FONT</p>
+                    <div class="relative mb-5">
                     <select id="bodyFontSelect"
-                        class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none">
+                        class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none bg-primary-bg">
                         <option value="Default">Default</option>
                         <option value="Fira Mono">Fira Mono</option>
                         <option value="Fira Sans">Fira Sans</option>
@@ -234,15 +236,17 @@
                         <option value="Roboto">Roboto</option>
                         <option value="Space Mono">Space Mono</option>
                     </select>
-
-
-
-                </div>
-                <div class="space-y-2">
-                    <p class="text-xs font-semibold">COLOR SCHEME</p>
-
+                    <div class="absolute right-2.5 top-[50%]">
+                            <svg width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                <path d="M0.787109 0.787476L3.28711 2.78748L5.78711 0.787476" stroke="currentColor" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        </div>
+                
+                    <p class="text-xs font-semibold mb-2">COLOR SCHEME</p>
+                    <div class="relative">
                     <select id="colorSchemeSelect"
-                        class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none">
+                        class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none bg-primary-bg">
                         <option value="default">Default</option>
                         <option value="dark-trail">Dark Trail</option>
                         <option value="natural-escape">Natural Escape</option>
@@ -252,7 +256,14 @@
                         <option value="mocha-dark">Mocha Dark</option>
                         <option value="dark-amethyst">Dark Amethyst</option>
                     </select>
-                </div>
+                    <div class="absolute right-2.5 top-[50%]">
+                            <svg width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                <path d="M0.787109 0.787476L3.28711 2.78748L5.78711 0.787476" stroke="currentColor" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        </div>
+
+                    </div>
                 {{!-- <button
                     class="w-full rounded-sm bg-neutral-100 py-2 text-xs font-semibold text-neutral-700 hover:bg-neutral-200 mt-3">
                     Reset
