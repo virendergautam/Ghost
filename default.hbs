@@ -14,7 +14,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     {{!--
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
@@ -23,44 +23,26 @@
         rel="stylesheet"> --}}
 
     {{ghost_head}}
+
     <script src="{{asset "js/main.js"}}"></script>
-    
 </head>
 
 <body data-color-scheme="{{@custom.color_scheme}}">
-      
+
     <script>
-           (function () {
-  const scheme = document.body.dataset.colorScheme;
-  if (!scheme) return;
+        (function () {
+            const scheme = document.body.dataset.colorScheme;
+            if (!scheme) return;
 
-  // If Ghost already has a scheme class, do nothing
-  if (document.body.classList.length > 0) return;
+            // If Ghost already has a scheme class, do nothing
+            if (document.body.classList.length > 0) return;
 
-  const slug = scheme.trim().toLowerCase().replace(/\s+/g, "-");
-  document.body.classList.add(slug);
-})();
+            const slug = scheme.trim().toLowerCase().replace(/\s+/g, "-");
+            document.body.classList.add(slug);
+        })();
 
     </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const box = document.getElementById("randomColorBox");
 
-            // Predefined combinations
-            const themes = [
-                "color-theme-1",
-                "color-theme-2",
-                "color-theme-3",
-                "color-theme-4",
-                "color-theme-5",
-                "color-theme-6"
-            ];
-
-            // Pick a random one
-            const randomClass = themes[Math.floor(Math.random() * themes.length)];
-            box.classList.add(randomClass);
-        });
-    </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const header = document.getElementById("siteHeader");
@@ -109,8 +91,6 @@
 
 
         {{{body}}}
-
-
 
 
         <!-- Slide-in panel container (right side) -->
@@ -280,224 +260,6 @@
 
             </div>
         </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const select = document.getElementById("colorSchemeSelect");
-                select.value=document.body.classList
-                if (!select) return;
-
-                const schemes = [
-                    "default",
-                    "dark-trail",
-                    "natural-escape",
-                    "urban-mist",
-                    "aqua-marine",
-                    "desert-bloom",
-                    "mocha-dark",
-                    "dark-amethyst"
-                ];
-
-                function applyScheme(value) {
-                    document.body.classList.remove(...schemes);
-                    document.body.classList.add(value);
-                }
-
-                // Apply on change
-                select.addEventListener("change", (e) => {
-                    applyScheme(e.target.value);
-                });
-            });
-        </script>
-        <script>
-            (function () {
-                const input = document.getElementById("brandColorInput");
-                const resetBtn = document.getElementById("customizerReset");
-
-                if (!input) return;
-
-                const KEY = "theme_brand_color";
-
-                // Apply override
-                function applyColor(color) {
-                    // Override the base variable your Tailwind mapping uses
-                    document.documentElement.style.setProperty("--ghost-accent-color", color);
-                }
-
-                // Remove override and fall back to CSS default
-                function clearColor() {
-                    document.documentElement.style.removeProperty("--ghost-accent-color");
-                }
-
-                // 1) Load saved color on page load
-                const saved = localStorage.getItem(KEY);
-                if (saved) {
-                    input.value = saved;
-                    applyColor(saved);
-                } else {
-                    // If nothing saved, don't override Ghost accent
-                    clearColor();
-                }
-
-                // 2) On change, set + save
-                input.addEventListener("input", (e) => {
-                    const color = e.target.value;
-                    applyColor(color);
-                    localStorage.setItem(KEY, color);
-                });
-
-                // 3) Reset button clears storage + resets to Ghost accent
-                if (resetBtn) {
-                    resetBtn.addEventListener("click", (e) => {
-                        e.preventDefault();
-                        localStorage.removeItem(KEY);
-                        clearColor();
-                    });
-                }
-            })();
-        </script>
-        <script>
-            (function () {
-                if (location.pathname.startsWith('/ghost/')) return;
-
-                const headingSelect = document.getElementById('headingFontSelect');
-                const bodySelect = document.getElementById('bodyFontSelect');
-                const resetBtn = document.getElementById('customizerReset');
-
-                if (!headingSelect || !bodySelect) return;
-
-                const SYSTEM_STACK = 'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif';
-                const SERIF_STACK = 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif';
-                const MONO_STACK = 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
-
-                const FONT_STACKS = {
-                    "Default": null, // means: use Ghost defaults
-
-                    // shared fonts
-                    "Fira Mono": `"Fira Mono", ${MONO_STACK}`,
-                    "Fira Sans": `"Fira Sans", ${SYSTEM_STACK}`,
-                    "IBM Plex Serif": `"IBM Plex Serif", ${SERIF_STACK}`,
-                    "Inter": `"Inter", ${SYSTEM_STACK}`,
-                    "JetBrains Mono": `"JetBrains Mono", ${MONO_STACK}`,
-                    "Lora": `"Lora", ${SERIF_STACK}`,
-                    "Manrope": `"Manrope", ${SYSTEM_STACK}`,
-                    "Merriweather": `"Merriweather", ${SERIF_STACK}`,
-                    "Noto Sans": `"Noto Sans", ${SYSTEM_STACK}`,
-                    "Noto Serif": `"Noto Serif", ${SERIF_STACK}`,
-                    "Nunito": `"Nunito", ${SYSTEM_STACK}`,
-                    "Poppins": `"Poppins", ${SYSTEM_STACK}`,
-                    "Roboto": `"Roboto", ${SYSTEM_STACK}`,
-                    "Space Mono": `"Space Mono", ${MONO_STACK}`,
-
-                    // heading-only extras (keep if your heading list uses these)
-                    "Cardo": `"Cardo", ${SERIF_STACK}`,
-                    "Chakra Petch": `"Chakra Petch", ${SYSTEM_STACK}`,
-                    "Libre Baskerville": `"Libre Baskerville", ${SERIF_STACK}`,
-                    "Old Standard TT": `"Old Standard TT", ${SERIF_STACK}`,
-                    "Rufina": `"Rufina", ${SERIF_STACK}`,
-                    "Space Grotesk": `"Space Grotesk", ${SYSTEM_STACK}`,
-                    "Tenor Sans": `"Tenor Sans", ${SYSTEM_STACK}`
-                };
-
-                const GF = {
-                    "Cardo": "https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap",
-                    "Chakra Petch": "https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap",
-                    "Fira Mono": "https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap",
-                    "Fira Sans": "https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap",
-                    "IBM Plex Serif": "https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&display=swap",
-                    "Inter": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
-                    "JetBrains Mono": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap",
-                    "Libre Baskerville": "https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap",
-                    "Lora": "https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap",
-                    "Manrope": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap",
-                    "Merriweather": "https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap",
-                    "Noto Sans": "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap",
-                    "Noto Serif": "https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&display=swap",
-                    "Nunito": "https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap",
-                    "Old Standard TT": "https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&display=swap",
-                    "Poppins": "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap",
-                    "Roboto": "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap",
-                    "Rufina": "https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap",
-                    "Space Grotesk": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap",
-                    "Space Mono": "https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap",
-                    "Tenor Sans": "https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap"
-                };
-
-                function ensurePreconnect() {
-                    if (document.getElementById("gf-preconnect-1")) return;
-
-                    const p1 = document.createElement("link");
-                    p1.id = "gf-preconnect-1";
-                    p1.rel = "preconnect";
-                    p1.href = "https://fonts.googleapis.com";
-                    document.head.appendChild(p1);
-
-                    const p2 = document.createElement("link");
-                    p2.id = "gf-preconnect-2";
-                    p2.rel = "preconnect";
-                    p2.href = "https://fonts.gstatic.com";
-                    p2.crossOrigin = "anonymous";
-                    document.head.appendChild(p2);
-                }
-
-                function ensureFontLoaded(name) {
-                    const href = GF[name];
-                    if (!href) return;
-
-                    const id = "gf-" + name.toLowerCase().replace(/\s+/g, "-");
-                    if (document.getElementById(id)) return;
-
-                    ensurePreconnect();
-
-                    const link = document.createElement("link");
-                    link.id = id;
-                    link.rel = "stylesheet";
-                    link.href = href;
-                    document.head.appendChild(link);
-                }
-
-                function applyHeading(name) {
-                    if (name === "Default") {
-                        document.documentElement.style.removeProperty("--preview-font-heading");
-                        document.documentElement.style.setProperty("--preview-font-heading", "var(--gh-font-heading, var(--gh-font-body))");
-                        return;
-                    }
-                    ensureFontLoaded(name);
-                    document.documentElement.style.setProperty("--preview-font-heading", FONT_STACKS[name] || SYSTEM_STACK);
-                }
-
-                function applyBody(name) {
-                    if (name === "Default") {
-                        document.documentElement.style.removeProperty("--preview-font-body");
-                        document.documentElement.style.setProperty("--preview-font-body", "var(--gh-font-body)");
-                        return;
-                    }
-                    ensureFontLoaded(name);
-                    document.documentElement.style.setProperty("--preview-font-body", FONT_STACKS[name] || SYSTEM_STACK);
-                }
-
-                // Defaults = follow Ghost settings
-                headingSelect.value = "Default";
-                bodySelect.value = "Default";
-                applyHeading("Default");
-                applyBody("Default");
-
-                headingSelect.addEventListener("change", () => applyHeading(headingSelect.value));
-                bodySelect.addEventListener("change", () => applyBody(bodySelect.value));
-
-                if (resetBtn) {
-                    resetBtn.addEventListener("click", (e) => {
-                        e.preventDefault();
-                        headingSelect.value = "Default";
-                        bodySelect.value = "Default";
-                        applyHeading("Default");
-                        applyBody("Default");
-                    });
-                }
-            })();
-        </script>
-
-
-
         <style>
             .writing-mode-vertical {
                 writing-mode: vertical-rl;
@@ -505,186 +267,11 @@
             }
         </style>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const toggle = document.getElementById("customizerToggle");
-                const closeBtn = document.getElementById("customizerClose");
-                const panel = document.getElementById("customizer");
-
-                const openPanel = () => {
-                    panel.classList.remove("translate-x-0");
-                    panel.classList.add("translate-x-[-100%]");
-                    toggle.setAttribute("aria-expanded", "true");
-                };
-
-                const closePanel = () => {
-                    panel.classList.add("translate-x-0");
-                    panel.classList.remove("translate-x-[-100%]");
-                    toggle.setAttribute("aria-expanded", "false");
-                };
-
-                toggle.addEventListener("click", () => {
-                    const isOpen = toggle.getAttribute("aria-expanded") === "true";
-                    isOpen ? closePanel() : openPanel();
-                });
-
-                closeBtn.addEventListener("click", closePanel);
-
-                // Optional: close on ESC
-                document.addEventListener("keydown", (e) => {
-                    if (e.key === "Escape") closePanel();
-                });
-            });
-        </script>
-
-        {{!-- <footer class="border-t border-[#EBEBEB] pt-16">
-            <div class="container mx-auto">
-                <div class="grid grid-cols-1 lg:grid-cols-2">
-                    <div class="grid gap-10 md:grid-cols-4">
-                        <!-- Column 1 -->
-                        <div>
-                            <h4 class="text-base font-bold mb-6">Features</h4>
-                            <ul class="space-y-2 text-sm">
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Style Guide</a></li>
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Tags</a></li>
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Authors</a></li>
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Features</a></li>
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Contact</a></li>
-                            </ul>
-                        </div>
-
-                        <!-- Column 2 -->
-                        <div>
-                            <h4 class="text-base font-bold mb-6">Pages</h4>
-                            <ul class="space-y-2 text-sm">
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Membership</a></li>
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Sign In</a></li>
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Sign Up</a></li>
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Account Free</a></li>
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Account Paid</a></li>
-                            </ul>
-                        </div>
-
-                        <!-- Column 3 -->
-                        <div>
-                            <h4 class="text-base font-bold mb-6">About</h4>
-                            <ul class="space-y-2 text-sm">
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Privacy Policy</a></li>
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Terms</a></li>
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Contact</a></li>
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">404 Error</a></li>
-                            </ul>
-                        </div>
-
-                        <!-- Column 4 -->
-                        <div>
-                            <h4 class="text-base font-bold mb-6">Quick Links</h4>
-                            <ul class="space-y-2 text-sm">
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Signin</a></li>
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Signup</a></li>
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Free Account</a></li>
-                                <li><a href="#" class="hover:text-[var(--ghost-accent-color)]">Paid Account</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Newsletter -->
-                    <div class="max-w-[480px] lg:ml-auto mt-10 md:mt-10 lg:mt-0">
-                        <h4 class="text-base font-bold mb-6">
-                            Subscribe to our newsletter
-                        </h4>
-                        <p class="text-sm mb-6">
-                            Join our newsletter to stay up to date on features and releases.
-                        </p>
-                        <form
-                            class="grid grid-cols-(--my-grid-cols) bg-transparent rounded-full border border-[#EBEBEB] p-[3px] h-[50px] overflow-hidden">
-                            <input type="email" class="min-w-0 flex-1 px-4 text-sm bg-transparent outline-none"
-                                placeholder="Enter your email" />
-                            <button type="submit"
-                                class="button px-6 py-2 text-sm font-semibold h-full text-white rounded-full">
-                                Subscribe
-                            </button>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Divider -->
-                <div
-                    class="border-t border-gray-200 mt-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-                    <p>© 2025 Shine. Published with Ghost and Shine Themes.</p>
-
-                    <!-- Social icons (placeholder SVGs) -->
-                    <div class="flex items-center gap-2 text-gray-700">
-                        <!-- Facebook -->
-                        <a href="#" aria-label="Facebook"
-                            class="flex items-center justify-center w-6 h-6 hover:text-gray-900">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M13 22v-7h3l1-4h-4V8a1 1 0 0 1 1-1h3V3h-3a5 5 0 0 0-5 5v3H6v4h3v7h4z" />
-                            </svg>
-                        </a>
-                        <!-- X / Twitter -->
-                        <a href="#" aria-label="X" class="flex items-center justify-center w-6 h-6 hover:text-gray-900">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M17.1 3H20l-6.6 7.5L20.7 21H16l-4.3-5.7L7 21H4.1l7-7.9L3.7 3H8l3.8 5.1L17.1 3z" />
-                            </svg>
-                        </a>
-                        <!-- Instagram -->
-                        <a href="#" aria-label="Instagram"
-                            class="flex items-center justify-center w-6 h-6 hover:text-gray-900">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.75 6a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17.75 6z" />
-                            </svg>
-                        </a>
-                        <!-- TikTok -->
-                        <a href="#" aria-label="TikTok"
-                            class="flex items-center justify-center w-6 h-6 hover:text-gray-900">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M19 7.1a4.5 4.5 0 0 1-2.7-1.3A4.7 4.7 0 0 1 15 3h-2v12.1A2.4 2.4 0 0 1 10.6 17 2.6 2.6 0 0 1 8 14.4 2.6 2.6 0 0 1 10.6 12a2.3 2.3 0 0 1 1.1.3V9.2a5.2 5.2 0 0 0-1.1-.1 5.4 5.4 0 0 0-5.6 5.3A5.3 5.3 0 0 0 10.6 20 5.1 5.1 0 0 0 16 15V9.6a6.5 6.5 0 0 0 3 1z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </footer> --}}
         {{> "footer"}}
 
     </div>
-
-    {{!--
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const tagCards = document.querySelectorAll(".tag-specific-card");
-            const posts = document.querySelectorAll(".tag-specifc-post");
-            const container = document.getElementById("postsContainer");
-
-            tagCards.forEach(card => {
-                card.addEventListener("click", () => {
-                    console.log(card.dataset.tags, "card.dataset.tag")
-                    const selectedTag = card.dataset.tags.toLowerCase();
-
-                    // Clear all posts
-                    posts.forEach(p => p.style.display = "none");
-
-                    // Show only posts that include this tag
-                    posts.forEach(p => {
-                        console.log(p.dataset.tags, "p.dataset.tags")
-
-                        const tags = p.dataset.tags.split(",");
-                        if (selectedTag == "all") {
-                            p.style.display = "block"
-                        }
-                        else if (tags.includes(selectedTag)) {
-                            p.style.display = "block";
-                        }
-                    });
-                });
-            });
-        });
-    </script> --}}
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {{!--
     <script>
         const swiper = new Swiper('.featured-blog-swiper', {
             slidesPerView: 1,
@@ -719,86 +306,14 @@
                 prevEl: "#rec-swiper-btn-prev",
             }
         });
-    </script>
+    </script> --}}
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        const html = document.documentElement;
-        const toggleBtn = document.getElementById("theme-toggle");
-        const lightIcon = document.getElementById("theme-toggle-light-icon");
-        const darkIcon = document.getElementById("theme-toggle-dark-icon");
-
-        // Load previous mode
-        if (localStorage.theme === 'dark' ||
-            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            html.classList.add('dark');
-            darkIcon.classList.add('hidden');
-            lightIcon.classList.remove('hidden');
-        } else {
-            html.classList.remove('dark');
-            lightIcon.classList.add('hidden');
-            darkIcon.classList.remove('hidden');
-        }
-
-        // Toggle
-        toggleBtn.addEventListener("click", () => {
-            const html = document.documentElement;
-
-            const isDark = html.classList.contains("dark");
-
-            if (isDark) {
-                // Switch to LIGHT
-                html.classList.remove("dark");
-                html.classList.add("light");
-
-                localStorage.theme = "light";
-
-                lightIcon.classList.add("hidden");
-                darkIcon.classList.remove("hidden");
-            } else {
-                // Switch to DARK
-                html.classList.remove("light");
-                html.classList.add("dark");
-
-                localStorage.theme = "dark";
-
-                darkIcon.classList.add("hidden");
-                lightIcon.classList.remove("hidden");
-            }
+        AOS.init({
+            duration: 1200
         });
     </script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const posts = document.querySelectorAll(".post-item");
-    const loadMoreBtn = document.getElementById("loadMoreBtn");
-
-    let visible = 0;
-    const STEP = 4;
-
-    function showNextPosts() {
-      for (let i = visible; i < visible + STEP && i < posts.length; i++) {
-        posts[i].classList.remove("hidden");
-      }
-
-      visible += STEP;
-
-      if (visible >= posts.length) {
-        loadMoreBtn.style.display = "none";
-      }
-    }
-
-    // Initial load
-    showNextPosts();
-
-    loadMoreBtn.addEventListener("click", showNextPosts);
-  });
-</script>
-
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init({
- duration: 1200
-});
-  </script>
 
 
 
