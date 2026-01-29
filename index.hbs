@@ -1,3 +1,6 @@
 {{!< default}}
+{{#match @custom.homepage_layout "Homepage-2"}}
+  {{>"homepage2" }}
+{{else}}
 {{>"homepage1" }}
-{{!-- {{>"homepage2" }} --}}
+{{/match}}

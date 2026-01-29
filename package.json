@@ -49,13 +49,13 @@
         ],
         "default": "Stacked"
       },
-        "homepage_layout": {
+      "homepage_layout": {
         "type": "select",
         "options": [
-          "homepage-1",
-          "homepage-2"
+          "Homepage-1",
+          "Homepage-2"
         ],
-        "default": "homepage-1",
+        "default": "Homepage-1",
         "group": "homepage"
       },
       "hero_heading": {
