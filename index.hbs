@@ -72,7 +72,7 @@
                     loadMoreBtn.addEventListener("click", showNextPosts);
                 });
             </script>
-            {{#get "posts" limit="all"}}
+            {{#get "posts" limit="all" include="tags"}}
             {{#foreach posts}}
             <div class="post-item hidden">
                 {{>"postCard"}}

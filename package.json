@@ -49,6 +49,15 @@
         ],
         "default": "Stacked"
       },
+        "homepage_layout": {
+        "type": "select",
+        "options": [
+          "homepage-1",
+          "homepage-2"
+        ],
+        "default": "homepage-1",
+        "group": "homepage"
+      },
       "hero_heading": {
         "type": "text",
         "default": "Hello 👋, we are exploring fashion, lifestyle and health.",
