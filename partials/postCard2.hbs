@@ -1,0 +1,36 @@
+<a href="{{url}}" class="group recommended-post-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+    <div class="rounded-[10px] mb-5 overflow-hidden relative h-70">
+        {{#if feature_image}}
+        <img src="{{feature_image}}" class="transition-transform duration-500 group-hover:scale-105" alt="{{slug}}">
+        {{else}}
+        <img src="/assets/images/no-image.png" class="transition-transform duration-500 group-hover:scale-105"
+            alt="No Image">
+        {{/if}}
+        {{#if primary_tag}}
+        <div
+            class="absolute top-4 left-4 text-xs bg-white/30 text-white backdrop-blur-sm border border-white/10 rounded-3xl px-3 py-1">
+            <div class="h-4 overflow-hidden">
+                <div class="group-hover:translate-y-[-50%] transition-transform duration-500">
+                    <div>{{primary_tag.name}}</div>
+                    <div>{{primary_tag.name}}</div>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+        <div class="absolute inset-0 flex items-center justify-center">
+            <span class="bg-white text-black px-3 py-1 rounded-4xl text-sm opacity-0 translate-y-2 transition-all group-hover:opacity-100 group-hover:translate-y-0 duration-300">View</span>
+        </div>
+    </div>
+    <div class="recommended-post-item-content">
+        <div class="recommended-post-meta flex items-center gap-2.5 mb-4">
+            <span class="recommended-post-date text-xs">
+                {{date format="MMMM DD, YYYY"}}
+            </span>
+            {{#if reading_time}}
+            <span class="bg-primary-bg px-2.5 py-1.5 rounded-3xl text-xs font-medium">{{reading_time}}</span>
+            {{/if}}
+        </div>
+        <h2 class="text-lg font-semibold mb-4">{{title}}</h2>
+        <p class="text-sm break-all">{{excerpt}}</p>
+    </div>
+</a>

@@ -3,7 +3,8 @@
         {{#get "pages" filter="tag:hash-section-featured-post" limit="1"}}
         {{#if pages}}
         {{#foreach pages}}
-        <div class="featured-blog mb-8 md:mb-12.5 max-w-[676px] m-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+        <div class="featured-blog mb-8 md:mb-12.5 max-w-[676px] m-auto text-center" data-aos="fade-up"
+            data-aos-duration="1000">
             {{#if excerpt}}
             <div
                 class="inline-flex items-center justify-center rounded-full border border-secondary-border bg-secondary-bg px-5 py-2 text-xs mb-4.5 md:mb-7.5">
@@ -23,7 +24,8 @@
             {{#get "posts" filter="featured:true" limit ="1" include="authors,tags"}}
             {{#foreach posts}}
             <div class="featured-blog-wrapper relative">
-                <div class="featured-blog-media rounded-4xl overflow-hidden h-[var(--media-height)]" data-aos="zoom-in-up" data-aos-duration="1000">
+                <div class="featured-blog-media rounded-4xl overflow-hidden h-[var(--media-height)]"
+                    data-aos="zoom-in-up" data-aos-duration="1000">
                     <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
                         alt="{{title}}" />
                 </div>
@@ -69,7 +71,7 @@
             {{/foreach}}
             {{/get}}
 
-    
+
         </div>
     </div>
 </section>
@@ -84,8 +86,9 @@
             <!-- Card 1 -->
             {{#if @first}}
             {{else}}
-            <article class="flex gap-4 rounded-[20px] border border-secondary-border bg-secondary-bg p-3 md:p-5" {{#if @even}}data-aos="fade-up" data-aos-duration="600"  {{/if}}
-    {{#if @odd}}data-aos="fade-up" data-aos-duration="600" {{/if}}>
+            <article class="group flex gap-4 rounded-[20px] border border-secondary-border bg-secondary-bg p-3 md:p-5" {{#if
+                @even}}data-aos="fade-up" data-aos-duration="600" {{/if}} {{#if @odd}}data-aos="fade-up"
+                data-aos-duration="600" {{/if}}>
                 <div class="rounded-[14px] overflow-hidden w-[150px] md:w-[200px] h-[120px] md:h-[150px]">
                     <img class="h-20 w-28 rounded-xl object-cover"
                         src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
@@ -94,14 +97,22 @@
                 <div class="min-w-0 flex-1">
                     <div class="flex flex-wrap items-center gap-2 text-xs">
                         {{#if primary_tag}}
-                        <span class="rounded-full bg-primary-bg px-3 py-1.5 font-medium">
-                            {{primary_tag.name}}
-                        </span>
+                        <div class="rounded-full bg-primary-bg px-3 py-1.5 font-medium">
+                            <div class="overflow-hidden relative">
+                                <div class="group-hover:translate-y-[-120%] transition-transform duration-500">
+                                    {{primary_tag.name}}
+                                </div>
+                                <div class="absolute bottom-[-100%] group-hover:bottom-[0] duration-500 transition-bottom">
+                                    {{primary_tag.name}}
+                                </div>
+                            </div>
+                        </div>
                         {{/if}}
                         <span>{{date published_at format="MMM DD, YYYY"}}</span>
                     </div>
 
-                    <h3 class="mt-2.5 md:mt-5 text-sm md:text-base font-bold"> <a href="{{url}}" class="hover:underline">
+                    <h3 class="mt-2.5 md:mt-5 text-sm md:text-base font-bold"> <a href="{{url}}"
+                            class="hover:underline">
                             {{title}}
                         </a></h3>
                     <p class="mt-2.5 md:mt-4.5 text-xs md:text-sm">
