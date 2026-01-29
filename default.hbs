@@ -91,7 +91,7 @@
 
 </head>
 
-<body data-color-scheme="{{@custom.color_scheme}}" class = {{@custom.homepage_layout}}>
+<body data-color-scheme="{{@custom.color_scheme}}" class =" {{body_class}} {{@custom.homepage_layout}} {{#match @custom.homepage_layout "Homepage-1"}}header-transparent{{/match}}">
     <script>
         let originalClass = document.documentElement.className;
         document.body.classList.add(originalClass);
