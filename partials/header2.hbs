@@ -1,0 +1,143 @@
+<header id="siteHeader" data-header-style="{{@custom.header_layout}}" class="header-main">
+    <div class="container mx-auto">
+        <div
+            class="header-inner z-1 grid items-center grid-cols-[1fr_auto_1fr] gap-8 py-5">
+            <nav class="header-menu hidden lg:block">
+                {{navigation}}
+                <div
+                    class="header-nav-account-links flex gap-4 items-center lg:hidden border-t border-[#EBEBEB] mt-10 pt-10">
+                    {{#if @member}}
+                    <a href="javascript:void(0)" data-members-signout
+                        class="px-5 py-2 text-sm font-medium rounded-full bg-black dark:bg-white dark:text-black text-white hover:bg-[#FF7044] transition">
+                        Sign Out
+                    </a>
+                    {{else}}
+                    <a href="#/portal/signin" class="inline-flex text-sm text-black">Sign In</a>
+
+                    <a href="#/portal/signup"
+                        class="hidden lg:inline-flex items-center px-5 py-2 min-h-11 text-sm font-medium rounded-full bg-black text-white hover:text-white hover:bg-accent-bg transition">
+                        Become a Subscriber
+                    </a>
+                    {{/if}}
+                </div>
+            </nav>
+
+            <div class="header-logo">
+                <a class="site-header-logo{{#unless @site.logo}} no-image{{/unless}}" href="{{@site.url}}">
+                    {{#if @site.logo}}
+                    <img src="{{@site.logo}}" alt="{{@site.title}}">
+                    {{else}}
+                    {{@site.title}}
+                    {{/if}}
+                </a>
+            </div>
+
+            <!-- RIGHT SECTION -->
+            <div class="flex items-center gap-3 ml-auto">
+                <button
+                    class="gh-search w-6 h-6 md:w-9.5 md:h-9.5 flex items-center justify-center rounded-full hover:bg-white hover:text-black text-black cursor-pointer"
+                    data-ghost-search>{{> "icons/search"}}
+                </button>
+
+                <button
+                    class="relative w-6 h-6 md:w-9.5 md:h-9.5 flex justify-center items-center transition-opacity rounded-full hover:bg-white hover:text-black text-black cursor-pointer">
+                    <span class="absolute">
+                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path
+                                d="M5.62793 0.136536C5.74057 0.0966939 5.86198 0.0896914 5.97852 0.116028C6.09526 0.142485 6.20253 0.201239 6.28711 0.28595C6.37167 0.370656 6.43076 0.477769 6.45703 0.594543C6.48323 0.711244 6.47566 0.833424 6.43555 0.946106C5.98705 2.20399 5.90503 3.56317 6.19824 4.86603C6.49157 6.16911 7.14831 7.36293 8.09277 8.30743C9.03717 9.25181 10.2303 9.90856 11.5332 10.202C12.8363 10.4954 14.196 10.4132 15.4541 9.96466C15.5669 9.92447 15.6889 9.91695 15.8057 9.94318C15.9224 9.96941 16.0295 10.0286 16.1143 10.1131C16.1988 10.1975 16.2576 10.3042 16.2842 10.4207C16.3107 10.5374 16.3035 10.6594 16.2637 10.7723C15.8526 11.9367 15.1846 12.9937 14.3086 13.8641C12.7473 15.4242 10.63 16.3 8.42285 16.2996C6.21568 16.2992 4.09879 15.4228 2.53809 13.8621C0.977377 12.3014 0.101003 10.1845 0.100586 7.97736C0.10021 5.90816 0.870199 3.91853 2.25195 2.39142L2.53613 2.09161C3.40648 1.21571 4.46359 0.547693 5.62793 0.136536ZM4.88867 1.86798C4.07562 2.33968 3.36304 2.96815 2.7959 3.71954C2.18603 4.52765 1.75684 5.45761 1.53809 6.44611C1.31932 7.43471 1.31628 8.45896 1.52832 9.44904C1.74037 10.4391 2.1631 11.3721 2.76758 12.1844C3.372 12.9966 4.14389 13.6696 5.03125 14.157C5.91875 14.6445 6.90129 14.9352 7.91113 15.0096C8.92083 15.0839 9.93455 14.9398 10.8838 14.5877C11.8331 14.2355 12.6961 13.6835 13.4131 12.9686L13.5918 12.783C13.9524 12.3953 14.2666 11.9673 14.5312 11.5086C13.2502 11.7319 11.9339 11.6547 10.6865 11.2801C9.45232 10.9094 8.32107 10.2595 7.38086 9.38165L7.19531 9.20294C6.22698 8.2275 5.51351 7.0281 5.11816 5.71173C4.74369 4.46477 4.66579 3.14872 4.88867 1.86798Z"
+                                fill="currentColor" stroke="currentColor" stroke-width="0.2" />
+                        </svg>
+
+                    </span>
+                    <span class="transition-opacity will-change-[opacity] duration-300 opacity-0">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                            <path
+                                d="M9.001 15.0249C8.66175 15.0249 8.38672 15.2999 8.38672 15.6392V17.3857C8.38672 17.725 8.66175 18 9.001 18C9.34033 18 9.61528 17.725 9.61528 17.3857V15.6392C9.61528 15.2999 9.34025 15.0249 9.001 15.0249Z"
+                                fill="currentColor" />
+                            <path
+                                d="M9.001 2.97525C9.34033 2.97525 9.61528 2.70022 9.61528 2.36097V0.614282C9.61528 0.275034 9.34033 0 9.001 0C8.66175 0 8.38672 0.275034 8.38672 0.614282V2.36097C8.38672 2.70022 8.66175 2.97525 9.001 2.97525Z"
+                                fill="currentColor" />
+                            <path
+                                d="M3.87252 13.2599L2.63708 14.4947C2.3971 14.7345 2.39702 15.1235 2.63683 15.3634C2.75682 15.4834 2.91408 15.5434 3.07133 15.5434C3.22851 15.5434 3.3856 15.4834 3.50559 15.3636L4.74103 14.1288C4.98101 13.889 4.98109 13.5001 4.74128 13.2602C4.5013 13.0202 4.11242 13.0202 3.87252 13.2599Z"
+                                fill="currentColor" />
+                            <path
+                                d="M13.6943 4.91931C13.8515 4.91931 14.0087 4.85935 14.1286 4.73944L15.3639 3.50466C15.6038 3.26476 15.6039 2.87588 15.3641 2.6359C15.1242 2.39592 14.7353 2.39584 14.4953 2.63582L13.2601 3.8706C13.0202 4.11042 13.0201 4.49938 13.2599 4.73928C13.3798 4.85935 13.5371 4.91931 13.6943 4.91931Z"
+                                fill="currentColor" />
+                            <path
+                                d="M2.97509 9.00009C2.97509 8.66084 2.70005 8.3858 2.36081 8.3858H0.614281C0.275034 8.3858 0 8.66084 0 9.00009C0 9.33933 0.275034 9.61437 0.614281 9.61437H2.36081C2.70005 9.61437 2.97509 9.33933 2.97509 9.00009Z"
+                                fill="currentColor" />
+                            <path
+                                d="M17.386 8.3858H15.6387C15.2994 8.3858 15.0244 8.66084 15.0244 9.00009C15.0244 9.33933 15.2994 9.61437 15.6387 9.61437H17.386C17.7254 9.61437 18.0003 9.33933 18.0003 9.00009C18.0003 8.66092 17.7254 8.3858 17.386 8.3858Z"
+                                fill="currentColor" />
+                            <path
+                                d="M3.87174 4.73946C3.99165 4.85937 4.1489 4.91933 4.30608 4.91933C4.46325 4.91933 4.62051 4.85937 4.74042 4.73946C4.98031 4.49957 4.98031 4.1106 4.74042 3.87071L3.50563 2.63592C3.26573 2.39602 2.87677 2.39602 2.63695 2.63592C2.39706 2.87581 2.39706 3.26478 2.63695 3.50459L3.87174 4.73946Z"
+                                fill="currentColor" />
+                            <path
+                                d="M14.1298 13.26C13.8899 13.0201 13.5009 13.0201 13.261 13.26C13.0211 13.4999 13.0211 13.8888 13.261 14.1286L14.4956 15.3634C14.6156 15.4834 14.7728 15.5434 14.93 15.5434C15.0872 15.5434 15.2444 15.4834 15.3643 15.3635C15.6043 15.1236 15.6043 14.7346 15.3644 14.4948L14.1298 13.26Z"
+                                fill="currentColor" />
+                            <path
+                                d="M8.99974 4.21899C6.36349 4.21899 4.21875 6.3639 4.21875 9.00032C4.21875 11.6367 6.36349 13.7815 8.99974 13.7815C11.6362 13.7815 13.7811 11.6367 13.7811 9.00032C13.7811 6.3639 11.6362 4.21899 8.99974 4.21899ZM8.99974 12.5529C7.04092 12.5529 5.44731 10.9592 5.44731 9.00032C5.44731 7.04133 7.04092 5.44756 8.99974 5.44756C10.9588 5.44756 12.5526 7.04133 12.5526 9.00032C12.5526 10.9592 10.9588 12.5529 8.99974 12.5529Z"
+                                fill="currentColor" />
+                        </svg>
+
+                    </span>
+                </button>
+            
+                {{#if @member}}
+                    <a href="javascript:void(0)" data-members-signout
+                        class="px-5 py-2 text-sm font-medium rounded-full bg-black dark:bg-white dark:text-black text-black hover:bg-[#FF7044] transition">
+                        Sign Out
+                    </a>
+                    {{else}}
+                    <!-- Sign In -->
+                    <a href="#/portal/signin" class="hidden lg:block text-sm text-black mx-2.5">Sign In</a>
+
+                <!-- Button -->
+                <a href="#/portal/signup"
+                    class="hidden lg:inline-flex items-center px-5 py-2 min-h-11 text-sm font-medium rounded-full bg-black text-white hover:text-white hover:bg-accent-bg transition">
+                    Become a Subscriber
+                </a>
+                {{/if}}
+                <button class="header-utils-burger w-7 h-4 lg:hidden relative">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                {{!-- <button class="header-nav-close">
+                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M17.5686 17.5078C17.2135 17.8628 16.6379 17.8628 16.2829 17.5078L0.854299 2.07922C0.499259 1.72418 0.499259 1.14854 0.854299 0.793503C1.20934 0.438463 1.78497 0.438463 2.14001 0.793503L17.5686 16.2221C17.9236 16.5771 17.9236 17.1527 17.5686 17.5078Z"
+                            fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M17.5686 0.793667C17.9236 1.14871 17.9236 1.72434 17.5686 2.07938L2.14001 17.5079C1.78497 17.863 1.20933 17.863 0.854294 17.5079C0.499254 17.1529 0.499254 16.5773 0.854294 16.2222L16.2829 0.793667C16.6379 0.438627 17.2135 0.438627 17.5686 0.793667Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </button> --}}
+            </div>
+        </div>
+
+        <nav class="mobile-header-menu block lg:hidden">
+            {{navigation}}
+            {{!-- {{> main-navigation}} --}}
+            <div
+                class="header-nav-account-links flex gap-4 items-center lg:hidden border-t border-[#EBEBEB] mt-10 pt-10">
+                {{#if @member}}
+                <a href="javascript:void(0)" data-members-signout
+                    class="px-5 py-2 text-sm font-medium rounded-full bg-black dark:bg-white dark:text-black text-white hover:bg-[#FF7044] transition">
+                    Sign Out
+                </a>
+                {{else}}
+                <!-- Sign In -->
+                <a href="#/portal/signin" class="inline-flex text-base lg:text-sm text-black">Sign In</a>
+
+                <!-- Button -->
+                <!-- Button -->
+                <a href="#/portal/signup"
+                    class="hidden lg:inline-flex items-center px-5 py-2 min-h-11 text-sm font-medium rounded-full bg-black text-white hover:text-white hover:bg-accent-bg transition">
+                    Become a Subscriber
+                </a>
+                {{/if}}
+            </div>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,131 @@
+<section class="team-section bg-primary-bg pt-5 pb-15 md:pb-20">
+  <div class="container-sm mx-auto">
+    <div class="section-heading mb-12.5 text-center" data-aos="fade-up" data-aos-duration="600">
+      <h2 class="text-2xl md:text-[38px] font-bold">Meet The Team</h2>
+    </div>
+    <div class="team-member2-wrapper team-member-animate flex flex-wrap mobile-swipe mobile-column-2">
+      {{#get "authors" limit="all"}}
+        {{#foreach authors}}
+          <div class="group rounded-2xl team-member2-item overflow-hidden text-center relative md:h-[370px]">
+            <a href={{url}} class="block h-full">
+                {{#if profile_image}}
+                <img src="{{profile_image}}" alt="{{name}}" class="" />
+                {{else}}
+                <div id="randomColorBox"
+                    class="w-full h-full rounded-3xl overflow-hidden flex justify-center items-center">
+                    <span class="font-bold text-2xl sm:text-4xl">
+                        {{~#split name separator=" " as |words|~}}
+                        {{~#foreach words~}}
+                        {{~#split this separator="" as |chars|~}}
+                        {{~#foreach chars~}}
+                        {{~#if @first~}}{{this}}{{~/if~}}
+                        {{~/foreach~}}
+                        {{~/split~}}
+                        {{~/foreach~}}
+                        {{~/split~}}
+                    </span>
+                </div>
+                {{/if}}
+            </a>
+            <div class="absolute inset-0 flex flex-col justify-end items-center p-5 pointer-events-none lg:opacity-0 lg:translate-y-5 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
+              <div class="">
+                  <div class="text-base font-semibold text-white">{{name}}</div>
+                  <div class="mt-2 text-sm text-white">CEO & Founder</div>
+              </div>
+              
+            </div>
+          </div>
+          <div class="group rounded-2xl team-member2-item overflow-hidden text-center relative md:h-[370px]">
+            <a href={{url}} class="block h-full">
+                {{#if profile_image}}
+                <img src="{{profile_image}}" alt="{{name}}" class="" />
+                {{else}}
+                <div id="randomColorBox"
+                    class="w-full h-full rounded-2xl overflow-hidden flex justify-center items-center">
+                    <span class="font-bold text-2xl sm:text-4xl">
+                        {{~#split name separator=" " as |words|~}}
+                        {{~#foreach words~}}
+                        {{~#split this separator="" as |chars|~}}
+                        {{~#foreach chars~}}
+                        {{~#if @first~}}{{this}}{{~/if~}}
+                        {{~/foreach~}}
+                        {{~/split~}}
+                        {{~/foreach~}}
+                        {{~/split~}}
+                    </span>
+                </div>
+                {{/if}}
+            </a>
+            <div class="absolute inset-0 flex flex-col justify-end items-center p-5 pointer-events-none lg:opacity-0 lg:translate-y-5 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
+              <div class="">
+                  <div class="text-base font-semibold text-white">{{name}}</div>
+                  <div class="mt-2 text-sm text-white">CEO & Founder</div>
+              </div>
+              
+            </div>
+          </div>
+          <div class="group rounded-2xl team-member2-item overflow-hidden text-center relative md:h-[370px]">
+            <a href={{url}} class="block h-full">
+                {{#if profile_image}}
+                <img src="{{profile_image}}" alt="{{name}}" class="" />
+                {{else}}
+                <div id="randomColorBox"
+                    class="w-full h-full rounded-2xl overflow-hidden flex justify-center items-center">
+                    <span class="font-bold text-2xl sm:text-4xl">
+                        {{~#split name separator=" " as |words|~}}
+                        {{~#foreach words~}}
+                        {{~#split this separator="" as |chars|~}}
+                        {{~#foreach chars~}}
+                        {{~#if @first~}}{{this}}{{~/if~}}
+                        {{~/foreach~}}
+                        {{~/split~}}
+                        {{~/foreach~}}
+                        {{~/split~}}
+                    </span>
+                </div>
+                {{/if}}
+            </a>
+            <div class="absolute inset-0 flex flex-col justify-end items-center p-5 pointer-events-none lg:opacity-0 lg:translate-y-5 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out group-[.active]:opacity-100 group-[.active]:translate-y-0">
+              <div class="">
+                  <div class="text-base font-semibold text-white">{{name}}</div>
+                  <div class="mt-2 text-sm text-white">CEO & Founder</div>
+              </div>
+             
+            </div>
+          </div>
+          <div class="group rounded-2xl team-member2-item overflow-hidden text-center relative md:h-[370px]">
+            <a href={{url}} class="block h-full">
+                {{#if profile_image}}
+                <img src="{{profile_image}}" alt="{{name}}" class="" />
+                {{else}}
+                <div id="randomColorBox"
+                    class="w-full h-full rounded-2xl overflow-hidden flex justify-center items-center">
+                    <span class="font-bold text-2xl sm:text-4xl">
+                        {{~#split name separator=" " as |words|~}}
+                        {{~#foreach words~}}
+                        {{~#split this separator="" as |chars|~}}
+                        {{~#foreach chars~}}
+                        {{~#if @first~}}{{this}}{{~/if~}}
+                        {{~/foreach~}}
+                        {{~/split~}}
+                        {{~/foreach~}}
+                        {{~/split~}}
+                    </span>
+                </div>
+                {{/if}}
+            </a>
+            <div class="absolute inset-0 flex flex-col justify-end items-center p-5 pointer-events-none lg:opacity-0 lg:translate-y-5 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
+              <div class="">
+                  <div class="text-base font-semibold text-white">{{name}}</div>
+                  <div class="mt-2 text-sm text-white">CEO & Founder</div>
+              </div>
+              
+            </div>
+          </div>
+          
+          
+        {{/foreach}}
+      {{/get}}
+    </div>
+  </div>
+</section>

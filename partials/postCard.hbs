@@ -1,4 +1,4 @@
-<a href="{{url}}" class="recommended-post-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+<a href="{{url}}" class="group recommended-post-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
     <div class="bg-secondary-bg rounded-xl border border-secondary-border p-5 h-full group">
         <div class="rounded-xl mb-5 overflow-hidden relative h-70">
             {{#if feature_image}}
@@ -10,11 +10,9 @@
             {{#if primary_tag}}
             <div
                 class="absolute top-4 left-4 text-xs bg-white/30 text-white backdrop-blur-sm border border-white/10 rounded-3xl px-3 py-1">
-                <div class="h-4 overflow-hidden">
-                    <div class="group-hover:translate-y-[-50%] transition-transform duration-500">
-                        <div>{{primary_tag.name}}</div>
-                        <div>{{primary_tag.name}}</div>
-                    </div>
+                <div class="overflow-hidden relative">
+                    <div class="group-hover:translate-y-[-120%] transition-transform duration-500">{{primary_tag.name}}</div>
+                    <div class="absolute bottom-[-100%] group-hover:bottom-[0] duration-500 transition-bottom">{{primary_tag.name}}</div>
                 </div>
             </div>
             {{/if}}

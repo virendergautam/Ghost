@@ -1,0 +1,515 @@
+<section class="bg-primary-bg py-10">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-4 gap-6">
+            {{#get "posts" include="authors,tags" limit="4"}}
+            {{#foreach posts}}
+            <a href="{{url}}" class="group flex gap-5 cursor-pointer"
+                data-bg="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}">
+
+                <div class="h-22.5 w-22.5 rounded-full overflow-hidden">
+                    {{#if feature_image}}
+                    <img src="{{feature_image}}" />
+                    {{else}}
+                    <img src="/assets/images/no-image.png">
+                    {{/if}}
+                </div>
+                <div class="flex-1">
+                    <p class="text-xs">{{date published_at format="DD MMM YYYY"}} &nbsp;.&nbsp;
+                        {{primary_author.name}}</p>
+                    <h4 class="text-base font-bold mt-4"> {{title}}</h4>
+                </div>
+                {{#unless @last}}
+                <div class="hidden lg:block h-full w-px bg-black/10"></div>
+                {{/unless}}
+            </a>
+            {{/foreach}}
+            {{/get}}
+        </div>
+    </div>
+</section>
+
+<section class="pb-10 bg-primary-bg">
+    <div class="container mx-auto">
+        <div class="grid gap-8 lg:grid-cols-[1fr_492px]">
+            <!-- LEFT: Hero -->
+            {{#get "posts" filter="featured:true" limit ="1" include="authors,tags"}}
+            {{#foreach posts}}
+            <div class="featured-blog-wrapper relative">
+                <div class="featured-blog-media rounded-4xl overflow-hidden h-[700px]" data-aos="zoom-in-up"
+                    data-aos-duration="1000">
+                    <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
+                        alt="{{title}}" />
+                </div>
+
+                <div
+                    class="featured-blog-content absolute inset-0 p-4 md:p-8 flex flex-col justify-center items-center">
+                    <div class="featured-blog-content-bottom max-w-[660px] flex items-center flex-col gap-y-6">
+                        <!-- Tags -->
+                        <div class="card-tags flex flex-wrap gap-2 justify-center">
+                            {{#foreach tags}}
+                            <a href="{{url}}"
+                                class="card-tag px-3 py-1 text-xs font-medium rounded-full bg-[#D6E8CB] text-black backdrop-blur-sm">
+                                {{name}}
+                            </a>
+                            {{/foreach}}
+                        </div>
+                        <!-- Title -->
+                        <h2 class="text-2xl md:text-4xl font-semibold text-white text-center">
+                            <a href="{{url}}" class="hover:underline">
+                                {{title}}
+                            </a>
+                        </h2>
+                        <!-- Meta -->
+                        <div class="featured-card-meta flex flex-wrap gap-x-4 items-center">
+                            <div class="post-card-author flex gap-x-2 items-center">
+                                {{#if primary_author.profile_image}}
+                                <div class="w-[34px] h-[34px] rounded-full overflow-hidden">
+                                    <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}"
+                                        class="" />
+                                </div>
+                                {{/if}}
+                                <div class="text-white text-xs">by {{primary_author.name}} / {{date published_at
+                                    format="MMMM DD, YYYY"}}</div>
+                            </div>
+                            <div
+                                class="post-card-time font-medium rounded-full bg-white/30 text-white backdrop-blur-sm text-xs py-[6px] px-[10px]">
+                                {{reading_time}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/foreach}}
+            {{/get}}
+
+            <!-- RIGHT: Recent Posts -->
+            <aside class="rounded-[20px] bg-secondary-bg p-7.5">
+                <h2 class="text-[22px] font-bold px-2.5 pt-2.5">Recent Posts</h2>
+                <div class="mt-5.5 h-px w-full bg-zinc-200"></div>
+
+                <div class="mt-6 space-y-5">
+                    <!-- Item -->
+                    <article class="flex gap-4 px-2.5">
+                        <div class="w-28 h-28 rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80"
+                                class="w-full h-full rounded-full object-cover" alt="" />
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-center gap-3 text-xs">
+                                <span class="rounded-full bg-zinc-100 px-3 py-1 font-medium text-zinc-700">
+                                    Lifestyle
+                                </span>
+                                <span>Nov 14, 2025</span>
+                            </div>
+                            <h3 class="mt-3 text-base font-bold">Bridging borders the role of global</h3>
+                            <p class="mt-3 text-sm line-clamp-2">Discover effortless fashion pieces that blend everyday
+                                comfort</p>
+                        </div>
+                    </article>
+
+                    <div class="h-px w-full bg-zinc-200"></div>
+
+                    <!-- Item -->
+                    <article class="flex gap-4 px-2.5">
+                        <div class="w-28 h-28 rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80"
+                                class="w-full h-full rounded-full object-cover" alt="" />
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-center gap-3 text-xs">
+                                <span class="rounded-full bg-zinc-100 px-3 py-1 font-medium text-zinc-700">
+                                    Lifestyle
+                                </span>
+                                <span>Nov 14, 2025</span>
+                            </div>
+                            <h3 class="mt-3 text-base font-bold">Bridging borders the role of global</h3>
+                            <p class="mt-3 text-sm line-clamp-2">Discover effortless fashion pieces that blend everyday
+                                comfort</p>
+                        </div>
+                    </article>
+
+                    <div class="h-px w-full bg-zinc-200"></div>
+
+                    <!-- Item -->
+                    <article class="flex gap-4 px-2.5">
+                        <div class="w-28 h-28 rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80"
+                                class="w-full h-full rounded-full object-cover" alt="" />
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-center gap-3 text-xs">
+                                <span class="rounded-full bg-zinc-100 px-3 py-1 font-medium text-zinc-700">
+                                    Lifestyle
+                                </span>
+                                <span>Nov 14, 2025</span>
+                            </div>
+                            <h3 class="mt-3 text-base font-bold">Bridging borders the role of global</h3>
+                            <p class="mt-3 text-sm line-clamp-2">Discover effortless fashion pieces that blend everyday
+                                comfort</p>
+                        </div>
+                    </article>
+
+                    <div class="h-px w-full bg-zinc-200"></div>
+
+                    <!-- Item -->
+                    <article class="flex gap-4 px-2.5">
+                        <div class="w-28 h-28 rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80"
+                                class="w-full h-full rounded-full object-cover" alt="" />
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-center gap-3 text-xs">
+                                <span class="rounded-full bg-zinc-100 px-3 py-1 font-medium text-zinc-700">
+                                    Lifestyle
+                                </span>
+                                <span>Nov 14, 2025</span>
+                            </div>
+                            <h3 class="mt-3 text-base font-bold">Bridging borders the role of global</h3>
+                            <p class="mt-3 text-sm line-clamp-2">Discover effortless fashion pieces that blend everyday
+                                comfort</p>
+                        </div>
+                    </article>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<section class="recommended-post bg-primary-bg text-secondary-text py-10 md:py-20">
+    <div class="container mx-auto">
+        <div class="recommended-post-header mb-6 md:mb-12.5 text-center">
+            <h2 class="text-2xl md:text-4xl font-semibold" data-aos="fade-up" data-aos-duration="600">Read Our
+                Latest Posts </h2>
+        </div>
+        <div class="recommended-post-wrapper grid md:grid-cols-4 gap-5">
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const posts = document.querySelectorAll(".post-item");
+                    const loadMoreBtn = document.getElementById("loadMoreBtn");
+
+                    let visible = 0;
+                    const STEP = 4;
+
+                    function showNextPosts() {
+                        for (let i = visible; i < visible + STEP && i < posts.length; i++) {
+                            posts[i].classList.remove("hidden");
+                        }
+
+                        visible += STEP;
+
+                        if (visible >= posts.length) {
+                            loadMoreBtn.style.display = "none";
+                        }
+                    }
+
+                    // Initial load
+                    showNextPosts();
+
+                    loadMoreBtn.addEventListener("click", showNextPosts);
+                });
+            </script>
+            {{#get "posts" limit="all"}}
+            {{#foreach posts}}
+            <div class="post-item hidden">
+                {{>"postCard2"}}
+            </div>
+            {{/foreach}}
+            {{/get}}
+        </div>
+
+        <div class="mt-12 text-center">
+            <button id="loadMoreBtn" style="cursor: pointer;" class="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold
+            bg-black text-white hover:bg-neutral-800 transition">
+                Load more
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<section class=" relative py-10 min-h-[730px] flex items-center bg-accent-bg">
+    <div class="background-image absolute inset-0">
+        {{#if @site.cover_image}}
+        <img class="site-header-cover" srcset="{{img_url @site.cover_image size=" s"}} 300w, {{img_url @site.cover_image
+            size="m" }} 600w, {{img_url @site.cover_image size="l" }} 1000w, {{img_url @site.cover_image size="xl" }}
+            2000w" sizes="100vw" src="{{img_url @site.cover_image size=" xl"}}" alt="{{@site.title}}" />
+        {{/if}}
+    </div>
+    <div class="hero-content relative container mx-auto px-4 flex justify-start">
+        <div class="max-w-[677px] text-left text-white">
+            <h1 class="text-[28px] md:text-[34px] lg:text-[54px] font-semibold mb-4 md:mb-6">
+                {{@custom.hero_heading}}
+            </h1>
+            <p class="text-base max-w-xl">{{@custom.hero_subheading}}</p>
+            <form class="mt-6 md:mt-9">
+                <div
+                    class="grid grid-cols-(--my-grid-cols) max-w-[500px] bg-white rounded-full border border-white/20 min-h-[48px] p-1.5">
+                    <input type="email" placeholder="Enter your email"
+                        class="min-w-0 flex-1 bg-transparent px-4 text-sm text-black placeholder:text-black focus:outline-none" />
+                    <button type="submit"
+                        class="bg-black min-h-[42px] px-5 md:px-6.5 py-2.5 text-sm font-medium rounded-full cursor-pointer text-white">
+                        Subscribe
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Categories -->
+<section class="bg-primary-bg py-16">
+    <div class="mx-auto max-w-[1222px] px-4">
+        <h2 class="text-center text-4xl font-bold">Blog Categories</h2>
+        <div class="mt-12 grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+            {{#get "tags" filter="visibility:public" limit="12" include="count.posts"}}
+            {{#foreach tags}}
+            <a href="/tag/{{slug}}/" class="catagory-card relative group grid h-45 place-items-center rounded-xl bg-secondary-bg overflow-hidden p-2.5">
+                <div class="catagory_image absolute inset-0">
+                    <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
+                        alt="{{name}}" class="object-cover transition-all duration-500 scale-125 group-hover:scale-100 opacity-0 group-hover:opacity-100" />
+                </div>
+                <div class="catagory-text-block text-center relative z-10 overflow-hidden">
+                    <div class="catagory-text-wrapper">
+                        <div class="catagory-text text-base font-medium group-hover:translate-y-[-100%] transition-transform duration-500">{{name}}<sup class="text-xs font-medium">({{count.posts}})</sup></div>
+                        <div class="catagory-text text-base font-medium absolute bottom-[-100%] group-hover:bottom-[0] duration-500 transition-bottom">{{name}}<sup class="text-xs font-medium">({{count.posts}})</sup></div>
+                    </div>
+                </div>
+                <div class="catagory-blank-bg bg-secondary-bg absolute inset-0 group-hover:opacity-0 transition-opacity duration-500"></div>
+            </a>
+            {{/foreach}}
+            {{/get}}
+        </div>
+    </div>
+</section>
+
+<section class="bg-secondary-bg py-20">
+  <div class="mx-auto max-w-[1222px] px-4">
+    <!-- Heading -->
+    <h2 class="mb-10 text-center text-5xl font-bold">
+      Some good words from my blog
+    </h2>
+
+    <div class="space-y-15">
+        {{#get "posts" filter="featured:true" limit="3" include="tags,authors" }}
+        {{#foreach posts}}
+      <article class="grid gap-10 md:grid-cols-[auto_1fr]">
+        <!-- Image -->
+        <div class="relative overflow-hidden rounded-2xl w-[530px] h-[320px]">
+            <div class="h-full w-full">
+                <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
+                    alt="{{title}}" />
+            </div>
+          <div class="card-tags flex flex-wrap gap-2 justify-center absolute top-5 left-5">
+            {{#foreach tags}}
+            <a href="{{url}}"
+                class="card-tag px-3 py-1 text-xs font-medium rounded-full bg-white/20 backdrop-blur-2xl text-white border border-white/10">
+                {{name}}
+            </a>
+            {{/foreach}}
+        </div>
+        </div>
+
+        <!-- Content -->
+        <div class="flex flex-col justify-center">
+          <div class="mb-5 flex items-center gap-3 text-xs">
+            <span>{{date published_at format="MMM DD, YYYY"}}</span>
+            <span>•</span>
+            {{#if reading_time}}
+                <span class="bg-primary-bg px-2.5 py-1.5 rounded-3xl text-xs font-medium">{{reading_time}}</span>
+            {{/if}}
+          </div>
+
+          <h3 class="text-[22px] font-bold">
+           <a href="{{url}}" class="hover:underline">{{title}}</a>
+          </h3>
+
+          <p class="mt-5 max-w-xl text-base">
+            {{excerpt words="50"}}
+          </p>
+
+          <div class="mt-6">
+            <a
+              href="#"
+              class="inline-flex items-center justify-center rounded-full border border-secondary-border px-5 py-2 text-sm transition hover:bg-white hover:text-black"
+            >
+              Read More
+            </a>
+          </div>
+        </div>
+      </article>
+       {{#unless @last}}
+      <div class="h-px w-full bg-primary-bg"></div>
+       {{/unless}}
+        {{/foreach}}
+        {{/get}}
+    </div>
+  </div>
+</section>
+
+{{>"meetTheTeam2"}}
+
+
+<!-- Tailwind + Swiper (CDN) : Customer Review Slider -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<section class="bg-gradient-to-r from-slate-200 via-amber-50 to-orange-200 py-20">
+    <!-- Heading -->
+    <div class="text-center">
+      <h2 class="text-4xl font-extrabold text-zinc-900">Customer Review</h2>
+      <p class="mx-auto mt-4 max-w-xl text-sm leading-6 text-zinc-600">
+        Explore expert perspectives, emerging styles, and behind-the-scenes<br class="hidden sm:block" />
+        stories that inspire the future .
+      </p>
+    </div>
+
+    <!-- Slider -->
+    <div class="mt-12">
+      <div class="swiper reviewSwiper">
+        <div class="swiper-wrapper">
+          <!-- Slide -->
+          <div class="swiper-slide">
+            <article class="h-full rounded-3xl bg-white p-10 shadow-sm">
+              <!-- stars -->
+              <div class="flex gap-1 text-amber-400">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+
+              <p class="mt-6 text-sm leading-7 text-zinc-800">
+                “The customer service at Waned Roust Travels exceeded my expectations.
+                Every detail was carefully thought out, ensuring a memorable.”
+              </p>
+
+              <div class="mt-10 flex items-center gap-4">
+                <div class="w-14 h-14 rounded-full overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+                  alt=""
+                />
+                </div>
+                <div>
+                  <p class="font-semibold text-zinc-900">Michael Thompson</p>
+                  <p class="text-sm text-zinc-500">Product Designer</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Slide -->
+          <div class="swiper-slide">
+            <article class="h-full rounded-3xl bg-white p-10 shadow-sm">
+              <div class="flex gap-1 text-amber-400">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+
+              <p class="mt-6 text-sm leading-7 text-zinc-800">
+                “I had an amazing experience with Waned roust Travels! Their personalized
+                service trip unforgot. From stunning accompt to curated itineraries.”
+              </p>
+
+              <div class="mt-10 flex items-center gap-4">
+                <div class="w-14 h-14 rounded-full overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+                  alt=""
+                />
+                </div>
+                <div>
+                  <p class="font-semibold text-zinc-900">Lucas Garcia</p>
+                  <p class="text-sm text-zinc-500">Content Writer</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Slide -->
+          <div class="swiper-slide">
+            <article class="h-full rounded-3xl bg-white p-10 shadow-sm">
+              <div class="flex gap-1 text-amber-400">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+
+              <p class="mt-6 text-sm leading-7 text-zinc-800">
+                “My journey with Waned Roust Travels was nothing short of incredible.
+                The team's dedication to creating memories made every moment special.”
+              </p>
+
+              <div class="mt-10 flex items-center gap-4">
+                <div class="w-14 h-14 rounded-full overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+                  alt=""
+                />
+                </div>
+                <div>
+                  <p class="font-semibold text-zinc-900">Emily White</p>
+                  <p class="text-sm text-zinc-500">Graphic Designer</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Slide -->
+          <div class="swiper-slide">
+            <article class="h-full rounded-3xl bg-white p-10 shadow-sm">
+              <div class="flex gap-1 text-amber-400">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+
+              <p class="mt-6 text-sm leading-7 text-zinc-800">
+                “Everything was seamless and premium. Booking, hotels, and the itinerary
+                were all thoughtfully arranged. Highly recommended!”
+              </p>
+
+              <div class="mt-10 flex items-center gap-4">
+                <div class="w-14 h-14 rounded-full overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+                  alt=""
+                />
+                </div>
+                <div>
+                  <p class="font-semibold text-zinc-900">David Lee</p>
+                  <p class="text-sm text-zinc-500">Marketing Lead</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- Custom nav (center bottom like screenshot) -->
+      <div class="mt-10 flex items-center justify-center gap-4">
+        <button
+          class="reviewPrev grid h-10 w-10 place-items-center rounded-full bg-white shadow-sm transition hover:bg-zinc-100"
+          aria-label="Previous"
+        >
+          ‹
+        </button>
+        <button
+          class="reviewNext grid h-10 w-10 place-items-center rounded-full bg-white shadow-sm transition hover:bg-zinc-100"
+          aria-label="Next"
+        >
+          ›
+        </button>
+      </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  new Swiper(".reviewSwiper", {
+    loop: true,
+    spaceBetween: 24,
+    slidesPerView: 1.1,
+    navigation: {
+      nextEl: ".reviewNext",
+      prevEl: ".reviewPrev",
+    },
+    breakpoints: {
+      640: { slidesPerView: 1.2 },
+      1024: { slidesPerView: 2.5 },
+      1280: { slidesPerView: 3 },
+    },
+  });
+</script>
+
