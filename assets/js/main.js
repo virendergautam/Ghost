@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   loadMorePosts();
   customizerBox();
   teamHoverActive();
+  darlLiteMode()
   if (window.AOS) {
     AOS.refreshHard(); // or AOS.refresh()
   }
@@ -154,6 +155,15 @@ select.addEventListener("change", (e) => {
   const value = e.target.value;
   applyScheme(value);
   localStorage.setItem(STORAGE_KEY, value);
+      const darkSpan = document.getElementById("dark-span");
+  const lightSpan = document.getElementById("light-span");
+  if (value === "default") {
+    darkSpan.classList.add("opacity-0");
+    lightSpan.classList.remove("opacity-0");
+  } else {
+    darkSpan.classList.remove("opacity-0");
+    lightSpan.classList.add("opacity-0");
+  }
 });
 
 
@@ -489,3 +499,42 @@ const teamHoverActive = () => {
     });
   });
 };
+const darlLiteMode = () => {
+  const toggle = document.getElementById("dark-lite-mode");
+  toggle.classList.add("dark-trail");
+  if (!toggle) return;
+const schemes = [
+  "default",
+  "dark-trail",
+  "natural-escape",
+  "urban-mist",
+  "aqua-marine",
+  "desert-bloom",
+  "mocha-dark",
+  "dark-amethyst",
+];
+  toggle.addEventListener("click", () => {
+ const select = document.getElementById("colorSchemeSelect");
+    const darkSpan = document.getElementById("dark-span");
+    const lightSpan = document.getElementById("light-span");
+    if (!document.body.classList.contains("dark-trail")) {
+    darkSpan.classList.remove("opacity-0");
+    lightSpan.classList.add("opacity-0");
+    document.body.classList.remove(...schemes);
+    document.body.classList.add("dark-trail");
+    select.value = "dark-trail";
+    localStorage.setItem("theme-color", "dark-trail");
+    } else {
+    darkSpan.classList.add("opacity-0");
+    lightSpan.classList.remove("opacity-0");
+      document.body.classList.remove(...schemes);
+    document.body.classList.add("default");
+    select.value = "default";
+
+    localStorage.setItem("theme-color", "default");
+  }})
+  
+
+  
+
+}

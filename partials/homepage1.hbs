@@ -6,6 +6,7 @@
             @site.cover_image size="xl" }} 2000w" sizes="100vw" src="{{img_url @site.cover_image size=" xl"}}"
             alt="{{@site.title}}" />
         {{/if}}
+        
     </div>
     <div class="hero-content relative w-full px-4 flex justify-center">
         <div class="max-w-[740px] text-center text-white">
@@ -88,5 +89,6 @@
 
     </div>
 </section>
-
+{{#if @custom.meet_the_team_section}}
 {{>"meetTheTeam"}}
+{{/if}}

@@ -1,0 +1,175 @@
+{{!< default}} {{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+    {{#post}} <div class="container mx-auto">
+    <div class="max-w-[1500px] mx-auto">
+        <!-- Header part -->
+        <div class="max-w-5xl mx-auto pt-12 md:pt-20 pb-10 text-center">
+
+            <!-- Tags -->
+            <div class="flex flex-wrap justify-center gap-2 mb-6">
+
+                {{#foreach tags}}
+                <span class="px-3 py-1 text-xs font-medium rounded-full bg-[#F1F1F2]">
+                    {{name}}
+                </span>
+                {{/foreach}}
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-[28px] md:text-4xl lg:text-[54px] font-bold mb-6 md:mb-10">
+                {{!-- The Mind and Body Are Not Separate:
+                What Affects One --}}
+                {{title}}
+            </h1>
+
+            <!-- Excerpt -->
+            <p class="text-base mb-6 md:mb-10">
+                {{excerpt}}
+            </p>
+
+            <!-- Divider -->
+            <div class="border-t border-[#EBEBEB] my-6 md:my-8"></div>
+
+            <!-- Author -->
+            <div class="flex items-center justify-center gap-3 text-xs">
+                {{#if primary_author.profile_image}}
+                <div class="w-9.5 h-9.5 rounded-full overflow-hidden">
+                    <img src={{primary_author.profile_image}} alt={{title}} />
+                </div>
+                {{/if}}
+                <span>
+                    by <span class="font-medium">{{primary_author.name}}</span>
+                    &nbsp;•&nbsp; {{date published_at format="DD MMM YYYY"}} &nbsp;/&nbsp; {{reading_time}} min read
+                </span>
+            </div>
+
+        </div>
+
+        <!-- image part -->
+        <div class="rounded-3xl overflow-hidden">
+
+            {{#if feature_image}}
+            <img src="{{feature_image}}" alt="{{slug}}">
+            {{else}}
+            <img src="/assets/images/no-image.png" alt="No Image">
+            {{/if}}
+        </div>
+
+        <!-- Content part -->
+        <div class="max-w-5xl mx-auto py-6 md:p-6 page-content">
+            {{content}}
+
+            <div
+                class="mt-5 flex flex-col sm:flex-row md:items-center justify-between gap-3 text-xs border-b border-[#EBEBEB] pb-7.5">
+                    <button class="flex items-center gap-2 text-sm">
+                        <svg width="21" height="22" viewBox="0 0 21 22" fill="none">
+                            <path
+                                d="M17.5881 18.4353C19.7619 16.4253 21 13.5978 21 10.609C21 4.75921 16.2898 0 10.5 0C4.71024 0 0 4.75921 0 10.609C0 17.5992 6.62926 22.7303 13.3465 20.8227C18.6143 22.0457 18.3387 21.9998 18.4579 21.9998C18.8679 21.9998 19.1359 21.563 18.9522 21.1916L17.5881 18.4353ZM13.3311 19.6876C13.2781 19.6876 13.2252 19.6953 13.174 19.7106C7.12436 21.5224 1.10526 16.9083 1.10526 10.609C1.10526 5.37492 5.31974 1.11668 10.5 1.11668C15.6803 1.11668 19.8947 5.37492 19.8947 10.609C19.8947 13.4151 18.6746 16.0627 16.5473 17.8728C16.3519 18.039 16.2948 18.3188 16.409 18.5496L17.4389 20.6307C13.2474 19.6586 13.4494 19.6876 13.3311 19.6876Z"
+                                fill="#757575" />
+                        </svg>
+                      {{log comment_count "hiiiiiiiiiiiiiiiii"}}
+                    </button>
+                <div class="flex items-center flex-wrap gap-4">
+                    <span class="text-base font-semibold">
+                        Share This Article:
+                    </span>
+                    <div class="flex items-center gap-1.5">
+                        <a href="#" class="hover:text-gray-900 w-10.5 h-10.5 flex items-center justify-center">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                <path
+                                    d="M9.97127 5.43872L11.2663 6.73372C13.7695 9.23705 13.7695 13.2955 11.2663 15.7989L10.9425 16.1225C8.43925 18.6258 4.38069 18.6258 1.87743 16.1225C-0.625812 13.6193 -0.625812 9.56069 1.87743 7.05749L3.17245 8.35254C1.38442 10.1406 1.38442 13.0395 3.17245 14.8275C4.96049 16.6155 7.85943 16.6155 9.64754 14.8275L9.97127 14.5038C11.7593 12.7157 11.7593 9.81674 9.97127 8.02874L8.67624 6.73372L9.97127 5.43872ZM16.1225 10.9425L14.8275 9.64754C16.6155 7.85943 16.6155 4.96049 14.8275 3.17245C13.0395 1.38442 10.1406 1.38442 8.35254 3.17245L8.02874 3.4962C6.24071 5.28424 6.24071 8.18322 8.02874 9.97127L9.32372 11.2663L8.02874 12.5612L6.73372 11.2663C4.23047 8.76302 4.23047 4.70445 6.73372 2.2012L7.05749 1.87743C9.56069 -0.625812 13.6193 -0.625812 16.1225 1.87743C18.6258 4.38069 18.6258 8.43925 16.1225 10.9425Z"
+                                    fill="currentColor" />
+                            </svg>
+
+                        </a>
+                        <a href="#" class="hover:text-gray-900 w-10.5 h-10.5 flex items-center justify-center">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path
+                                    d="M9.95027 4.83862C7.12941 4.83862 4.8457 7.12482 4.8457 9.94319C4.8457 12.764 7.1319 15.0478 9.95027 15.0478C12.7711 15.0478 15.0548 12.7616 15.0548 9.94319C15.0548 7.12233 12.7686 4.83862 9.95027 4.83862ZM9.95027 13.2564C8.11916 13.2564 6.63703 11.7735 6.63703 9.94319C6.63703 8.11291 8.11999 6.62995 9.95027 6.62995C11.7806 6.62995 13.2635 8.11291 13.2635 9.94319C13.2643 11.7735 11.7814 13.2564 9.95027 13.2564Z"
+                                    fill="currentColor" />
+                                <path
+                                    d="M14.0489 0.0624905C12.2187 -0.0228896 7.68523 -0.0187449 5.85328 0.0624905C4.2435 0.137923 2.82353 0.526693 1.67878 1.67145C-0.2344 3.58463 0.0101356 6.16261 0.0101356 9.94337C0.0101356 13.8128 -0.205387 16.3311 1.67878 18.2153C3.59942 20.1351 6.2147 19.8839 9.9507 19.8839C13.7837 19.8839 15.1067 19.8864 16.462 19.3617C18.3047 18.6463 19.6956 16.9992 19.8316 14.0408C19.9178 12.2097 19.9128 7.67707 19.8316 5.84513C19.6675 2.35283 17.7932 0.234909 14.0489 0.0624905ZM16.9461 16.9495C15.6919 18.2037 13.952 18.0918 9.92666 18.0918C5.782 18.0918 4.11999 18.1531 2.90726 16.9371C1.5105 15.547 1.76333 13.3146 1.76333 9.93011C1.76333 5.35025 1.29332 2.05193 5.88976 1.81651C6.94582 1.77921 7.25667 1.76678 9.91506 1.76678L9.95236 1.79164C14.3697 1.79164 17.8355 1.3291 18.0436 5.9247C18.0908 6.9733 18.1016 7.2883 18.1016 9.94254C18.1008 14.0391 18.1787 15.7111 16.9461 16.9495Z"
+                                    fill="currentColor" />
+                                <path
+                                    d="M15.2573 5.83C15.9161 5.83 16.4501 5.29595 16.4501 4.63717C16.4501 3.97839 15.9161 3.44434 15.2573 3.44434C14.5985 3.44434 14.0645 3.97839 14.0645 4.63717C14.0645 5.29595 14.5985 5.83 15.2573 5.83Z"
+                                    fill="currentColor" />
+                            </svg>
+
+                        </a>
+                        <a href="#" class="hover:text-gray-900 w-10.5 h-10.5 flex items-center justify-center">
+                            <svg width="12" height="21" viewBox="0 0 12 21" fill="none">
+                                <path
+                                    d="M10.2607 0.104248C10.8364 0.105266 11.2988 0.588327 11.2988 1.17456V4.04858C11.2986 4.63548 10.8359 5.11772 10.2598 5.11792L8.66602 5.1189C8.30664 5.1189 8.16885 5.17531 8.12402 5.2019L8.10547 5.21558C8.09955 5.22267 8.08031 5.2523 8.06348 5.33667C8.04681 5.42026 8.03419 5.54907 8.03418 5.74487V6.86987H10.1396C10.3224 6.86987 10.5004 6.91608 10.6543 7.00464C10.9843 7.1949 11.1885 7.55392 11.1885 7.94019L11.1875 11.0359C11.1874 11.6226 10.7238 12.1051 10.1475 12.1052H8.03418V19.2302C8.03395 19.8171 7.57037 20.2993 6.99414 20.2996H3.88965C3.31344 20.2993 2.84983 19.8171 2.84961 19.2302V12.1052H1.13965C0.563185 12.1052 0.0998022 11.6228 0.0996094 11.0359V7.94019C0.0996094 7.35297 0.563075 6.86987 1.13965 6.86987H2.84961V5.41968C2.84961 3.86255 3.32423 2.52883 4.22949 1.57007C5.13951 0.606432 6.40917 0.100392 7.89355 0.100342L10.2607 0.104248ZM7.89258 1.47241C6.74165 1.47248 5.81783 1.85172 5.18164 2.52808C4.54472 3.20521 4.18652 4.19075 4.18652 5.41968V7.49487C4.18636 7.9039 3.86294 8.24177 3.45898 8.24194H1.43555V10.7332H3.45898C3.86302 10.7333 4.18652 11.0719 4.18652 11.4812V18.9275H6.69727V11.4812C6.69727 11.0717 7.02163 10.7332 7.42578 10.7332H9.85156L9.85254 8.24194H7.4248C7.02091 8.24172 6.69743 7.90403 6.69727 7.49487V5.74487C6.69727 5.28522 6.74107 4.73066 7.10156 4.30933C7.53807 3.79898 8.2193 3.74686 8.66504 3.74683L9.96289 3.74585V1.47534L7.89258 1.47241Z"
+                                    fill="currentColor" stroke="currentColor" stroke-width="0.2" />
+                            </svg>
+
+                        </a>
+                        <a href="#" class="hover:text-gray-900 w-10.5 h-10.5 flex items-center justify-center">
+                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none">
+                                <path
+                                    d="M13.1406 18.4504L13.0957 18.386L8.55859 11.925L2.86523 18.3987L2.82031 18.4504H0.833008L1.05176 18.2014L7.67578 10.6682L0.455078 0.385986L0.289062 0.149658H6.01562L6.06055 0.214111L10.8594 7.04712L16.8779 0.201416L16.9219 0.149658H18.9102L18.6904 0.398682L11.7422 8.30298L18.7012 18.2141L18.8672 18.4504H13.1406ZM10.6309 9.28833L9.91895 8.29126L9.91309 8.28247L5.11426 1.56665H3.04395L8.81738 9.64771L9.5293 10.6438L14.0557 16.9807H16.126L10.6309 9.28833Z"
+                                    fill="currentColor" stroke="currentColor" stroke-width="0.3" />
+                            </svg>
+
+                        </a>
+                        <button
+                            class="border border-[#EBEBEB] h-[38px] w-[38px] rounded-full flex items-center justify-center">
+                            <svg width="18" height="4" viewBox="0 0 18 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="2" cy="2" r="2" fill="currentColor" />
+                                <circle cx="9" cy="2" r="2" fill="currentColor" />
+                                <circle cx="16" cy="2" r="2" fill="currentColor" />
+                            </svg>
+
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+            {{#if @custom.show_subscribe_newsletter_section}}
+
+            <div class="max-w-2xl mx-auto bg-secondary rounded-3xl p-6 md:p-10 text-center mt-12.5">
+                <h6 class="text-xl font-bold">
+                    Subscribe to our newsletter
+                </h6>
+                <p class="mt-2 text-sm sm:text-base">
+                    Join our newsletter to stay up to date on features and releases.
+                </p>
+                <form class="mt-6 w-full flex items-center justify-center">
+                    <div
+                        class="flex w-full max-w-md bg-white border border-[#EBEBEB] rounded-full overflow-hidden p-[3px] h-12.5">
+                        <input type="email" placeholder="Enter Your email"
+                            class="min-w-0 flex-1 px-4 py-2.5 text-base outline-none" />
+                        <button type="submit"
+                            class="px-6 py-2.5 bg-[#FF7044] hover:bg-[#FF7044] text-white text-sm font-semibold rounded-full transition">
+                            Subscribe
+                        </button>
+                    </div>
+                </form>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+    </div>
+<section class="comments">
+  {{comments}}
+</section>
+
+    {{!-- related post start --}}
+    {{#if @custom.show_related_post}}
+    <section class="py-10 bg-secondary">
+        <div class="container mx-auto">
+        <h3 class="text-[38px] font-bold mb-8">Related Posts</h3>
+        {{#get "posts" filter="authors:{{primary_author.slug}}+id:-{{id}}" limit="all"}}
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4.5">
+            {{#foreach posts}}
+            {{>"postCard"}}
+            {{/foreach}}
+        </div>
+        </div>
+        
+    </section>
+
+    {{/get}}
+    {{/if}}
+    {{!-- related post end --}}
+    {{/post}}
