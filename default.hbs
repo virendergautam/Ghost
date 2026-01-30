@@ -16,14 +16,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    {{!--
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap"
-        rel="stylesheet"> --}}
-
     {{ghost_head}}
-
     <script src="{{asset "js/main.js"}}"></script>
     <script>
        
@@ -87,12 +80,151 @@
 
             })();
     </script>
-
-
 </head>
 
 <body data-color-scheme="{{@custom.color_scheme}}" class =" {{body_class}} {{@custom.homepage_layout}} {{#match @custom.homepage_layout "Homepage-1"}}header-transparent{{/match}}">
-    <script>
+  
+    {{#match @custom.homepage_layout "Homepage-2"}}
+        {{> "header2"}}
+    {{else}}
+        {{> "header"}}
+    {{/match}}
+
+    <main class="main-viewport">
+        {{{body}}}
+        <div id="customizer"
+            class="fixed right-[-320px] top-1/2 z-50 -translate-y-1/2 transition duration-300 ease-out">
+            <!-- Toggle pill -->
+            <button id="customizerToggle" type="button"
+                class="group flex items-center gap-2 rounded-full bg-accent-bg border-3 border-accent-border text-sm px-5 py-[10px] text-white writing-mode-vertical absolute top-1/2 right-12/12 translate-y-[-50%] cursor-pointer"
+                aria-controls="customizerPanel" aria-expanded="false">
+                <svg width="12" height="15" viewBox="0 0 12 15" fill="none">
+                    <path
+                        d="M1.875 0.625L1.875 3.21375C0.799844 3.49328 0 4.46359 0 5.625C0 6.78641 0.799844 7.75672 1.875 8.03625L1.875 13.625C1.875 13.9702 2.15484 14.25 2.5 14.25C2.84516 14.25 3.125 13.9702 3.125 13.625L3.125 8.03625C4.20016 7.75672 5 6.78641 5 5.625C5 4.46359 4.20016 3.49328 3.125 3.21375V0.625C3.125 0.279843 2.84516 0 2.5 0C2.15484 0 1.875 0.279843 1.875 0.625ZM3.75 5.625C3.75 6.31437 3.18937 6.875 2.5 6.875C1.81062 6.875 1.25 6.31437 1.25 5.625C1.25 4.93563 1.81062 4.375 2.5 4.375C3.18937 4.375 3.75 4.93563 3.75 5.625ZM8.5 0.625V6.21375C7.42484 6.49328 6.625 7.46359 6.625 8.625C6.625 9.78641 7.42484 10.7567 8.5 11.0363V13.625C8.5 13.9702 8.77984 14.25 9.125 14.25C9.47016 14.25 9.75 13.9702 9.75 13.625V11.0363C10.8252 10.7567 11.625 9.78641 11.625 8.625C11.625 7.46359 10.8252 6.49328 9.75 6.21375V0.625C9.75 0.279843 9.47016 0 9.125 0C8.77984 0 8.5 0.279843 8.5 0.625ZM10.375 8.625C10.375 9.31437 9.81437 9.875 9.125 9.875C8.43563 9.875 7.875 9.31437 7.875 8.625C7.875 7.93563 8.43563 7.375 9.125 7.375C9.81437 7.375 10.375 7.93563 10.375 8.625Z"
+                        fill="currentColor" />
+                </svg>
+                Customize
+            </button>
+
+            <!-- Panel -->
+            <div id="customizerPanel"
+                class="ml-3 w-[320px] max-w-[85vw] rounded-xl bg-primary-bg p-1 border border-primary-border flex flex-col gap-[15px]">
+                {{!-- brand color panel --}}
+                <div class="px-4 pt-4">
+                    <div class="space-y-2">
+                        <p class="text-xs font-semibold">BRAND COLOR</p>
+                        <div class="flex items-center h-9 w-full cursor-pointer">
+                            <!-- Color picker -->
+                            <input id="brandColorInput" type="color" value="#db2777"
+                                class="h-full w-full appearance-none rounded-md" aria-label="Select brand color" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" bg-secondary-bg px-4 py-5 rounded-[8px] flex flex-col gap-5">
+                    <div class="flex flex-col gap-2">
+                        <p class="text-xs font-semibold">COLOR SCHEME</p>
+                        <div class="relative">
+                            <select id="colorSchemeSelect"
+                                class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none bg-primary-bg">
+                                <option value="default">Default</option>
+                                <option value="dark-trail">Dark Trail</option>
+                                <option value="natural-escape">Natural Escape</option>
+                                <option value="urban-mist">Urban Mist</option>
+                                <option value="aqua-marine">Aqua Marine</option>
+                                <option value="desert-bloom">Desert Bloom</option>
+                                <option value="mocha-dark">Mocha Dark</option>
+                                <option value="dark-amethyst">Dark Amethyst</option>
+                            </select>
+                            <div class="absolute right-2.5 top-[50%]">
+                                <svg width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                    <path d="M0.787109 0.787476L3.28711 2.78748L5.78711 0.787476" stroke="currentColor"
+                                        stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <p class="text-xs font-semibold">HEADING FONT</p>
+                        <div class="relative">
+                            <select id="headingFontSelect"
+                                class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none bg-primary-bg">
+                                <option value="Default">Default</option>
+                                <option value="Cardo">Cardo</option>
+                                <option value="Chakra Petch">Chakra Petch</option>
+                                <option value="Fira Mono">Fira Mono</option>
+                                <option value="Fira Sans">Fira Sans</option>
+                                <option value="IBM Plex Serif">IBM Plex Serif</option>
+                                <option value="Inter">Inter</option>
+                                <option value="JetBrains Mono">JetBrains Mono</option>
+                                <option value="Libre Baskerville">Libre Baskerville</option>
+                                <option value="Lora">Lora</option>
+                                <option value="Manrope">Manrope</option>
+                                <option value="Merriweather">Merriweather</option>
+                                <option value="Noto Sans">Noto Sans</option>
+                                <option value="Noto Serif">Noto Serif</option>
+                                <option value="Nunito">Nunito</option>
+                                <option value="Old Standard TT">Old Standard TT</option>
+                                <option value="Poppins">Poppins</option>
+                                <option value="Roboto">Roboto</option>
+                                <option value="Rufina">Rufina</option>
+                                <option value="Space Grotesk">Space Grotesk</option>
+                                <option value="Space Mono">Space Mono</option>
+                                <option value="Tenor Sans">Tenor Sans</option>
+                            </select>
+                            <div class="absolute right-2.5 top-[50%]">
+                                <svg width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                    <path d="M0.787109 0.787476L3.28711 2.78748L5.78711 0.787476" stroke="currentColor"
+                                        stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <p class="text-xs font-semibold">BODY FONT</p>
+                        <div class="relative ">
+                            <select id="bodyFontSelect"
+                                class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none bg-primary-bg">
+                                <option value="Default">Default</option>
+                                <option value="Fira Mono">Fira Mono</option>
+                                <option value="Fira Sans">Fira Sans</option>
+                                <option value="IBM Plex Serif">IBM Plex Serif</option>
+                                <option value="Inter">Inter</option>
+                                <option value="JetBrains Mono">JetBrains Mono</option>
+                                <option value="Lora">Lora</option>
+                                <option value="Manrope">Manrope</option>
+                                <option value="Merriweather">Merriweather</option>
+                                <option value="Noto Sans">Noto Sans</option>
+                                <option value="Noto Serif">Noto Serif</option>
+                                <option value="Nunito">Nunito</option>
+                                <option value="Poppins">Poppins</option>
+                                <option value="Roboto">Roboto</option>
+                                <option value="Space Mono">Space Mono</option>
+                            </select>
+                            <div class="absolute right-2.5 top-[50%]">
+                                <svg width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                    <path d="M0.787109 0.787476L3.28711 2.78748L5.78711 0.787476" stroke="currentColor"
+                                        stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="block text-center text-xs font-medium underline underline-offset-2">See all the custom settings</a>
+                </div>
+                <button id="customizerReset"
+                    class="w-full rounded-4xl bg-accent-bg p-2 text-sm font-medium mb-5 min-h-[44px] text-white cursor-pointer flex justify-center items-center gap-2">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M7.59375 15.1875C7.74294 15.1875 7.88601 15.1282 7.9915 15.0227C8.09699 14.9172 8.15625 14.7742 8.15625 14.625C8.15625 14.4758 8.09699 14.3327 7.9915 14.2272C7.88601 14.1217 7.74294 14.0625 7.59375 14.0625C6.30409 14.063 5.04372 13.6779 3.97463 12.9566C2.90553 12.2353 2.07655 11.2108 1.59423 10.0147C1.1119 8.81866 0.998267 7.50568 1.26792 6.24452C1.53758 4.98336 2.17821 3.83165 3.10749 2.9374V4.88176C3.10749 5.03094 3.16675 5.17402 3.27224 5.27951C3.37773 5.385 3.5208 5.44426 3.66999 5.44426C3.81917 5.44426 3.96224 5.385 4.06773 5.27951C4.17322 5.17402 4.23249 5.03094 4.23249 4.88176V1.77441C4.23248 1.62523 4.17321 1.48216 4.06773 1.37667C3.96224 1.27119 3.81917 1.21192 3.66999 1.21191H0.562503C0.413319 1.21191 0.270245 1.27118 0.164755 1.37667C0.0592662 1.48216 2.96388e-06 1.62523 2.96388e-06 1.77441C2.96388e-06 1.9236 0.0592662 2.06667 0.164755 2.17216C0.270245 2.27765 0.413319 2.33691 0.562503 2.33691H2.11803C1.08637 3.41025 0.39312 4.76326 0.124545 6.22758C-0.144031 7.6919 0.0239291 9.20287 0.607522 10.5725C1.19112 11.9421 2.16457 13.1098 3.40676 13.9304C4.64894 14.7509 6.10501 15.1881 7.59375 15.1875Z" fill="currentColor"/>
+                    <path d="M7.59375 4.46387e-07C7.44457 4.46387e-07 7.30149 0.0592637 7.196 0.164753C7.09051 0.270242 7.03125 0.413316 7.03125 0.5625C7.03125 0.711685 7.09051 0.854759 7.196 0.960248C7.30149 1.06574 7.44457 1.125 7.59375 1.125C8.88353 1.12474 10.1439 1.51012 11.213 2.23164C12.2821 2.95315 13.111 3.97784 13.5933 5.17405C14.0756 6.37026 14.1892 7.68336 13.9196 8.94463C13.6499 10.2059 13.0093 11.3577 12.08 12.2522V10.3526C12.08 10.2034 12.0208 10.0603 11.9153 9.95481C11.8098 9.84932 11.6667 9.79005 11.5175 9.79005C11.3683 9.79005 11.2253 9.84932 11.1198 9.95481C11.0143 10.0603 10.955 10.2034 10.955 10.3526V13.4599C10.955 13.6091 11.0143 13.7522 11.1198 13.8576C11.2253 13.9631 11.3683 14.0224 11.5175 14.0224H14.625C14.7742 14.0224 14.9173 13.9631 15.0227 13.8576C15.1282 13.7522 15.1875 13.6091 15.1875 13.4599C15.1875 13.3107 15.1282 13.1676 15.0227 13.0622C14.9173 12.9567 14.7742 12.8974 14.625 12.8974H13.0249C14.0694 11.8288 14.7753 10.4758 15.0541 9.0078C15.333 7.5398 15.1724 6.02216 14.5925 4.64504C14.0126 3.26792 13.0391 2.09257 11.7941 1.26627C10.5492 0.439977 9.08799 -0.000511872 7.59375 4.46387e-07Z" fill="currentColor"/>
+                    </svg>
+                    Reset
+                </button>
+
+            </div>
+        </div>
+    </main>
+     {{> "footer"}}
+  <script>
         let originalClass = document.documentElement.className;
         document.body.classList.add(originalClass);
         document.documentElement.className = '';
@@ -145,161 +277,12 @@
             }
         });
     </script>
-
-
-    <div class="main-viewport">
-        {{> "header"}}
-        {{!-- {{> "header2"}} --}}
-
-
-        {{{body}}}
-
-
-        <!-- Slide-in panel container (right side) -->
-        <div id="customizer"
-            class="fixed right-[-320px] top-1/2 z-50 -translate-y-1/2 transition duration-300 ease-out">
-            <!-- Toggle pill -->
-            <button id="customizerToggle" type="button"
-                class="group flex items-center gap-2 rounded-full bg-accent-bg border-4 border-accent-border px-5 py-2 text-white writing-mode-vertical absolute top-1/2 right-12/12 translate-y-[-50%] cursor-pointer"
-                aria-controls="customizerPanel" aria-expanded="false">
-                <svg width="12" height="15" viewBox="0 0 12 15" fill="none">
-                    <path
-                        d="M1.875 0.625L1.875 3.21375C0.799844 3.49328 0 4.46359 0 5.625C0 6.78641 0.799844 7.75672 1.875 8.03625L1.875 13.625C1.875 13.9702 2.15484 14.25 2.5 14.25C2.84516 14.25 3.125 13.9702 3.125 13.625L3.125 8.03625C4.20016 7.75672 5 6.78641 5 5.625C5 4.46359 4.20016 3.49328 3.125 3.21375V0.625C3.125 0.279843 2.84516 0 2.5 0C2.15484 0 1.875 0.279843 1.875 0.625ZM3.75 5.625C3.75 6.31437 3.18937 6.875 2.5 6.875C1.81062 6.875 1.25 6.31437 1.25 5.625C1.25 4.93563 1.81062 4.375 2.5 4.375C3.18937 4.375 3.75 4.93563 3.75 5.625ZM8.5 0.625V6.21375C7.42484 6.49328 6.625 7.46359 6.625 8.625C6.625 9.78641 7.42484 10.7567 8.5 11.0363V13.625C8.5 13.9702 8.77984 14.25 9.125 14.25C9.47016 14.25 9.75 13.9702 9.75 13.625V11.0363C10.8252 10.7567 11.625 9.78641 11.625 8.625C11.625 7.46359 10.8252 6.49328 9.75 6.21375V0.625C9.75 0.279843 9.47016 0 9.125 0C8.77984 0 8.5 0.279843 8.5 0.625ZM10.375 8.625C10.375 9.31437 9.81437 9.875 9.125 9.875C8.43563 9.875 7.875 9.31437 7.875 8.625C7.875 7.93563 8.43563 7.375 9.125 7.375C9.81437 7.375 10.375 7.93563 10.375 8.625Z"
-                        fill="currentColor" />
-                </svg>
-                Customize
-            </button>
-
-            <!-- Panel -->
-            <div id="customizerPanel"
-                class="ml-3 w-[320px] max-w-[85vw] rounded-xl bg-primary-bg p-1 border border-primary-border">
-                {{!-- brand color panel --}}
-                <div class="px-4 pt-4">
-                    <div class="space-y-2">
-                        <p class="text-xs font-semibold">BRAND COLOR</p>
-                        <div class="flex items-center h-9 w-full">
-                            <!-- Color picker -->
-                            <input id="brandColorInput" type="color" value="#db2777"
-                                class="h-full w-full appearance-none" aria-label="Select brand color" />
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Selects -->
-
-                <div class=" bg-secondary-bg px-4 py-5 rounded-[8px]">
-                    <p class="text-xs font-semibold mb-2">COLOR SCHEME</p>
-                    <div class="relative mb-5">
-                        <select id="colorSchemeSelect"
-                            class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none bg-primary-bg">
-                            <option value="default">Default</option>
-                            <option value="dark-trail">Dark Trail</option>
-                            <option value="natural-escape">Natural Escape</option>
-                            <option value="urban-mist">Urban Mist</option>
-                            <option value="aqua-marine">Aqua Marine</option>
-                            <option value="desert-bloom">Desert Bloom</option>
-                            <option value="mocha-dark">Mocha Dark</option>
-                            <option value="dark-amethyst">Dark Amethyst</option>
-                        </select>
-                        <div class="absolute right-2.5 top-[50%]">
-                            <svg width="7" height="4" viewBox="0 0 7 4" fill="none">
-                                <path d="M0.787109 0.787476L3.28711 2.78748L5.78711 0.787476" stroke="currentColor"
-                                    stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                    </div>
-                    <p class="text-xs font-semibold mb-2">HEADING FONT</p>
-                    <div class="relative mb-5">
-                        <select id="headingFontSelect"
-                            class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none bg-primary-bg">
-                            <option value="Default">Default</option>
-                            <option value="Cardo">Cardo</option>
-                            <option value="Chakra Petch">Chakra Petch</option>
-                            <option value="Fira Mono">Fira Mono</option>
-                            <option value="Fira Sans">Fira Sans</option>
-                            <option value="IBM Plex Serif">IBM Plex Serif</option>
-                            <option value="Inter">Inter</option>
-                            <option value="JetBrains Mono">JetBrains Mono</option>
-                            <option value="Libre Baskerville">Libre Baskerville</option>
-                            <option value="Lora">Lora</option>
-                            <option value="Manrope">Manrope</option>
-                            <option value="Merriweather">Merriweather</option>
-                            <option value="Noto Sans">Noto Sans</option>
-                            <option value="Noto Serif">Noto Serif</option>
-                            <option value="Nunito">Nunito</option>
-                            <option value="Old Standard TT">Old Standard TT</option>
-                            <option value="Poppins">Poppins</option>
-                            <option value="Roboto">Roboto</option>
-                            <option value="Rufina">Rufina</option>
-                            <option value="Space Grotesk">Space Grotesk</option>
-                            <option value="Space Mono">Space Mono</option>
-                            <option value="Tenor Sans">Tenor Sans</option>
-                        </select>
-                        <div class="absolute right-2.5 top-[50%]">
-                            <svg width="7" height="4" viewBox="0 0 7 4" fill="none">
-                                <path d="M0.787109 0.787476L3.28711 2.78748L5.78711 0.787476" stroke="currentColor"
-                                    stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                    </div>
-
-                    <p class="text-xs font-semibold mb-2">BODY FONT</p>
-                    <div class="relative ">
-                        <select id="bodyFontSelect"
-                            class="w-full rounded-sm px-3 py-2 text-sm outline-none ring-1 ring-neutral-200 appearance-none bg-primary-bg">
-                            <option value="Default">Default</option>
-                            <option value="Fira Mono">Fira Mono</option>
-                            <option value="Fira Sans">Fira Sans</option>
-                            <option value="IBM Plex Serif">IBM Plex Serif</option>
-                            <option value="Inter">Inter</option>
-                            <option value="JetBrains Mono">JetBrains Mono</option>
-                            <option value="Lora">Lora</option>
-                            <option value="Manrope">Manrope</option>
-                            <option value="Merriweather">Merriweather</option>
-                            <option value="Noto Sans">Noto Sans</option>
-                            <option value="Noto Serif">Noto Serif</option>
-                            <option value="Nunito">Nunito</option>
-                            <option value="Poppins">Poppins</option>
-                            <option value="Roboto">Roboto</option>
-                            <option value="Space Mono">Space Mono</option>
-                        </select>
-                        <div class="absolute right-2.5 top-[50%]">
-                            <svg width="7" height="4" viewBox="0 0 7 4" fill="none">
-                                <path d="M0.787109 0.787476L3.28711 2.78748L5.78711 0.787476" stroke="currentColor"
-                                    stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                    </div>
-
-
-
-                </div>
-                <button id="customizerReset"
-                    class="w-full rounded-sm bg-neutral-100 py-2 text-xs font-semibold text-neutral-700 hover:bg-neutral-200 mt-3">
-                    Reset
-                </button>
-
-            </div>
-        </div>
-        <style>
-            .writing-mode-vertical {
-                writing-mode: vertical-rl;
-                transform: rotate(180deg);
-            }
-        </style>
-
-        {{> "footer"}}
-
-    </div>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1200
-        });
-    </script>
-
-
+<script>
+    AOS.init({
+        duration: 1200
+    });
+</script>
 
 </body>
-
 </html>
