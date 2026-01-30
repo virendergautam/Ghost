@@ -14,7 +14,7 @@
 }
 
 :root {
-    --theme-accent-color: var(--ghost-accent-color);
+  --theme-accent-color: var(--ghost-accent-color);
   --preview-font-heading: var(--gh-font-heading, var(--gh-font-body));
   --preview-font-body: var(--gh-font-body);
 }
@@ -186,6 +186,7 @@ body {
   min-height: 40px;
   padding: 5px 15px;
   font-size: 12px;
+  background-color: var(--theme-accent-color);
 }
 
 h1,
@@ -199,7 +200,7 @@ h6 {
 }
 
 button.button {
-  background-color: var(--ghost-accent-color);
+  background-color: var(--theme-accent-color);
 }
 
 .page-content h1 {
@@ -265,6 +266,15 @@ img {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+.home-template.header-transparent .header-inner {
+  position: absolute;
+  inset-inline: 0;
+}
+
+.Homepage-1.header-transparent .nav-link {
+    color: #000;
 }
 
 .header-menu .nav {
@@ -445,7 +455,37 @@ blockquote {
 }
 
 .catagory-card:has(.catagory_image) .catagory-text-wrapper .catagory-text:last-child {
-    color: #fff;
+  color: #fff;
+}
+
+.writing-mode-vertical {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+input[type="color"] {
+  -webkit-appearance: none; /* Removes default browser styling for WebKit/Blink browsers */
+  appearance: none; /* Standard property */
+  border: none; /* Removes the outer border of the input element */
+  padding: 0; /* Removes any default padding */
+  margin: 0; /* Removes any default margin (if present) */
+  box-sizing: border-box; /* Ensures padding/border are included in element's total width/height */
+}
+ 
+/* Target the inner color swatch for WebKit/Blink browsers (Chrome, Safari, etc.) */
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0; /* Removes the padding around the swatch */
+  border: none; /* Removes any border around the swatch wrapper */
+}
+ 
+input[type="color"]::-webkit-color-swatch {
+  border: none; /* Removes the border on the actual color preview swatch */
+}
+ 
+/* Target the inner color swatch for Firefox */
+input[type="color"]::-moz-color-swatch {
+  border: none; /* Removes the border on the actual color preview swatch */
+  padding: 0; /* Removes any padding around the swatch */
 }
 
 @media (min-width:768px) {
