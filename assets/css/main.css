@@ -11,12 +11,16 @@
   --color-accent-border: color-mix(in srgb, var(--color-accent-bg) 100%, white 30%);
   --color-primary-border: #DDDDDD;
   --color-secondary-border: #EBEBEB;
+  --color-tertiary-border: #000000;
+  --color-tertiary-text: #000000;
+
 }
 
 :root {
   --theme-accent-color: var(--ghost-accent-color);
   --preview-font-heading: var(--gh-font-heading, var(--gh-font-body));
   --preview-font-body: var(--gh-font-body);
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #F4D4C2 0.57%, #F1EBD3 46.14%, #DCE2E0 82.07%, #D7DFE3 103.17%);
 }
 
 h1,
@@ -28,7 +32,8 @@ h6 {
   font-family: var(--preview-font-heading);
 }
 
-body {
+body,
+p {
   font-family: var(--preview-font-body);
 }
 
@@ -43,90 +48,128 @@ body {
 
 .default {
   --color-primary-bg: #f7f7f7;
-  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
   --color-primary-text: #000000;
   --color-secondary-bg: #ffffff;
-  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
   --color-secondary-text: #000000;
   --color-primary-border: #DDDDDD;
   --color-secondary-border: #EBEBEB;
+  --color-tertiary-border: #EBEBEB;
+  --color-tertiary-text: #000000;
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #F4D4C2 0.57%, #F1EBD3 46.14%, #DCE2E0 82.07%, #D7DFE3 103.17%);
+}
+
+.Homepage-2.default {
+  --color-primary-bg: #fffdf2;
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
+  --color-primary-text: #612709;
+  --color-secondary-bg: #f9f4e3;
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, rgb(238, 197, 13) 20%);
+  --color-secondary-text: #612709;
+  --color-primary-border: #f0ddd0;
+  --color-secondary-border: #f0ddd0;
+  --color-tertiary-border: #00000010;
+  --color-tertiary-text: #000000;
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #F4D4C2 0.57%, #F1EBD3 46.14%, #DCE2E0 82.07%, #D7DFE3 103.17%);
 }
 
 .dark-trail {
   --color-primary-bg: #000000;
-  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
   --color-primary-text: #ffffff;
   --color-secondary-bg: #0E0E0E;
-  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
   --color-secondary-text: #ffffff;
   --color-primary-border: #343435;
   --color-secondary-border: #666666;
+  --color-tertiary-border: #EBEBEB;
+  --color-tertiary-text: #000000;
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #F4D4C2 0.57%, #F1EBD3 46.14%, #DCE2E0 82.07%, #D7DFE3 103.17%);
 }
 
 .urban-mist {
   --color-primary-bg: #ffffff;
-  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
   --color-primary-text: #000000;
   --color-secondary-bg: #f6f6f6;
-  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
   --color-secondary-text: #000000;
   --color-primary-border: #DDDDDD;
   --color-secondary-border: #EBEBEB;
+  --color-tertiary-border: #EBEBEB;
+  --color-tertiary-text: #000000;
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #F4D4C2 0.57%, #F1EBD3 46.14%, #DCE2E0 82.07%, #D7DFE3 103.17%);
 }
 
 .natural-escape {
   --color-primary-bg: #ffffff;
-  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
   --color-primary-text: #000000;
   --color-secondary-bg: #f6f6f6;
-  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
   --color-secondary-text: #000000;
   --color-primary-border: #DDDDDD;
   --color-secondary-border: #EBEBEB;
+  --color-tertiary-border: #EBEBEB;
+  --color-tertiary-text: #000000;
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #F4D4C2 0.57%, #F1EBD3 46.14%, #DCE2E0 82.07%, #D7DFE3 103.17%);
 }
 
 .aqua-marine {
   --color-primary-bg: #E6EFFF;
-  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
   --color-primary-text: #253BAA;
   --color-secondary-bg: #FFFFFF;
-  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
   --color-secondary-text: #1A2D75;
   --color-primary-border: #DDDDDD;
   --color-secondary-border: #EBEBEB;
+  --color-tertiary-border: #EBEBEB;
+  --color-tertiary-text: #000000;
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #F4D4C2 0.57%, #F1EBD3 46.14%, #DCE2E0 82.07%, #D7DFE3 103.17%);
 }
 
 .desert-bloom {
   --color-primary-bg: #F9F4E3;
-  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
   --color-primary-text: #7C2904;
   --color-secondary-bg: #FFFDF2;
-  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
   --color-secondary-text: #7C2904;
   --color-primary-border: #F0DDD0;
   --color-secondary-border: #F0DDD0;
+  --color-tertiary-border: #EBEBEB;
+  --color-tertiary-text: #000000;
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #F4D4C2 0.57%, #F1EBD3 46.14%, #DCE2E0 82.07%, #D7DFE3 103.17%);
 }
 
 .dark-amethyst {
   --color-primary-bg: #2B1D3B;
-  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
   --color-primary-text: #ffffff;
   --color-secondary-bg: #3C2E4D;
-  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, white 20%);
   --color-secondary-text: #ffffff;
   --color-primary-border: #644D7C;
   --color-secondary-border: #644D7C;
+  --color-tertiary-border: #ffffff10;
+  --color-tertiary-text: #ffffff;
+  --gradient-tertiary-bg: #2b1d3b;
 }
 
 .mocha-dark {
   --color-primary-bg: #181214;
-  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
   --color-primary-text: #EFDFB4;
   --color-secondary-bg: #2A1E21;
-  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
   --color-secondary-text: #EFDFB4;
   --color-primary-border: #45343999;
   --color-secondary-border: #453439;
+  --color-tertiary-border: #EBEBEB;
+  --color-tertiary-text: #000000;
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #F4D4C2 0.57%, #F1EBD3 46.14%, #DCE2E0 82.07%, #D7DFE3 103.17%);
 }
 
 .color-theme-1 {
@@ -274,7 +317,7 @@ img {
 }
 
 .Homepage-1.header-transparent .nav-link {
-    color: #000;
+  color: #000;
 }
 
 .header-menu .nav {
@@ -291,7 +334,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 11;
-  background: var(--primaryBg);
+  background: var(--color-primary-bg);
   transition: .5s cubic-bezier(.6, 0, .4, 1);
 }
 
@@ -464,28 +507,39 @@ blockquote {
 }
 
 input[type="color"] {
-  -webkit-appearance: none; /* Removes default browser styling for WebKit/Blink browsers */
-  appearance: none; /* Standard property */
-  border: none; /* Removes the outer border of the input element */
-  padding: 0; /* Removes any default padding */
-  margin: 0; /* Removes any default margin (if present) */
-  box-sizing: border-box; /* Ensures padding/border are included in element's total width/height */
+  -webkit-appearance: none;
+  /* Removes default browser styling for WebKit/Blink browsers */
+  appearance: none;
+  /* Standard property */
+  border: none;
+  /* Removes the outer border of the input element */
+  padding: 0;
+  /* Removes any default padding */
+  margin: 0;
+  /* Removes any default margin (if present) */
+  box-sizing: border-box;
+  /* Ensures padding/border are included in element's total width/height */
 }
- 
+
 /* Target the inner color swatch for WebKit/Blink browsers (Chrome, Safari, etc.) */
 input[type="color"]::-webkit-color-swatch-wrapper {
-  padding: 0; /* Removes the padding around the swatch */
-  border: none; /* Removes any border around the swatch wrapper */
+  padding: 0;
+  /* Removes the padding around the swatch */
+  border: none;
+  /* Removes any border around the swatch wrapper */
 }
- 
+
 input[type="color"]::-webkit-color-swatch {
-  border: none; /* Removes the border on the actual color preview swatch */
+  border: none;
+  /* Removes the border on the actual color preview swatch */
 }
- 
+
 /* Target the inner color swatch for Firefox */
 input[type="color"]::-moz-color-swatch {
-  border: none; /* Removes the border on the actual color preview swatch */
-  padding: 0; /* Removes any padding around the swatch */
+  border: none;
+  /* Removes the border on the actual color preview swatch */
+  padding: 0;
+  /* Removes any padding around the swatch */
 }
 
 @media (min-width:768px) {
@@ -494,6 +548,10 @@ input[type="color"]::-moz-color-swatch {
     top: 0;
     z-index: 0;
     isolation: isolate;
+  }
+  .team-member-item,
+  .team-member2-item {
+    flex: 0 0 calc(33.333% - 18px);
   }
 }
 
@@ -506,6 +564,11 @@ input[type="color"]::-moz-color-swatch {
     flex: 0.85;
     border-radius: 130px;
     /* transition: flex 0.6s ease; */
+  }
+
+  .team-member-item,
+  .team-member2-item {
+    flex: 0 0 calc(25% - 18px);
   }
 
   .team-member-wrapper.team-member-animate .team-member-item.active,

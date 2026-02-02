@@ -1,9 +1,9 @@
-<section class="bg-primary-bg py-10">
+<section class="[background:var(--gradient-tertiary-bg)] text-tertiary-text py-10">
     <div class="container mx-auto">
-        <div class="grid grid-cols-4 gap-6">
+        <div class="grid md:grid-cols-4 gap-6 mobile-swipe mobile-column-1">
             {{#get "posts" include="authors,tags" limit="4"}}
             {{#foreach posts}}
-            <a href="{{url}}" class="group flex gap-5 cursor-pointer"
+            <a href="{{url}}" class="group flex gap-4 md:gap-5 cursor-pointer"
                 data-bg="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}">
 
                 <div class="h-22.5 w-22.5 rounded-full overflow-hidden">
@@ -19,7 +19,7 @@
                     <h4 class="text-base font-bold mt-4"> {{title}}</h4>
                 </div>
                 {{#unless @last}}
-                <div class="hidden lg:block h-full w-px border-r border-primary-border"></div>
+                <div class="block h-full w-px border-r border-tertiary-border"></div>
                 {{/unless}}
             </a>
             {{/foreach}}
@@ -28,15 +28,14 @@
     </div>
 </section>
 
-<section class="pb-10 bg-primary-bg">
+<section class="pb-10 [background-image:var(--gradient-tertiary-bg)]">
     <div class="container mx-auto">
         <div class="grid gap-8 lg:grid-cols-[1fr_492px]">
             <!-- LEFT: Hero -->
             {{#get "posts" filter="featured:true" limit ="1" include="authors,tags"}}
             {{#foreach posts}}
             <div class="featured-blog-wrapper relative">
-                <div class="featured-blog-media rounded-4xl overflow-hidden h-[700px]" data-aos="zoom-in-up"
-                    data-aos-duration="1000">
+                <div class="featured-blog-media rounded-4xl overflow-hidden h-[700px]">
                     <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
                         alt="{{title}}" />
                 </div>
@@ -83,9 +82,9 @@
             {{/get}}
 
             <!-- RIGHT: Recent Posts -->
-            <aside class="rounded-[20px] bg-secondary-bg p-7.5">
+            <aside class="rounded-[20px] bg-white text-black p-7.5">
                 <h2 class="text-[22px] font-bold px-2.5 pt-2.5">Recent Posts</h2>
-                <div class="mt-5.5 h-px w-full bg-zinc-200"></div>
+                <div class="mt-5.5 h-px w-full bg-[#00000010]"></div>
 
                 <div class="mt-6 space-y-5">
                     <!-- Item -->
@@ -175,13 +174,13 @@
     </div>
 </section>
 
-<section class="recommended-post bg-primary-bg text-secondary-text py-10 md:py-20">
+<section class="recommended-post bg-secondary-bg text-secondary-text py-10 md:py-20">
     <div class="container mx-auto">
         <div class="recommended-post-header mb-6 md:mb-12.5 text-center">
             <h2 class="text-2xl md:text-4xl font-semibold" data-aos="fade-up" data-aos-duration="600">Read Our
                 Latest Posts </h2>
         </div>
-        <div class="recommended-post-wrapper grid md:grid-cols-4 gap-5">
+        <div class="recommended-post-wrapper grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             <script>
                 document.addEventListener("DOMContentLoaded", () => {
                     const posts = document.querySelectorAll(".post-item");
@@ -227,7 +226,7 @@
     </div>
 </section>
 
-<section class=" relative py-10 min-h-[730px] flex items-center bg-accent-bg">
+<section class=" relative py-10 min-h-[430px] md:min-h-[730px] flex items-center bg-accent-bg">
     <div class="background-image absolute inset-0">
         {{#if @site.cover_image}}
         <img class="site-header-cover" srcset="{{img_url @site.cover_image size=" s"}} 300w, {{img_url @site.cover_image
@@ -257,16 +256,16 @@
 </section>
 
 <!-- Blog Categories -->
-<section class="bg-primary-bg py-16">
+<section class="bg-secondary-bg py-16">
     <div class="mx-auto max-w-[1222px] px-4">
         <h2 class="text-center text-4xl font-bold">Blog Categories</h2>
-        <div class="mt-12 grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+        <div class="mt-12 grid gap-5 md:grid-cols-3 lg:grid-cols-6 mobile-swipe mobile-column-1">
             {{#get "tags" filter="visibility:public" limit="12" include="count.posts"}}
             {{#foreach tags}}
-            <a href="/tag/{{slug}}/" class="catagory-card relative group grid h-45 place-items-center rounded-xl bg-secondary-bg overflow-hidden p-2.5">
+            <a href="/tag/{{slug}}/" class="catagory-card relative group grid aspect-square place-items-center rounded-xl bg-primary-bg overflow-hidden p-2.5">
                 <div class="catagory_image absolute inset-0">
                     <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
-                        alt="{{name}}" class="object-cover transition-all duration-500 scale-125 group-hover:scale-100 opacity-0 group-hover:opacity-100" />
+                        alt="{{name}}" class="object-cover transition-all duration-500 lg:scale-125 group-hover:scale-100 lg:opacity-0 group-hover:opacity-100" />
                 </div>
                 <div class="catagory-text-block text-center relative z-10 overflow-hidden">
                     <div class="catagory-text-wrapper">
@@ -274,7 +273,7 @@
                         <div class="catagory-text text-base font-medium absolute bottom-[-100%] group-hover:bottom-[0] duration-500 transition-bottom">{{name}}<sup class="text-xs font-medium">({{count.posts}})</sup></div>
                     </div>
                 </div>
-                <div class="catagory-blank-bg bg-secondary-bg absolute inset-0 group-hover:opacity-0 transition-opacity duration-500"></div>
+                <div class="catagory-blank-bg bg-primary-bg absolute inset-0 opacity-20 lg:opacity-100  lg:group-hover:opacity-0 transition-opacity duration-500"></div>
             </a>
             {{/foreach}}
             {{/get}}
@@ -282,7 +281,7 @@
     </div>
 </section>
 
-<section class="bg-secondary-bg py-20">
+<section class="bg-primary-bg py-20">
   <div class="mx-auto max-w-[1222px] px-4">
     <!-- Heading -->
     <h2 class="mb-10 text-center text-5xl font-bold">
@@ -292,9 +291,9 @@
     <div class="space-y-15">
         {{#get "posts" filter="featured:true" limit="3" include="tags,authors" }}
         {{#foreach posts}}
-      <article class="grid gap-10 md:grid-cols-[auto_1fr]">
+      <article class="grid gap-10 md:grid-cols-2">
         <!-- Image -->
-        <div class="relative overflow-hidden rounded-2xl w-[530px] h-[320px]">
+        <div class="relative overflow-hidden rounded-2xl h-[320px]">
             <div class="h-full w-full">
                 <img src="{{#if feature_image}}{{feature_image}}{{else}}/assets/images/no-image.png{{/if}}"
                     alt="{{title}}" />
@@ -338,7 +337,7 @@
         </div>
       </article>
        {{#unless @last}}
-      <div class="h-px w-full bg-primary-bg"></div>
+      <div class="h-px w-full border-b border-primary-border"></div>
        {{/unless}}
         {{/foreach}}
         {{/get}}
@@ -352,7 +351,7 @@
 <!-- Tailwind + Swiper (CDN) : Customer Review Slider -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-<section class="bg-gradient-to-r from-slate-200 via-amber-50 to-orange-200 py-20">
+<section class="[background-image:var(--gradient-tertiary-bg)] py-20">
     <!-- Heading -->
     <div class="text-center">
       <h2 class="text-4xl font-extrabold text-zinc-900">Customer Review</h2>

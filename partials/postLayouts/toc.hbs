@@ -1,135 +1,57 @@
 {{!< default}} 
-    {{#post}} <div class="container mx-auto">
-    <div class="max-w-[1500px] mx-auto">
-        <!-- Header part -->
-        <div class="max-w-5xl mx-auto pt-12 md:pt-20 pb-10 text-center">
+    {{#post}} 
+    <div class="bg-secondary-bg mt-[25px] py-10 md:py-17.5">
+    <div class="container mx-auto">
+        <div class="max-w-[1500px] mx-auto grid items-center grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20">
+            <!-- Header part -->
+            <div class="text-left">
 
-            <!-- Tags -->
-            <div class="flex flex-wrap justify-center gap-2 mb-6">
-                {{#foreach tags}}
-                    <span class="px-3 py-1 text-xs font-medium rounded-full bg-secondary-bg">
-                        {{name}}
-                    </span>
-                {{/foreach}}
-            </div>
-
-            <!-- Title -->
-            <h1 class="text-[28px] md:text-4xl lg:text-[54px] font-bold mb-6 md:mb-10">
-                {{title}}
-            </h1>
-
-            <!-- Excerpt -->
-            <p class="text-base mb-6 md:mb-10">
-                {{excerpt}}
-            </p>
-
-            <!-- Divider -->
-            <div class="border-t border-primary-border my-6 md:my-8"></div>
-
-            <!-- Author -->
-            <div class="flex items-center justify-center gap-3 text-xs">
-                {{#if primary_author.profile_image}}
-                    <div class="w-9.5 h-9.5 rounded-full overflow-hidden">
-                        <img src={{primary_author.profile_image}} alt={{title}} />
-                    </div>
-                {{/if}}
-                <span>
-                    by <span class="font-medium">{{primary_author.name}}</span>
-                    &nbsp;•&nbsp; {{date published_at format="DD MMM YYYY"}} &nbsp;/&nbsp; {{reading_time}} min read
-                </span>
-            </div>
-
-        </div>
-
-        <!-- image part -->
-        <div class="rounded-3xl overflow-hidden">
-            {{#if feature_image}}
-                <img src="{{feature_image}}" alt="{{slug}}">
-            {{else}}
-                <img src="/assets/images/no-image.png" alt="No Image">
-            {{/if}}
-        </div>
-
-        <!-- Content part -->
-        <div class="max-w-5xl mx-auto py-6 md:p-6 page-content">
-            {{content}}
-            <div
-                class="mt-5 flex flex-col sm:flex-row md:items-center justify-between gap-3 text-xs border-b border-[#EBEBEB] pb-7.5">
-                    <button class="flex items-center gap-2 text-sm">
-                        {{> "icons/comment"}}
-                        0 Comments
-                    </button>
-                <div class="flex items-center flex-wrap gap-4">
-                    <span class="text-base font-semibold">
-                        Share This Article:
-                    </span>
-                    <div class="flex items-center gap-1.5">
-                        <a href="#" class="hover:text-[var(--theme-accent-color)] w-10.5 h-10.5 flex items-center justify-center">
-                           {{> "icons/share"}}
-                        </a>
-                        <a href="#" class="hover:text-[var(--theme-accent-color)] w-10.5 h-10.5 flex items-center justify-center">
-                            {{> "icons/instagram"}}
-                        </a>
-                        <a href="#" class="hover:text-[var(--theme-accent-color)] w-10.5 h-10.5 flex items-center justify-center">
-                            {{> "icons/facebook"}}
-                        </a>
-                        <a href="#" class="hover:text-[var(--theme-accent-color)] w-10.5 h-10.5 flex items-center justify-center">
-                            {{> "icons/twitter"}}
-                        </a>
-                        <button
-                            class="border border-primary-border h-[38px] w-[38px] rounded-full flex items-center justify-center">
-                            {{> "icons/dots"}}
-                        </button>
-                    </div>
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                    {{#foreach tags}}
+                        <span class="px-3 py-1 text-xs font-medium rounded-full bg-primary-bg">
+                            {{name}}
+                        </span>
+                    {{/foreach}}
                 </div>
 
+                <!-- Title -->
+                <h1 class="text-[28px] md:text-4xl lg:text-[54px] font-bold mb-6 md:mb-10">
+                    {{title}}
+                </h1>
 
-            </div>
-            {{#if @custom.show_subscribe_newsletter_section}}
-
-            <div class="max-w-2xl mx-auto bg-secondary-bg rounded-3xl p-6 md:p-10 text-center mt-12.5">
-                <h6 class="text-xl font-bold">
-                    Subscribe to our newsletter
-                </h6>
-                <p class="mt-2 text-sm sm:text-base">
-                    Join our newsletter to stay up to date on features and releases.
+                <!-- Excerpt -->
+                <p class="text-base">
+                    {{excerpt}}
                 </p>
-                <form class="mt-6 w-full flex items-center justify-center">
-                    <div
-                        class="flex w-full max-w-md bg-primary-bg border border-primary-border rounded-full overflow-hidden p-[3px] h-12.5">
-                        <input type="email" placeholder="Enter Your email"
-                            class="min-w-0 flex-1 px-4 py-2.5 text-base outline-none" />
-                        <button type="submit"
-                            class="px-6 py-2.5 bg-accent-bg text-white text-sm font-semibold rounded-full transition">
-                            Subscribe
-                        </button>
-                    </div>
-                </form>
+
+                <!-- Divider -->
+                <div class="border-t border-primary-border mt-10 mb-5"></div>
+
+                <!-- Author -->
+                <div class="flex items-center gap-3 text-xs">
+                    {{#if primary_author.profile_image}}
+                        <div class="w-9.5 h-9.5 rounded-full overflow-hidden">
+                            <img src={{primary_author.profile_image}} alt={{title}} />
+                        </div>
+                    {{/if}}
+                    <span>
+                        by <span class="font-medium">{{primary_author.name}}</span>
+                        &nbsp;•&nbsp; {{date published_at format="DD MMM YYYY"}} &nbsp;/&nbsp; {{reading_time}} min read
+                    </span>
+                </div>
+
             </div>
-            {{/if}}
+
+            <!-- image part -->
+            <div class="rounded-3xl overflow-hidden md:h-[545px]">
+                {{#if feature_image}}
+                    <img src="{{feature_image}}" alt="{{slug}}">
+                {{else}}
+                    <img src="/assets/images/no-image.png" alt="No Image">
+                {{/if}}
+            </div>
         </div>
     </div>
     </div>
-<section class="comments">
-  {{comments}}
-</section>
-
-    {{!-- related post start --}}
-    {{#if @custom.show_related_post}}
-    <section class="py-10 bg-secondary">
-        <div class="container mx-auto">
-        <h3 class="text-[38px] font-bold mb-8">Related Posts</h3>
-        {{#get "posts" filter="authors:{{primary_author.slug}}+id:-{{id}}" limit="all" include="tags"}}
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4.5">
-            {{#foreach posts}}
-            {{>"postCard"}}
-            {{/foreach}}
-        </div>
-        </div>
-        
-    </section>
-
-    {{/get}}
-    {{/if}}
-    {{!-- related post end --}}
     {{/post}}
