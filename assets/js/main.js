@@ -1,13 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
   console.log("main.js loaded");
-  customizerFunctions();
   randomColorBox();
+  customizerBox();
+  customizerFunctions();
   mobileMenu();
   staticTextAnimation();
-  loadMorePosts();
-  customizerBox();
+  // loadMorePosts();
+  postApi()
+  loadMoreTags();
   teamHoverActive();
-  darlLiteMode()
+  darkLiteMode()
   if (window.AOS) {
     AOS.refreshHard(); // or AOS.refresh()
   }
@@ -55,6 +57,7 @@ const staticTextAnimation = () => {
 const loadMorePosts = () => {
   const posts = document.querySelectorAll(".post-item");
   const loadMoreBtn = document.getElementById("loadMoreBtn");
+  if(!loadMoreBtn) return;
 
   let visible = 0;
   const STEP = 4;
@@ -76,11 +79,36 @@ const loadMorePosts = () => {
 
   loadMoreBtn.addEventListener("click", showNextPosts);
 };
+const loadMoreTags = () => {
+  const tags = document.querySelectorAll(".tag-item");
+  const loadMoreBtn = document.getElementById("loadMoreTagsBtn");
+  if (!loadMoreBtn) return;
+
+  let visible = 0;
+  const STEP = 4;
+
+  function showNextTags() {
+    for (let i = visible; i < visible + STEP && i < tags.length; i++) {
+      tags[i].classList.remove("hidden");
+    }
+
+    visible += STEP;
+
+    if (visible >= tags.length) {
+      loadMoreBtn.style.display = "none";
+    }
+  }
+
+  // Initial load
+  showNextTags();
+
+  loadMoreBtn.addEventListener("click", showNextTags);
+};
 const customizerBox = () => {
   const toggle = document.getElementById("customizerToggle");
   const closeBtn = document.getElementById("customizerClose");
   const panel = document.getElementById("customizer");
-
+  // if (!toggle || !panel ||!closeBtn) return;
   const openPanel = () => {
     panel.classList.remove("translate-x-0");
     panel.classList.add("translate-x-[-100%]");
@@ -499,7 +527,7 @@ const teamHoverActive = () => {
     });
   });
 };
-const darlLiteMode = () => {
+const darkLiteMode = () => {
   const toggle = document.getElementById("dark-lite-mode");
   toggle.classList.add("dark-trail");
   if (!toggle) return;
@@ -538,3 +566,151 @@ const schemes = [
   
 
 }
+
+// const postApi = () => {
+//   console.log("{{@site.url}}","fhjsdfhjsdfsdf")
+//   const siteUrl = "http://192.168.0.188:2368";
+//   const apiKey = "c289504f8b8eb0653f16f478eb";
+//   const limit = 4;
+
+//   let page = 2;
+//   let loading = false;
+
+//   const loadMoreBtn = document.getElementById("loadMoreBtn");
+//   const postGrid = document.getElementById("postGrid");
+
+//   async function loadMorePostss() {
+//     if (loading) return;
+//     loading = true;
+
+//     loadMoreBtn.textContent = "Loading...";
+
+//     try {
+//       const res = await fetch(
+//         `${siteUrl}/ghost/api/content/posts/?key=${apiKey}&limit=${limit}&page=${page}&fields=title,slug`
+//       );
+
+//       const data = await res.json();
+
+//       if (!data.posts.length) {
+//         loadMoreBtn.style.display = "none";
+//         return;
+//       }
+
+//       data.posts.forEach(post => {
+//         const article = document.createElement("article");
+//         article.className = "post-card";
+//         article.innerHTML = `
+//           <h2>${post.title}</h2>
+//         `;
+//         postGrid.appendChild(article);
+//       });
+
+//       page++;
+//       loadMoreBtn.textContent = "Load more";
+
+//     } catch (err) {
+//       console.error(err);
+//       loadMoreBtn.textContent = "Error";
+//     }
+
+//     loading = false;
+//   }
+
+//   loadMoreBtn.addEventListener("click", loadMorePostss);
+
+// }
+
+function postApi() {
+  const SITE_URL = "http://192.168.0.188:2368";
+  const API_KEY = "c289504f8b8eb0653f16f478eb";
+  const LIMIT = 4;
+
+  let page = 2; // page 1 already rendered by HBS
+  let loading = false;
+
+  const loadMoreBtn = document.getElementById("loadMoreBtn");
+  const postGrid = document.getElementById("postGrid");
+  const template = document.getElementById("api-postcard-template");
+
+  if (!loadMoreBtn || !postGrid || !template) return;
+
+  function renderPost(post) {
+    const wrapper = document.createElement("div");
+    wrapper.innerHTML = template.innerHTML.trim();
+
+    const card = wrapper.firstElementChild;
+
+    card.href = post.url;
+    card.querySelector(".post-title").textContent = post.title;
+    card.querySelector(".post-excerpt").textContent = post.excerpt || "";
+    card.querySelector(".post-reading").textContent =
+      post.reading_time + " min read";
+
+    card.querySelector(".post-date").textContent =
+      new Date(post.published_at).toLocaleDateString("en-US", {
+        month: "long",
+        day: "2-digit",
+        year: "numeric",
+      });
+
+    const img = card.querySelector(".post-image");
+    img.src = post.feature_image || "/assets/images/no-image.png";
+    img.alt = post.slug;
+
+    if (post.primary_tag) {
+      const tag = card.querySelector(".post-tag");
+      tag.classList.remove("hidden");
+      tag.querySelector(".tag-name").textContent =
+        post.primary_tag.name;
+    }
+
+    return card;
+  }
+
+async function loadMorePosts() {
+  if (loading) return;
+  loading = true;
+
+  loadMoreBtn.textContent = "Loading...";
+
+  try {
+    const res = await fetch(
+      `${SITE_URL}/ghost/api/content/posts/?key=${API_KEY}&limit=${LIMIT}&page=${page}&include=tags`
+    );
+
+    const data = await res.json();
+    const posts = data.posts || [];
+
+    if (posts.length === 0) {
+      loadMoreBtn.style.display = "none";
+      return;
+    }
+
+    posts.forEach(post => {
+      postGrid.appendChild(renderPost(post));
+    });
+
+    page++;
+
+    // ✅ FIX: hide button immediately on last page
+    if (posts.length < LIMIT) {
+      loadMoreBtn.style.display = "none";
+    } else {
+      loadMoreBtn.textContent = "Load more";
+    }
+
+    if (window.AOS) AOS.refresh();
+
+  } catch (err) {
+    console.error(err);
+    loadMoreBtn.textContent = "Error";
+  }
+
+  loading = false;
+}
+
+  loadMoreBtn.addEventListener("click", loadMorePosts);
+}
+
+
