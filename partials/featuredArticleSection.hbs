@@ -37,7 +37,7 @@
                         <div class="card-tags flex flex-wrap gap-2 justify-center">
                             {{#foreach tags}}
                             <a href="{{url}}"
-                                class="card-tag px-3 py-1 text-xs font-medium rounded-full bg-[#D6E8CB] text-black backdrop-blur-sm">
+                                class="card-tag px-3 py-1 text-xs font-medium rounded-full bg-white text-black border border-[#dddddd] backdrop-blur-sm">
                                 {{name}}
                             </a>
                             {{/foreach}}
@@ -97,7 +97,7 @@
                 <div class="min-w-0 flex-1">
                     <div class="flex flex-wrap items-center gap-2 text-xs">
                         {{#if primary_tag}}
-                        <div class="rounded-full bg-primary-bg px-3 py-1.5 font-medium">
+                        <div class="rounded-full bg-primary-bg border border-primary-border px-3 py-1.5 font-medium">
                             <div class="overflow-hidden relative">
                                 <div class="group-hover:translate-y-[-120%] transition-transform duration-500">
                                     {{primary_tag.name}}

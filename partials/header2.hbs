@@ -1,7 +1,7 @@
-<header id="siteHeader" data-header-style="{{@custom.header_layout}}" class="header-main">
+<header id="siteHeader" data-header-style="{{@custom.header_layout}}" class="header-main [background:var(--gradient-tertiary-bg)] text-tertiary-text border-b border-tertiary-text">
     <div class="container mx-auto">
         <div
-            class="header-inner z-1 grid items-center grid-cols-[1fr_auto_1fr] gap-8 py-5">
+            class="header-inner z-1 grid items-center grid-cols-[1fr_1fr] lg:grid-cols-[1fr_auto_1fr] gap-8 py-5">
             <nav class="header-menu hidden lg:block">
                 {{navigation}}
                 <div
@@ -22,7 +22,7 @@
                 </div>
             </nav>
 
-            <div class="header-logo">
+            <div class="header-logo w-25">
                 <a class="site-header-logo{{#unless @site.logo}} no-image{{/unless}}" href="{{@site.url}}">
                     {{#if @site.logo}}
                     <img src="{{@site.logo}}" alt="{{@site.title}}">

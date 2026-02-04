@@ -11,12 +11,16 @@
   --color-accent-border: color-mix(in srgb, var(--color-accent-bg) 100%, white 30%);
   --color-primary-border: #DDDDDD;
   --color-secondary-border: #EBEBEB;
+  --color-tertiary-border: #000000;
+  --color-tertiary-text: #000000;
+
 }
 
 :root {
   --theme-accent-color: var(--ghost-accent-color);
   --preview-font-heading: var(--gh-font-heading, var(--gh-font-body));
   --preview-font-body: var(--gh-font-body);
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #F4D4C2 0.57%, #F1EBD3 46.14%, #DCE2E0 82.07%, #D7DFE3 103.17%);
 }
 
 h1,
@@ -28,7 +32,8 @@ h6 {
   font-family: var(--preview-font-heading);
 }
 
-body {
+body,
+p {
   font-family: var(--preview-font-body);
 }
 
@@ -43,90 +48,130 @@ body {
 
 .default {
   --color-primary-bg: #f7f7f7;
-  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
   --color-primary-text: #000000;
   --color-secondary-bg: #ffffff;
-  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
   --color-secondary-text: #000000;
   --color-primary-border: #DDDDDD;
   --color-secondary-border: #EBEBEB;
+  --color-tertiary-border: #EBEBEB;
+  --color-tertiary-text: #000000;
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #F4D4C2 0.57%, #F1EBD3 46.14%, #DCE2E0 82.07%, #D7DFE3 103.17%);
+}
+
+.Homepage-2.default {
+  --color-primary-bg: #F4F3EA;
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
+  --color-primary-text: #000000;
+  --color-secondary-bg: #000000;
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, rgb(238, 197, 13) 20%);
+  --color-secondary-text: #ffffff;
+  --color-primary-border: #f0ddd0;
+  --color-secondary-border: #343435;
+  --color-tertiary-border: #343435;
+  --color-tertiary-text: #000000;
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #F4D4C2 0.57%, #F1EBD3 46.14%, #DCE2E0 82.07%, #D7DFE3 103.17%);
 }
 
 .dark-trail {
   --color-primary-bg: #000000;
-  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
   --color-primary-text: #ffffff;
   --color-secondary-bg: #0E0E0E;
-  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
   --color-secondary-text: #ffffff;
   --color-primary-border: #343435;
   --color-secondary-border: #666666;
-}
-
-.urban-mist {
-  --color-primary-bg: #ffffff;
-  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
-  --color-primary-text: #000000;
-  --color-secondary-bg: #f6f6f6;
-  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
-  --color-secondary-text: #000000;
-  --color-primary-border: #DDDDDD;
-  --color-secondary-border: #EBEBEB;
-}
-
-.natural-escape {
-  --color-primary-bg: #ffffff;
-  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
-  --color-primary-text: #000000;
-  --color-secondary-bg: #f6f6f6;
-  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
-  --color-secondary-text: #000000;
-  --color-primary-border: #DDDDDD;
-  --color-secondary-border: #EBEBEB;
-}
-
-.aqua-marine {
-  --color-primary-bg: #E6EFFF;
-  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
-  --color-primary-text: #253BAA;
-  --color-secondary-bg: #FFFFFF;
-  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
-  --color-secondary-text: #1A2D75;
-  --color-primary-border: #DDDDDD;
-  --color-secondary-border: #EBEBEB;
+  --color-tertiary-border: #EBEBEB;
+  --color-tertiary-text: #000000;
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #F4D4C2 0.57%, #F1EBD3 46.14%, #DCE2E0 82.07%, #D7DFE3 103.17%);
 }
 
 .desert-bloom {
   --color-primary-bg: #F9F4E3;
-  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
   --color-primary-text: #7C2904;
   --color-secondary-bg: #FFFDF2;
-  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
-  --color-secondary-text: #7C2904;
-  --color-primary-border: #F0DDD0;
-  --color-secondary-border: #F0DDD0;
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
+  --color-secondary-text: #612709;
+  --color-primary-border: #F2E9CC;
+  --color-secondary-border: #F2E9CC;
+  --color-tertiary-border: #EBEBEB;
+  --color-tertiary-text: #000000;
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #F4D4C2 0.57%, #F1EBD3 46.14%, #DCE2E0 82.07%, #D7DFE3 103.17%);
+}
+
+.natural-escape {
+  --color-primary-bg: #FFFFFF;
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
+  --color-primary-text: #202A39;
+  --color-secondary-bg: #F9F9F9;
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
+  --color-secondary-text: #000000;
+  --color-primary-border: #E5E5E5;
+  --color-secondary-border: #E5E5E5;
+  --color-tertiary-border: #EBEBEB;
+  --color-tertiary-text: #000000;
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #F4D4C2 0.57%, #F1EBD3 46.14%, #DCE2E0 82.07%, #D7DFE3 103.17%);
+}
+
+.aqua-marine {
+  --color-primary-bg: #E6EFFF;
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
+  --color-primary-text: #253BAA;
+  --color-secondary-bg: #FFFFFF;
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
+  --color-secondary-text: #1A2D75;
+  --color-primary-border: #DDDDDD;
+  --color-secondary-border: #EBEBEB;
+  --color-tertiary-border: #EBEBEB;
+  --color-tertiary-text: #000000;
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #F4D4C2 0.57%, #F1EBD3 46.14%, #DCE2E0 82.07%, #D7DFE3 103.17%);
+}
+
+.urban-mist {
+  --color-primary-bg: #E8E8E8;
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
+  --color-primary-text: #252525;
+  --color-secondary-bg: #DCDCDC;
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
+  --color-secondary-text: #252525;
+  --color-primary-border: #C9C9C9;
+  --color-secondary-border: #C9C9C9;
+  --color-tertiary-border: #EBEBEB;
+  --color-tertiary-text: #000000;
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #F4D4C2 0.57%, #F1EBD3 46.14%, #DCE2E0 82.07%, #D7DFE3 103.17%);
 }
 
 .dark-amethyst {
-  --color-primary-bg: #2B1D3B;
-  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-bg: #3C2E4D;
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
   --color-primary-text: #ffffff;
-  --color-secondary-bg: #3C2E4D;
-  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-bg: #2B1D3B;
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, white 20%);
   --color-secondary-text: #ffffff;
   --color-primary-border: #644D7C;
   --color-secondary-border: #644D7C;
+  --color-tertiary-border: #ffffff10;
+  --color-tertiary-text: #ffffff;
+  --gradient-tertiary-bg: #2B1D3B;
 }
 
 .mocha-dark {
-  --color-primary-bg: #181214;
-  --color-primary-alt-bg: color-mix(in srgb, var(--primaryBg) 100%, black 10%);
+  --color-primary-bg: #2A1E21;
+  --color-primary-alt-bg: color-mix(in srgb, var(--color-primary-bg) 100%, black 10%);
   --color-primary-text: #EFDFB4;
-  --color-secondary-bg: #2A1E21;
-  --color-secondary-alt-bg: color-mix(in srgb, var(--secondaryBg) 100%, black 10%);
+  --color-secondary-bg: #181214;
+  --color-secondary-alt-bg: color-mix(in srgb, var(--color-secondary-bg) 100%, black 10%);
   --color-secondary-text: #EFDFB4;
-  --color-primary-border: #45343999;
+  --color-primary-border: #453439;
   --color-secondary-border: #453439;
+  --color-tertiary-border: #8B7366;
+  --color-tertiary-text: #ffffff;
+  --gradient-tertiary-bg: linear-gradient(276.04deg, #9C5A2E 0.57%, #AE622D 22.36%, #BF6B2C 44.15%, #2A1E21 90.35%, #2A1E21 103.17%);
+;
+;
 }
 
 .color-theme-1 {
@@ -268,13 +313,26 @@ img {
   object-fit: cover;
 }
 
+.mocha-dark .site-header-logo {
+    filter: brightness(0) invert(1);
+}
+
 .home-template.header-transparent .header-inner {
   position: absolute;
   inset-inline: 0;
 }
 
 .Homepage-1.header-transparent .nav-link {
-    color: #000;
+  color: #000;
+}
+
+.Homepage-1 .footer-inner {
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.Homepage-2 .footer-inner {
+    border-top: 1px solid var(--color-secondary-border);
 }
 
 .header-menu .nav {
@@ -291,7 +349,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 11;
-  background: var(--primaryBg);
+  background: var(--color-primary-bg);
   transition: .5s cubic-bezier(.6, 0, .4, 1);
 }
 
@@ -464,28 +522,101 @@ blockquote {
 }
 
 input[type="color"] {
-  -webkit-appearance: none; /* Removes default browser styling for WebKit/Blink browsers */
-  appearance: none; /* Standard property */
-  border: none; /* Removes the outer border of the input element */
-  padding: 0; /* Removes any default padding */
-  margin: 0; /* Removes any default margin (if present) */
-  box-sizing: border-box; /* Ensures padding/border are included in element's total width/height */
+  -webkit-appearance: none;
+  /* Removes default browser styling for WebKit/Blink browsers */
+  appearance: none;
+  /* Standard property */
+  border: none;
+  /* Removes the outer border of the input element */
+  padding: 0;
+  /* Removes any default padding */
+  margin: 0;
+  /* Removes any default margin (if present) */
+  box-sizing: border-box;
+  /* Ensures padding/border are included in element's total width/height */
 }
- 
+
 /* Target the inner color swatch for WebKit/Blink browsers (Chrome, Safari, etc.) */
 input[type="color"]::-webkit-color-swatch-wrapper {
-  padding: 0; /* Removes the padding around the swatch */
-  border: none; /* Removes any border around the swatch wrapper */
+  padding: 0;
+  /* Removes the padding around the swatch */
+  border: none;
+  /* Removes any border around the swatch wrapper */
 }
- 
+
 input[type="color"]::-webkit-color-swatch {
-  border: none; /* Removes the border on the actual color preview swatch */
+  border: none;
+  /* Removes the border on the actual color preview swatch */
 }
- 
+
 /* Target the inner color swatch for Firefox */
 input[type="color"]::-moz-color-swatch {
-  border: none; /* Removes the border on the actual color preview swatch */
-  padding: 0; /* Removes any padding around the swatch */
+  border: none;
+  /* Removes the border on the actual color preview swatch */
+  padding: 0;
+  /* Removes any padding around the swatch */
+}
+
+.testimonials-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.testimonials-card .kg-product-card-container {
+  border: none;
+  box-shadow: none;
+  padding: 35px;
+  position: relative;
+  gap: 25px;
+  max-width: 100%;
+  align-items: flex-start;
+  border-radius: 20px;
+}
+
+.testimonials-card .kg-product-card-rating {
+  padding: 0;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  justify-self: start;
+  color: #FFBA33;
+}
+
+.testimonials-card .kg-product-card-title-container {
+  grid-column: 1 / 3;
+}
+
+.testimonials-card .kg-product-card-image {
+  width: 60px;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  grid-column: 1 / 2;
+  justify-self: start;
+  grid-row: 3 / 3;
+}
+
+.testimonials-card .kg-product-card-description {
+  grid-column: 1 / 4;
+  grid-row: 3 / 4;
+  padding-left: 80px;
+  align-self: center;
+}
+
+.testimonials-card .kg-product-card h4.kg-product-card-title {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: normal;
+}
+
+.testimonials-card .kg-product-card-description p {
+  margin-top: 0 !important;
+  color: #000;
+  opacity: 1;
+  font-size: 14px;
+}
+
+.testimonials-card .kg-product-card-description p:first-child {
+  font-size: 18px;
 }
 
 @media (min-width:768px) {
@@ -494,6 +625,11 @@ input[type="color"]::-moz-color-swatch {
     top: 0;
     z-index: 0;
     isolation: isolate;
+  }
+
+  .team-member-item,
+  .team-member2-item {
+    flex: 0 0 calc(33.333% - 18px);
   }
 }
 
@@ -506,6 +642,11 @@ input[type="color"]::-moz-color-swatch {
     flex: 0.85;
     border-radius: 130px;
     /* transition: flex 0.6s ease; */
+  }
+
+  .team-member-item,
+  .team-member2-item {
+    flex: 0 0 calc(25% - 18px);
   }
 
   .team-member-wrapper.team-member-animate .team-member-item.active,

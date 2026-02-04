@@ -1,14 +1,13 @@
 {{!-- Static Text Section --}}
 
-{{#get "pages" filter="tag:hash-section-static-text" limit="1"}}
+{{#get "pages" filter="tag:hash-section-testimonials" limit="1"}}
 {{#if pages}}
 {{#foreach pages}}
 <div class="container mx-auto" data-aos="fade-up" data-aos-duration="600">
     {{#if title}}
     <h2 class="font-bold text-2xl md:text-5xl mb-7.5 md:mb-10 text-center">{{title}}</h2>
-    <p class="font-bold text-2xl md:text-5xl mb-7.5 md:mb-10 text-center">{{description}}</p>
     {{/if}}
-    <div class="trust-icons-cards mobile-swipe">
+    <div class="testimonials-card">
         {{content}}
     </div>
 </div>
