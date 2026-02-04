@@ -554,7 +554,7 @@ const initialiseAosAndTocbot = () => {
         tocbot.init({
             tocSelector: '.toc',
             contentSelector: '.page-content',  // 🔥 FIX IS HERE
-            headingSelector: 'h2',
+            headingSelector: 'h1, h2, h3',
             collapseDepth: 0
         });
     }

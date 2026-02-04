@@ -20,71 +20,146 @@
     {{> "postLayouts/splitView"}}
     {{/match}}
 
-{{#post}} 
-    <div class="max-w-[1500px] mx-auto px-4">
-        <!-- Content part -->
-        <div class="max-w-[1215px] mx-auto py-10 page-content"> 
-            {{content}}
-            <div
-                class="mt-5 flex flex-col sm:flex-row md:items-center justify-between gap-3 text-xs border-b border-[#EBEBEB] pb-7.5">
-                    <button class="flex items-center gap-2 text-sm">
-                        {{> "icons/comment"}}
-                        0 Comments
+{{#post}}
+{{#match @custom.post_type "Table of contents"}}
+<div class="toc-main container mx-auto flex items-start py-10"> 
+ <aside class="toc-container mb-8 flex-[0_0_285px] bg-secondary-bg text-secondary-text p-7.5 rounded-[10px] sticky top-2.5 transition duration-300">
+    <div class="toc-sidebar">
+    <h4 class="font-semibold mb-10">In This Article</h4>
+    <div class="toc"></div>
+    </div>
+  </aside>
+<div class="toc-right-content flex-1 pl-25">
+    <div class="page-content"> 
+        {{content}}
+        <div
+            class="mt-5 flex flex-col sm:flex-row md:items-center justify-between gap-3 text-xs border-b border-[#EBEBEB] pb-7.5">
+                <button class="flex items-center gap-2 text-sm">
+                    {{> "icons/comment"}}
+                    0 Comments
+                </button>
+            <div class="flex items-center flex-wrap gap-4">
+                <span class="text-base font-semibold">
+                    Share This Article:
+                </span>
+                <div class="flex items-center gap-1.5">
+                    <a href="#" class="hover:text-[var(--theme-accent-color)] w-10.5 h-10.5 flex items-center justify-center">
+                        {{> "icons/share"}}
+                    </a>
+                    <a href="#" class="hover:text-[var(--theme-accent-color)] w-10.5 h-10.5 flex items-center justify-center">
+                        {{> "icons/instagram"}}
+                    </a>
+                    <a href="#" class="hover:text-[var(--theme-accent-color)] w-10.5 h-10.5 flex items-center justify-center">
+                        {{> "icons/facebook"}}
+                    </a>
+                    <a href="#" class="hover:text-[var(--theme-accent-color)] w-10.5 h-10.5 flex items-center justify-center">
+                        {{> "icons/twitter"}}
+                    </a>
+                    <button
+                        class="border border-primary-border h-[38px] w-[38px] rounded-full flex items-center justify-center">
+                        {{> "icons/dots"}}
                     </button>
-                <div class="flex items-center flex-wrap gap-4">
-                    <span class="text-base font-semibold">
-                        Share This Article:
-                    </span>
-                    <div class="flex items-center gap-1.5">
-                        <a href="#" class="hover:text-[var(--theme-accent-color)] w-10.5 h-10.5 flex items-center justify-center">
-                           {{> "icons/share"}}
-                        </a>
-                        <a href="#" class="hover:text-[var(--theme-accent-color)] w-10.5 h-10.5 flex items-center justify-center">
-                            {{> "icons/instagram"}}
-                        </a>
-                        <a href="#" class="hover:text-[var(--theme-accent-color)] w-10.5 h-10.5 flex items-center justify-center">
-                            {{> "icons/facebook"}}
-                        </a>
-                        <a href="#" class="hover:text-[var(--theme-accent-color)] w-10.5 h-10.5 flex items-center justify-center">
-                            {{> "icons/twitter"}}
-                        </a>
-                        <button
-                            class="border border-primary-border h-[38px] w-[38px] rounded-full flex items-center justify-center">
-                            {{> "icons/dots"}}
-                        </button>
-                    </div>
                 </div>
-
-
             </div>
-            {{#if @custom.show_subscribe_newsletter_section}}
 
-            <div class="max-w-2xl mx-auto bg-secondary-bg rounded-3xl p-6 md:p-10 text-center mt-12.5">
-                <h6 class="text-xl font-bold">
-                    Subscribe to our newsletter
-                </h6>
-                <p class="mt-2 text-sm sm:text-base">
-                    Join our newsletter to stay up to date on features and releases.
-                </p>
-                <form class="mt-6 w-full flex items-center justify-center">
-                    <div
-                        class="flex w-full max-w-md bg-primary-bg border border-primary-border rounded-full overflow-hidden p-[3px] h-12.5">
-                        <input type="email" placeholder="Enter Your email"
-                            class="min-w-0 flex-1 px-4 py-2.5 text-base outline-none" />
-                        <button type="submit"
-                            class="px-6 py-2.5 bg-accent-bg text-white text-sm font-semibold rounded-full transition">
-                            Subscribe
-                        </button>
-                    </div>
-                </form>
-            </div>
-            {{/if}}
+
         </div>
+        {{#if @custom.show_subscribe_newsletter_section}}
+
+        <div class="max-w-2xl mx-auto bg-secondary-bg rounded-3xl p-6 md:p-10 text-center mt-12.5">
+            <h6 class="text-xl font-bold">
+                Subscribe to our newsletter
+            </h6>
+            <p class="mt-2 text-sm sm:text-base">
+                Join our newsletter to stay up to date on features and releases.
+            </p>
+            <form class="mt-6 w-full flex items-center justify-center">
+                <div
+                    class="flex w-full max-w-md bg-primary-bg border border-primary-border rounded-full overflow-hidden p-[3px] h-12.5">
+                    <input type="email" placeholder="Enter Your email"
+                        class="min-w-0 flex-1 px-4 py-2.5 text-base outline-none" />
+                    <button type="submit"
+                        class="px-6 py-2.5 bg-accent-bg text-white text-sm font-semibold rounded-full transition">
+                        Subscribe
+                    </button>
+                </div>
+            </form>
+        </div>
+        {{/if}}
     </div>
 
 <section class="comments">
 {{comments}}
 </section>
+</div>
+</div>
+{{else}}
+<div class="max-w-[1500px] mx-auto px-4">
+    <!-- Content part -->
+
+    <div class="max-w-[1215px] mx-auto py-10 page-content"> 
+        {{content}}
+        <div
+            class="mt-5 flex flex-col sm:flex-row md:items-center justify-between gap-3 text-xs border-b border-[#EBEBEB] pb-7.5">
+                <button class="flex items-center gap-2 text-sm">
+                    {{> "icons/comment"}}
+                    0 Comments
+                </button>
+            <div class="flex items-center flex-wrap gap-4">
+                <span class="text-base font-semibold">
+                    Share This Article:
+                </span>
+                <div class="flex items-center gap-1.5">
+                    <a href="#" class="hover:text-[var(--theme-accent-color)] w-10.5 h-10.5 flex items-center justify-center">
+                        {{> "icons/share"}}
+                    </a>
+                    <a href="#" class="hover:text-[var(--theme-accent-color)] w-10.5 h-10.5 flex items-center justify-center">
+                        {{> "icons/instagram"}}
+                    </a>
+                    <a href="#" class="hover:text-[var(--theme-accent-color)] w-10.5 h-10.5 flex items-center justify-center">
+                        {{> "icons/facebook"}}
+                    </a>
+                    <a href="#" class="hover:text-[var(--theme-accent-color)] w-10.5 h-10.5 flex items-center justify-center">
+                        {{> "icons/twitter"}}
+                    </a>
+                    <button
+                        class="border border-primary-border h-[38px] w-[38px] rounded-full flex items-center justify-center">
+                        {{> "icons/dots"}}
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+        {{#if @custom.show_subscribe_newsletter_section}}
+
+        <div class="max-w-2xl mx-auto bg-secondary-bg rounded-3xl p-6 md:p-10 text-center mt-12.5">
+            <h6 class="text-xl font-bold">
+                Subscribe to our newsletter
+            </h6>
+            <p class="mt-2 text-sm sm:text-base">
+                Join our newsletter to stay up to date on features and releases.
+            </p>
+            <form class="mt-6 w-full flex items-center justify-center">
+                <div
+                    class="flex w-full max-w-md bg-primary-bg border border-primary-border rounded-full overflow-hidden p-[3px] h-12.5">
+                    <input type="email" placeholder="Enter Your email"
+                        class="min-w-0 flex-1 px-4 py-2.5 text-base outline-none" />
+                    <button type="submit"
+                        class="px-6 py-2.5 bg-accent-bg text-white text-sm font-semibold rounded-full transition">
+                        Subscribe
+                    </button>
+                </div>
+            </form>
+        </div>
+        {{/if}}
+    </div>
+</div>
+
+<section class="comments">
+{{comments}}
+</section>
+{{/match}} 
 
     {{!-- related post start --}}
     {{#if @custom.show_related_post}}

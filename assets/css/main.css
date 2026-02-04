@@ -619,6 +619,47 @@ input[type="color"]::-moz-color-swatch {
   font-size: 18px;
 }
 
+.toc-list-item+.toc-list-item {
+    margin-top: 20px;
+    
+}
+
+.toc-list-item:before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: currentColor;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+}
+
+.toc-list-item {
+    position: relative;
+    transition: padding .5s ease-in-out;
+    opacity: .5;
+}
+.toc-link {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
+}
+
+.toc-list-item.is-active-li {
+    padding-left: 16px;
+    opacity: 1;
+}
+
+.toc-list-item.is-active-li:before {
+    opacity: 1;
+}
+
 @media (min-width:768px) {
   .hero-banner {
     position: sticky;
