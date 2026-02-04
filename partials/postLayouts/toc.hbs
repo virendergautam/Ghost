@@ -51,8 +51,14 @@
         </div>
 
         <!-- Content part -->
-        <div class="max-w-5xl mx-auto py-6 md:p-6 page-content">
-            {{content}}
+    <div class="max-w-5xl mx-auto py-6 md:p-6 page-content">
+
+    <aside class="toc-container mb-8">
+        <h4>On this page</h4>
+        <div class="toc"></div>
+    </aside>
+
+    {{content}}
             <div
                 class="mt-5 flex flex-col sm:flex-row md:items-center justify-between gap-3 text-xs border-b border-[#EBEBEB] pb-7.5">
                     <button class="flex items-center gap-2 text-sm">

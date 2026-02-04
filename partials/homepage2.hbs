@@ -181,36 +181,11 @@
             <h2 class="text-2xl md:text-4xl font-semibold" data-aos="fade-up" data-aos-duration="600">Read Our
                 Latest Posts </h2>
         </div>
-        <div class="recommended-post-wrapper grid md:grid-cols-4 gap-5">
-            <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                    const posts = document.querySelectorAll(".post-item");
-                    const loadMoreBtn = document.getElementById("loadMoreBtn");
-
-                    let visible = 0;
-                    const STEP = 4;
-
-                    function showNextPosts() {
-                        for (let i = visible; i < visible + STEP && i < posts.length; i++) {
-                            posts[i].classList.remove("hidden");
-                        }
-
-                        visible += STEP;
-
-                        if (visible >= posts.length) {
-                            loadMoreBtn.style.display = "none";
-                        }
-                    }
-
-                    // Initial load
-                    showNextPosts();
-
-                    loadMoreBtn.addEventListener("click", showNextPosts);
-                });
-            </script>
-            {{#get "posts" limit="all"}}
+        <div class="recommended-post-wrapper grid md:grid-cols-4 gap-5" id="postGrid">
+         
+            {{#get "posts" limit="4" include="tags"}}
             {{#foreach posts}}
-            <div class="post-item hidden">
+            <div class="post-item">
                 {{>"postCard2"}}
             </div>
             {{/foreach}}

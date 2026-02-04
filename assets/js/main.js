@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
   loadMoreTags();
   teamHoverActive();
   darkLiteMode()
+  headerType();
+  initialiseAosAndTocbot();
   if (window.AOS) {
     AOS.refreshHard(); // or AOS.refresh()
   }
@@ -714,3 +716,63 @@ async function loadMorePosts() {
 }
 
 
+
+const initialiseAosAndTocbot = () => {
+
+    if (typeof tocbot !== "undefined" && document.querySelector('.toc')) {
+        tocbot.init({
+            tocSelector: '.toc',
+            contentSelector: '.page-content',  // 🔥 FIX IS HERE
+            headingSelector: 'h2',
+            collapseDepth: 0
+        });
+    }
+  if (typeof AOS !== "undefined") {
+    AOS.init({
+      duration: 1200
+    });
+  }
+
+}
+
+const headerType = () => {
+        document.addEventListener("DOMContentLoaded", () => {
+            const header = document.getElementById("siteHeader");
+            if (!header) return;
+
+            const style = header.dataset.headerStyle; // always | animated | none
+
+            const STICKY_CLASS = "header-sticky";
+            const HIDDEN_CLASS = "is-hidden";
+
+            let lastScrollY = window.scrollY;
+
+            /* --------------------------------
+               Apply base behavior
+            ---------------------------------*/
+            if (style === "always" || style === "animated") {
+                header.classList.add(STICKY_CLASS);
+            } else {
+                header.classList.remove(STICKY_CLASS, HIDDEN_CLASS);
+            }
+
+            /* --------------------------------
+               Animated scroll behavior
+            ---------------------------------*/
+            if (style === "animated") {
+                window.addEventListener("scroll", () => {
+                    const currentScrollY = window.scrollY;
+
+                    if (currentScrollY > lastScrollY && currentScrollY > 120) {
+                        // scrolling down → hide
+                        header.classList.add(HIDDEN_CLASS);
+                    } else {
+                        // scrolling up → show
+                        header.classList.remove(HIDDEN_CLASS);
+                    }
+
+                    lastScrollY = currentScrollY;
+                });
+            }
+        });
+}
